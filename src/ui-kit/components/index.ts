@@ -1,0 +1,1 @@
+export { WDRIcon } from './icons'
