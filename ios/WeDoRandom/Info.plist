@@ -51,5 +51,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+    <array>
+      <string>Raleway-Italic-VariableFont_wght.ttf</string>
+      <string>Raleway-VariableFont_wght.ttf</string>
+    </array>
 </dict>
 </plist>
