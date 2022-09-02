@@ -6,13 +6,10 @@ interface IStyles {
 }
 
 /**
- *
  * @return {IStyles}
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {
-      flex: 1,
-    },
+    container: {},
   })
 }

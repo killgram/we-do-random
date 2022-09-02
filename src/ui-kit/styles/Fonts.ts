@@ -19,20 +19,14 @@ export default StyleSheet.create({
   medium: {
     fontFamily: Constants.APP_FONT_FAMILY.Raleway_Medium,
   },
-  // light: {
-  //     fontFamily: Constants.APP_FONT_FAMILY.PTRootUI_Light,
-  // },
-  // medium: {
-  //     fontFamily: Constants.APP_FONT_FAMILY.PTRootUI_Medium,
-  // },
   // headerTitleDefault: {
   //     fontSize: sp(24),
   //     lineHeight: sp(32),
-  //     fontFamily: Constants.APP_FONT_FAMILY.PTRootUI_Bold,
-  //     fontWeight: 'bold', // для header - required
+  //     fontFamily: Constants.APP_FONT_FAMILY.Raleway_Bold,
+  //     fontWeight: 'bold',
   // },
-  bottomTabFontStyle: {
-    fontSize: sp(11),
-    lineHeight: sp(15),
-  },
+  // bottomTabFontStyle: {
+  //   fontSize: sp(11),
+  //   lineHeight: sp(15),
+  // },
 })

@@ -16,6 +16,8 @@ import {
   screenHeight,
 } from './Responsive'
 
+import { keyGenerate } from './KeyGenerate'
+
 export {
   width,
   height,
@@ -25,6 +27,7 @@ export {
   screenHeight,
   getThemeColor,
   getThemeGradient,
+  keyGenerate,
 }
 
 export type { RNStyleType, ImageStyleType, ThemeType, IThemes }

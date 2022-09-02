@@ -1,10 +1,9 @@
 import React from 'react'
-import { LogBox, View, Text } from 'react-native'
+import { LogBox, View } from 'react-native'
 import { IRootScreenProps } from './RootScreenTypes'
-import { Domains } from '@configurations'
-
 import getStyle from './RootScreenStyles'
-import { WDRIcon } from '@ui-kit/components'
+import { AppNavigator, NavigationService } from '@navigators'
+import { NavigatorRefType } from '@navigators/NavigatorTypes'
 
 const RootScreen = (props: IRootScreenProps) => {
   const { startup } = props
@@ -16,21 +15,23 @@ const RootScreen = (props: IRootScreenProps) => {
     'Remote debugger is in a background tab which may cause apps' +
       ' to perform slowly',
   ])
-  startup?.()
+
+  /**
+   * @description Run when navigation is ready
+   */
+  const onReady = () => {
+    startup?.()
+  }
+
   return (
-    <View>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text style={styles.text}>{Domains.getTestEnv()}</Text>
-      <WDRIcon iconName="setting" />
-      <WDRIcon iconName="arrow-right" />
-      <WDRIcon iconName="arrow-left" />
+    <View style={styles.container}>
+      <AppNavigator
+        forwardRef={(navigatorRef: NavigatorRefType) => {
+          navigatorRef != null &&
+            NavigationService.setTopLevelNavigator(navigatorRef)
+        }}
+        onReady={onReady}
+      />
     </View>
   )
 }
