@@ -1,30 +1,22 @@
 import React from 'react'
-import type { Node } from 'react'
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native'
-import { Domains } from '@configurations'
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/lib/integration/react'
+import createStore from '@store'
+import RootScreen from '@screens/Root'
 
-const App: () => Node = () => {
-  console.log(Domains.getTestEnv())
+const { store, persistor } = createStore()
+
+/**
+ * Application entry point
+ * @constructor
+ */
+const App = () => {
   return (
-    <View>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{process.env.NODE_ENV}</Text>
-      <Text>{Domains.getTestEnv()}</Text>
-    </View>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <RootScreen />
+      </PersistGate>
+    </Provider>
   )
 }
 
