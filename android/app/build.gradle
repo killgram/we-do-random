@@ -1,5 +1,11 @@
 apply plugin: "com.android.application"
 
+project.ext.vectoricons = [
+    iconFontNames: [ 'Raleway-Bold.ttf', 'Raleway-Regular.ttf', 'Raleway-Light.ttf', 'Raleway-Medium.ttf' ]
+]
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
 import com.android.build.OutputFile
 
 /**
@@ -257,6 +263,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    implementation project(':react-native-vector-icons')
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules

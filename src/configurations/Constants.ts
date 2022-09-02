@@ -13,9 +13,9 @@ export default {
     },
   },
   APP_FONT_FAMILY: {
-    PTRootUI_Bold: 'PTRootUI-Bold',
-    PTRootUI_Medium: 'PTRootUI-Medium',
-    PTRootUI_Regular: 'PTRootUI-Regular',
-    PTRootUI_Light: 'PTRootUI-Light',
+    Raleway_Bold: 'Raleway-Bold',
+    Raleway_Medium: 'Raleway-Medium',
+    Raleway_Regular: 'Raleway-Regular',
+    Raleway_Light: 'Raleway-Light',
   },
 }

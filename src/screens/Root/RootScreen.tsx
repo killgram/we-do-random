@@ -8,6 +8,8 @@ import getStyle from './RootScreenStyles'
 const RootScreen = (props: IRootScreenProps) => {
   const { startup } = props
 
+  const styles = getStyle()
+
   LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
     'Remote debugger is in a background tab which may cause apps' +
@@ -24,7 +26,7 @@ const RootScreen = (props: IRootScreenProps) => {
       <Text>{process.env.NODE_ENV}</Text>
       <Text>{process.env.NODE_ENV}</Text>
       <Text>{process.env.NODE_ENV}</Text>
-      <Text>{Domains.getTestEnv()}</Text>
+      <Text style={styles.text}>{Domains.getTestEnv()}</Text>
     </View>
   )
 }
