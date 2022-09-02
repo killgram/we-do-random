@@ -3,16 +3,28 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "start": "react-native start",
+    "ios": "react-native run-ios --scheme \"WeDoRandom.dev\"",
+    "ios:release:debug": "react-native run-ios --scheme \"WeDoRandom.dev\" --configuration Release",
+    "ios:debug:prod": " react-native run-ios --scheme \"WeDoRandom.prod\"",
+    "ios:release:prod": " react-native run-ios --scheme \"WeDoRandom.prod\" --configuration Release",
+    "android": "ENVFILE=.env.development react-native run-android",
+    "android:release:dev": "ENVFILE=.env.development react-native run-android --variant release",
+    "android:prod": "ENVFILE=.env.production react-native run-android",
+    "android:release:prod": "ENVFILE=.env.production react-native run-android --variant release",
+    "start": "watchman watch-del-all && react-native start --reset-cache",
+    "clean": "watchman watch-del-all",
+    "link": "react-native link && react-native unlink react-native-vector-icons",
+    "pod": "cd ios && pod install",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "bundleRelease": "cd android && ./gradlew clean && ./gradlew bundleRelease",
+    "assembleRelease": "cd android && ./gradlew clean && ./gradlew assembleRelease"
   },
   "dependencies": {
     "prettier": "^2.7.1",
     "react": "18.0.0",
-    "react-native": "0.69.5"
+    "react-native": "0.69.5",
+    "react-native-config": "^1.4.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

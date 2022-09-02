@@ -1,0 +1,2 @@
+ENV=development
+TEST=NO-RELEASE-DEV
