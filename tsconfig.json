@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": ["es2017"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "tests": ["tests/*"],
+      "@ui-kit": ["src/ui-kit"],
+      "@ui-kit/*": ["src/ui-kit/*"],
+      "@components": ["src/components"],
+      "@components/*": ["src/components/*"],
+      "@screens": ["src/screens"],
+      "@screens/*": ["src/screens/*"],
+      "@utils": ["src/utils"],
+      "@utils/*": ["src/utils/*"],
+      "@store": ["src/store"],
+      "@store/*": ["src/store/*"],
+      "@classes": ["src/classes"],
+      "@classes/*": ["src/classes/*"],
+      "@sagas": ["src/sagas"],
+      "@sagas/*": ["src/sagas/*"],
+      "@navigators": ["src/navigators"],
+      "@navigators/*": ["src/navigators/*"],
+      "@assets": ["src/assets"],
+      "@assets/*": ["src/assets/*"],
+      "@services": ["src/services"],
+      "@services/*": ["src/services/*"],
+      "@configurations": ["src/configurations"],
+      "@configurations/*": ["src/configurations/*"],
+      "@hooks": ["src/hooks"],
+      "@hooks/*": ["src/hooks/*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
+}
