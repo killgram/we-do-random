@@ -1,3 +1,4 @@
 import Domains from './Domains'
+import Constants from './Constants'
 
-export { Domains }
+export { Domains, Constants }

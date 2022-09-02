@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { persistReducer } from 'redux-persist'
 
 import settingsReducer from './settings'
+import appReducer from './app'
 
 /**
  * this is necessary in order not to download
@@ -16,6 +17,7 @@ const settingsPersistConfig = {
 
 const rootReducer = combineReducers({
   settings: persistReducer(settingsPersistConfig, settingsReducer),
+  app: appReducer,
 })
 
 export type BaseRootStateType = ReturnType<typeof rootReducer>

@@ -1,6 +1,10 @@
+import { app } from '@store/types'
+
 interface IStateToProps {}
 
-interface IDispatchToProps {}
+interface IDispatchToProps {
+  startup?: () => app.IAction
+}
 
 export interface IState {}
 

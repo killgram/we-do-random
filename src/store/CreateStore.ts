@@ -28,7 +28,7 @@ export default (rootReducer: typeof RootState, rootSaga: RootSaga) => {
   // Redux persist
   const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-  const store = createStore(persistedReducer, {}, compose(...enhancers))
+  const store = createStore(persistedReducer, {}, compose<any>(...enhancers))
   const persistor = persistStore(store)
 
   // Kick off the root saga
