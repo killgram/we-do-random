@@ -25,6 +25,7 @@ const BottomTabStack = () => {
         tabBarStyle: {
           backgroundColor: getThemeColor('BACKGROUND'),
           borderTopWidth: 0,
+          elevation: 0,
         },
       }}
     >

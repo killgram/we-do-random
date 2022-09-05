@@ -1,6 +1,9 @@
 import React from 'react'
 import { DarkTheme, NavigationContainer, Theme } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from '@react-navigation/stack'
 import { AppNavigatorPropsTypes } from '@navigators/NavigatorTypes'
 
 import AuthStack from '@navigators/AuthStack'
@@ -50,6 +53,7 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
         initialRouteName="AuthStack"
       >
