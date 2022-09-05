@@ -19,7 +19,12 @@ const settingsReducer = (
         language: action.language,
       }
     }
-
+    // TODO add here delete data in settings reducer
+    case settings.ActionTypes.CLEAN_SETTINGS: {
+      return {
+        ...state,
+      }
+    }
     default: {
       return state
     }

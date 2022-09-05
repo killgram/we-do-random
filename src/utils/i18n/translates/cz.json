@@ -5,7 +5,11 @@
     },
     "settings": {
       "lang": "Jazyk",
-      "changeLang": "Změnit jazyk"
+      "changeLang": "Změnit jazyk",
+      "support": "Podpěra",
+      "aboutApp": "O aplikaci",
+      "logout": "Odhlásit se",
+      "sureAboutExit": "Opravdu chcete odejít?"
     }
   }
 }

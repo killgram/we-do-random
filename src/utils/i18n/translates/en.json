@@ -5,7 +5,11 @@
     },
     "settings": {
       "lang": "Language",
-      "changeLang": "Change language"
+      "changeLang": "Change language",
+      "support": "Support",
+      "aboutApp": "About app",
+      "logout": "Logout",
+      "sureAboutExit": "Are you sure you want to leave?"
     }
   }
 }

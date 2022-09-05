@@ -11,3 +11,13 @@ export function setLanguage(language: string): settings.IAction {
     language,
   }
 }
+
+/**
+ *
+ * @return {settings.IAction}
+ */
+export function cleanSettings(): settings.IAction {
+  return {
+    type: settings.ActionTypes.CLEAN_SETTINGS,
+  }
+}

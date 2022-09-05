@@ -13,7 +13,8 @@ const appReducer = (
   action: app.IAction,
 ): app.IInitialState => {
   switch (action.type) {
-    case app.ActionTypes.STARTUP: {
+    // TODO add here delete data in app reducer
+    case app.ActionTypes.CLEAN_APP: {
       return {
         ...state,
       }

@@ -1,9 +1,12 @@
 import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
-import { height, RNStyleType } from '@utils'
+import { height, RNStyleType, width } from '@utils'
 
 interface IStyles {
-  container: RNStyleType
   flagImage: StyleProp<ImageStyle>
+  combineContainer: RNStyleType
+  logoutBtn: RNStyleType
+  modalText: RNStyleType
+  modalLogoutBtn: RNStyleType
 }
 
 /**
@@ -11,10 +14,22 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {},
     flagImage: {
       width: height(32),
       height: height(24),
+    },
+    combineContainer: {
+      paddingVertical: height(6),
+    },
+    logoutBtn: {
+      marginTop: height(32),
+    },
+    modalText: {
+      textAlign: 'center',
+      paddingVertical: height(16),
+    },
+    modalLogoutBtn: {
+      paddingHorizontal: width(32),
     },
   })
 }

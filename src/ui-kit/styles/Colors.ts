@@ -11,6 +11,7 @@ export enum Colors {
   SMOKE_SCREEN = '#aeaeae',
   DUGONG = '#707070',
   DEEP_SLATE_OLIVE = '#162a10',
+  PATCH_OF_LAND = '#1f4f16',
 }
 
 export enum LightColors {
@@ -33,4 +34,8 @@ export enum LightColors {
   TRANSPARENT_BUTTONS = Colors.TRANSPARENT,
   // icons
   CHOSEN_ICON = Colors.DEEP_SLATE_OLIVE,
+  EXIT_ICON = Colors.PATCH_OF_LAND,
+  // modals
+  MODAL_BACKGROUND = Colors.GABLE_GREEN,
+  MODAL_CONTAINER_BACKGROUND = Colors.SMOKE_SCREEN,
 }

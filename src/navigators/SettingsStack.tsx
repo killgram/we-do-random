@@ -4,6 +4,8 @@ import { defaultHeaderStyle } from '@ui-kit/styles'
 
 const Stack = createStackNavigator()
 import ChangeLanguageScreen from '@screens/ChangeLanguage'
+import AboutAppScreen from '@screens/AboutApp'
+import SupportScreen from '@screens/Support'
 
 /**
  * @description settings stack
@@ -21,6 +23,8 @@ const SettingsStack = () => {
         name="ChangeLanguageScreen"
         component={ChangeLanguageScreen}
       />
+      <Stack.Screen name="AboutAppScreen" component={AboutAppScreen} />
+      <Stack.Screen name="SupportScreen" component={SupportScreen} />
     </Stack.Navigator>
   )
 }

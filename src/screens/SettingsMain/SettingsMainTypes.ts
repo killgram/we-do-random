@@ -4,7 +4,9 @@ interface IStateToProps {
   language?: string
 }
 
-interface IDispatchToProps {}
+interface IDispatchToProps {
+  logout?: () => void
+}
 
 export interface IState {
   settings?: settings.IInitialState

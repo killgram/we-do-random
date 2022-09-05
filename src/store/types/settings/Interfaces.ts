@@ -9,4 +9,8 @@ export interface ISetLanguageAction {
   language: string
 }
 
-export type IAction = ISetLanguageAction
+export interface ICleanSettings {
+  type: ActionTypes.CLEAN_SETTINGS
+}
+
+export type IAction = ISetLanguageAction | ICleanSettings

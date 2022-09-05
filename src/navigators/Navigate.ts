@@ -73,6 +73,24 @@ export const toChangeLanguageScreen = () => {
   })
 }
 
+/**
+ * @description to AboutAppScreen
+ */
+export const toAboutAppScreen = () => {
+  NavigationService.navigate('SettingsStack', {
+    screen: 'AboutAppScreen',
+  })
+}
+
+/**
+ * @description to SupportScreen
+ */
+export const toSupportScreen = () => {
+  NavigationService.navigate('SettingsStack', {
+    screen: 'SupportScreen',
+  })
+}
+
 //-------------------Other-------------------------//
 
 /**

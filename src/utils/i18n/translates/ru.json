@@ -5,7 +5,11 @@
     },
     "settings": {
       "lang": "Язык",
-      "changeLang": "Сменить язык"
+      "changeLang": "Сменить язык",
+      "support": "Поддержка",
+      "aboutApp": "О приложении",
+      "logout": "Выйти",
+      "sureAboutExit": "Уверены, что хотите выйти?"
     }
   }
 }

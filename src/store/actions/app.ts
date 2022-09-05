@@ -9,3 +9,23 @@ export function startup(): app.IAction {
     type: app.ActionTypes.STARTUP,
   }
 }
+
+/**
+ *
+ * @return {app.IAction}
+ */
+export function logout(): app.IAction {
+  return {
+    type: app.ActionTypes.LOGOUT,
+  }
+}
+
+/**
+ *
+ * @return {app.IAction}
+ */
+export function cleanApp(): app.IAction {
+  return {
+    type: app.ActionTypes.CLEAN_APP,
+  }
+}
