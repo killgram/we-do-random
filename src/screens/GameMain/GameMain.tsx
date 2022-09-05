@@ -3,7 +3,7 @@ import { Button } from 'react-native'
 import { IGameMainScreenTypesProps } from './GameMainTypes'
 import getStyle from './GameMainStyles'
 import { Navigate } from '@navigators'
-import { WDRContainer, WDRText } from '@ui-kit/components'
+import { WDRContainer, WDRText, WDRButton } from '@ui-kit/components'
 
 /**
  * @description GameMainScreen
@@ -22,7 +22,12 @@ const GameMainScreen = (props: IGameMainScreenTypesProps) => {
       <WDRText isLink>Hello, test text components link</WDRText>
       <WDRText isError>Hello, test text components error</WDRText>
 
-      <Button title="to blank" onPress={Navigate.toBlank} />
+      <WDRButton title="to blank, static" onPress={Navigate.toBlank} />
+      <WDRButton isSecondary title="secondary " />
+      <WDRButton isLoading title="loading" />
+      <WDRButton isDisabled title="disabled" />
+      <WDRButton isDisabled isSecondary title="disabled secondary" />
+      <WDRButton isTransparent title="transparent" />
     </WDRContainer>
   )
 }
