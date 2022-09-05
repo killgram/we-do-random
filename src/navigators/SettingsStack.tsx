@@ -3,8 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { defaultHeaderStyle } from '@ui-kit/styles'
 
 const Stack = createStackNavigator()
-
-import BlankScreen from '@screens/BlankScreen'
+import ChangeLanguageScreen from '@screens/ChangeLanguage'
 
 /**
  * @description settings stack
@@ -13,13 +12,15 @@ import BlankScreen from '@screens/BlankScreen'
 const SettingsStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="BlankScreen"
       screenOptions={{
         ...defaultHeaderStyle,
-        headerShown: false,
+        headerShown: true,
       }}
     >
-      <Stack.Screen name="BlankScreen" component={BlankScreen} />
+      <Stack.Screen
+        name="ChangeLanguageScreen"
+        component={ChangeLanguageScreen}
+      />
     </Stack.Navigator>
   )
 }

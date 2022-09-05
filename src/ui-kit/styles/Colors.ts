@@ -10,6 +10,7 @@ export enum Colors {
   BLACK_SUEDE = '#434343',
   SMOKE_SCREEN = '#aeaeae',
   DUGONG = '#707070',
+  DEEP_SLATE_OLIVE = '#162a10',
 }
 
 export enum LightColors {
@@ -30,4 +31,6 @@ export enum LightColors {
   PRESSED_SECONDARY_BUTTONS = Colors.DUGONG,
   BUTTONS_LOADER = Colors.TRANSPARENT,
   TRANSPARENT_BUTTONS = Colors.TRANSPARENT,
+  // icons
+  CHOSEN_ICON = Colors.DEEP_SLATE_OLIVE,
 }

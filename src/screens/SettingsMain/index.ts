@@ -19,9 +19,6 @@ const mapStateToProps = (state: IState): ISettingsMainScreenTypesProps => ({
  */
 const mapDispatchToProps = (
   dispatch: Dispatch,
-): ISettingsMainScreenTypesProps => ({
-  setLanguage: (language: string) =>
-    dispatch(settingsAction.setLanguage(language)),
-})
+): ISettingsMainScreenTypesProps => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsMain)

@@ -4,9 +4,7 @@ interface IStateToProps {
   language?: string
 }
 
-interface IDispatchToProps {
-  setLanguage?: (language: string) => settings.IAction
-}
+interface IDispatchToProps {}
 
 export interface IState {
   settings?: settings.IInitialState

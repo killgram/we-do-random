@@ -2,6 +2,10 @@
   "translation": {
     "test": {
       "helloWorld": "Привет, мир!"
+    },
+    "settings": {
+      "lang": "Язык",
+      "changeLang": "Сменить язык"
     }
   }
 }

@@ -62,6 +62,17 @@ export const toBlank = () => {
   NavigationService.navigate('GameStack', { screen: 'BlankScreen' })
 }
 
+//-------------------SettingsStack---------------------//
+
+/**
+ * @description to ChangeLanguageScreen
+ */
+export const toChangeLanguageScreen = () => {
+  NavigationService.navigate('SettingsStack', {
+    screen: 'ChangeLanguageScreen',
+  })
+}
+
 //-------------------Other-------------------------//
 
 /**
