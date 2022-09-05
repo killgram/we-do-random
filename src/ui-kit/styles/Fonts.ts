@@ -19,14 +19,4 @@ export default StyleSheet.create({
   medium: {
     fontFamily: Constants.APP_FONT_FAMILY.Raleway_Medium,
   },
-  // headerTitleDefault: {
-  //     fontSize: sp(24),
-  //     lineHeight: sp(32),
-  //     fontFamily: Constants.APP_FONT_FAMILY.Raleway_Bold,
-  //     fontWeight: 'bold',
-  // },
-  // bottomTabFontStyle: {
-  //   fontSize: sp(11),
-  //   lineHeight: sp(15),
-  // },
 })

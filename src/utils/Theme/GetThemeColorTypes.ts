@@ -1,7 +1,17 @@
-import { ViewStyle, TextStyle, ImageStyle, StyleProp } from 'react-native'
+import {
+  ViewStyle,
+  TextStyle,
+  ImageStyle,
+  StyleProp,
+  StatusBarStyle,
+} from 'react-native'
 
 export interface IThemes {
   [key: string]: any
+}
+
+export interface IStatusBarThemes {
+  [key: string]: StatusBarStyle
 }
 
 export type ThemeType = 'light' | 'dark' | undefined

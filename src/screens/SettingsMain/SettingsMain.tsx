@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { ISettingsMainScreenTypesProps } from './SettingsMainTypes'
 import getStyle from './SettingsMainStyles'
+import { WDRContainer } from '@ui-kit/components'
 
 /**
  * @description SettingsMainScreen
@@ -13,13 +14,15 @@ const SettingsMainScreen = (props: ISettingsMainScreenTypesProps) => {
   const styles = getStyle()
   console.log('SettingsMainScreen')
   return (
-    <View style={styles.container}>
-      <Text>
-        SettingsMainScreen SettingsMainScreen SettingsMainScreen
-        SettingsMainScreen SettingsMainScreen SettingsMainScreen
-      </Text>
-      <Text>hello 2</Text>
-    </View>
+    <WDRContainer>
+      <View style={styles.container}>
+        <Text>
+          SettingsMainScreen SettingsMainScreen SettingsMainScreen
+          SettingsMainScreen SettingsMainScreen SettingsMainScreen
+        </Text>
+        <Text>hello 2</Text>
+      </View>
+    </WDRContainer>
   )
 }
 

@@ -16,7 +16,7 @@ const GameStack = () => {
       initialRouteName="BlankScreen"
       screenOptions={{
         ...defaultHeaderStyle,
-        headerShown: false,
+        headerShown: true,
       }}
     >
       <Stack.Screen name="BlankScreen" component={BlankScreen} />

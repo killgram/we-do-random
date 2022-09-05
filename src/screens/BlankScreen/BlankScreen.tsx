@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { IBlankScreenTypesProps } from './BlankScreenTypes'
 import getStyle from './BlankScreenStyles'
+import { WDRContainer } from '@ui-kit/components'
 
 /**
  * @description BlankScreen
@@ -13,12 +14,12 @@ const BlankScreen = (props: IBlankScreenTypesProps) => {
   const styles = getStyle()
   console.log('BlankScreen')
   return (
-    <View style={styles.container}>
+    <WDRContainer isTransparentHeader>
       <Text>
         BlankScreen BlankScreen BlankScreen BlankScreen BlankScreen BlankScreen
       </Text>
       <Text>hello 2</Text>
-    </View>
+    </WDRContainer>
   )
 }
 

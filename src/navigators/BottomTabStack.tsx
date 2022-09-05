@@ -6,6 +6,7 @@ import GameMain from '@screens/GameMain'
 import ProfileMain from '@screens/ProfileMain'
 import RulesMain from '@screens/RulesMain'
 import SettingsMain from '@screens/SettingsMain'
+import { getThemeColor } from '@utils'
 
 const Tab = createBottomTabNavigator()
 
@@ -19,6 +20,12 @@ const BottomTabStack = () => {
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
+        tabBarActiveTintColor: getThemeColor('TAB_BAR_ACTIVE_TINT_COLOR'),
+        tabBarInactiveTintColor: getThemeColor('TAB_BAR_INACTIVE_TINT_COLOR'),
+        tabBarStyle: {
+          backgroundColor: getThemeColor('BACKGROUND'),
+          borderTopWidth: 0,
+        },
       }}
     >
       <Tab.Screen

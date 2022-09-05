@@ -3,6 +3,7 @@ import { Button, Text, View } from 'react-native'
 import { IGameMainScreenTypesProps } from './GameMainTypes'
 import getStyle from './GameMainStyles'
 import { Navigate } from '@navigators'
+import { WDRContainer } from '@ui-kit/components'
 
 /**
  * @description GameMainScreen
@@ -14,14 +15,16 @@ const GameMainScreen = (props: IGameMainScreenTypesProps) => {
   const styles = getStyle()
   console.log('GameMainScreen')
   return (
-    <View style={styles.container}>
-      <Text>
-        GameMainScreen GameMainScreen GameMainScreen GameMainScreen
-        GameMainScreen GameMainScreen
-      </Text>
-      <Text>hello 2</Text>
-      <Button title="to blank" onPress={Navigate.toBlank} />
-    </View>
+    <WDRContainer style={styles.container}>
+      <View>
+        <Text>
+          GameMainScreen GameMainScreen GameMainScreen GameMainScreen
+          GameMainScreen GameMainScreen
+        </Text>
+        <Text>hello 2</Text>
+        <Button title="to blank" onPress={Navigate.toBlank} />
+      </View>
+    </WDRContainer>
   )
 }
 

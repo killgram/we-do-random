@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavigationContainer } from '@react-navigation/native'
+import { DarkTheme, NavigationContainer, Theme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { AppNavigatorPropsTypes } from '@navigators/NavigatorTypes'
 
@@ -9,6 +9,7 @@ import GameStack from '@navigators/GameStack'
 import RulesStack from '@navigators/RulesStack'
 import ProfileStack from '@navigators/ProfileStack'
 import SettingsStack from '@navigators/SettingsStack'
+import { getThemeColor } from '@utils'
 
 const Stack = createStackNavigator()
 
@@ -22,12 +23,29 @@ const Stack = createStackNavigator()
 const AppNavigator = (props: AppNavigatorPropsTypes) => {
   const { forwardRef, onReady } = props
 
+  /**
+   * @description Required to set the navigator stack background when
+   * switching application themes so that when you navigate the stack, it does not appear
+   * white line at the left edge of the screen
+   * @return {Theme}
+   */
+  const setTheme = (): Theme => {
+    return {
+      dark: DarkTheme.dark,
+      colors: {
+        ...DarkTheme.colors,
+        background: getThemeColor('BACKGROUND'),
+      },
+    }
+  }
+
   return (
     <NavigationContainer
       ref={(navigatorRef) => {
         navigatorRef != null && forwardRef(navigatorRef)
       }}
       onReady={onReady}
+      theme={setTheme()}
     >
       <Stack.Navigator
         screenOptions={{

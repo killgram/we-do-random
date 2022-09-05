@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { ApplicationStyles } from '@ui-kit/styles'
 import { RNStyleType } from '@utils'
 
 interface IStyles {
@@ -6,14 +7,13 @@ interface IStyles {
 }
 
 /**
+ *
  * @return {IStyles}
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     container: {
-      // backgroundColor: 'red',
-      // alignItems: 'flex-end',
-      // justifyContent: 'flex-end',
+      ...ApplicationStyles.container,
     },
   })
 }

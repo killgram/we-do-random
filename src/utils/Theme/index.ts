@@ -3,6 +3,11 @@ export type {
   ImageStyleType,
   ThemeType,
   IThemes,
+  IStatusBarThemes,
 } from './GetThemeColorTypes'
 
-export { getThemeColor, getThemeGradient } from './GetThemeColor'
+export {
+  getThemeColor,
+  getThemeGradient,
+  getThemeStatusBar,
+} from './GetThemeColor'

@@ -44,8 +44,6 @@ export const toSettingsStack = () => {
   NavigationService.navigateAndReset('SettingsStack')
 }
 
-//-----------------------------------------------//
-
 //-------------------Service---------------------//
 
 /**
@@ -55,25 +53,20 @@ export const goBack = () => {
   NavigationService.back()
 }
 
-//-----------------------------------------------//
-
-/**
- * @description bottom stack
- */
-export const toBottomTabStack = () => {
-  NavigationService.navigate('BottomTabStack')
-}
-
-/**
- * @description to Template
- */
-export const toTemplate = () => {
-  NavigationService.navigate('TemplateScreen')
-}
+//-------------------GameStack---------------------//
 
 /**
  * @description to Blank
  */
 export const toBlank = () => {
   NavigationService.navigate('GameStack', { screen: 'BlankScreen' })
+}
+
+//-------------------Other-------------------------//
+
+/**
+ * @description bottom stack
+ */
+export const toBottomTabStack = () => {
+  NavigationService.navigate('BottomTabStack')
 }

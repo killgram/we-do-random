@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View } from 'react-native'
 import { IProfileMainScreenTypesProps } from './ProfileMainTypes'
 import getStyle from './ProfileMainStyles'
+import { WDRContainer } from '@ui-kit/components'
 
 /**
  * @description ProfileMainScreen
@@ -13,13 +14,15 @@ const ProfileMainScreen = (props: IProfileMainScreenTypesProps) => {
   const styles = getStyle()
   console.log('ProfileMainScreen')
   return (
-    <View style={styles.container}>
-      <Text>
-        ProfileMainScreen ProfileMainScreen ProfileMainScreen ProfileMainScreen
-        ProfileMainScreen ProfileMainScreen
-      </Text>
-      <Text>hello 2</Text>
-    </View>
+    <WDRContainer>
+      <View style={styles.container}>
+        <Text>
+          ProfileMainScreen ProfileMainScreen ProfileMainScreen
+          ProfileMainScreen ProfileMainScreen ProfileMainScreen
+        </Text>
+        <Text>hello 2</Text>
+      </View>
+    </WDRContainer>
   )
 }
 

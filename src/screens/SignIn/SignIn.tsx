@@ -3,6 +3,7 @@ import { Button, Text, View } from 'react-native'
 import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
 import { Navigate } from '@navigators'
+import { WDRContainer } from '@ui-kit/components'
 
 /**
  * @description SignInScreen
@@ -14,14 +15,16 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
   const styles = getStyle()
   console.log('SignInScreen')
   return (
-    <View style={styles.container}>
-      <Text>
-        SignInScreen SignInScreen SignInScreen SignInScreen SignInScreen
-        SignInScreen
-      </Text>
-      <Text>hello 2</Text>
-      <Button title="to app stack" onPress={Navigate.toAppStack} />
-    </View>
+    <WDRContainer>
+      <View style={styles.container}>
+        <Text>
+          SignInScreen SignInScreen SignInScreen SignInScreen SignInScreen
+          SignInScreen
+        </Text>
+        <Text>hello 2</Text>
+        <Button title="to app stack" onPress={Navigate.toAppStack} />
+      </View>
+    </WDRContainer>
   )
 }
 

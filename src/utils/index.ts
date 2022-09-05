@@ -5,6 +5,8 @@ import {
   IThemes,
   getThemeColor,
   getThemeGradient,
+  IStatusBarThemes,
+  getThemeStatusBar,
 } from './Theme'
 
 import {
@@ -28,6 +30,13 @@ export {
   getThemeColor,
   getThemeGradient,
   keyGenerate,
+  getThemeStatusBar,
 }
 
-export type { RNStyleType, ImageStyleType, ThemeType, IThemes }
+export type {
+  RNStyleType,
+  ImageStyleType,
+  ThemeType,
+  IThemes,
+  IStatusBarThemes,
+}
