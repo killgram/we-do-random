@@ -11,6 +11,11 @@ export default {
       name: 'English',
       isRTL: false,
     },
+    cz: {
+      langTag: 'cz',
+      name: 'Čeština',
+      isRTL: false,
+    },
   },
   APP_FONT_FAMILY: {
     Raleway_Bold: 'Raleway-Bold',

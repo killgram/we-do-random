@@ -2,6 +2,8 @@ import SettingsMain from './SettingsMain'
 
 import { connect } from 'react-redux'
 import { IState, ISettingsMainScreenTypesProps } from './SettingsMainTypes'
+import { Dispatch } from 'redux'
+import { settingsAction } from '@store/actions'
 
 /**
  * @param {IState} state
@@ -11,4 +13,15 @@ const mapStateToProps = (state: IState): ISettingsMainScreenTypesProps => ({
   language: state?.settings?.language,
 })
 
-export default connect(mapStateToProps)(SettingsMain)
+/**
+ * @param {Dispatch<any>} dispatch
+ * @return {ISettingsMainScreenTypesProps}
+ */
+const mapDispatchToProps = (
+  dispatch: Dispatch,
+): ISettingsMainScreenTypesProps => ({
+  setLanguage: (language: string) =>
+    dispatch(settingsAction.setLanguage(language)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsMain)

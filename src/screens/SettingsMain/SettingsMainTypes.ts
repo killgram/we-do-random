@@ -1,9 +1,15 @@
 import { settings } from '@store/types'
 
-export interface ISettingsMainScreenTypesProps {
+interface IStateToProps {
   language?: string
+}
+
+interface IDispatchToProps {
+  setLanguage?: (language: string) => settings.IAction
 }
 
 export interface IState {
   settings?: settings.IInitialState
 }
+
+export type ISettingsMainScreenTypesProps = IStateToProps & IDispatchToProps

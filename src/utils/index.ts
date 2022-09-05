@@ -20,6 +20,8 @@ import {
 
 import { keyGenerate } from './KeyGenerate'
 
+import { setLocale } from './i18n'
+
 export {
   width,
   height,
@@ -31,6 +33,7 @@ export {
   getThemeGradient,
   keyGenerate,
   getThemeStatusBar,
+  setLocale,
 }
 
 export type {

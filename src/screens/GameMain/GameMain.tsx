@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button } from 'react-native'
 import { IGameMainScreenTypesProps } from './GameMainTypes'
 import getStyle from './GameMainStyles'
 import { Navigate } from '@navigators'
 import { WDRContainer, WDRText, WDRButton } from '@ui-kit/components'
+import { useTranslation } from 'react-i18next'
 
 /**
  * @description GameMainScreen
@@ -13,7 +13,8 @@ import { WDRContainer, WDRText, WDRButton } from '@ui-kit/components'
 const GameMainScreen = (props: IGameMainScreenTypesProps) => {
   const {} = props
   const styles = getStyle()
-  console.log('GameMainScreen')
+  const { t } = useTranslation()
+
   return (
     <WDRContainer style={styles.container}>
       <WDRText>Hello, test text components</WDRText>
@@ -21,6 +22,7 @@ const GameMainScreen = (props: IGameMainScreenTypesProps) => {
       <WDRText isSecondary>Hello, test text components secondary</WDRText>
       <WDRText isLink>Hello, test text components link</WDRText>
       <WDRText isError>Hello, test text components error</WDRText>
+      <WDRText isTitle>{t('test.helloWorld')}</WDRText>
 
       <WDRButton title="to blank, static" onPress={Navigate.toBlank} />
       <WDRButton isSecondary title="secondary " />
