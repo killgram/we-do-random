@@ -1,5 +1,5 @@
 apply plugin: "com.android.application"
-
+apply plugin: 'com.google.gms.google-services'
 project.ext.vectoricons = [
     iconFontNames: [ 'Raleway-Bold.ttf', 'Raleway-Regular.ttf', 'Raleway-Light.ttf', 'Raleway-Medium.ttf' ]
 ]
