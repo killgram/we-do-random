@@ -2,8 +2,13 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { AppNavigatorPropsTypes } from '@navigators/NavigatorTypes'
-import TemplateScreen from '@screens/TemplateScreen'
-import BlankScreen from '@screens/BlankScreen'
+
+import AuthStack from '@navigators/AuthStack'
+import BottomTabStack from '@navigators/BottomTabStack'
+import GameStack from '@navigators/GameStack'
+import RulesStack from '@navigators/RulesStack'
+import ProfileStack from '@navigators/ProfileStack'
+import SettingsStack from '@navigators/SettingsStack'
 
 const Stack = createStackNavigator()
 
@@ -26,12 +31,16 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
     >
       <Stack.Navigator
         screenOptions={{
-          headerShown: true,
+          headerShown: false,
         }}
-        initialRouteName="TemplateScreen"
+        initialRouteName="AuthStack"
       >
-        <Stack.Screen name="TemplateScreen" component={TemplateScreen} />
-        <Stack.Screen name="BlankScreen" component={BlankScreen} />
+        <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name="BottomTabStack" component={BottomTabStack} />
+        <Stack.Screen name="GameStack" component={GameStack} />
+        <Stack.Screen name="RulesStack" component={RulesStack} />
+        <Stack.Screen name="ProfileStack" component={ProfileStack} />
+        <Stack.Screen name="SettingsStack" component={SettingsStack} />
       </Stack.Navigator>
     </NavigationContainer>
   )

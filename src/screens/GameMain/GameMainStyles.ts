@@ -10,8 +10,6 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {
-      backgroundColor: 'red',
-    },
+    container: {},
   })
 }

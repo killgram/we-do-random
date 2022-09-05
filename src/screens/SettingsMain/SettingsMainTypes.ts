@@ -1,6 +1,6 @@
 import { settings } from '@store/types'
 
-export interface ITemplateScreenProps {
+export interface ISettingsMainScreenTypesProps {
   language?: string
 }
 
