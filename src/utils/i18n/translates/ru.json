@@ -10,6 +10,12 @@
       "aboutApp": "О приложении",
       "logout": "Выйти",
       "sureAboutExit": "Уверены, что хотите выйти?"
+    },
+    "signIn": {
+      "chooseLang": "Выберите язык",
+      "introduce": "Представьтесь",
+      "namePlaceholder": "Введите имя",
+      "enter": "Войти"
     }
   }
 }

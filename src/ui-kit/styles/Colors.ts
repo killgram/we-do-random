@@ -12,6 +12,7 @@ export enum Colors {
   DUGONG = '#707070',
   DEEP_SLATE_OLIVE = '#162a10',
   PATCH_OF_LAND = '#1f4f16',
+  BLUE_VELVET = '#0f6686',
 }
 
 export enum LightColors {
@@ -25,6 +26,7 @@ export enum LightColors {
   SECONDARY_TEXT = Colors.ANCHORMAN,
   LINK_TEXT = Colors.BLUE_EYED_BOY,
   ERROR_TEXT = Colors.FIREBRICK,
+  CHOSEN_TEXT = Colors.BABY_BLUE_EYES,
   // buttons
   STATIC_BUTTONS = Colors.HARD_COAL,
   PRESSED_BUTTONS = Colors.BLACK_SUEDE,
@@ -38,4 +40,11 @@ export enum LightColors {
   // modals
   MODAL_BACKGROUND = Colors.GABLE_GREEN,
   MODAL_CONTAINER_BACKGROUND = Colors.SMOKE_SCREEN,
+  // inputs
+  PLACEHOLDER_INPUT = Colors.ANCHORMAN,
+  DISABLE_INPUT = Colors.BLACK_SUEDE,
+  BACKGROUND_INPUT = Colors.BLUE_VELVET,
+  ERROR_INPUT = Colors.FIREBRICK,
+  TRANSPARENT_INPUT = Colors.TRANSPARENT,
+  BORDER_INPUT = Colors.GABLE_GREEN,
 }

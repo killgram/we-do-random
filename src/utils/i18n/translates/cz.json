@@ -10,6 +10,12 @@
       "aboutApp": "O aplikaci",
       "logout": "Odhlásit se",
       "sureAboutExit": "Opravdu chcete odejít?"
+    },
+    "signIn": {
+      "chooseLang": "Vyber jazyk",
+      "introduce": "Představit se",
+      "namePlaceholder": "Zadejte své jméno",
+      "enter": "Vstupte"
     }
   }
 }

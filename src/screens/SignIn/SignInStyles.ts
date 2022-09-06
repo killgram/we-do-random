@@ -1,8 +1,13 @@
 import { StyleSheet } from 'react-native'
-import { RNStyleType } from '@utils'
+import { height, RNStyleType } from '@utils'
 
 interface IStyles {
-  container: RNStyleType
+  sectionTop: RNStyleType
+  sectionBottom: RNStyleType
+  titleTop: RNStyleType
+  langListContainer: RNStyleType
+  titleBottom: RNStyleType
+  enterBtn: RNStyleType
 }
 
 /**
@@ -10,6 +15,29 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {},
+    sectionTop: {
+      marginVertical: height(90),
+      justifyContent: 'center',
+    },
+    titleTop: {
+      alignSelf: 'center',
+      marginBottom: height(32),
+    },
+    langListContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-around',
+    },
+    sectionBottom: {
+      flex: 0.9,
+    },
+    titleBottom: {
+      alignSelf: 'center',
+      marginBottom: height(32),
+    },
+    enterBtn: {
+      flex: 1,
+      justifyContent: 'flex-end',
+    },
   })
 }

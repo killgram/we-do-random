@@ -13,6 +13,7 @@ import RulesStack from '@navigators/RulesStack'
 import ProfileStack from '@navigators/ProfileStack'
 import SettingsStack from '@navigators/SettingsStack'
 import { getThemeColor } from '@utils'
+import AwaitScreen from '@screens/Await'
 
 const Stack = createStackNavigator()
 
@@ -55,9 +56,16 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
           headerShown: false,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
-        initialRouteName="AuthStack"
+        initialRouteName="AwaitScreen"
       >
-        <Stack.Screen name="AuthStack" component={AuthStack} />
+        <Stack.Screen name="AwaitScreen" component={AwaitScreen} />
+        <Stack.Screen
+          name="AuthStack"
+          component={AuthStack}
+          options={{
+            cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
+          }}
+        />
         <Stack.Screen name="BottomTabStack" component={BottomTabStack} />
         <Stack.Screen name="GameStack" component={GameStack} />
         <Stack.Screen name="RulesStack" component={RulesStack} />

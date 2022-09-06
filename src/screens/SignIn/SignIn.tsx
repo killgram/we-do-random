@@ -1,10 +1,16 @@
 import React from 'react'
-import { Button, Text, View } from 'react-native'
+import { View } from 'react-native'
 import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
 import { Navigate } from '@navigators'
-import { WDRContainer } from '@ui-kit/components'
-import firestore from '@react-native-firebase/firestore'
+import { WDRButton, WDRContainer, WDRText, WDRInput } from '@ui-kit/components'
+import { useTranslation } from 'react-i18next'
+import { Constants } from '@configurations'
+import en from '@assets/img/en.png'
+import cz from '@assets/img/cz.png'
+import ru from '@assets/img/ru.png'
+import SignInLangCard from '@components/SignInLangCard'
+import { setLocale } from '@utils'
 
 /**
  * @description SignInScreen
@@ -12,37 +18,67 @@ import firestore from '@react-native-firebase/firestore'
  * @return {JSX}
  */
 const SignInScreen = (props: ISignInScreenTypesProps) => {
-  const {} = props
+  const { language, setLanguage } = props
   const styles = getStyle()
-  console.log('SignInScreen')
+  const { t } = useTranslation()
 
-  // firestore()
-  //   .collection('Users')
-  //   .doc('ABC')
-  //   .set({
-  //     name: 'Ada Lovelace',
-  //     age: 30,
-  //   })
-  //   .then(() => {
-  //     console.log('User added!')
-  //   })
-  //
-  // firestore()
-  //   .collection('Users')
-  //   .doc('ABC')
-  //   .onSnapshot((documentSnapshot) => {
-  //     console.log('User data: ', documentSnapshot.data())
-  //   })
+  const langData = [
+    {
+      langTag: Constants.APP_LANGUAGES.en.langTag,
+      name: Constants.APP_LANGUAGES.en.name,
+      img: en,
+    },
+    {
+      langTag: Constants.APP_LANGUAGES.cz.langTag,
+      name: Constants.APP_LANGUAGES.cz.name,
+      img: cz,
+    },
+    {
+      langTag: Constants.APP_LANGUAGES.ru.langTag,
+      name: Constants.APP_LANGUAGES.ru.name,
+      img: ru,
+    },
+  ]
+
+  const handleChangeLang = (lang) => {
+    setLanguage?.(lang)
+    setLocale(lang)
+  }
+
+  const renderLangElements = () => {
+    return langData.map((item) => {
+      return (
+        <SignInLangCard
+          img={item.img}
+          name={item.name}
+          key={item.langTag}
+          langTag={item.langTag}
+          isActive={language === item.langTag}
+          changeLang={handleChangeLang}
+        />
+      )
+    })
+  }
 
   return (
     <WDRContainer>
-      <View style={styles.container}>
-        <Text>
-          SignInScreen SignInScreen SignInScreen SignInScreen SignInScreen
-          SignInScreen
-        </Text>
-        <Text>hello 2</Text>
-        <Button title="to app stack" onPress={Navigate.toAppStack} />
+      <View style={styles.sectionTop}>
+        <WDRText isTitle size={24} style={styles.titleTop}>
+          {t('signIn.chooseLang')}
+        </WDRText>
+        <View style={styles.langListContainer}>{renderLangElements()}</View>
+      </View>
+
+      <View style={styles.sectionBottom}>
+        <WDRText isTitle size={24} style={styles.titleBottom}>
+          {t('signIn.introduce')}
+        </WDRText>
+
+        <WDRInput placeholder={t('signIn.namePlaceholder')} />
+
+        <View style={styles.enterBtn}>
+          <WDRButton title={t('signIn.enter')} />
+        </View>
       </View>
     </WDRContainer>
   )

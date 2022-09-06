@@ -2,6 +2,7 @@ import { call, put, select } from 'redux-saga/effects'
 import { settingsAction } from '@store/actions'
 import { setLocale } from '@utils'
 import { Constants } from '@configurations'
+import { Navigate } from '@navigators'
 
 export function* startup(): any {
   const state = yield select()
@@ -13,4 +14,6 @@ export function* startup(): any {
   } else {
     yield call(setLocale, lang)
   }
+
+  yield call(Navigate.toAuthStack)
 }

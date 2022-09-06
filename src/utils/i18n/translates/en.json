@@ -10,6 +10,12 @@
       "aboutApp": "About app",
       "logout": "Logout",
       "sureAboutExit": "Are you sure you want to leave?"
+    },
+    "signIn": {
+      "chooseLang": "Choose language",
+      "introduce": "Introduce yourself",
+      "namePlaceholder": "Enter your name",
+      "enter": "Enter"
     }
   }
 }
