@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { IState, ISignInScreenTypesProps } from './SignInTypes'
 import { Dispatch } from 'redux'
 
-import { settingsAction } from '@store/actions'
+import { appAction, settingsAction } from '@store/actions'
 
 /**
  * @param {IState} state
@@ -12,6 +12,7 @@ import { settingsAction } from '@store/actions'
  */
 const mapStateToProps = (state: IState): ISignInScreenTypesProps => ({
   language: state?.settings?.language,
+  isLoading: state?.app?.isLoading,
 })
 
 /**
@@ -21,6 +22,7 @@ const mapStateToProps = (state: IState): ISignInScreenTypesProps => ({
 const mapDispatchToProps = (dispatch: Dispatch): ISignInScreenTypesProps => ({
   setLanguage: (language: string) =>
     dispatch(settingsAction.setLanguage(language)),
+  login: (username: string) => dispatch(appAction.login(username)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn)

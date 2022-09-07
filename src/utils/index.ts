@@ -19,7 +19,7 @@ import {
 } from './Responsive'
 
 import { keyGenerate } from './KeyGenerate'
-
+import { getUserId } from './GetUserId'
 import { setLocale } from './i18n'
 
 export {
@@ -34,6 +34,7 @@ export {
   keyGenerate,
   getThemeStatusBar,
   setLocale,
+  getUserId,
 }
 
 export type {

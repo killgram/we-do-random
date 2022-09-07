@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View } from 'react-native'
 import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
-import { Navigate } from '@navigators'
 import { WDRButton, WDRContainer, WDRText, WDRInput } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
 import { Constants } from '@configurations'
@@ -18,9 +17,11 @@ import { setLocale } from '@utils'
  * @return {JSX}
  */
 const SignInScreen = (props: ISignInScreenTypesProps) => {
-  const { language, setLanguage } = props
+  const { language, setLanguage, login, isLoading } = props
   const styles = getStyle()
   const { t } = useTranslation()
+
+  const [username, setUsername] = useState('')
 
   const langData = [
     {
@@ -60,6 +61,14 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
     })
   }
 
+  const handleChangeUsername = (e: string) => {
+    setUsername(e)
+  }
+
+  const onLogin = () => {
+    login?.(username)
+  }
+
   return (
     <WDRContainer>
       <View style={styles.sectionTop}>
@@ -74,10 +83,19 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
           {t('signIn.introduce')}
         </WDRText>
 
-        <WDRInput placeholder={t('signIn.namePlaceholder')} />
+        <WDRInput
+          placeholder={t('signIn.namePlaceholder')}
+          value={username}
+          onChangeText={handleChangeUsername}
+        />
 
         <View style={styles.enterBtn}>
-          <WDRButton title={t('signIn.enter')} />
+          <WDRButton
+            title={t('signIn.enter')}
+            isDisabled={username.length === 0}
+            onPress={onLogin}
+            isLoading={isLoading}
+          />
         </View>
       </View>
     </WDRContainer>

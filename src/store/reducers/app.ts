@@ -13,13 +13,31 @@ const appReducer = (
   action: app.IAction,
 ): app.IInitialState => {
   switch (action.type) {
-    // TODO add here delete data in app reducer
     case app.ActionTypes.CLEAN_APP: {
+      return {}
+    }
+    case app.ActionTypes.LOGIN: {
       return {
         ...state,
+        isLoading: true,
       }
     }
-
+    case app.ActionTypes.ON_LOGIN_SUCCESS: {
+      const oldState = { ...state }
+      delete oldState.isLoading
+      return {
+        ...oldState,
+        isAuthorized: true,
+      }
+    }
+    case app.ActionTypes.ON_LOGIN_ERROR: {
+      const oldState = { ...state }
+      delete oldState.isLoading
+      return {
+        ...state,
+        error: action.error,
+      }
+    }
     default: {
       return state
     }

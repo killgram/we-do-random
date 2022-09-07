@@ -6,6 +6,7 @@ import { Navigate } from '@navigators'
 
 export function* startup(): any {
   const state = yield select()
+  const isAuthorized = state?.app?.isAuthorized
   const lang = state?.settings?.language
 
   if (!lang) {
@@ -15,5 +16,9 @@ export function* startup(): any {
     yield call(setLocale, lang)
   }
 
-  yield call(Navigate.toAuthStack)
+  if (isAuthorized) {
+    yield call(Navigate.toAppStack)
+  } else {
+    yield call(Navigate.toAuthStack)
+  }
 }

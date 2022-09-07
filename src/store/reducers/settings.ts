@@ -13,18 +13,19 @@ const settingsReducer = (
   action: settings.IAction,
 ): settings.IInitialState => {
   switch (action.type) {
+    case settings.ActionTypes.CLEAN_SETTINGS: {
+      const oldState = { ...state }
+      return {
+        language: oldState.language,
+      }
+    }
     case settings.ActionTypes.SET_LANGUAGE: {
       return {
         ...state,
         language: action.language,
       }
     }
-    // TODO add here delete data in settings reducer
-    case settings.ActionTypes.CLEAN_SETTINGS: {
-      return {
-        ...state,
-      }
-    }
+
     default: {
       return state
     }

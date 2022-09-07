@@ -9,29 +9,22 @@ import { RootSaga } from '@sagas'
 const persistConfig = {
   key: 'rootStore',
   storage: AsyncStorage,
-  whitelist: [],
+  whitelist: ['settings', 'app', 'profile'],
   blacklist: [],
 }
 
 export default (rootReducer: typeof RootState, rootSaga: RootSaga) => {
-  const middleware = []
-  const enhancers = []
+  const middleware: any = []
+  const enhancers: any = []
   if (process.env.NODE_ENV === `development`) {
     middleware.push(logger)
   }
-
-  // Connect the sagas to the redux store
   const sagaMiddleware = createSagaMiddleware()
   middleware.push(sagaMiddleware)
   enhancers.push(applyMiddleware(...middleware))
-
-  // Redux persist
   const persistedReducer = persistReducer(persistConfig, rootReducer)
-
   const store = createStore(persistedReducer, {}, compose<any>(...enhancers))
   const persistor = persistStore(store)
-
-  // Kick off the root saga
   sagaMiddleware.run(rootSaga)
 
   return { store, persistor }
