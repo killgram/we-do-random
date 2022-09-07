@@ -39,8 +39,8 @@ const BottomTabStack = () => {
         }}
       />
       <Tab.Screen
-        name="ProfileMain"
-        component={ProfileMain}
+        name="RulesMain"
+        component={RulesMain}
         options={{
           tabBarIcon: ({ color, size }) => {
             return (
@@ -50,8 +50,8 @@ const BottomTabStack = () => {
         }}
       />
       <Tab.Screen
-        name="RulesMain"
-        component={RulesMain}
+        name="ProfileMain"
+        component={ProfileMain}
         options={{
           tabBarIcon: ({ color, size }) => {
             return (

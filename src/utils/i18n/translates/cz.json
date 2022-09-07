@@ -3,6 +3,9 @@
     "test": {
       "helloWorld": "Ahoj světe"
     },
+    "toast": {
+      "successCopy": "Úspěšně zkopírováno"
+    },
     "settings": {
       "lang": "Jazyk",
       "changeLang": "Změnit jazyk",
@@ -16,6 +19,9 @@
       "introduce": "Představit se",
       "namePlaceholder": "Zadejte své jméno",
       "enter": "Vstupte"
+    },
+    "profile": {
+      "yourKey": "Váš klíč"
     }
   }
 }

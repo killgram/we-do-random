@@ -19,4 +19,7 @@ export default StyleSheet.create({
   medium: {
     fontFamily: Constants.APP_FONT_FAMILY.Raleway_Medium,
   },
+  number: {
+    fontFamily: Constants.APP_FONT_FAMILY.NotoSansJP_Regular,
+  },
 })

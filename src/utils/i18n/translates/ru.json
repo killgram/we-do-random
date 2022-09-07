@@ -3,6 +3,9 @@
     "test": {
       "helloWorld": "Привет, мир!"
     },
+    "toast": {
+      "successCopy": "Успешно скопировано"
+    },
     "settings": {
       "lang": "Язык",
       "changeLang": "Сменить язык",
@@ -16,6 +19,9 @@
       "introduce": "Представьтесь",
       "namePlaceholder": "Введите имя",
       "enter": "Войти"
+    },
+    "profile": {
+      "yourKey": "Ваш ключ"
     }
   }
 }

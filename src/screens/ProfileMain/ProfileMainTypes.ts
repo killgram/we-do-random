@@ -1,9 +1,10 @@
-import { settings } from '@store/types'
+import { profile } from '@store/types'
 
 export interface IProfileMainScreenTypesProps {
-  language?: string
+  username?: string
+  userId?: string
 }
 
 export interface IState {
-  settings?: settings.IInitialState
+  profile?: profile.IInitialState
 }

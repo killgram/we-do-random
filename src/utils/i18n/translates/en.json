@@ -3,6 +3,9 @@
     "test": {
       "helloWorld": "Hello World"
     },
+    "toast": {
+      "successCopy": "Successfully copied"
+    },
     "settings": {
       "lang": "Language",
       "changeLang": "Change language",
@@ -16,6 +19,9 @@
       "introduce": "Introduce yourself",
       "namePlaceholder": "Enter your name",
       "enter": "Enter"
+    },
+    "profile": {
+      "yourKey": "Your key"
     }
   }
 }

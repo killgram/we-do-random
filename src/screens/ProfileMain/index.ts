@@ -8,7 +8,8 @@ import { IState, IProfileMainScreenTypesProps } from './ProfileMainTypes'
  * @return {IProfileMainScreenTypesProps}
  */
 const mapStateToProps = (state: IState): IProfileMainScreenTypesProps => ({
-  language: state?.settings?.language,
+  username: state?.profile?.username,
+  userId: state?.profile?.userId,
 })
 
 export default connect(mapStateToProps)(ProfileMain)

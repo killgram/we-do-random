@@ -22,5 +22,6 @@ export default {
     Raleway_Medium: 'Raleway-Medium',
     Raleway_Regular: 'Raleway-Regular',
     Raleway_Light: 'Raleway-Light',
+    NotoSansJP_Regular: 'NotoSansJP-Regular',
   },
 }

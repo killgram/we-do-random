@@ -4,6 +4,8 @@ import { IRootScreenProps } from './RootScreenTypes'
 import getStyle from './RootScreenStyles'
 import { AppNavigator, NavigationService } from '@navigators'
 import { NavigatorRefType } from '@navigators/NavigatorTypes'
+import Toast from 'react-native-toast-message'
+import SuccessCopyToast from '@components/SuccessCopyToast'
 
 const RootScreen = (props: IRootScreenProps) => {
   const { startup } = props
@@ -23,6 +25,10 @@ const RootScreen = (props: IRootScreenProps) => {
     startup?.()
   }
 
+  const toastConfig = {
+    successCopy: SuccessCopyToast,
+  }
+
   return (
     <View style={styles.container}>
       <AppNavigator
@@ -32,6 +38,7 @@ const RootScreen = (props: IRootScreenProps) => {
         }}
         onReady={onReady}
       />
+      <Toast config={toastConfig} />
     </View>
   )
 }

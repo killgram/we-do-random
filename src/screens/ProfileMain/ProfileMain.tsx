@@ -1,8 +1,15 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import { IProfileMainScreenTypesProps } from './ProfileMainTypes'
 import getStyle from './ProfileMainStyles'
-import { WDRContainer } from '@ui-kit/components'
+import {
+  WDRCombineItem,
+  WDRContainer,
+  WDRIcon,
+  WDRText,
+} from '@ui-kit/components'
+import { useTranslation } from 'react-i18next'
+import { chunkSubstr, copyToClipboard, onSuccessCopyToast } from '@utils'
 
 /**
  * @description ProfileMainScreen
@@ -10,18 +17,45 @@ import { WDRContainer } from '@ui-kit/components'
  * @return {JSX}
  */
 const ProfileMainScreen = (props: IProfileMainScreenTypesProps) => {
-  const {} = props
+  const { userId, username } = props
   const styles = getStyle()
-  console.log('ProfileMainScreen')
+  const { t } = useTranslation()
+
+  /**
+   *@description splits userId into 4 chunks
+   */
+  const renderUserId = () => {
+    return userId && chunkSubstr(userId, 4).join(' : ')
+  }
+
+  const handleCopyBtn = () => {
+    userId && copyToClipboard(userId)
+    onSuccessCopyToast()
+  }
+
   return (
     <WDRContainer>
-      <View style={styles.container}>
-        <Text>
-          ProfileMainScreen ProfileMainScreen ProfileMainScreen
-          ProfileMainScreen ProfileMainScreen ProfileMainScreen
-        </Text>
-        <Text>hello 2</Text>
-      </View>
+      <WDRText isTitle style={styles.usernameText}>
+        {username}
+      </WDRText>
+      <WDRText isTitle style={styles.userIdTitle} size={20}>
+        {t('profile.yourKey')}
+      </WDRText>
+      <WDRCombineItem
+        bodyElement={
+          <WDRText style={styles.userIdNumbers}>{renderUserId()}</WDRText>
+        }
+        rightElement={
+          <TouchableOpacity
+            activeOpacity={0.6}
+            style={styles.copyBtn}
+            onPress={handleCopyBtn}
+          >
+            <WDRIcon iconName="copy" />
+          </TouchableOpacity>
+        }
+        style={styles.copyBtnContainer}
+      />
     </WDRContainer>
   )
 }

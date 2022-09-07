@@ -8,7 +8,6 @@ import {
   IStatusBarThemes,
   getThemeStatusBar,
 } from './Theme'
-
 import {
   width,
   height,
@@ -17,11 +16,12 @@ import {
   screenWidth,
   screenHeight,
 } from './Responsive'
-
 import { keyGenerate } from './KeyGenerate'
 import { getUserId } from './GetUserId'
 import { setLocale } from './i18n'
-
+import { chunkSubstr } from './ChunkSubstr'
+import { onSuccessCopyToast } from './Toast'
+import { copyToClipboard } from './Clipboard'
 export {
   width,
   height,
@@ -35,6 +35,9 @@ export {
   getThemeStatusBar,
   setLocale,
   getUserId,
+  chunkSubstr,
+  onSuccessCopyToast,
+  copyToClipboard,
 }
 
 export type {

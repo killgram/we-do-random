@@ -13,6 +13,7 @@ export enum Colors {
   DEEP_SLATE_OLIVE = '#162a10',
   PATCH_OF_LAND = '#1f4f16',
   BLUE_VELVET = '#0f6686',
+  THUJA_GREEN = '#136207',
 }
 
 export enum LightColors {
@@ -47,4 +48,6 @@ export enum LightColors {
   ERROR_INPUT = Colors.FIREBRICK,
   TRANSPARENT_INPUT = Colors.TRANSPARENT,
   BORDER_INPUT = Colors.GABLE_GREEN,
+  // toasts
+  SUCCESS_BACKGROUND_TOAST = Colors.PATCH_OF_LAND,
 }
