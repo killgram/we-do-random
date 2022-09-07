@@ -15,4 +15,13 @@ const dbLogin = async (userId: string, username: string) => {
   return true
 }
 
-export { dbLogin }
+/**
+ * @description delete user in Firestore
+ * @param {string} userId
+ */
+const dbLogout = async (userId: string) => {
+  await firestore().collection(Collections.USERS).doc(userId).delete()
+  return true
+}
+
+export { dbLogin, dbLogout }

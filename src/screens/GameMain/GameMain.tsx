@@ -17,48 +17,50 @@ const GameMainScreen = (props: IGameMainScreenTypesProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
 
-  useEffect(() => {
-    firestore()
-      .collection('Users')
-      .doc('ABC')
-      .set({
-        user: 'Test',
-        status: true,
-      })
-      .then(() => {
-        console.log('Status true set')
-      })
-    const subscription = AppState.addEventListener('change', (nextAppState) => {
-      if (nextAppState === 'active') {
-        firestore()
-          .collection('Users')
-          .doc('ABC')
-          .set({
-            user: 'Test',
-            status: true,
-          })
-          .then(() => {
-            console.log('Status true set')
-          })
-      }
-      if (nextAppState === 'background') {
-        firestore()
-          .collection('Users')
-          .doc('ABC')
-          .set({
-            user: 'Test',
-            status: false,
-          })
-          .then(() => {
-            console.log('Status false set')
-          })
-      }
-    })
-
-    return () => {
-      subscription.remove()
-    }
-  }, [])
+  // useEffect(() => {
+  //   console.log('fdfdfdfdf')
+  //   firestore()
+  //     .collection('Users')
+  //     .doc('ABC')
+  //     .update({
+  //       hehe: false,
+  //       status: true,
+  //       user: 'out',
+  //     })
+  //     .then(() => {
+  //       console.log('Status true set')
+  //     })
+  //   const subscription = AppState.addEventListener('change', (nextAppState) => {
+  //     if (nextAppState === 'active') {
+  //       firestore()
+  //         .collection('Users')
+  //         .doc('ABC')
+  //         .set({
+  //           user: 'Test',
+  //           status: true,
+  //         })
+  //         .then(() => {
+  //           console.log('Status true set')
+  //         })
+  //     }
+  //     if (nextAppState === 'background') {
+  //       firestore()
+  //         .collection('Users')
+  //         .doc('ABC')
+  //         .set({
+  //           user: 'Test',
+  //           status: false,
+  //         })
+  //         .then(() => {
+  //           console.log('Status false set')
+  //         })
+  //     }
+  //   })
+  //
+  //   return () => {
+  //     subscription.remove()
+  //   }
+  // }, [])
 
   return (
     <WDRContainer style={styles.container}>

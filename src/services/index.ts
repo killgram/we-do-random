@@ -1,3 +1,3 @@
-import { dbLogin } from './Firestore'
+import { dbLogin, dbLogout } from './AuthService'
 
-export { dbLogin }
+export { dbLogin, dbLogout }
