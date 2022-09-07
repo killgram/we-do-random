@@ -5,7 +5,7 @@ import { Navigate } from '@navigators'
 import { WDRContainer, WDRText, WDRButton } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
 import { AppState } from 'react-native'
-import firestore from '@react-native-firebase/firestore'
+import { dbUpdateStatus } from '@services'
 
 /**
  * @description GameMainScreen
@@ -13,54 +13,30 @@ import firestore from '@react-native-firebase/firestore'
  * @return {JSX}
  */
 const GameMainScreen = (props: IGameMainScreenTypesProps) => {
-  const {} = props
+  const { userId } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
-  // useEffect(() => {
-  //   console.log('fdfdfdfdf')
-  //   firestore()
-  //     .collection('Users')
-  //     .doc('ABC')
-  //     .update({
-  //       hehe: false,
-  //       status: true,
-  //       user: 'out',
-  //     })
-  //     .then(() => {
-  //       console.log('Status true set')
-  //     })
-  //   const subscription = AppState.addEventListener('change', (nextAppState) => {
-  //     if (nextAppState === 'active') {
-  //       firestore()
-  //         .collection('Users')
-  //         .doc('ABC')
-  //         .set({
-  //           user: 'Test',
-  //           status: true,
-  //         })
-  //         .then(() => {
-  //           console.log('Status true set')
-  //         })
-  //     }
-  //     if (nextAppState === 'background') {
-  //       firestore()
-  //         .collection('Users')
-  //         .doc('ABC')
-  //         .set({
-  //           user: 'Test',
-  //           status: false,
-  //         })
-  //         .then(() => {
-  //           console.log('Status false set')
-  //         })
-  //     }
-  //   })
-  //
-  //   return () => {
-  //     subscription.remove()
-  //   }
-  // }, [])
+  useEffect(() => {
+    userId && dbUpdateStatus(userId, true)
+
+    const subscription = AppState.addEventListener('change', (nextAppState) => {
+      switch (nextAppState) {
+        case 'active': {
+          userId && dbUpdateStatus(userId, true)
+          break
+        }
+        default: {
+          userId && dbUpdateStatus(userId, false)
+          break
+        }
+      }
+    })
+
+    return () => {
+      subscription.remove()
+    }
+  }, [])
 
   return (
     <WDRContainer style={styles.container}>

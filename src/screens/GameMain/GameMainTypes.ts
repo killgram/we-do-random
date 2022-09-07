@@ -1,9 +1,13 @@
-import { settings } from '@store/types'
+import { profile } from '@store/types'
 
-export interface IGameMainScreenTypesProps {
-  language?: string
+interface IStateToProps {
+  userId?: string
 }
 
 export interface IState {
-  settings?: settings.IInitialState
+  profile?: profile.IInitialState
 }
+
+interface IDispatchToProps {}
+
+export type IGameMainScreenTypesProps = IDispatchToProps & IStateToProps

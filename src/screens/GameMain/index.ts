@@ -8,7 +8,7 @@ import { IState, IGameMainScreenTypesProps } from './GameMainTypes'
  * @return {IGameMainScreenTypesProps}
  */
 const mapStateToProps = (state: IState): IGameMainScreenTypesProps => ({
-  language: state?.settings?.language,
+  userId: state?.profile?.userId,
 })
 
 export default connect(mapStateToProps)(GameMain)
