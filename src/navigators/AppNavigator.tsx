@@ -9,8 +9,6 @@ import { AppNavigatorPropsTypes } from '@navigators/NavigatorTypes'
 import AuthStack from '@navigators/AuthStack'
 import BottomTabStack from '@navigators/BottomTabStack'
 import GameStack from '@navigators/GameStack'
-import RulesStack from '@navigators/RulesStack'
-import ProfileStack from '@navigators/ProfileStack'
 import SettingsStack from '@navigators/SettingsStack'
 import { getThemeColor } from '@utils'
 import AwaitScreen from '@screens/Await'
@@ -68,8 +66,6 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
         />
         <Stack.Screen name="BottomTabStack" component={BottomTabStack} />
         <Stack.Screen name="GameStack" component={GameStack} />
-        <Stack.Screen name="RulesStack" component={RulesStack} />
-        <Stack.Screen name="ProfileStack" component={ProfileStack} />
         <Stack.Screen name="SettingsStack" component={SettingsStack} />
       </Stack.Navigator>
     </NavigationContainer>

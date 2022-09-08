@@ -11,12 +11,13 @@ interface IStyles {
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     container: {
-      backgroundColor: getThemeColor('QRCODE_BACKGROUND'),
+      backgroundColor: getThemeColor('CREATE_GAME_CARD_BACKGROUND'),
       alignItems: 'center',
       justifyContent: 'center',
-      padding: height(16),
-      borderRadius: radius(16),
-      marginHorizontal: width(22),
+      padding: height(32),
+      borderWidth: width(5),
+      borderColor: getThemeColor('CREATE_GAME_CARD_BORDER'),
+      borderRadius: radius(4),
     },
   })
 }

@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { RNStyleType } from '@utils'
+import { height, RNStyleType } from '@utils'
 
 interface IStyles {
-  container: RNStyleType
+  gameBox: RNStyleType
+  listBtnBox: RNStyleType
 }
 
 /**
@@ -10,10 +11,13 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {
-      // backgroundColor: 'red',
-      // alignItems: 'flex-end',
-      // justifyContent: 'flex-end',
+    gameBox: {
+      marginBottom: height(16),
+    },
+    listBtnBox: {
+      marginTop: height(48),
+      flexDirection: 'row',
+      justifyContent: 'space-between',
     },
   })
 }

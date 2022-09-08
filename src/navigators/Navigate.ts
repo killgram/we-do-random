@@ -1,4 +1,5 @@
 import NavigationService from './NavigationService'
+import PhraseListScreen from '@screens/PhraseList/PhraseList'
 
 //-------------------To stacks-------------------//
 
@@ -24,20 +25,6 @@ export const toGameStack = () => {
 }
 
 /**
- * @description rules stack
- */
-export const toRulesStack = () => {
-  NavigationService.navigateAndReset('RulesStack')
-}
-
-/**
- * @description profile stack
- */
-export const toProfileStack = () => {
-  NavigationService.navigateAndReset('ProfileStack')
-}
-
-/**
  * @description settings stack
  */
 export const toSettingsStack = () => {
@@ -56,10 +43,34 @@ export const goBack = () => {
 //-------------------GameStack---------------------//
 
 /**
- * @description to Blank
+ * @description to CreateGameScreen
+ * @param {"single"|"team"} type
  */
-export const toBlank = () => {
-  NavigationService.navigate('GameStack', { screen: 'BlankScreen' })
+export const toCreateGameScreen = (type: 'single' | 'team') => {
+  NavigationService.navigate('GameStack', {
+    screen: 'CreateGameScreen',
+    params: {
+      type,
+    },
+  })
+}
+
+/**
+ * @description to FriendListScreen
+ */
+export const toFriendListScreen = () => {
+  NavigationService.navigate('GameStack', {
+    screen: 'FriendListScreen',
+  })
+}
+
+/**
+ * @description to PhraseListScreen
+ */
+export const toPhraseListScreen = () => {
+  NavigationService.navigate('GameStack', {
+    screen: 'PhraseListScreen',
+  })
 }
 
 //-------------------SettingsStack---------------------//
@@ -92,10 +103,3 @@ export const toSupportScreen = () => {
 }
 
 //-------------------Other-------------------------//
-
-/**
- * @description bottom stack
- */
-export const toBottomTabStack = () => {
-  NavigationService.navigate('BottomTabStack')
-}

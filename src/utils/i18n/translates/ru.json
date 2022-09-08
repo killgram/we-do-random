@@ -22,6 +22,12 @@
     },
     "profile": {
       "yourKey": "Ваш ключ"
+    },
+    "game": {
+      "singleGame": "Одиночная игра",
+      "teamGame": "Командная игра",
+      "friendList": "Список друзей",
+      "phrasesList": "Список фраз"
     }
   }
 }

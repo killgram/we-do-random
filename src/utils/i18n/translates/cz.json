@@ -22,6 +22,12 @@
     },
     "profile": {
       "yourKey": "Váš klíč"
+    },
+    "game": {
+      "singleGame": "Hra pro jednoho hráče",
+      "teamGame": "Týmová hra",
+      "friendList": "Seznam přátel",
+      "phrasesList": "Seznam frází"
     }
   }
 }

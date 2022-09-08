@@ -13,8 +13,9 @@ export enum Colors {
   DEEP_SLATE_OLIVE = '#162a10',
   PATCH_OF_LAND = '#1f4f16',
   BLUE_VELVET = '#0f6686',
-  THUJA_GREEN = '#136207',
   WHITE = '#ffffff',
+  MEATLOAF = '#633309',
+  CHOCOLATE_PANCAKES = '#884000',
 }
 
 export enum LightColors {
@@ -52,4 +53,7 @@ export enum LightColors {
   BORDER_INPUT = Colors.GABLE_GREEN,
   // toasts
   SUCCESS_BACKGROUND_TOAST = Colors.PATCH_OF_LAND,
+  // cards
+  CREATE_GAME_CARD_BACKGROUND = Colors.CHOCOLATE_PANCAKES,
+  CREATE_GAME_CARD_BORDER = Colors.MEATLOAF,
 }

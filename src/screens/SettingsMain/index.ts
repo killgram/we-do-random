@@ -7,7 +7,7 @@ import { appAction } from '@store/actions'
 
 /**
  * @param {IState} state
- * @return {IProfileMainScreenTypesProps}
+ * @return {ISettingsMainScreenTypesProps}
  */
 const mapStateToProps = (state: IState): ISettingsMainScreenTypesProps => ({
   language: state?.settings?.language,

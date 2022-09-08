@@ -4,7 +4,9 @@ import { defaultHeaderStyle } from '@ui-kit/styles'
 
 const Stack = createStackNavigator()
 
-import BlankScreen from '@screens/BlankScreen'
+import CreateGameScreen from '@screens/CreateGame'
+import FriendListScreen from '@screens/FriendList/FriendList'
+import PhraseListScreen from '@screens/PhraseList/PhraseList'
 
 /**
  * @description game stack
@@ -13,13 +15,14 @@ import BlankScreen from '@screens/BlankScreen'
 const GameStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="BlankScreen"
       screenOptions={{
         ...defaultHeaderStyle,
         headerShown: true,
       }}
     >
-      <Stack.Screen name="BlankScreen" component={BlankScreen} />
+      <Stack.Screen name="CreateGameScreen" component={CreateGameScreen} />
+      <Stack.Screen name="FriendListScreen" component={FriendListScreen} />
+      <Stack.Screen name="PhraseListScreen" component={PhraseListScreen} />
     </Stack.Navigator>
   )
 }

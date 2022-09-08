@@ -22,6 +22,12 @@
     },
     "profile": {
       "yourKey": "Your key"
+    },
+    "game": {
+      "singleGame": "Single player game",
+      "teamGame": "Team game",
+      "friendList": "Friend list",
+      "phrasesList": "List of phrases"
     }
   }
 }
