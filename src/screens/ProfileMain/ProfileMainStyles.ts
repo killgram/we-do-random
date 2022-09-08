@@ -35,7 +35,7 @@ export default function getStyle(): IStyles {
       padding: height(10),
     },
     copyBtnContainer: {
-      // backgroundColor: 'red',
+      marginBottom: height(20),
     },
   })
 }

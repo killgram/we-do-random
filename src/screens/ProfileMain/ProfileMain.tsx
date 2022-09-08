@@ -1,5 +1,6 @@
 import React from 'react'
-import { TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity } from 'react-native'
+
 import { IProfileMainScreenTypesProps } from './ProfileMainTypes'
 import getStyle from './ProfileMainStyles'
 import {
@@ -10,6 +11,7 @@ import {
 } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
 import { chunkSubstr, copyToClipboard, onSuccessCopyToast } from '@utils'
+import QRCodeView from '@components/QRCodeView'
 
 /**
  * @description ProfileMainScreen
@@ -56,6 +58,8 @@ const ProfileMainScreen = (props: IProfileMainScreenTypesProps) => {
         }
         style={styles.copyBtnContainer}
       />
+
+      <QRCodeView value={userId} />
     </WDRContainer>
   )
 }

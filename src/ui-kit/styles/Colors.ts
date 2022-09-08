@@ -14,11 +14,13 @@ export enum Colors {
   PATCH_OF_LAND = '#1f4f16',
   BLUE_VELVET = '#0f6686',
   THUJA_GREEN = '#136207',
+  WHITE = '#ffffff',
 }
 
 export enum LightColors {
   ACTIVITY_INDICATOR = Colors.GABLE_GREEN,
   BACKGROUND = Colors.ADRIATIC_SEA,
+  QRCODE_BACKGROUND = Colors.WHITE,
   // tabs
   TAB_BAR_ACTIVE_TINT_COLOR = Colors.GABLE_GREEN,
   TAB_BAR_INACTIVE_TINT_COLOR = Colors.BABY_BLUE_EYES,
