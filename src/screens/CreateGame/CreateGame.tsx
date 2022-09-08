@@ -14,6 +14,8 @@ const CreateGameScreen = (props: ICreateGameTypesProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
 
+  console.log(props)
+
   useLayoutEffect(() => {
     navigation?.setOptions({
       headerTitle:

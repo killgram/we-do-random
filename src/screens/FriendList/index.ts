@@ -3,7 +3,7 @@ import FriendList from './FriendList'
 import { connect } from 'react-redux'
 import { IState, IFriendListTypesProps } from './FriendListTypes'
 import { Dispatch } from 'redux'
-import { appAction } from '@store/actions'
+import { appAction, friendsAction } from '@store/actions'
 
 /**
  * @param {IState} state
@@ -18,7 +18,9 @@ const mapStateToProps = (state: IState): IFriendListTypesProps => ({
  * @return {IFriendListTypesProps}
  */
 const mapDispatchToProps = (dispatch: Dispatch): IFriendListTypesProps => ({
-  logout: () => dispatch(appAction.logout()),
+  addFriend: (userId: string) => dispatch(friendsAction.addFriend(userId)),
+  deleteFriend: (userId: string) =>
+    dispatch(friendsAction.deleteFriend(userId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendList)

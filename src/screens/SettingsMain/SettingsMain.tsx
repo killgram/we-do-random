@@ -26,7 +26,6 @@ const SettingsMainScreen = (props: ISettingsMainScreenTypesProps) => {
   const { language, logout } = props
   const styles = getStyle()
   const { t } = useTranslation()
-
   const [isVisible, setIsVisible] = useState(false)
 
   const calcImageSource = () => {

@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react'
 import { IFriendListTypesProps } from './FriendListTypes'
 import getStyle from './FriendListStyles'
-import { WDRContainer, WDRText } from '@ui-kit/components'
+import { WDRButton, WDRContainer, WDRText } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
 
 /**
@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
  * @return {JSX}
  */
 const FriendListScreen = (props: IFriendListTypesProps) => {
-  const { language, logout, navigation } = props
+  const { language, addFriend, navigation, deleteFriend } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
@@ -20,9 +20,23 @@ const FriendListScreen = (props: IFriendListTypesProps) => {
     })
   }, [])
 
+  const handleAddFriend = () => {
+    const id = '2626477374278932'
+
+    addFriend?.(id)
+  }
+
+  const handleDeleteFriend = () => {
+    const id = '2626477374278932'
+
+    deleteFriend?.(id)
+  }
+
   return (
     <WDRContainer isTransparentHeader>
       <WDRText>FriendList</WDRText>
+      <WDRButton title="add friend" onPress={handleAddFriend} />
+      <WDRButton title="delete friend" onPress={handleDeleteFriend} />
     </WDRContainer>
   )
 }

@@ -1,5 +1,10 @@
 import { call, put, select } from 'redux-saga/effects'
-import { settingsAction, appAction, profileAction } from '@store/actions'
+import {
+  settingsAction,
+  appAction,
+  profileAction,
+  friendsAction,
+} from '@store/actions'
 import { Navigate } from '@navigators'
 import { dbLogout } from '@services'
 
@@ -9,6 +14,7 @@ export function* logout(): any {
   yield put(appAction.cleanApp())
   yield put(settingsAction.cleanSettings())
   yield put(profileAction.cleanProfile())
+  yield put(friendsAction.cleanFriends())
 
   yield call(Navigate.toAuthStack)
   yield call(dbLogout, state?.profile?.userId)

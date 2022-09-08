@@ -5,8 +5,8 @@ import { defaultHeaderStyle } from '@ui-kit/styles'
 const Stack = createStackNavigator()
 
 import CreateGameScreen from '@screens/CreateGame'
-import FriendListScreen from '@screens/FriendList/FriendList'
-import PhraseListScreen from '@screens/PhraseList/PhraseList'
+import FriendListScreen from '@screens/FriendList'
+import PhraseListScreen from '@screens/PhraseList'
 
 /**
  * @description game stack

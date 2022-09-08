@@ -1,4 +1,4 @@
-import { settings } from '@store/types'
+import { settings, friends } from '@store/types'
 import { NavigationType } from '@navigators'
 
 interface IStateToProps {
@@ -7,11 +7,13 @@ interface IStateToProps {
 }
 
 interface IDispatchToProps {
-  logout?: () => void
+  addFriend?: (userId: string) => friends.IAction
+  deleteFriend?: (userId: string) => friends.IAction
 }
 
 export interface IState {
   settings?: settings.IInitialState
+  friends?: friends.IInitialState
 }
 
 export type IFriendListTypesProps = IStateToProps & IDispatchToProps
