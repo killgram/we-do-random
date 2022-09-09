@@ -33,18 +33,6 @@ export function onAddFriendSuccess(
 
 /**
  *
- * @param {string} error
- * @return {friends.IAction}
- */
-export function addFriendError(error: string): friends.IAction {
-  return {
-    type: friends.ActionTypes.ADD_FRIEND_ERROR,
-    error,
-  }
-}
-
-/**
- *
  * @return {friends.IAction}
  */
 export function cleanFriends(): friends.IAction {

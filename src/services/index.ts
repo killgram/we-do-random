@@ -5,6 +5,7 @@ import {
   dbAddFriend,
   dbUpdateFriendList,
   dbRemoveFriend,
+  dbRemoveFriendList,
 } from './FriendsServices'
 
 export {
@@ -15,4 +16,5 @@ export {
   dbAddFriend,
   dbUpdateFriendList,
   dbRemoveFriend,
+  dbRemoveFriendList,
 }

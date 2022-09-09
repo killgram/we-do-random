@@ -8,6 +8,7 @@ import {
   dbRemoveFriend,
 } from '@services'
 import { IAddFriend, IDeleteFriend } from '@store/types/friends/Interfaces'
+import { errorToast, successToast } from '@utils'
 
 export function* addFriend(action: IAddFriend): any {
   const { userId } = action
@@ -21,7 +22,7 @@ export function* addFriend(action: IAddFriend): any {
       }
     })
     if (checkUserInFriendList) {
-      yield put(friendsAction.addFriendError('USER_ALREADY_ADD'))
+      yield call(errorToast, 'User already add')
       return
     }
     const user = yield call(dbCheckUser, userId!)
@@ -46,10 +47,10 @@ export function* addFriend(action: IAddFriend): any {
         ),
       )
     } else {
-      yield put(friendsAction.addFriendError('NO_FOUND_USER'))
+      yield call(errorToast, 'User not found')
     }
   } catch (e) {
-    yield put(friendsAction.addFriendError('SOMETHING_WENT_WRONG'))
+    yield call(errorToast, 'Something went wrong')
   }
 }
 
@@ -60,7 +61,8 @@ export function* deleteFriend(action: IDeleteFriend): any {
   try {
     yield call(dbRemoveFriend, currentUserId, userId!)
     yield put(friendsAction.onDeleteFriendSuccess(userId!))
+    yield call(successToast, 'Success')
   } catch (e) {
-    yield put(friendsAction.addFriendError('SOMETHING_WENT_WRONG'))
+    yield call(errorToast, 'Something went wrong')
   }
 }

@@ -9,7 +9,6 @@ export interface IInitialState {
   username?: string
   userId?: string
   isOnline?: boolean
-  error?: string
   isUpdate?: boolean
   list?: Array<IFriendList>
 }
@@ -32,11 +31,6 @@ export interface IOnAddFriendSuccess {
   isOnline?: boolean
 }
 
-export interface IAddFriendError {
-  type: ActionTypes.ADD_FRIEND_ERROR
-  error?: string
-}
-
 export interface IDeleteFriend {
   type: ActionTypes.DELETE_FRIEND
   userId?: string
@@ -53,4 +47,3 @@ export type IAction =
   | IOnAddFriendSuccess
   | IDeleteFriend
   | IOnDeleteFriendSuccess
-  | IAddFriendError

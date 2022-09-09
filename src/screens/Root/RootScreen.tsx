@@ -6,6 +6,8 @@ import { AppNavigator, NavigationService } from '@navigators'
 import { NavigatorRefType } from '@navigators/NavigatorTypes'
 import Toast from 'react-native-toast-message'
 import SuccessCopyToast from '@components/SuccessCopyToast'
+import ErrorToast from '@components/ErrorToast'
+import SuccessToast from '@components/SuccessToast'
 
 const RootScreen = (props: IRootScreenProps) => {
   const { startup } = props
@@ -27,6 +29,8 @@ const RootScreen = (props: IRootScreenProps) => {
 
   const toastConfig = {
     successCopy: SuccessCopyToast,
+    errorCustom: ({ text1 }: any) => <ErrorToast text={text1} />,
+    successCustom: ({ text1 }: any) => <SuccessToast text={text1} />,
   }
 
   return (

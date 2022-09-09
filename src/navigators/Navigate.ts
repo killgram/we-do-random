@@ -1,5 +1,6 @@
 import NavigationService from './NavigationService'
 import PhraseListScreen from '@screens/PhraseList/PhraseList'
+import AddFriendScreen from '@screens/AddFriend'
 
 //-------------------To stacks-------------------//
 
@@ -61,6 +62,15 @@ export const toCreateGameScreen = (type: 'single' | 'team') => {
 export const toFriendListScreen = () => {
   NavigationService.navigate('GameStack', {
     screen: 'FriendListScreen',
+  })
+}
+
+/**
+ * @description to AddFriendScreen
+ */
+export const toAddFriendScreen = () => {
+  NavigationService.navigate('GameStack', {
+    screen: 'AddFriendScreen',
   })
 }
 

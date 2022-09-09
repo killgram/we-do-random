@@ -6,7 +6,7 @@ import {
   friendsAction,
 } from '@store/actions'
 import { Navigate } from '@navigators'
-import { dbLogout } from '@services'
+import { dbLogout, dbRemoveFriendList } from '@services'
 
 export function* logout(): any {
   const state = yield select()
@@ -18,4 +18,5 @@ export function* logout(): any {
 
   yield call(Navigate.toAuthStack)
   yield call(dbLogout, state?.profile?.userId)
+  yield call(dbRemoveFriendList, state?.profile?.userId)
 }

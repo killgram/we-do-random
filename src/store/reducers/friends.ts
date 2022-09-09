@@ -38,14 +38,7 @@ const friendsReducer = (
         ...oldState,
       }
     }
-    case friends.ActionTypes.ADD_FRIEND_ERROR: {
-      const oldState = { ...state }
-      delete oldState.isUpdate
-      return {
-        ...oldState,
-        error: action.error,
-      }
-    }
+
     // remove
     case friends.ActionTypes.ON_DELETE_FRIEND_SUCCESS: {
       const oldState = { ...state }

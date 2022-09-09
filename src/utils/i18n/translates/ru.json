@@ -28,6 +28,10 @@
       "teamGame": "Командная игра",
       "friendList": "Список друзей",
       "phrasesList": "Список фраз"
+    },
+    "friendList": {
+      "addFriend": "Добавить друга",
+      "emptyList": "Список друзей пуст"
     }
   }
 }

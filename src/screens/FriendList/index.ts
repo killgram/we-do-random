@@ -3,14 +3,14 @@ import FriendList from './FriendList'
 import { connect } from 'react-redux'
 import { IState, IFriendListTypesProps } from './FriendListTypes'
 import { Dispatch } from 'redux'
-import { appAction, friendsAction } from '@store/actions'
+import { friendsAction } from '@store/actions'
 
 /**
  * @param {IState} state
  * @return {IFriendListTypesProps}
  */
 const mapStateToProps = (state: IState): IFriendListTypesProps => ({
-  language: state?.settings?.language,
+  friendsList: state?.friends?.list,
 })
 
 /**
@@ -18,7 +18,6 @@ const mapStateToProps = (state: IState): IFriendListTypesProps => ({
  * @return {IFriendListTypesProps}
  */
 const mapDispatchToProps = (dispatch: Dispatch): IFriendListTypesProps => ({
-  addFriend: (userId: string) => dispatch(friendsAction.addFriend(userId)),
   deleteFriend: (userId: string) =>
     dispatch(friendsAction.deleteFriend(userId)),
 })

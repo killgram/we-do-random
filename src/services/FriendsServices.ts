@@ -72,4 +72,19 @@ const dbRemoveFriend = async (userId: string, friendId: string) => {
   return true
 }
 
-export { dbCheckUser, dbAddFriend, dbUpdateFriendList, dbRemoveFriend }
+/**
+ * @description delete current user in Firestore (all fields)
+ * @param {string} userId
+ */
+const dbRemoveFriendList = async (userId: string) => {
+  await firestore().collection(Collections.FRIENDLIST).doc(userId).delete()
+  return true
+}
+
+export {
+  dbCheckUser,
+  dbAddFriend,
+  dbUpdateFriendList,
+  dbRemoveFriend,
+  dbRemoveFriendList,
+}

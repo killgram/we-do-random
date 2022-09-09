@@ -1,3 +1,3 @@
-import { onSuccessCopyToast } from './ToastUtils'
+import { onSuccessCopyToast, errorToast, successToast } from './ToastUtils'
 
-export { onSuccessCopyToast }
+export { onSuccessCopyToast, errorToast, successToast }

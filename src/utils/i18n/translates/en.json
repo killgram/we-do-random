@@ -28,6 +28,10 @@
       "teamGame": "Team game",
       "friendList": "Friend list",
       "phrasesList": "List of phrases"
+    },
+    "friendList": {
+      "addFriend": "Add friend",
+      "emptyList": "Friends list is empty"
     }
   }
 }

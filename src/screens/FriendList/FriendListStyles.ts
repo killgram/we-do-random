@@ -1,8 +1,8 @@
-import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
-import { height, RNStyleType, width } from '@utils'
+import { StyleSheet } from 'react-native'
+import { height, RNStyleType } from '@utils'
 
 interface IStyles {
-  flagImage: StyleProp<ImageStyle>
+  addFriendBox: RNStyleType
 }
 
 /**
@@ -10,6 +10,8 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    flagImage: {},
+    addFriendBox: {
+      marginVertical: height(16),
+    },
   })
 }

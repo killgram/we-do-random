@@ -28,6 +28,10 @@
       "teamGame": "Týmová hra",
       "friendList": "Seznam přátel",
       "phrasesList": "Seznam frází"
+    },
+    "friendList": {
+      "addFriend": "Přidat přítele",
+      "emptyList": "Seznam přátel je prázdný"
     }
   }
 }

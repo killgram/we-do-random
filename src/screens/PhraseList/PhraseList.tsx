@@ -21,7 +21,7 @@ const PhraseListScreen = (props: IPhraseListTypesProps) => {
   }, [])
 
   return (
-    <WDRContainer isTransparentHeader>
+    <WDRContainer style={styles.container} isTransparentHeader>
       <WDRText>PhraseList</WDRText>
     </WDRContainer>
   )

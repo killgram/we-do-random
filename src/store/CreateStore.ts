@@ -9,7 +9,7 @@ import { RootSaga } from '@sagas'
 const persistConfig = {
   key: 'rootStore',
   storage: AsyncStorage,
-  whitelist: ['settings', 'app', 'profile'],
+  whitelist: ['settings', 'app', 'profile', 'friends'],
   blacklist: [],
 }
 
