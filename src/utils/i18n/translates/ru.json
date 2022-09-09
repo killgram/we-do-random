@@ -31,7 +31,21 @@
     },
     "friendList": {
       "addFriend": "Добавить друга",
-      "emptyList": "Список друзей пуст"
+      "emptyList": "Список друзей пуст",
+      "enterKey": "Введите ключ",
+      "insert": "Вставить",
+      "add": "Добавить",
+      "qrAdd": "Сканировать QR-code",
+      "or": "Или"
+    },
+    "qrScreen": {
+      "cameraPermission": "Разрешение камеры",
+      "weNeedPermissionUseCameraScanQrCode": "Нам нужно разрешение на использование камеры для сканирования QR-кода",
+      "good": "Хорошо",
+      "cancel": "Отмена",
+      "placeTheQRCodeInTheMiddle": "Поместите QR-код посередине. Он будет отсканирован автоматически.",
+      "close": "Закрыть",
+      "scanQrCodeYouNeedPermissionUseCamera": "Для сканирования QR-кода необходимо разрешение на использование камеры."
     }
   }
 }

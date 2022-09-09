@@ -4,6 +4,7 @@ import { defaultHeaderStyle } from './HeaderStyles'
 import ApplicationStyles from './ApplicationStyles'
 import Buttons from './Buttons'
 import Inputs from './Inputs'
+import BarcodeMaskStyle from './BarcodeMaskStyle'
 
 export {
   Colors,
@@ -13,4 +14,5 @@ export {
   ApplicationStyles,
   Buttons,
   Inputs,
+  BarcodeMaskStyle,
 }

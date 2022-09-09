@@ -1,3 +1,3 @@
-import { copyToClipboard } from './Clipboard'
+import { copyToClipboard, getDataToBuffer } from './Clipboard'
 
-export { copyToClipboard }
+export { copyToClipboard, getDataToBuffer }

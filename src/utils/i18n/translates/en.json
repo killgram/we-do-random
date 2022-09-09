@@ -31,7 +31,21 @@
     },
     "friendList": {
       "addFriend": "Add friend",
-      "emptyList": "Friends list is empty"
+      "emptyList": "Friends list is empty",
+      "enterKey": "Enter key",
+      "insert": "Insert",
+      "add": "Add",
+      "qrAdd": "Scan QR-code",
+      "or": "Or"
+    },
+    "qrScreen": {
+      "cameraPermission": "Camera permission",
+      "weNeedPermissionUseCameraScanQrCode": "We need permission to use the camera to scan the QR Code",
+      "good": "Good",
+      "cancel": "Cancel",
+      "placeTheQRCodeInTheMiddle": "Place the QR code in the middle. It will be scanned automatically.",
+      "close": "Close",
+      "scanQrCodeYouNeedPermissionUseCamera": "To scan QR Code you need permission to use the camera"
     }
   }
 }

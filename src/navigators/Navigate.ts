@@ -113,3 +113,13 @@ export const toSupportScreen = () => {
 }
 
 //-------------------Other-------------------------//
+
+/**
+ * @description to QRCodeScanScreen
+ * @param {(s: string) => void} goBackScreen
+ */
+export const toQRCodeScanScreen = (goBackScreen: (s: string) => void) => {
+  NavigationService.navigate('QRCodeScanScreen', {
+    goBackScreen,
+  })
+}

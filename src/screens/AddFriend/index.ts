@@ -3,13 +3,15 @@ import AddFriend from './AddFriend'
 import { connect } from 'react-redux'
 import { IState, IAddFriendTypesProps } from './AddFriendTypes'
 import { Dispatch } from 'redux'
-import { appAction, friendsAction } from '@store/actions'
+import { friendsAction } from '@store/actions'
 
 /**
  * @param {IState} state
  * @return {IAddFriendTypesProps}
  */
-const mapStateToProps = (state: IState): IAddFriendTypesProps => ({})
+const mapStateToProps = (state: IState): IAddFriendTypesProps => ({
+  isUpdate: state?.friends?.isUpdate,
+})
 
 /**
  * @param {Dispatch<any>} dispatch

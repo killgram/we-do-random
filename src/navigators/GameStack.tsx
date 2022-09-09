@@ -1,5 +1,8 @@
 import React from 'react'
-import { createStackNavigator } from '@react-navigation/stack'
+import {
+  CardStyleInterpolators,
+  createStackNavigator,
+} from '@react-navigation/stack'
 import { defaultHeaderStyle } from '@ui-kit/styles'
 
 const Stack = createStackNavigator()
@@ -19,6 +22,7 @@ const GameStack = () => {
       screenOptions={{
         ...defaultHeaderStyle,
         headerShown: true,
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
       }}
     >
       <Stack.Screen name="CreateGameScreen" component={CreateGameScreen} />

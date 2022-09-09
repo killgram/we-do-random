@@ -20,6 +20,7 @@ export enum Colors {
   RED = '#FF0000',
   INK_BLUE = '#0e516a',
   FIRMAMENT_BLUE = '#14323f',
+  SEMI_TRANSPARENT = 'rgba(255, 255, 255, 0.5)',
 }
 
 export enum LightColors {
@@ -66,4 +67,6 @@ export enum LightColors {
   // indicators
   USER_STATUS_ONLINE = Colors.GREEN,
   USER_STATUS_OFFLINE = Colors.RED,
+  // barcode
+  EDGE_COLOR = Colors.SEMI_TRANSPARENT,
 }

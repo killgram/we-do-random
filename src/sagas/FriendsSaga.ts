@@ -9,6 +9,7 @@ import {
 } from '@services'
 import { IAddFriend, IDeleteFriend } from '@store/types/friends/Interfaces'
 import { errorToast, successToast } from '@utils'
+import { Navigate } from '@navigators'
 
 export function* addFriend(action: IAddFriend): any {
   const { userId } = action
@@ -46,6 +47,8 @@ export function* addFriend(action: IAddFriend): any {
           user.data().isOnline,
         ),
       )
+      yield call(successToast, 'Success')
+      yield call(Navigate.goBack)
     } else {
       yield call(errorToast, 'User not found')
     }

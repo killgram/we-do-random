@@ -8,4 +8,12 @@ const copyToClipboard = (value: string) => {
   Clipboard.setString(value)
 }
 
-export { copyToClipboard }
+/**
+ * @description Method for get data to buffer
+ * @return {Promise<string>}
+ */
+const getDataToBuffer = async () => {
+  return await Clipboard.getString()
+}
+
+export { copyToClipboard, getDataToBuffer }

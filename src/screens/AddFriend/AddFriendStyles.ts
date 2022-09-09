@@ -1,8 +1,11 @@
-import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
-import { height, RNStyleType, width } from '@utils'
+import { StyleSheet } from 'react-native'
+import { height, RNStyleType } from '@utils'
+import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
-  flagImage: StyleProp<ImageStyle>
+  descTopContainer: RNStyleType
+  input: RNStyleType
+  or: RNStyleType
 }
 
 /**
@@ -10,6 +13,15 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    flagImage: {},
+    descTopContainer: {
+      marginTop: height(16),
+    },
+    input: {
+      ...Fonts.number,
+    },
+    or: {
+      textAlign: 'center',
+      paddingVertical: height(16),
+    },
   })
 }

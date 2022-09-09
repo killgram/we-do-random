@@ -1,8 +1,16 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { IAddFriendTypesProps } from './AddFriendTypes'
 import getStyle from './AddFriendStyles'
-import { WDRButton, WDRContainer, WDRText } from '@ui-kit/components'
+import {
+  WDRButton,
+  WDRCombineItem,
+  WDRContainer,
+  WDRInput,
+  WDRText,
+} from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
+import { getDataToBuffer } from '@utils'
+import { Navigate } from '@navigators'
 
 /**
  * @description AddFriend
@@ -10,9 +18,10 @@ import { useTranslation } from 'react-i18next'
  * @return {JSX}
  */
 const AddFriendScreen = (props: IAddFriendTypesProps) => {
-  const { addFriend, navigation } = props
+  const { addFriend, navigation, isUpdate } = props
   const styles = getStyle()
   const { t } = useTranslation()
+  const [inputValue, setInputValue] = useState('')
 
   useLayoutEffect(() => {
     navigation?.setOptions({
@@ -20,28 +29,57 @@ const AddFriendScreen = (props: IAddFriendTypesProps) => {
     })
   }, [])
 
-  const handleAddFriend = (id) => {
-    addFriend?.(id)
+  const handleAddFriend = () => {
+    addFriend?.(inputValue)
+  }
+
+  const handleInputChange = (e: string) => {
+    setInputValue(e)
+  }
+
+  const insertBuffer = () => {
+    getDataToBuffer().then((r) => {
+      setInputValue(r)
+    })
   }
 
   return (
     <WDRContainer isTransparentHeader>
-      <WDRText>AddFriendScreen</WDRText>
-      <WDRButton
-        title="1834446796843591"
-        onPress={() => handleAddFriend('1834446796843591')}
+      <WDRCombineItem
+        bodyElement={<WDRText isTitle>{t('friendList.enterKey')}</WDRText>}
+        rightElement={
+          <WDRButton
+            title={t('friendList.insert').toLowerCase()}
+            isTransparent
+            onPress={insertBuffer}
+          />
+        }
+        noPadding
+        style={styles.descTopContainer}
       />
-      <WDRButton
-        title="2626477374278932"
-        onPress={() => handleAddFriend('2626477374278932')}
+
+      <WDRInput
+        value={inputValue}
+        onChangeText={handleInputChange}
+        keyboardType="numeric"
+        inputStyle={styles.input}
+        maxLength={16}
       />
+
       <WDRButton
-        title="3556229277161935"
-        onPress={() => handleAddFriend('3556229277161935')}
+        title={t('friendList.add')}
+        isDisabled={inputValue.length !== 16}
+        onPress={handleAddFriend}
+        isLoading={isUpdate}
       />
+
+      <WDRText isTitle style={styles.or}>
+        {t('friendList.or')}
+      </WDRText>
+
       <WDRButton
-        title="6116494554766339"
-        onPress={() => handleAddFriend('6116494554766339')}
+        title={t('friendList.qrAdd')}
+        onPress={() => Navigate.toQRCodeScanScreen(handleInputChange)}
       />
     </WDRContainer>
   )

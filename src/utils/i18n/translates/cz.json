@@ -31,7 +31,21 @@
     },
     "friendList": {
       "addFriend": "Přidat přítele",
-      "emptyList": "Seznam přátel je prázdný"
+      "emptyList": "Seznam přátel je prázdný",
+      "enterKey": "Zadejte klíč",
+      "insert": "Vložit",
+      "add": "Přidat",
+      "qrAdd": "Naskenujte QR-kód",
+      "or": "Nebo"
+    },
+    "qrScreen": {
+      "cameraPermission": "Povolení fotoaparátu",
+      "weNeedPermissionUseCameraScanQrCode": "Potřebujeme povolení k použití fotoaparátu ke skenování QR kódu",
+      "good": "Dobrý",
+      "cancel": "Zrušení",
+      "placeTheQRCodeInTheMiddle": "Doprostřed umístěte QR kód. Bude automaticky naskenován.",
+      "close": "Zavřít",
+      "scanQrCodeYouNeedPermissionUseCamera": "Ke skenování QR kódu potřebujete oprávnění k použití fotoaparátu"
     }
   }
 }

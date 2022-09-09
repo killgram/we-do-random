@@ -3,6 +3,7 @@ import { NavigationType } from '@navigators'
 
 interface IStateToProps {
   navigation?: NavigationType
+  isUpdate?: boolean
 }
 
 interface IDispatchToProps {

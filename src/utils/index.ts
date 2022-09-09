@@ -21,7 +21,7 @@ import { getUserId } from './GetUserId'
 import { setLocale } from './i18n'
 import { chunkSubstr } from './ChunkSubstr'
 import { onSuccessCopyToast, errorToast, successToast } from './Toast'
-import { copyToClipboard } from './Clipboard'
+import { copyToClipboard, getDataToBuffer } from './Clipboard'
 export {
   width,
   height,
@@ -40,6 +40,7 @@ export {
   copyToClipboard,
   errorToast,
   successToast,
+  getDataToBuffer,
 }
 
 export type {

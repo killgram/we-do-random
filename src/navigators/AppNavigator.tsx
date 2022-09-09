@@ -12,6 +12,7 @@ import GameStack from '@navigators/GameStack'
 import SettingsStack from '@navigators/SettingsStack'
 import { getThemeColor } from '@utils'
 import AwaitScreen from '@screens/Await'
+import QRCodeScanScreen from '@screens/QRCodeScan'
 
 const Stack = createStackNavigator()
 
@@ -67,6 +68,8 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
         <Stack.Screen name="BottomTabStack" component={BottomTabStack} />
         <Stack.Screen name="GameStack" component={GameStack} />
         <Stack.Screen name="SettingsStack" component={SettingsStack} />
+
+        <Stack.Screen name="QRCodeScanScreen" component={QRCodeScanScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )
