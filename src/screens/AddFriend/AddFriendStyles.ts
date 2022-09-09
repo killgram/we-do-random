@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType } from '@utils'
+import { height, RNStyleType, sp } from '@utils'
 import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {

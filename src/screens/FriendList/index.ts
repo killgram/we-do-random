@@ -20,6 +20,8 @@ const mapStateToProps = (state: IState): IFriendListTypesProps => ({
 const mapDispatchToProps = (dispatch: Dispatch): IFriendListTypesProps => ({
   deleteFriend: (userId: string) =>
     dispatch(friendsAction.deleteFriend(userId)),
+  updateFriendStatus: (userId: string, isOnline: boolean) =>
+    dispatch(friendsAction.updateFriendStatus(userId, isOnline)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FriendList)

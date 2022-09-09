@@ -9,6 +9,7 @@ interface IStateToProps {
 
 interface IDispatchToProps {
   deleteFriend?: (userId: string) => friends.IAction
+  updateFriendStatus?: (userId: string, isOnline: boolean) => friends.IAction
 }
 
 export interface IState {

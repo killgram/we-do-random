@@ -1,9 +1,9 @@
-import { takeLatest, all } from 'redux-saga/effects'
+import { takeLatest, all, takeEvery } from 'redux-saga/effects'
 import { app, friends } from '@store/types'
 import { startup } from './StartupSaga'
 import { logout } from './LogoutSaga'
 import { login } from './LoginSaga'
-import { addFriend, deleteFriend } from './FriendsSaga'
+import { addFriend, updateFriendStatus, deleteFriend } from './FriendsSaga'
 
 /**
  * @description initialize root saga
@@ -14,6 +14,9 @@ export default function* root(): any {
   yield all([takeLatest(app.ActionTypes.LOGIN, login)])
   yield all([takeLatest(friends.ActionTypes.ADD_FRIEND, addFriend)])
   yield all([takeLatest(friends.ActionTypes.DELETE_FRIEND, deleteFriend)])
+  yield all([
+    takeEvery(friends.ActionTypes.UPDATE_FRIEND_STATUS, updateFriendStatus),
+  ])
 }
 
 export type RootSaga = ReturnType<typeof root>

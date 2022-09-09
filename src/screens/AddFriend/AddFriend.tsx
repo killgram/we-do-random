@@ -34,7 +34,7 @@ const AddFriendScreen = (props: IAddFriendTypesProps) => {
   }
 
   const handleInputChange = (e: string) => {
-    setInputValue(e)
+    setInputValue(e.trim())
   }
 
   const insertBuffer = () => {
@@ -62,8 +62,8 @@ const AddFriendScreen = (props: IAddFriendTypesProps) => {
         value={inputValue}
         onChangeText={handleInputChange}
         keyboardType="numeric"
-        inputStyle={styles.input}
         maxLength={16}
+        style={styles.input}
       />
 
       <WDRButton

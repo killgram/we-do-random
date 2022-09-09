@@ -7,7 +7,11 @@ import {
   dbUpdateFriendList,
   dbRemoveFriend,
 } from '@services'
-import { IAddFriend, IDeleteFriend } from '@store/types/friends/Interfaces'
+import {
+  IAddFriend,
+  IDeleteFriend,
+  IUpdateFriendStatus,
+} from '@store/types/friends/Interfaces'
 import { errorToast, successToast } from '@utils'
 import { Navigate } from '@navigators'
 
@@ -24,6 +28,12 @@ export function* addFriend(action: IAddFriend): any {
     })
     if (checkUserInFriendList) {
       yield call(errorToast, 'User already add')
+      yield put(friendsAction.addFriendError())
+      return
+    }
+    if (userId === state?.profile?.userId) {
+      yield call(errorToast, 'You are your own friend')
+      yield put(friendsAction.addFriendError())
       return
     }
     const user = yield call(dbCheckUser, userId!)
@@ -51,9 +61,11 @@ export function* addFriend(action: IAddFriend): any {
       yield call(Navigate.goBack)
     } else {
       yield call(errorToast, 'User not found')
+      yield put(friendsAction.addFriendError())
     }
   } catch (e) {
     yield call(errorToast, 'Something went wrong')
+    yield put(friendsAction.addFriendError())
   }
 }
 
@@ -67,5 +79,23 @@ export function* deleteFriend(action: IDeleteFriend): any {
     yield call(successToast, 'Success')
   } catch (e) {
     yield call(errorToast, 'Something went wrong')
+    yield put(friendsAction.addFriendError())
+  }
+}
+
+export function* updateFriendStatus(action: IUpdateFriendStatus): any {
+  const { userId, isOnline } = action
+  const state = yield select()
+  const currentUserId = state?.profile?.userId
+  try {
+    const friend = yield call(dbCheckUser, userId!)
+    if (friend?.data()?.username) {
+      yield put(friendsAction.updateFriendStatusSuccess(userId!, isOnline!))
+    } else {
+      yield call(dbRemoveFriend, currentUserId, userId!)
+      yield put(friendsAction.onDeleteFriendSuccess(userId!))
+    }
+  } catch (e) {
+    yield call(errorToast, 'Status update failed')
   }
 }

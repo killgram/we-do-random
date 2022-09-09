@@ -23,6 +23,13 @@ const friendsReducer = (
         isUpdate: true,
       }
     }
+    case friends.ActionTypes.ADD_FRIEND_ERROR: {
+      const oldState = { ...state }
+      delete oldState.isUpdate
+      return {
+        ...oldState,
+      }
+    }
     case friends.ActionTypes.ON_ADD_FRIEND_SUCCESS: {
       const oldState = { ...state }
       const oldList = [...(state?.list || [])]
@@ -46,6 +53,21 @@ const friendsReducer = (
       oldState.list = oldList.filter((item) => {
         return item.userId !== action.userId
       })
+      return {
+        ...oldState,
+      }
+    }
+
+    // update
+    case friends.ActionTypes.UPDATE_FRIEND_STATUS_SUCCESS: {
+      const oldState = { ...state }
+      const friendList = [...(state?.list || [])]
+      friendList.forEach((item) => {
+        if (item.userId === action.userId) {
+          item.isOnline = action.isOnline
+        }
+      })
+      oldState.list = friendList
       return {
         ...oldState,
       }

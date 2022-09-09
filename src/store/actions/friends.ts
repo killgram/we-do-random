@@ -13,6 +13,16 @@ export function addFriend(userId: string): friends.IAction {
 }
 
 /**
+ *
+ * @return {friends.IAction}
+ */
+export function addFriendError(): friends.IAction {
+  return {
+    type: friends.ActionTypes.ADD_FRIEND_ERROR,
+  }
+}
+
+/**
  * @param {string} username
  * @param {string} userId
  * @param {boolean} isOnline
@@ -61,5 +71,39 @@ export function onDeleteFriendSuccess(userId: string): friends.IAction {
   return {
     type: friends.ActionTypes.ON_DELETE_FRIEND_SUCCESS,
     userId,
+  }
+}
+
+/**
+ *
+ * @param {string} userId
+ * @param {boolean} isOnline
+ * @return {friends.IAction}
+ */
+export function updateFriendStatus(
+  userId: string,
+  isOnline: boolean,
+): friends.IAction {
+  return {
+    type: friends.ActionTypes.UPDATE_FRIEND_STATUS,
+    userId,
+    isOnline,
+  }
+}
+
+/**
+ *
+ * @param {string} userId
+ * @param {boolean} isOnline
+ * @return {friends.IAction}
+ */
+export function updateFriendStatusSuccess(
+  userId: string,
+  isOnline: boolean,
+): friends.IAction {
+  return {
+    type: friends.ActionTypes.UPDATE_FRIEND_STATUS_SUCCESS,
+    userId,
+    isOnline,
   }
 }
