@@ -16,4 +16,4 @@ interface IDispatchToProps {
 
 export interface IState {}
 
-export type ISingleGameBoardScreenProps = IStateToProps & IDispatchToProps
+export type ITeamGameInvitePlayersScreenProps = IStateToProps & IDispatchToProps

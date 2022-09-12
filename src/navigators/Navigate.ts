@@ -104,6 +104,19 @@ export const toSingleGameBoard = (gameName: string) => {
 }
 
 /**
+ * @description to TeamGameInvitePlayers
+ * @param {string} gameName
+ */
+export const toTeamGameInvitePlayers = (gameName: string) => {
+  NavigationService.navigate('GameStack', {
+    screen: 'TeamGameInvitePlayers',
+    params: {
+      gameName,
+    },
+  })
+}
+
+/**
  * @description to TeamGameBoard
  * @param {string} gameName
  */
@@ -115,6 +128,7 @@ export const toTeamGameBoard = (gameName: string) => {
     },
   })
 }
+
 //-------------------SettingsStack---------------------//
 
 /**

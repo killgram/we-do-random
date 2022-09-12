@@ -4,6 +4,7 @@ import {
   appAction,
   profileAction,
   friendsAction,
+  gameAction,
 } from '@store/actions'
 import { Navigate } from '@navigators'
 import { dbLogout, dbRemoveFriendList } from '@services'
@@ -15,6 +16,7 @@ export function* logout(): any {
   yield put(settingsAction.cleanSettings())
   yield put(profileAction.cleanProfile())
   yield put(friendsAction.cleanFriends())
+  yield put(gameAction.cleanGame())
 
   yield call(Navigate.toAuthStack)
   yield call(dbLogout, state?.profile?.userId)

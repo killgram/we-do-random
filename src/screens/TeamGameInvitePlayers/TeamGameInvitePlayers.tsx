@@ -1,18 +1,18 @@
 import React, { useLayoutEffect } from 'react'
-import getStyle from './SingleGameBoardStyles'
-import { WDRButton, WDRContainer, WDRText } from '@ui-kit/components'
-import { ISingleGameBoardScreenProps } from './SingleGameBoardTypes'
+import getStyle from './TeamGameInvitePlayersStyles'
+import { WDRContainer, WDRText } from '@ui-kit/components'
+import { ITeamGameInvitePlayersScreenProps } from './TeamGameInvitePlayersTypes'
 import { useTranslation } from 'react-i18next'
+import { Navigate } from '@navigators'
 import { HeaderBackButton } from '@react-navigation/elements'
 import { getThemeColor } from '@utils'
-import { Navigate } from '@navigators'
 
 /**
- * @description SingleGameBoard
- * @param {ISingleGameBoardScreenProps} props
+ * @description TeamGameInvitePlayers
+ * @param {ITeamGameInvitePlayersScreenProps} props
  * @return {JSX}
  */
-const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
+const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
   const { navigation, route, cleanGame } = props
   const styles = getStyle()
   const { t } = useTranslation()
@@ -30,7 +30,7 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
           tintColor={getThemeColor('MAIN_TEXT')}
         />
       ),
-      headerTitle: t('game.singleGame'),
+      headerTitle: t('createGame.invitePlayers'),
     })
   }, [])
 
@@ -41,4 +41,4 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
   )
 }
 
-export default SingleGameBoard
+export default TeamGameInvitePlayers

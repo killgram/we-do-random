@@ -11,7 +11,7 @@ import { Navigate } from '@navigators'
  * @return {JSX}
  */
 const CreateGameScreen = (props: ICreateGameTypesProps) => {
-  const { navigation, route } = props
+  const { navigation, route, createGame, username, userId } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
@@ -29,13 +29,11 @@ const CreateGameScreen = (props: ICreateGameTypesProps) => {
     setGameName(e)
   }
 
-  const goSingleGame = () => {
-    Navigate.toSingleGameBoard(gameName)
-    setGameName('')
-  }
-
-  const goTeamGame = () => {
-    Navigate.toTeamGameBoard(gameName)
+  const goGame = () => {
+    createGame?.(route?.params?.type!, gameName, {
+      username: username!,
+      userId: userId!,
+    })
     setGameName('')
   }
 
@@ -51,13 +49,13 @@ const CreateGameScreen = (props: ICreateGameTypesProps) => {
         <WDRButton
           isDisabled={gameName.length === 0}
           title={t('createGame.start')}
-          onPress={goSingleGame}
+          onPress={goGame}
         />
       ) : (
         <WDRButton
           isDisabled={gameName.length === 0}
           title={t('createGame.invitePlayers')}
-          onPress={goTeamGame}
+          onPress={goGame}
         />
       )}
     </WDRContainer>

@@ -3,6 +3,7 @@ import SingleGameBoard from './SingleGameBoard'
 import { connect } from 'react-redux'
 import { IState, ISingleGameBoardScreenProps } from './SingleGameBoardTypes'
 import { Dispatch } from 'redux'
+import { gameAction } from '@store/actions'
 
 /**
  * @param {IState} state
@@ -16,6 +17,8 @@ const mapStateToProps = (state: IState): ISingleGameBoardScreenProps => ({})
  */
 const mapDispatchToProps = (
   dispatch: Dispatch,
-): ISingleGameBoardScreenProps => ({})
+): ISingleGameBoardScreenProps => ({
+  cleanGame: () => dispatch(gameAction.cleanGame()),
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleGameBoard)

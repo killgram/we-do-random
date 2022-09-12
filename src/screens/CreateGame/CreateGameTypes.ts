@@ -1,5 +1,6 @@
-import { settings } from '@store/types'
+import { game, profile } from '@store/types'
 import { NavigationType } from '@navigators'
+import { IUser } from '@store/types/game/Interfaces'
 
 interface IStateToProps {
   navigation?: NavigationType
@@ -8,12 +9,20 @@ interface IStateToProps {
       type: 'single' | 'team'
     }
   }
+  username?: string
+  userId?: string
 }
 
-interface IDispatchToProps {}
+interface IDispatchToProps {
+  createGame?: (
+    gameType: string,
+    gameName: string,
+    gameLead: IUser,
+  ) => game.IAction
+}
 
 export interface IState {
-  settings?: settings.IInitialState
+  profile?: profile.IInitialState
 }
 
 export type ICreateGameTypesProps = IStateToProps & IDispatchToProps
