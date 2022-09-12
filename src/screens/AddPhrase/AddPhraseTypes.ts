@@ -1,7 +1,5 @@
 import { NavigationType } from '@navigators'
 
-interface IStateToProps {
+export interface IAddPhraseScreenProps {
   navigation?: NavigationType
 }
-
-export type IPhraseListTypesProps = IStateToProps

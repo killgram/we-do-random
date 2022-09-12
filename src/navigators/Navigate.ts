@@ -83,6 +83,15 @@ export const toPhraseListScreen = () => {
   })
 }
 
+/**
+ * @description to AddPhrase
+ */
+export const toAddPhrase = () => {
+  NavigationService.navigate('GameStack', {
+    screen: 'AddPhrase',
+  })
+}
+
 //-------------------SettingsStack---------------------//
 
 /**

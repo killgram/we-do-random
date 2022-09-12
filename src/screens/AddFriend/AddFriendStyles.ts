@@ -1,10 +1,8 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType, sp } from '@utils'
-import { Fonts } from '@ui-kit/styles'
+import { height, RNStyleType } from '@utils'
 
 interface IStyles {
   descTopContainer: RNStyleType
-  input: RNStyleType
   or: RNStyleType
 }
 
@@ -15,9 +13,6 @@ export default function getStyle(): IStyles {
   return StyleSheet.create({
     descTopContainer: {
       marginTop: height(16),
-    },
-    input: {
-      ...Fonts.number,
     },
     or: {
       textAlign: 'center',

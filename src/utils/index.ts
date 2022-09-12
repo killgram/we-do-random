@@ -22,6 +22,7 @@ import { setLocale } from './i18n'
 import { chunkSubstr } from './ChunkSubstr'
 import { onSuccessCopyToast, errorToast, successToast } from './Toast'
 import { copyToClipboard, getDataToBuffer } from './Clipboard'
+import { addPhrase, deletePhrase, clearPhrase, getPhraseData } from './Realm'
 export {
   width,
   height,
@@ -41,6 +42,10 @@ export {
   errorToast,
   successToast,
   getDataToBuffer,
+  addPhrase,
+  deletePhrase,
+  clearPhrase,
+  getPhraseData,
 }
 
 export type {

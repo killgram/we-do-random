@@ -33,6 +33,7 @@ const WDRList = (props: IWDRListTypes) => {
 
   return (
     <FlatList
+      showsVerticalScrollIndicator={false}
       data={listItems?.length ? listItems : []}
       removeClippedSubviews={false}
       bounces={isBounces}

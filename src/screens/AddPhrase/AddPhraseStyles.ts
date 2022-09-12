@@ -2,9 +2,7 @@ import { StyleSheet } from 'react-native'
 import { height, RNStyleType } from '@utils'
 
 interface IStyles {
-  screenLoad: RNStyleType
-  clearPhraseBox: RNStyleType
-  listStyle: RNStyleType
+  descTopContainer: RNStyleType
 }
 
 /**
@@ -12,14 +10,7 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    screenLoad: {
-      marginVertical: height(32),
-    },
-    clearPhraseBox: {
-      marginTop: height(16),
-    },
-    listStyle: {
-      marginBottom: height(30),
+    descTopContainer: {
       marginTop: height(16),
     },
   })

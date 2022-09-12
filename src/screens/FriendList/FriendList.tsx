@@ -52,6 +52,7 @@ const FriendListScreen = (props: IFriendListTypesProps) => {
       <WDRList
         isBounces
         listItems={friendsList}
+        listStyles={styles.listStyle}
         titleEmptyComponent={t('friendList.emptyList')}
         renderListItem={({ item }) => (
           <FriendListItem

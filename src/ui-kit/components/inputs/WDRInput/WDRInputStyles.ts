@@ -35,7 +35,7 @@ export default function getStyle(): IStyles {
       ...Fonts.bold,
     },
     textRegular: {
-      ...Fonts.regular,
+      ...Fonts.number,
     },
     textError: {
       color: getThemeColor('ERROR_INPUT'),

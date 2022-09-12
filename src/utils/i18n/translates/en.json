@@ -46,6 +46,14 @@
       "placeTheQRCodeInTheMiddle": "Place the QR code in the middle. It will be scanned automatically.",
       "close": "Close",
       "scanQrCodeYouNeedPermissionUseCamera": "To scan QR Code you need permission to use the camera"
+    },
+    "phraseList": {
+      "addPhrase": "Add phrase",
+      "emptyList": "Phrase list is empty",
+      "enterPhrase": "Enter phrase",
+      "insert": "Insert",
+      "add": "Add",
+      "clear": "Clear phrase list"
     }
   }
 }

@@ -11,6 +11,7 @@ import CreateGameScreen from '@screens/CreateGame'
 import FriendListScreen from '@screens/FriendList'
 import PhraseListScreen from '@screens/PhraseList'
 import AddFriendScreen from '@screens/AddFriend'
+import AddPhrase from '@screens/AddPhrase'
 
 /**
  * @description game stack
@@ -29,6 +30,7 @@ const GameStack = () => {
       <Stack.Screen name="FriendListScreen" component={FriendListScreen} />
       <Stack.Screen name="PhraseListScreen" component={PhraseListScreen} />
       <Stack.Screen name="AddFriendScreen" component={AddFriendScreen} />
+      <Stack.Screen name="AddPhrase" component={AddPhrase} />
     </Stack.Navigator>
   )
 }

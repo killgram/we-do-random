@@ -46,6 +46,14 @@
       "placeTheQRCodeInTheMiddle": "Doprostřed umístěte QR kód. Bude automaticky naskenován.",
       "close": "Zavřít",
       "scanQrCodeYouNeedPermissionUseCamera": "Ke skenování QR kódu potřebujete oprávnění k použití fotoaparátu"
+    },
+    "phraseList": {
+      "addPhrase": "Přidejte frázi",
+      "emptyList": "Seznam frází je prázdný",
+      "enterPhrase": "Zadejte frázi",
+      "insert": "Vložit",
+      "add": "Přidat",
+      "clear": "Vymazat seznam frází"
     }
   }
 }

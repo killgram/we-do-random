@@ -46,6 +46,14 @@
       "placeTheQRCodeInTheMiddle": "Поместите QR-код посередине. Он будет отсканирован автоматически.",
       "close": "Закрыть",
       "scanQrCodeYouNeedPermissionUseCamera": "Для сканирования QR-кода необходимо разрешение на использование камеры."
+    },
+    "phraseList": {
+      "addPhrase": "Добавить фразу",
+      "emptyList": "Список фраз пуст",
+      "enterPhrase": "Введите фразу",
+      "insert": "Вставить",
+      "add": "Добавить",
+      "clear": "Очистить список фраз"
     }
   }
 }
