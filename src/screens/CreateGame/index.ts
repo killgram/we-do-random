@@ -9,16 +9,12 @@ import { appAction } from '@store/actions'
  * @param {IState} state
  * @return {ICreateGameTypesProps}
  */
-const mapStateToProps = (state: IState): ICreateGameTypesProps => ({
-  language: state?.settings?.language,
-})
+const mapStateToProps = (state: IState): ICreateGameTypesProps => ({})
 
 /**
  * @param {Dispatch<any>} dispatch
  * @return {ICreateGameTypesProps}
  */
-const mapDispatchToProps = (dispatch: Dispatch): ICreateGameTypesProps => ({
-  logout: () => dispatch(appAction.logout()),
-})
+const mapDispatchToProps = (dispatch: Dispatch): ICreateGameTypesProps => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateGame)

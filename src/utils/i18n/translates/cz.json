@@ -54,6 +54,11 @@
       "insert": "Vložit",
       "add": "Přidat",
       "clear": "Vymazat seznam frází"
+    },
+    "createGame": {
+      "enterGameName": "Zadejte název hry",
+      "start": "Start",
+      "invitePlayers": "Pozvěte hráče"
     }
   }
 }

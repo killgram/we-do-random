@@ -54,6 +54,11 @@
       "insert": "Insert",
       "add": "Add",
       "clear": "Clear phrase list"
+    },
+    "createGame": {
+      "enterGameName": "Enter game name",
+      "start": "Start",
+      "invitePlayers": "Invite players"
     }
   }
 }

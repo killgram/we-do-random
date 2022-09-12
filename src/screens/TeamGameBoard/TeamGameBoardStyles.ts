@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType, width } from '@utils'
+import { RNStyleType } from '@utils'
 
 interface IStyles {
-  enterNameTitle: RNStyleType
+  container: RNStyleType
 }
 
 /**
@@ -10,9 +10,6 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    enterNameTitle: {
-      textAlign: 'center',
-      marginBottom: height(8),
-    },
+    container: {},
   })
 }

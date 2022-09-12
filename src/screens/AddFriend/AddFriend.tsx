@@ -63,7 +63,6 @@ const AddFriendScreen = (props: IAddFriendTypesProps) => {
         onChangeText={handleInputChange}
         keyboardType="numeric"
         maxLength={16}
-        style={styles.input}
       />
 
       <WDRButton

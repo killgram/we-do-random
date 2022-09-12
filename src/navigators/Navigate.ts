@@ -1,6 +1,4 @@
 import NavigationService from './NavigationService'
-import PhraseListScreen from '@screens/PhraseList/PhraseList'
-import AddFriendScreen from '@screens/AddFriend'
 
 //-------------------To stacks-------------------//
 
@@ -92,6 +90,31 @@ export const toAddPhrase = () => {
   })
 }
 
+/**
+ * @description to SingleGameBoard
+ * @param {string} gameName
+ */
+export const toSingleGameBoard = (gameName: string) => {
+  NavigationService.navigate('GameStack', {
+    screen: 'SingleGameBoard',
+    params: {
+      gameName,
+    },
+  })
+}
+
+/**
+ * @description to TeamGameBoard
+ * @param {string} gameName
+ */
+export const toTeamGameBoard = (gameName: string) => {
+  NavigationService.navigate('GameStack', {
+    screen: 'TeamGameBoard',
+    params: {
+      gameName,
+    },
+  })
+}
 //-------------------SettingsStack---------------------//
 
 /**

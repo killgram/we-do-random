@@ -1,8 +1,9 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import { ICreateGameTypesProps } from './CreateGameTypes'
 import getStyle from './CreateGameStyles'
-import { WDRContainer, WDRText } from '@ui-kit/components'
+import { WDRButton, WDRContainer, WDRInput, WDRText } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
+import { Navigate } from '@navigators'
 
 /**
  * @description CreateGame
@@ -10,24 +11,55 @@ import { useTranslation } from 'react-i18next'
  * @return {JSX}
  */
 const CreateGameScreen = (props: ICreateGameTypesProps) => {
-  const { language, logout, navigation, route } = props
+  const { navigation, route } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
-  console.log(props)
+  const [gameName, setGameName] = useState('')
+
+  const isSingle = route?.params?.type === 'single'
 
   useLayoutEffect(() => {
     navigation?.setOptions({
-      headerTitle:
-        route?.params?.type === 'single'
-          ? t('game.singleGame')
-          : t('game.teamGame'),
+      headerTitle: isSingle ? t('game.singleGame') : t('game.teamGame'),
     })
   }, [])
 
+  const handleChangeGameName = (e: string) => {
+    setGameName(e)
+  }
+
+  const goSingleGame = () => {
+    Navigate.toSingleGameBoard(gameName)
+    setGameName('')
+  }
+
+  const goTeamGame = () => {
+    Navigate.toTeamGameBoard(gameName)
+    setGameName('')
+  }
+
   return (
     <WDRContainer isTransparentHeader>
-      <WDRText>CreateGame</WDRText>
+      <WDRText isTitle style={styles.enterNameTitle}>
+        {t('createGame.enterGameName')}
+      </WDRText>
+
+      <WDRInput value={gameName} onChangeText={handleChangeGameName} />
+
+      {isSingle ? (
+        <WDRButton
+          isDisabled={gameName.length === 0}
+          title={t('createGame.start')}
+          onPress={goSingleGame}
+        />
+      ) : (
+        <WDRButton
+          isDisabled={gameName.length === 0}
+          title={t('createGame.invitePlayers')}
+          onPress={goTeamGame}
+        />
+      )}
     </WDRContainer>
   )
 }

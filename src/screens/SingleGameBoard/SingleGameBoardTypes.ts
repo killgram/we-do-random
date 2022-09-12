@@ -5,7 +5,7 @@ interface IStateToProps {
   navigation?: NavigationType
   route?: {
     params: {
-      type: 'single' | 'team'
+      gameName: string
     }
   }
 }
@@ -16,4 +16,4 @@ export interface IState {
   settings?: settings.IInitialState
 }
 
-export type ICreateGameTypesProps = IStateToProps & IDispatchToProps
+export type ISingleGameBoardScreenProps = IStateToProps & IDispatchToProps
