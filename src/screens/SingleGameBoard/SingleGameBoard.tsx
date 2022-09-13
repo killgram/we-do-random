@@ -29,12 +29,14 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
     phraseList,
     deletePhraseOutGame,
     userId,
+    startFinishGame,
   } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
   const [isReady, setIsReady] = useState(false)
   const [gameLock, setGameLock] = useState(true)
+  const isGameCalcWinner = game?.finish?.isLoading
 
   const exitGame = () => {
     userId && dbUpdatePlayStatus(userId, false)
@@ -80,13 +82,15 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
             title={t('singleGame.play')}
             style={styles.playBtn}
             isDisabled={gameLock || !isReady}
+            onPress={startFinishGame}
+            isLoading={isGameCalcWinner}
           />
         }
         rightElement={
           <ReadyButton
             onPress={handleReadyBtn}
             isReady={isReady}
-            isDisabled={gameLock}
+            isDisabled={gameLock || isGameCalcWinner}
           />
         }
       />
@@ -95,6 +99,7 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
         title={t('phraseList.addPhrase')}
         onPress={Navigate.toAddPhraseIntoGameScreen}
         style={styles.addPhraseBtn}
+        isDisabled={isGameCalcWinner}
       />
       <WDRList
         isBounces

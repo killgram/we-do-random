@@ -13,6 +13,8 @@ import SettingsStack from '@navigators/SettingsStack'
 import { getThemeColor } from '@utils'
 import AwaitScreen from '@screens/Await'
 import QRCodeScanScreen from '@screens/QRCodeScan'
+import GameResultScreen from '@screens/GameResultScreen'
+import { defaultHeaderStyle } from '@ui-kit/styles'
 
 const Stack = createStackNavigator()
 
@@ -70,6 +72,17 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
         <Stack.Screen name="SettingsStack" component={SettingsStack} />
 
         <Stack.Screen name="QRCodeScanScreen" component={QRCodeScanScreen} />
+        <Stack.Screen
+          name="GameResultScreen"
+          component={GameResultScreen}
+          options={{
+            headerLeft: () => null,
+            gestureEnabled: false,
+            ...defaultHeaderStyle,
+            headerShown: true,
+            cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

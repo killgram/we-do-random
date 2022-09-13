@@ -170,3 +170,10 @@ export const toQRCodeScanScreen = (goBackScreen: (s: string) => void) => {
     goBackScreen,
   })
 }
+
+/**
+ * @description to GameResultScreen
+ */
+export const toGameResultScreen = () => {
+  NavigationService.navigate('GameResultScreen')
+}

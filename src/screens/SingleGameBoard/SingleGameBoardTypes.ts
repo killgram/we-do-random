@@ -12,6 +12,7 @@ interface IStateToProps {
 interface IDispatchToProps {
   cleanGame?: () => game.IAction
   deletePhraseOutGame?: (phraseId: number) => game.IAction
+  startFinishGame?: () => game.IAction
 }
 
 export interface IState {

@@ -25,6 +25,7 @@ const mapDispatchToProps = (
   cleanGame: () => dispatch(gameAction.cleanGame()),
   deletePhraseOutGame: (phraseId: number) =>
     dispatch(gameAction.deletePhraseOutGame(phraseId)),
+  startFinishGame: () => dispatch(gameAction.startFinishGame()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleGameBoard)

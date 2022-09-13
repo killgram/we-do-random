@@ -14,6 +14,12 @@ export interface IInitialState {
   gameName?: string
   gameLead?: IUser
   list?: Array<IPhrase>
+  finish?: {
+    isLoading?: boolean
+    username?: string
+    phrase?: string
+    chance?: string
+  }
 }
 
 export interface ICleanGame {
@@ -46,9 +52,22 @@ export interface IDeletePhraseOutGame {
   phraseId: number
 }
 
+export interface IStartFinishGame {
+  type: ActionTypes.START_FINISH_GAME
+}
+
+export interface IGameFinishSuccess {
+  type: ActionTypes.GAME_FINISH_SUCCESS
+  username?: string
+  phrase?: string
+  chance?: string
+}
+
 export type IAction =
   | ICreateGame
   | ICleanGame
   | IOnCreateGameSuccess
   | IAddPhraseIntoGame
   | IDeletePhraseOutGame
+  | IStartFinishGame
+  | IGameFinishSuccess

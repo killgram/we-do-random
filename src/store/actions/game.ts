@@ -79,3 +79,31 @@ export function deletePhraseOutGame(phraseId: number): game.IAction {
     phraseId,
   }
 }
+
+/**
+ * @return {game.IAction}
+ */
+export function startFinishGame(): game.IAction {
+  return {
+    type: game.ActionTypes.START_FINISH_GAME,
+  }
+}
+
+/**
+ * @param {number} username
+ * @param {number} phrase
+ * @param {number} chance
+ * @return {game.IAction}
+ */
+export function gameFinishSuccess(
+  username: string,
+  phrase: string,
+  chance: string,
+): game.IAction {
+  return {
+    type: game.ActionTypes.GAME_FINISH_SUCCESS,
+    username,
+    phrase,
+    chance,
+  }
+}
