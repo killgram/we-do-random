@@ -1,11 +1,13 @@
 import { StyleSheet } from 'react-native'
-import { height, radius, RNStyleType, width } from '@utils'
+import { getThemeColor, height, RNStyleType } from '@utils'
+import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
-  listStyle: RNStyleType
-  gameNameTitle: RNStyleType
-  playBtn: RNStyleType
-  addPhraseBtn: RNStyleType
+  winnerIcon: RNStyleType
+  winnerName: RNStyleType
+  title: RNStyleType
+  winnerChance: RNStyleType
+  finishBtn: RNStyleType
 }
 
 /**
@@ -13,20 +15,29 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    listStyle: {
-      marginBottom: height(30),
+    winnerIcon: {
+      alignItems: 'center',
+      marginTop: height(32),
     },
-    gameNameTitle: {
+    winnerName: {
       textAlign: 'center',
-      paddingBottom: height(8),
+      padding: height(16),
+      backgroundColor: getThemeColor('FRIEND_LIST_ITEM_BACKGROUND'),
+      marginTop: height(8),
     },
-    playBtn: {
-      borderRadius: radius(4),
-      marginRight: width(16),
+    title: {
+      textAlign: 'center',
+      marginTop: height(16),
     },
-    addPhraseBtn: {
-      marginHorizontal: width(24),
-      marginVertical: height(16),
+    winnerChance: {
+      textAlign: 'center',
+      padding: height(16),
+      backgroundColor: getThemeColor('FRIEND_LIST_ITEM_BACKGROUND'),
+      marginTop: height(8),
+      ...Fonts.number,
+    },
+    finishBtn: {
+      marginTop: height(32),
     },
   })
 }

@@ -3,12 +3,13 @@ import { gameAction, settingsAction } from '@store/actions'
 import { setLocale } from '@utils'
 import { Constants } from '@configurations'
 import { Navigate } from '@navigators'
+import { dbUpdatePlayStatus } from '@services'
 
 export function* startup(): any {
   const state = yield select()
   const isAuthorized = state?.app?.isAuthorized
   const lang = state?.settings?.language
-
+  const userId = state?.profile?.userId
   const isPlay = state?.game?.gameType
   const isFinishedGame = state?.game?.finish?.username
 
@@ -28,6 +29,7 @@ export function* startup(): any {
         : yield call(Navigate.toTeamGameInvitePlayers)
     }
     if (isFinishedGame) {
+      yield call(dbUpdatePlayStatus, userId, false)
       yield put(gameAction.cleanGame())
     }
   } else {

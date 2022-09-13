@@ -65,6 +65,12 @@
       "play": "Play",
       "emptyPhraseList": "Phrase list is empty. \n Add phrases (at least 2)",
       "noReady": "Not ready"
+    },
+    "finishGame": {
+      "results": "Game results",
+      "winner": "Winner",
+      "chance": "Chance",
+      "finishGame": "Finish"
     }
   }
 }

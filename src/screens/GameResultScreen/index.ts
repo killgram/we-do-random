@@ -11,6 +11,7 @@ import { gameAction } from '@store/actions'
  */
 const mapStateToProps = (state: IState): IGameResultScreenScreenProps => ({
   game: state?.game,
+  userId: state?.profile?.userId,
 })
 
 /**

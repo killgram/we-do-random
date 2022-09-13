@@ -21,6 +21,7 @@ export enum Colors {
   INK_BLUE = '#0e516a',
   FIRMAMENT_BLUE = '#14323f',
   SEMI_TRANSPARENT = 'rgba(255, 255, 255, 0.5)',
+  YELLOW = '#ffff00',
 }
 
 export enum LightColors {
@@ -48,6 +49,7 @@ export enum LightColors {
   // icons
   CHOSEN_ICON = Colors.DEEP_SLATE_OLIVE,
   EXIT_ICON = Colors.PATCH_OF_LAND,
+  WINNER_ICON = Colors.YELLOW,
   // modals
   MODAL_BACKGROUND = Colors.GABLE_GREEN,
   MODAL_CONTAINER_BACKGROUND = Colors.SMOKE_SCREEN,
