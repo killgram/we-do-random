@@ -1,4 +1,4 @@
-import { game } from '@store/types'
+import { game, profile } from '@store/types'
 import { NavigationType } from '@navigators'
 import { IPhrase } from '@store/types/game/Interfaces'
 
@@ -6,6 +6,7 @@ interface IStateToProps {
   navigation?: NavigationType
   game?: game.IInitialState
   phraseList?: Array<IPhrase>
+  userId?: string
 }
 
 interface IDispatchToProps {
@@ -15,6 +16,7 @@ interface IDispatchToProps {
 
 export interface IState {
   game?: game.IInitialState
+  profile?: profile.IInitialState
 }
 
 export type ISingleGameBoardScreenProps = IStateToProps & IDispatchToProps

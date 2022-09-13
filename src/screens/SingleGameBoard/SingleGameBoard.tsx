@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import getStyle from './SingleGameBoardStyles'
 import {
   WDRButton,
@@ -14,6 +14,7 @@ import { getThemeColor } from '@utils'
 import { Navigate } from '@navigators'
 import ReadyButton from '@components/ReadyButton'
 import GamePhraseItem from '@components/GamePhraseItem'
+import { dbUpdatePlayStatus } from '@services'
 
 /**
  * @description SingleGameBoard
@@ -21,13 +22,22 @@ import GamePhraseItem from '@components/GamePhraseItem'
  * @return {JSX}
  */
 const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
-  const { navigation, cleanGame, game, phraseList, deletePhraseOutGame } = props
+  const {
+    navigation,
+    cleanGame,
+    game,
+    phraseList,
+    deletePhraseOutGame,
+    userId,
+  } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
   const [isReady, setIsReady] = useState(false)
+  const [gameLock, setGameLock] = useState(true)
 
   const exitGame = () => {
+    userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
     Navigate.toAppStack()
   }
@@ -48,6 +58,15 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
     setIsReady(!isReady)
   }
 
+  useEffect(() => {
+    if (phraseList?.length! < 2 || phraseList?.length === undefined) {
+      setGameLock(true)
+      setIsReady(false)
+    } else {
+      setGameLock(false)
+    }
+  }, [phraseList])
+
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
       <WDRText isTitle style={styles.gameNameTitle}>
@@ -60,20 +79,14 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
           <WDRButton
             title={t('singleGame.play')}
             style={styles.playBtn}
-            isDisabled={
-              phraseList?.length! < 2 ||
-              phraseList?.length === undefined ||
-              !isReady
-            }
+            isDisabled={gameLock || !isReady}
           />
         }
         rightElement={
           <ReadyButton
             onPress={handleReadyBtn}
             isReady={isReady}
-            isDisabled={
-              phraseList?.length! < 2 || phraseList?.length === undefined
-            }
+            isDisabled={gameLock}
           />
         }
       />

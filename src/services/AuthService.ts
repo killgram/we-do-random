@@ -11,6 +11,7 @@ const dbLogin = async (userId: string, username: string) => {
     username: username,
     userId: userId,
     isOnline: false,
+    isPlay: false,
   })
   return true
 }

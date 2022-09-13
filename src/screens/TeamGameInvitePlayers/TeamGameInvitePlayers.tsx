@@ -13,7 +13,7 @@ import { getThemeColor } from '@utils'
  * @return {JSX}
  */
 const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
-  const { navigation, route, cleanGame } = props
+  const { navigation, cleanGame } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
@@ -36,7 +36,7 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
 
   return (
     <WDRContainer isTransparentHeader>
-      <WDRText>{route?.params?.gameName}</WDRText>
+      <WDRText>TeamGameInvitePlayers</WDRText>
     </WDRContainer>
   )
 }
