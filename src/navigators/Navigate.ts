@@ -92,14 +92,10 @@ export const toAddPhrase = () => {
 
 /**
  * @description to SingleGameBoard
- * @param {string} gameName
  */
-export const toSingleGameBoard = (gameName: string) => {
+export const toSingleGameBoard = () => {
   NavigationService.navigate('GameStack', {
     screen: 'SingleGameBoard',
-    params: {
-      gameName,
-    },
   })
 }
 
@@ -126,6 +122,15 @@ export const toTeamGameBoard = (gameName: string) => {
     params: {
       gameName,
     },
+  })
+}
+
+/**
+ * @description to AddPhraseIntoGameScreen
+ */
+export const toAddPhraseIntoGameScreen = () => {
+  NavigationService.navigate('GameStack', {
+    screen: 'AddPhraseIntoGameScreen',
   })
 }
 

@@ -8,11 +8,10 @@ export function* createGame(action: ICreateGame): any {
   const { gameName, gameType, gameLead } = action
 
   try {
+    yield put(gameAction.onCreateGameSuccess(gameType, gameName, gameLead))
     if (gameType === 'single') {
-      yield put(gameAction.onCreateGameSuccess(gameType, gameName, gameLead))
-      yield call(Navigate.toSingleGameBoard, gameName!)
+      yield call(Navigate.toSingleGameBoard)
     } else {
-      yield put(gameAction.onCreateGameSuccess(gameType, gameName, gameLead))
       yield call(Navigate.toTeamGameInvitePlayers, gameName!)
       // TODO add firestore logic here for team game
     }

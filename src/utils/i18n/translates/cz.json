@@ -59,6 +59,12 @@
       "enterGameName": "Zadejte název hry",
       "start": "Start",
       "invitePlayers": "Pozvěte hráče"
+    },
+    "singleGame": {
+      "ready": "Připraveno",
+      "play": "Hrát si",
+      "emptyPhraseList": "Seznam frází je prázdný. \n Přidejte fráze (alespoň 2)",
+      "noReady": "Není připraven"
     }
   }
 }

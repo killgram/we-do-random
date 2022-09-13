@@ -49,3 +49,33 @@ export function onCreateGameSuccess(
     gameLead,
   }
 }
+
+/**
+ * @param {string} username
+ * @param {string} userId
+ * @param {string} phrase
+ * @return {game.IAction}
+ */
+export function addPhraseIntoGame(
+  username: string,
+  userId: string,
+  phrase: string,
+): game.IAction {
+  return {
+    type: game.ActionTypes.ADD_PHRASE_INTO_GAME,
+    username,
+    userId,
+    phrase,
+  }
+}
+
+/**
+ * @param {number} phraseId
+ * @return {game.IAction}
+ */
+export function deletePhraseOutGame(phraseId: number): game.IAction {
+  return {
+    type: game.ActionTypes.DELETE_PHRASE_OUT_GAME,
+    phraseId,
+  }
+}

@@ -59,6 +59,12 @@
       "enterGameName": "Enter game name",
       "start": "Start",
       "invitePlayers": "Invite players"
+    },
+    "singleGame": {
+      "ready": "Ready",
+      "play": "Play",
+      "emptyPhraseList": "Phrase list is empty. \n Add phrases (at least 2)",
+      "noReady": "Not ready"
     }
   }
 }

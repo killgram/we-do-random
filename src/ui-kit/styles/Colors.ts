@@ -69,4 +69,8 @@ export enum LightColors {
   USER_STATUS_OFFLINE = Colors.RED,
   // barcode
   EDGE_COLOR = Colors.SEMI_TRANSPARENT,
+  // game
+  READY = Colors.PATCH_OF_LAND,
+  NOT_READY = Colors.FIREBRICK,
+  BACKGROUND_READY_BTN = Colors.BLUE_VELVET,
 }

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType, width } from '@utils'
+import { height, RNStyleType } from '@utils'
 
 interface IStyles {
   enterNameTitle: RNStyleType

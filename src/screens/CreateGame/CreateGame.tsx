@@ -3,7 +3,6 @@ import { ICreateGameTypesProps } from './CreateGameTypes'
 import getStyle from './CreateGameStyles'
 import { WDRButton, WDRContainer, WDRInput, WDRText } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
-import { Navigate } from '@navigators'
 
 /**
  * @description CreateGame
