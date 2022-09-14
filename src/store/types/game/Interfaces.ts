@@ -28,6 +28,7 @@ export interface IInitialState {
   username?: string
   userId?: string
   isOnline?: boolean
+  isAccepted?: boolean
 }
 
 export interface ICleanGame {
@@ -83,6 +84,7 @@ export interface IAddPlayerSuccess {
   username?: string
   userId?: string
   isOnline?: boolean
+  isAccepted?: boolean
 }
 
 export interface IKickOffPlayer {

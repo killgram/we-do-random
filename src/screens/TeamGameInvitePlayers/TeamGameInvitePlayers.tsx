@@ -7,6 +7,7 @@ import { Navigate } from '@navigators'
 import { HeaderBackButton } from '@react-navigation/elements'
 import { getThemeColor } from '@utils'
 import { dbUpdatePlayStatus, dbCloseGame } from '@services'
+import TeamGameInviteList from '@components/TeamGameInviteList'
 
 /**
  * @description TeamGameInvitePlayers
@@ -25,6 +26,11 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
     Navigate.toAppStack()
   }
 
+  const totalPlayers = game?.playersList?.length
+  const readyPlayers = game?.playersList?.filter((item) => {
+    return item.isAccepted === true
+  }).length
+
   useLayoutEffect(() => {
     navigation?.setOptions({
       headerLeft: () => (
@@ -34,14 +40,35 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
         />
       ),
       headerTitle: t('createGame.invitePlayers'),
+      headerRight: () => (
+        <WDRText
+          style={styles.headerRight}
+        >{`${readyPlayers}/${totalPlayers}`}</WDRText>
+      ),
     })
-  }, [])
+  }, [game])
+
+  const handleDeletePlayer = (id: string) => {
+    kickOffPlayer?.(userId!, id)
+  }
 
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
+      <WDRText isTitle style={styles.gameName}>
+        {game?.gameName}
+      </WDRText>
+
       <WDRButton
         title={t('teamGame.addPlayer')}
         onPress={Navigate.toAddPlayersIntoGame}
+      />
+
+      <WDRButton
+        title={t('teamGame.begin')}
+        onPress={Navigate.toTeamGameBoard}
+        style={styles.beginBtn}
+        // TODO check this
+        isDisabled={!(totalPlayers === readyPlayers && totalPlayers! !== 1)}
       />
 
       <WDRList
@@ -49,7 +76,16 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
         listItems={game?.playersList}
         listStyles={styles.listStyle}
         titleEmptyComponent={t('teamGame.emptyPlayersList')}
-        renderListItem={({ item }) => <WDRText>{item.username}</WDRText>}
+        renderListItem={({ item }) => (
+          <TeamGameInviteList
+            leadId={userId}
+            username={item.username}
+            userId={item.userId}
+            onPress={handleDeletePlayer}
+            isLead={true}
+            isAccepted={item.isAccepted}
+          />
+        )}
       />
     </WDRContainer>
   )

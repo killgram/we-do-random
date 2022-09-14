@@ -126,6 +126,7 @@ export function addPlayer(leadUserId: string, userId: string): game.IAction {
  * @param {number} username
  * @param {number} userId
  * @param {boolean} isOnline
+ * @param {boolean} isAccepted
  * @return {game.IAction}
  */
 export function addPlayerSuccess(
@@ -133,6 +134,7 @@ export function addPlayerSuccess(
   username: string,
   userId: string,
   isOnline: boolean,
+  isAccepted: boolean,
 ): game.IAction {
   return {
     type: game.ActionTypes.ADD_PLAYER_SUCCESS,
@@ -140,6 +142,7 @@ export function addPlayerSuccess(
     username,
     userId,
     isOnline,
+    isAccepted,
   }
 }
 

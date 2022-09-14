@@ -46,12 +46,14 @@ const dbCreateGame = async (
  * @param {string} username
  * @param {string} userId
  * @param {boolean} isOnline
+ * @param {boolean} isAccepted
  */
 const dbUpdatePlayers = async (
   leadUserId: string,
   username: string,
   userId: string,
   isOnline: boolean,
+  isAccepted: boolean,
 ) => {
   const oldData = await firestore()
     .collection(Collections.GAMES)
@@ -67,6 +69,7 @@ const dbUpdatePlayers = async (
           username: username,
           userId: userId,
           isOnline: isOnline,
+          isAccepted: isAccepted,
         },
       },
     })
@@ -105,10 +108,49 @@ const dbRemovePlayer = async (leadUserId: string, userId: string) => {
   return true
 }
 
+/**
+ * @description send invite to user in Firestore
+ * @param {string} userId
+ * @param {string} leadName
+ * @param {string} leadId
+ * @param {string} gameName
+ */
+const dbSendInvite = async (
+  userId: string,
+  leadName: string,
+  leadId: string,
+  gameName: string,
+) => {
+  await firestore()
+    .collection(Collections.USERS)
+    .doc(userId)
+    .update({
+      invite: {
+        leadName: leadName,
+        leadId: leadId,
+        gameName: gameName,
+      },
+    })
+  return true
+}
+
+/**
+ * @description delete user invite in Firestore
+ * @param {string} userId
+ */
+const dbDeleteInvite = async (userId: string) => {
+  await firestore().collection(Collections.USERS).doc(userId).update({
+    invite: firestore.FieldValue.delete(),
+  })
+  return true
+}
+
 export {
   dbUpdatePlayStatus,
   dbCreateGame,
   dbUpdatePlayers,
   dbCloseGame,
   dbRemovePlayer,
+  dbSendInvite,
+  dbDeleteInvite,
 }

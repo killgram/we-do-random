@@ -82,6 +82,7 @@ const gameReducer = (
         username: action.username,
         userId: action.userId,
         isOnline: action.isOnline,
+        isAccepted: action.isAccepted,
       }
       oldState.playersList = oldList.concat([newPlayer])
       return {

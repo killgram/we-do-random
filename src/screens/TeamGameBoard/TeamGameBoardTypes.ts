@@ -3,11 +3,6 @@ import { NavigationType } from '@navigators'
 
 interface IStateToProps {
   navigation?: NavigationType
-  route?: {
-    params: {
-      gameName: string
-    }
-  }
 }
 
 interface IDispatchToProps {}

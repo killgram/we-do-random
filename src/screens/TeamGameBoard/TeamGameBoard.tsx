@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next'
  * @return {JSX}
  */
 const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
-  const { navigation, route } = props
+  const { navigation } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
@@ -22,7 +22,7 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
 
   return (
     <WDRContainer isTransparentHeader>
-      <WDRText>{route?.params?.gameName}</WDRText>
+      <WDRText>TeamGameBoard</WDRText>
     </WDRContainer>
   )
 }

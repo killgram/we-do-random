@@ -110,14 +110,10 @@ export const toTeamGameInvitePlayers = () => {
 
 /**
  * @description to TeamGameBoard
- * @param {string} gameName
  */
-export const toTeamGameBoard = (gameName: string) => {
+export const toTeamGameBoard = () => {
   NavigationService.navigate('GameStack', {
     screen: 'TeamGameBoard',
-    params: {
-      gameName,
-    },
   })
 }
 

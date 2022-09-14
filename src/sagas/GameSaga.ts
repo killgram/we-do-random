@@ -13,6 +13,8 @@ import {
   dbUpdatePlayers,
   dbRemovePlayer,
   dbCheckUser,
+  dbSendInvite,
+  dbDeleteInvite,
 } from '@services'
 
 export function* createGame(action: ICreateGame): any {
@@ -41,6 +43,7 @@ export function* createGame(action: ICreateGame): any {
             gameLead?.username!,
             gameLead?.userId!,
             true,
+            true,
           ),
         )
         yield call(
@@ -48,6 +51,7 @@ export function* createGame(action: ICreateGame): any {
           gameLead?.userId!,
           gameLead?.username!,
           gameLead?.userId!,
+          true,
           true,
         )
         yield call(Navigate.toTeamGameInvitePlayers)
@@ -60,10 +64,8 @@ export function* createGame(action: ICreateGame): any {
 
 export function* startFinishGame(): any {
   const state = yield select()
-
   const game = state?.game
   const phraseList = state?.game?.list
-
   try {
     const winner = yield call(calcWinner, phraseList)
     const chance = yield call(
@@ -85,6 +87,7 @@ export function* startFinishGame(): any {
 export function* addPlayer(action: IAddPlayer): any {
   const { userId, leadUserId } = action
   const state = yield select()
+  const game = state?.game
 
   try {
     const addUser = yield call(dbCheckUser, userId!)
@@ -103,12 +106,18 @@ export function* addPlayer(action: IAddPlayer): any {
         return
       }
 
+      if (!addUser.data()?.isOnline) {
+        yield call(errorToast, 'Player offline')
+        return
+      }
+
       yield call(
         dbUpdatePlayers,
         leadUserId!,
         addUser.data().username,
         userId!,
         addUser.data().isOnline,
+        false,
       )
       yield put(
         gameAction.addPlayerSuccess(
@@ -116,7 +125,16 @@ export function* addPlayer(action: IAddPlayer): any {
           addUser.data().username,
           userId!,
           addUser.data().isOnline,
+          false,
         ),
+      )
+
+      yield call(
+        dbSendInvite,
+        userId!,
+        game?.gameLead?.username,
+        game?.gameLead?.userId,
+        game?.gameName,
       )
 
       yield call(Navigate.goBack)
@@ -135,6 +153,7 @@ export function* kickOffPlayer(action: IKickOffPlayer): any {
     const result = yield call(dbRemovePlayer, leadUserId!, userId!)
     if (result) {
       yield put(gameAction.kickOffPlayerSuccess(leadUserId!, userId!))
+      yield call(dbDeleteInvite, userId!)
     }
   } catch (e) {
     yield call(errorToast, "Can't delete player")

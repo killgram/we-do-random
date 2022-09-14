@@ -14,6 +14,8 @@ import {
   dbCreateGame,
   dbCloseGame,
   dbRemovePlayer,
+  dbSendInvite,
+  dbDeleteInvite,
 } from './GameService'
 
 export {
@@ -31,4 +33,6 @@ export {
   dbCreateGame,
   dbCloseGame,
   dbRemovePlayer,
+  dbDeleteInvite,
+  dbSendInvite,
 }
