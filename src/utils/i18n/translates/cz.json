@@ -71,6 +71,10 @@
       "winner": "Vítěz",
       "chance": "Šance",
       "finishGame": "Dokončit"
+    },
+    "teamGame": {
+      "addPlayer": "Přidat hráče",
+      "emptyPlayersList": "Seznam hráčů je prázdný.\n Přidat hráče (alespoň 1)"
     }
   }
 }

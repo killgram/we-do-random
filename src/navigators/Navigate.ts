@@ -130,6 +130,30 @@ export const toAddPhraseIntoGameScreen = () => {
   })
 }
 
+/**
+ * @description to AddPlayersIntoGame
+ */
+export const toAddPlayersIntoGame = () => {
+  NavigationService.navigate('GameStack', {
+    screen: 'AddPlayersIntoGame',
+  })
+}
+
+/**
+ * @description to AddFriendIntoGameScreen
+ * @param {(s: string) => void} goBackScreen
+ */
+export const toAddFriendIntoGameScreen = (
+  goBackScreen: (s: string) => void,
+) => {
+  NavigationService.navigate('GameStack', {
+    screen: 'AddFriendIntoGameScreen',
+    params: {
+      goBackScreen,
+    },
+  })
+}
+
 //-------------------SettingsStack---------------------//
 
 /**

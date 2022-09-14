@@ -107,3 +107,70 @@ export function gameFinishSuccess(
     chance,
   }
 }
+
+/**
+ * @param {number} leadUserId
+ * @param {number} userId
+ * @return {game.IAction}
+ */
+export function addPlayer(leadUserId: string, userId: string): game.IAction {
+  return {
+    type: game.ActionTypes.ADD_PLAYER,
+    leadUserId,
+    userId,
+  }
+}
+
+/**
+ * @param {number} leadUserId
+ * @param {number} username
+ * @param {number} userId
+ * @param {boolean} isOnline
+ * @return {game.IAction}
+ */
+export function addPlayerSuccess(
+  leadUserId: string,
+  username: string,
+  userId: string,
+  isOnline: boolean,
+): game.IAction {
+  return {
+    type: game.ActionTypes.ADD_PLAYER_SUCCESS,
+    leadUserId,
+    username,
+    userId,
+    isOnline,
+  }
+}
+
+/**
+ * @param {number} leadUserId
+ * @param {number} userId
+ * @return {game.IAction}
+ */
+export function kickOffPlayer(
+  leadUserId: string,
+  userId: string,
+): game.IAction {
+  return {
+    type: game.ActionTypes.KICKOFF_PLAYER,
+    leadUserId,
+    userId,
+  }
+}
+
+/**
+ * @param {number} leadUserId
+ * @param {number} userId
+ * @return {game.IAction}
+ */
+export function kickOffPlayerSuccess(
+  leadUserId: string,
+  userId: string,
+): game.IAction {
+  return {
+    type: game.ActionTypes.KICKOFF_PLAYER_SUCCESS,
+    leadUserId,
+    userId,
+  }
+}

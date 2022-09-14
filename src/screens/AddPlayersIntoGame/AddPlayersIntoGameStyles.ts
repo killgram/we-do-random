@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native'
 import { height, RNStyleType } from '@utils'
 
 interface IStyles {
-  listStyle: RNStyleType
+  descTopContainer: RNStyleType
+  or: RNStyleType
 }
 
 /**
@@ -10,8 +11,12 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    listStyle: {
-      marginBottom: height(30),
+    descTopContainer: {
+      marginTop: height(16),
+    },
+    or: {
+      textAlign: 'center',
+      paddingVertical: height(16),
     },
   })
 }

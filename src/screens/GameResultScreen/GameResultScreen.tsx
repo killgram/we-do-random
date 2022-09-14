@@ -18,6 +18,8 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
 
+  const isSingle = game?.gameType
+
   useLayoutEffect(() => {
     navigation?.setOptions({
       headerTitle: t('finishGame.results'),
@@ -47,12 +49,16 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
         {game?.finish?.phrase}
       </WDRText>
 
-      <WDRText size={20} isTitle style={styles.title}>
-        {t('finishGame.winner')}
-      </WDRText>
-      <WDRText size={24} isTitle style={styles.winnerName}>
-        {game?.finish?.username}
-      </WDRText>
+      {isSingle !== 'single' && (
+        <>
+          <WDRText size={20} isTitle style={styles.title}>
+            {t('finishGame.winner')}
+          </WDRText>
+          <WDRText size={24} isTitle style={styles.winnerName}>
+            {game?.finish?.username}
+          </WDRText>
+        </>
+      )}
 
       <WDRText size={20} isTitle style={styles.title}>
         {t('finishGame.chance')}

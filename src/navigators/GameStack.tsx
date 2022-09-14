@@ -16,6 +16,8 @@ import SingleGameBoard from '@screens/SingleGameBoard'
 import TeamGameBoard from '@screens/TeamGameBoard'
 import TeamGameInvitePlayers from '@screens/TeamGameInvitePlayers'
 import AddPhraseIntoGameScreen from '@screens/AddPhraseIntoGame'
+import AddPlayersIntoGame from '@screens/AddPlayersIntoGame'
+import AddFriendIntoGameScreen from '@screens/AddFriendIntoGame'
 
 /**
  * @description game stack
@@ -44,6 +46,11 @@ const GameStack = () => {
       <Stack.Screen
         name="AddPhraseIntoGameScreen"
         component={AddPhraseIntoGameScreen}
+      />
+      <Stack.Screen name="AddPlayersIntoGame" component={AddPlayersIntoGame} />
+      <Stack.Screen
+        name="AddFriendIntoGameScreen"
+        component={AddFriendIntoGameScreen}
       />
     </Stack.Navigator>
   )

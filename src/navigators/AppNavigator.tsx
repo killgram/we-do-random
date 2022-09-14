@@ -72,6 +72,7 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
         <Stack.Screen name="SettingsStack" component={SettingsStack} />
 
         <Stack.Screen name="QRCodeScanScreen" component={QRCodeScanScreen} />
+
         <Stack.Screen
           name="GameResultScreen"
           component={GameResultScreen}

@@ -4,7 +4,12 @@ import { startup } from './StartupSaga'
 import { logout } from './LogoutSaga'
 import { login } from './LoginSaga'
 import { addFriend, updateFriendStatus, deleteFriend } from './FriendsSaga'
-import { createGame, startFinishGame } from './GameSaga'
+import {
+  createGame,
+  startFinishGame,
+  addPlayer,
+  kickOffPlayer,
+} from './GameSaga'
 
 /**
  * @description initialize root saga
@@ -20,6 +25,8 @@ export default function* root(): any {
   ])
   yield all([takeLatest(game.ActionTypes.CREATE_GAME, createGame)])
   yield all([takeLatest(game.ActionTypes.START_FINISH_GAME, startFinishGame)])
+  yield all([takeLatest(game.ActionTypes.ADD_PLAYER, addPlayer)])
+  yield all([takeLatest(game.ActionTypes.KICKOFF_PLAYER, kickOffPlayer)])
 }
 
 export type RootSaga = ReturnType<typeof root>

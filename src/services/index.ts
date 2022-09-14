@@ -8,7 +8,13 @@ import {
   dbRemoveFriendList,
 } from './FriendsServices'
 import { snapUpdateFriendStatus } from './SnapshotFirestore'
-import { dbUpdatePlayStatus } from './GameService'
+import {
+  dbUpdatePlayStatus,
+  dbUpdatePlayers,
+  dbCreateGame,
+  dbCloseGame,
+  dbRemovePlayer,
+} from './GameService'
 
 export {
   dbLogin,
@@ -21,4 +27,8 @@ export {
   dbRemoveFriendList,
   snapUpdateFriendStatus,
   dbUpdatePlayStatus,
+  dbUpdatePlayers,
+  dbCreateGame,
+  dbCloseGame,
+  dbRemovePlayer,
 }

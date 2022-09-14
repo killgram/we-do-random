@@ -11,7 +11,7 @@ import { WDRCombineItem } from '@ui-kit/components'
  * @constructor
  */
 const WDRPressableCombineItem = (props: IWDRPressableCombineItemProps) => {
-  const { onPress, styleContainer, ...other } = props
+  const { onPress, styleContainer, disabled, ...other } = props
   return (
     <Pressable
       style={({ pressed }) =>
@@ -20,6 +20,7 @@ const WDRPressableCombineItem = (props: IWDRPressableCombineItemProps) => {
           !!styleContainer && styleContainer,
         ])
       }
+      disabled={disabled}
       onPress={onPress}
     >
       <WDRCombineItem {...other} />

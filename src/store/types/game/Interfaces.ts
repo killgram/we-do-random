@@ -4,6 +4,10 @@ export interface IPhrase {
   [key: string]: any
 }
 
+export interface IPlayers {
+  [key: string]: any
+}
+
 export interface IUser {
   username: string
   userId: string
@@ -20,6 +24,10 @@ export interface IInitialState {
     phrase?: string
     chance?: string
   }
+  playersList?: Array<IPlayers>
+  username?: string
+  userId?: string
+  isOnline?: boolean
 }
 
 export interface ICleanGame {
@@ -63,6 +71,32 @@ export interface IGameFinishSuccess {
   chance?: string
 }
 
+export interface IAddPlayer {
+  type: ActionTypes.ADD_PLAYER
+  leadUserId?: string
+  userId?: string
+}
+
+export interface IAddPlayerSuccess {
+  type: ActionTypes.ADD_PLAYER_SUCCESS
+  leadUserId?: string
+  username?: string
+  userId?: string
+  isOnline?: boolean
+}
+
+export interface IKickOffPlayer {
+  type: ActionTypes.KICKOFF_PLAYER
+  leadUserId?: string
+  userId?: string
+}
+
+export interface IKickOffPlayerSuccess {
+  type: ActionTypes.KICKOFF_PLAYER_SUCCESS
+  leadUserId?: string
+  userId?: string
+}
+
 export type IAction =
   | ICreateGame
   | ICleanGame
@@ -71,3 +105,7 @@ export type IAction =
   | IDeletePhraseOutGame
   | IStartFinishGame
   | IGameFinishSuccess
+  | IAddPlayer
+  | IAddPlayerSuccess
+  | IKickOffPlayer
+  | IKickOffPlayerSuccess
