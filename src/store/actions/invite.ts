@@ -38,3 +38,14 @@ export function declineInvite(leadId: string): invite.IAction {
     leadId,
   }
 }
+
+/**
+ * @param {string} leadId
+ * @return {invite.IAction}
+ */
+export function acceptInvite(leadId: string): invite.IAction {
+  return {
+    type: invite.ActionTypes.ACCEPT_INVITE,
+    leadId,
+  }
+}

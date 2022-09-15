@@ -18,6 +18,7 @@ import TeamGameInvitePlayers from '@screens/TeamGameInvitePlayers'
 import AddPhraseIntoGameScreen from '@screens/AddPhraseIntoGame'
 import AddPlayersIntoGame from '@screens/AddPlayersIntoGame'
 import AddFriendIntoGameScreen from '@screens/AddFriendIntoGame'
+import ViewInvitePlayers from '@screens/ViewInvitePlayers'
 
 /**
  * @description game stack
@@ -52,6 +53,7 @@ const GameStack = () => {
         name="AddFriendIntoGameScreen"
         component={AddFriendIntoGameScreen}
       />
+      <Stack.Screen name="ViewInvitePlayers" component={ViewInvitePlayers} />
     </Stack.Navigator>
   )
 }

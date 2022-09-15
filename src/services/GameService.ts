@@ -145,6 +145,30 @@ const dbDeleteInvite = async (userId: string) => {
   return true
 }
 
+/**
+ * @description accept user invite in Firestore
+ * @param {string} leadUserId
+ * @param {string} userId
+ */
+const dbAcceptInvite = async (leadUserId: string, userId: string) => {
+  const oldData = await firestore()
+    .collection(Collections.GAMES)
+    .doc(leadUserId)
+    .get()
+
+  oldData.data()!.playersList[userId].isAccepted = true
+
+  await firestore()
+    .collection(Collections.GAMES)
+    .doc(leadUserId)
+    .update({
+      playersList: {
+        ...oldData?.data()?.playersList,
+      },
+    })
+  return true
+}
+
 export {
   dbUpdatePlayStatus,
   dbCreateGame,
@@ -153,4 +177,5 @@ export {
   dbRemovePlayer,
   dbSendInvite,
   dbDeleteInvite,
+  dbAcceptInvite,
 }

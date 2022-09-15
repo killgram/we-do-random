@@ -150,6 +150,18 @@ export const toAddFriendIntoGameScreen = (
   })
 }
 
+/**
+ * @description to ViewInvitePlayers
+ * @param {string} leadId
+ */
+export const toViewInvitePlayers = (leadId: string) => {
+  NavigationService.navigate('GameStack', {
+    screen: 'ViewInvitePlayers',
+    params: {
+      leadId,
+    },
+  })
+}
 //-------------------SettingsStack---------------------//
 
 /**

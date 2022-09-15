@@ -11,7 +11,7 @@ import SuccessToast from '@components/SuccessToast'
 import InviteModal from '@components/InviteModal'
 
 const RootScreen = (props: IRootScreenProps) => {
-  const { startup, invite, declineInvite } = props
+  const { startup, invite, declineInvite, acceptInvite } = props
 
   const styles = getStyle()
 
@@ -34,10 +34,6 @@ const RootScreen = (props: IRootScreenProps) => {
     successCustom: ({ text1 }: any) => <SuccessToast text={text1} />,
   }
 
-  const tt = (id) => {
-    console.log(id)
-  }
-
   return (
     <View style={styles.container}>
       <AppNavigator
@@ -54,7 +50,7 @@ const RootScreen = (props: IRootScreenProps) => {
           leaderName={invite.leaderName!}
           leadId={invite.leadId!}
           gameName={invite.gameName!}
-          onAccept={tt}
+          onAccept={acceptInvite!}
           onDecline={declineInvite!}
         />
       )}

@@ -55,8 +55,24 @@ const snapUpdateAcceptedStatus = (
     })
 }
 
+/**
+ * @description update game view in snapshot
+ * @param {string} leadId
+ * @param {(data:any) => void} callback
+ * @return {Promise}
+ */
+const snapUpdateViewGame = (leadId: string, callback: (data: any) => void) => {
+  return firestore()
+    .collection(Collections.GAMES)
+    .doc(leadId)
+    .onSnapshot((documentSnapshot) => {
+      callback(documentSnapshot.data())
+    })
+}
+
 export {
   snapUpdateFriendStatus,
   snapUpdateInviteStatus,
   snapUpdateAcceptedStatus,
+  snapUpdateViewGame,
 }

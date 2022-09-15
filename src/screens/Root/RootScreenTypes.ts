@@ -7,6 +7,7 @@ interface IStateToProps {
 interface IDispatchToProps {
   startup?: () => app.IAction
   declineInvite?: (leadId: string) => invite.IAction
+  acceptInvite?: (leadId: string) => invite.IAction
 }
 
 export interface IState {

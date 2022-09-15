@@ -20,6 +20,7 @@ const mapDispatchToProps = (dispatch: Dispatch): IRootScreenProps => ({
   startup: () => dispatch(appAction.startup()),
   declineInvite: (leadId: string) =>
     dispatch(inviteAction.declineInvite(leadId)),
+  acceptInvite: (leadId: string) => dispatch(inviteAction.acceptInvite(leadId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootScreen)

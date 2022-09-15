@@ -204,3 +204,25 @@ export function updateInviteStatus(playersList: Array<IPlayers>): game.IAction {
     playersList,
   }
 }
+
+/**
+ * @param {game.IInitialState} data
+ * @return {game.IAction}
+ */
+export function updateGameView(data: game.IInitialState): game.IAction {
+  return {
+    type: game.ActionTypes.UPDATE_GAME_VIEW,
+    data,
+  }
+}
+
+/**
+ * @param {game.IInitialState} data
+ * @return {game.IAction}
+ */
+export function updateGameViewSuccess(data: game.IInitialState): game.IAction {
+  return {
+    type: game.ActionTypes.UPDATE_GAME_VIEW_SUCCESS,
+    data,
+  }
+}

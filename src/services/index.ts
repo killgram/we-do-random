@@ -11,6 +11,7 @@ import {
   snapUpdateFriendStatus,
   snapUpdateInviteStatus,
   snapUpdateAcceptedStatus,
+  snapUpdateViewGame,
 } from './SnapshotFirestore'
 import {
   dbUpdatePlayStatus,
@@ -20,6 +21,7 @@ import {
   dbRemovePlayer,
   dbSendInvite,
   dbDeleteInvite,
+  dbAcceptInvite,
 } from './GameService'
 
 export {
@@ -41,4 +43,6 @@ export {
   dbSendInvite,
   snapUpdateInviteStatus,
   snapUpdateAcceptedStatus,
+  dbAcceptInvite,
+  snapUpdateViewGame,
 }

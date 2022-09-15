@@ -3,6 +3,7 @@ import {
   IAddPlayer,
   ICreateGame,
   IKickOffPlayer,
+  IUpdateGameView,
   IUpdateInviteStatus,
 } from '@store/types/game/Interfaces'
 import { errorToast, calcWinner, calcChance } from '@utils'
@@ -186,7 +187,24 @@ export function* updateInviteStatus(action: IUpdateInviteStatus): any {
       }
     }
   } catch (e) {
-    console.log(e)
     yield call(errorToast, "Can't update invite list")
+  }
+}
+
+export function* updateGameView(action: IUpdateGameView): any {
+  const { data } = action
+  const state = yield select()
+
+  try {
+    if (data) {
+      yield put(gameAction.updateGameViewSuccess(data))
+    } else {
+      yield call(dbUpdatePlayStatus, state?.profile?.userId, false)
+      yield put(gameAction.cleanGame())
+      yield call(Navigate.toAppStack)
+      yield call(errorToast, 'Game over')
+    }
+  } catch (e) {
+    yield call(errorToast, "Can't update game")
   }
 }

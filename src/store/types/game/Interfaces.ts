@@ -110,6 +110,16 @@ export interface IUpdateAcceptedStatus {
   isAccepted?: boolean
 }
 
+export interface IUpdateGameView {
+  type: ActionTypes.UPDATE_GAME_VIEW
+  data?: IInitialState
+}
+
+export interface IUpdateGameViewSuccess {
+  type: ActionTypes.UPDATE_GAME_VIEW_SUCCESS
+  data?: IInitialState
+}
+
 export type IAction =
   | ICreateGame
   | ICleanGame
@@ -124,3 +134,5 @@ export type IAction =
   | IKickOffPlayerSuccess
   | IUpdateAcceptedStatus
   | IUpdateInviteStatus
+  | IUpdateGameView
+  | IUpdateGameViewSuccess

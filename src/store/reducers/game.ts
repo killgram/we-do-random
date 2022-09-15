@@ -116,6 +116,15 @@ const gameReducer = (
       }
     }
 
+    // update game view
+    case game.ActionTypes.UPDATE_GAME_VIEW_SUCCESS: {
+      const data = { ...action.data }
+      data.playersList = Object.values(action.data?.playersList!)
+      return {
+        ...data,
+      }
+    }
+
     default: {
       return state
     }

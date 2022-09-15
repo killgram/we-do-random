@@ -24,4 +24,13 @@ export interface IDeclineInvite {
   leadId?: string
 }
 
-export type IAction = IIncomingInvite | ICleanInvite | IDeclineInvite
+export interface IAcceptInvite {
+  type: ActionTypes.ACCEPT_INVITE
+  leadId?: string
+}
+
+export type IAction =
+  | IIncomingInvite
+  | ICleanInvite
+  | IDeclineInvite
+  | IAcceptInvite

@@ -24,9 +24,16 @@ export function* startup(): any {
     yield call(Navigate.toAppStack)
 
     if (!isFinishedGame && isPlay) {
-      isPlay === 'single'
-        ? yield call(Navigate.toSingleGameBoard)
-        : yield call(Navigate.toTeamGameInvitePlayers)
+      if (isPlay === 'single') {
+        yield call(Navigate.toSingleGameBoard)
+      } else {
+        const gameLeadId = state?.game?.gameLead?.userId
+        if (userId === gameLeadId) {
+          yield call(Navigate.toTeamGameInvitePlayers)
+        } else {
+          yield call(Navigate.toViewInvitePlayers, gameLeadId)
+        }
+      }
     }
     if (isFinishedGame) {
       yield call(dbUpdatePlayStatus, userId, false)
