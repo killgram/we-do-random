@@ -80,7 +80,8 @@
     "teamGame": {
       "addPlayer": "Přidat hráče",
       "emptyPlayersList": "Seznam hráčů je prázdný.\n Přidat hráče (alespoň 1)",
-      "begin": "Začít"
+      "begin": "Začít",
+      "waitPlayers": "Čekání na hráče"
     }
   }
 }

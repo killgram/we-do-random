@@ -24,10 +24,10 @@ const mapDispatchToProps = (
   dispatch: Dispatch,
 ): IViewInvitePlayersScreenProps => ({
   cleanGame: () => dispatch(gameAction.cleanGame()),
-  updateInviteStatus: (playersList: Array<IPlayers>) =>
-    dispatch(gameAction.updateInviteStatus(playersList)),
   updateGameView: (data: game.IInitialState) =>
     dispatch(gameAction.updateGameView(data)),
+  kickOffPlayer: (leadUserId: string, userId: string) =>
+    dispatch(gameAction.kickOffPlayer(leadUserId, userId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewInvitePlayers)

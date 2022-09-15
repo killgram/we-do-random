@@ -125,6 +125,14 @@ const gameReducer = (
       }
     }
 
+    // update game status
+    case game.ActionTypes.UPDATE_GAME_STATUS: {
+      return {
+        ...state,
+        gameStatus: action.gameStatus,
+      }
+    }
+
     default: {
       return state
     }

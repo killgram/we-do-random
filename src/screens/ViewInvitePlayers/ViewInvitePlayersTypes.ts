@@ -15,8 +15,8 @@ interface IStateToProps {
 
 interface IDispatchToProps {
   cleanGame?: () => game.IAction
-  updateInviteStatus?: (playersList: Array<IPlayers>) => game.IAction
   updateGameView?: (data: game.IInitialState) => game.IAction
+  kickOffPlayer?: (leadUserId: string, userId: string) => game.IAction
 }
 
 export interface IState {

@@ -10,6 +10,7 @@ import {
   dbUpdatePlayStatus,
   dbCloseGame,
   snapUpdateAcceptedStatus,
+  dbUpdateGameStatus,
 } from '@services'
 import TeamGameInviteList from '@components/TeamGameInviteList'
 import { useIsFocused } from '@react-navigation/native'
@@ -27,6 +28,7 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
     game,
     kickOffPlayer,
     updateInviteStatus,
+    updateGameStatus,
   } = props
   const styles = getStyle()
   const { t } = useTranslation()
@@ -54,11 +56,12 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
         />
       ),
       headerTitle: t('createGame.invitePlayers'),
-      headerRight: () => (
-        <WDRText
-          style={styles.headerRight}
-        >{`${readyPlayers}/${totalPlayers}`}</WDRText>
-      ),
+      headerRight: () =>
+        totalPlayers !== 1 && (
+          <WDRText
+            style={styles.headerRight}
+          >{`${readyPlayers}/${totalPlayers}`}</WDRText>
+        ),
     })
   }, [game?.playersList])
 
@@ -82,6 +85,12 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
     kickOffPlayer?.(userId!, id)
   }
 
+  const handleBegin = () => {
+    Navigate.toTeamGameBoard()
+    updateGameStatus?.('playing')
+    userId && dbUpdateGameStatus(userId, 'playing')
+  }
+
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
       <WDRText isTitle style={styles.gameName}>
@@ -95,7 +104,7 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
 
       <WDRButton
         title={t('teamGame.begin')}
-        onPress={Navigate.toTeamGameBoard}
+        onPress={handleBegin}
         style={styles.beginBtn}
         isDisabled={!(totalPlayers === readyPlayers && totalPlayers! !== 1)}
       />

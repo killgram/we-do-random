@@ -7,7 +7,7 @@ import {
 } from './TeamGameInvitePlayersTypes'
 import { Dispatch } from 'redux'
 import { gameAction } from '@store/actions'
-import { IPlayers } from '@store/types/game/Interfaces'
+import { IGameStatus, IPlayers } from '@store/types/game/Interfaces'
 
 /**
  * @param {IState} state
@@ -30,6 +30,8 @@ const mapDispatchToProps = (
     dispatch(gameAction.kickOffPlayer(leadUserId, userId)),
   updateInviteStatus: (playersList: Array<IPlayers>) =>
     dispatch(gameAction.updateInviteStatus(playersList)),
+  updateGameStatus: (gameStatus: IGameStatus) =>
+    dispatch(gameAction.updateGameStatus(gameStatus)),
 })
 
 export default connect(

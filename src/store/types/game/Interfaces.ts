@@ -13,6 +13,8 @@ export interface IUser {
   userId: string
 }
 
+export type IGameStatus = 'inviting' | 'playing' | 'finishing'
+
 export interface IInitialState {
   gameType?: string
   gameName?: string
@@ -29,6 +31,7 @@ export interface IInitialState {
   userId?: string
   isOnline?: boolean
   isAccepted?: boolean
+  gameStatus?: IGameStatus
 }
 
 export interface ICleanGame {
@@ -120,6 +123,11 @@ export interface IUpdateGameViewSuccess {
   data?: IInitialState
 }
 
+export interface IUpdateGameStatus {
+  type: ActionTypes.UPDATE_GAME_STATUS
+  gameStatus?: IGameStatus
+}
+
 export type IAction =
   | ICreateGame
   | ICleanGame
@@ -136,3 +144,4 @@ export type IAction =
   | IUpdateInviteStatus
   | IUpdateGameView
   | IUpdateGameViewSuccess
+  | IUpdateGameStatus

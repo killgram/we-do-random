@@ -9,6 +9,7 @@ import { getThemeColor } from '@utils'
 import { dbUpdatePlayStatus, snapUpdateViewGame } from '@services'
 import TeamGameInviteList from '@components/TeamGameInviteList'
 import { useIsFocused } from '@react-navigation/native'
+import { ActivityIndicator, View } from 'react-native'
 
 /**
  * @description ViewInvitePlayers
@@ -16,7 +17,16 @@ import { useIsFocused } from '@react-navigation/native'
  * @return {JSX}
  */
 const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
-  const { navigation, cleanGame, userId, game, route, updateGameView } = props
+  const {
+    navigation,
+    cleanGame,
+    userId,
+    game,
+    route,
+    updateGameView,
+    kickOffPlayer,
+  } = props
+
   const styles = getStyle()
   const { t } = useTranslation()
   const isFocused = useIsFocused()
@@ -25,6 +35,7 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
   const exitGame = () => {
     userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
+    userId && kickOffPlayer?.(game?.gameLead?.userId!, userId)
     Navigate.toAppStack()
   }
 
@@ -66,11 +77,24 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
     }
   }, [isFocused])
 
+  useEffect(() => {
+    if (game?.gameStatus !== 'inviting') {
+      Navigate.toTeamGameBoard()
+    }
+  }, [game?.gameStatus])
+
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
       <WDRText isTitle style={styles.gameName}>
         {game?.gameName}
       </WDRText>
+
+      <View style={styles.waiting}>
+        <WDRText isTitle style={styles.waitText}>
+          {t('teamGame.waitPlayers')}
+        </WDRText>
+        <ActivityIndicator size="small" color={getThemeColor('MAIN_TEXT')} />
+      </View>
 
       <WDRList
         isBounces

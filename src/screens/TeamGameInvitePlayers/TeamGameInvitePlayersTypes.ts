@@ -1,6 +1,6 @@
 import { game, profile } from '@store/types'
 import { NavigationType } from '@navigators'
-import { IPlayers } from '@store/types/game/Interfaces'
+import { IGameStatus, IPlayers } from '@store/types/game/Interfaces'
 
 interface IStateToProps {
   navigation?: NavigationType
@@ -12,6 +12,7 @@ interface IDispatchToProps {
   cleanGame?: () => game.IAction
   kickOffPlayer?: (leadUserId: string, userId: string) => game.IAction
   updateInviteStatus?: (playersList: Array<IPlayers>) => game.IAction
+  updateGameStatus?: (gameStatus: IGameStatus) => game.IAction
 }
 
 export interface IState {

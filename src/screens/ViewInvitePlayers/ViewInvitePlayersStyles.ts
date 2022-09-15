@@ -6,6 +6,8 @@ interface IStyles {
   listStyle: RNStyleType
   headerRight: RNStyleType
   gameName: RNStyleType
+  waiting: RNStyleType
+  waitText: RNStyleType
 }
 
 /**
@@ -22,7 +24,16 @@ export default function getStyle(): IStyles {
     },
     gameName: {
       textAlign: 'center',
-      marginBottom: height(16),
+      marginBottom: height(8),
+    },
+    waiting: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginBottom: height(8),
+    },
+    waitText: {
+      paddingRight: width(8),
     },
   })
 }

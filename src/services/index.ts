@@ -1,5 +1,5 @@
 import { dbLogin, dbLogout } from './AuthService'
-import { dbUpdateStatus } from './StatusService'
+import { dbUpdateStatus, dbUpdateGameStatus } from './StatusService'
 import {
   dbCheckUser,
   dbAddFriend,
@@ -45,4 +45,5 @@ export {
   snapUpdateAcceptedStatus,
   dbAcceptInvite,
   snapUpdateViewGame,
+  dbUpdateGameStatus,
 }

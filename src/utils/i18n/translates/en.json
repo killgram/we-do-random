@@ -80,7 +80,8 @@
     "teamGame": {
       "addPlayer": "Add player",
       "emptyPlayersList": "Players list is empty. \n Add players (at least 1)",
-      "begin": "Begin"
+      "begin": "Begin",
+      "waitPlayers": "Waiting for the players"
     }
   }
 }

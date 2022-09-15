@@ -1,5 +1,6 @@
 import firestore from '@react-native-firebase/firestore'
 import { Collections } from '@configurations'
+import { IGameStatus } from '@store/types/game/Interfaces'
 
 /**
  * @description update user status in Firestore
@@ -13,4 +14,16 @@ const dbUpdateStatus = async (userId: string, status: boolean) => {
   return true
 }
 
-export { dbUpdateStatus }
+/**
+ * @description update game status in Firestore
+ * @param {string} userId
+ * @param {IGameStatus} status
+ */
+const dbUpdateGameStatus = async (userId: string, status: IGameStatus) => {
+  await firestore().collection(Collections.GAMES).doc(userId).update({
+    gameStatus: status,
+  })
+  return true
+}
+
+export { dbUpdateStatus, dbUpdateGameStatus }

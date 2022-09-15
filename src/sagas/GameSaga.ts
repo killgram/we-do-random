@@ -17,6 +17,7 @@ import {
   dbCheckUser,
   dbSendInvite,
   dbDeleteInvite,
+  dbUpdateGameStatus,
 } from '@services'
 
 export function* createGame(action: ICreateGame): any {
@@ -56,6 +57,8 @@ export function* createGame(action: ICreateGame): any {
           true,
           true,
         )
+        yield put(gameAction.updateGameStatus('inviting'))
+        yield call(dbUpdateGameStatus, gameLead?.userId!, 'inviting')
         yield call(Navigate.toTeamGameInvitePlayers)
       }
     }

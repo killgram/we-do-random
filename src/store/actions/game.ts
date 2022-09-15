@@ -1,5 +1,5 @@
 import { game } from '@store/types'
-import { IPlayers, IUser } from '@store/types/game/Interfaces'
+import { IGameStatus, IPlayers, IUser } from '@store/types/game/Interfaces'
 
 /**
  *
@@ -224,5 +224,16 @@ export function updateGameViewSuccess(data: game.IInitialState): game.IAction {
   return {
     type: game.ActionTypes.UPDATE_GAME_VIEW_SUCCESS,
     data,
+  }
+}
+
+/**
+ * @param {IGameStatus} gameStatus
+ * @return {game.IAction}
+ */
+export function updateGameStatus(gameStatus: IGameStatus): game.IAction {
+  return {
+    type: game.ActionTypes.UPDATE_GAME_STATUS,
+    gameStatus,
   }
 }
