@@ -19,4 +19,44 @@ const snapUpdateFriendStatus = (
     })
 }
 
-export { snapUpdateFriendStatus }
+/**
+ * @description update invite players status in snapshot
+ * @param {string} userId
+ * @param {(data:any) => void} callback
+ * @return {Promise}
+ */
+const snapUpdateInviteStatus = (
+  userId: string,
+  callback: (data: any) => void,
+) => {
+  return firestore()
+    .collection(Collections.USERS)
+    .doc(userId)
+    .onSnapshot((documentSnapshot) => {
+      callback(documentSnapshot.data()?.invite)
+    })
+}
+
+/**
+ * @description update accepted user status in snapshot
+ * @param {string} leadId
+ * @param {(data:any) => void} callback
+ * @return {Promise}
+ */
+const snapUpdateAcceptedStatus = (
+  leadId: string,
+  callback: (data: any) => void,
+) => {
+  return firestore()
+    .collection(Collections.GAMES)
+    .doc(leadId)
+    .onSnapshot((documentSnapshot) => {
+      callback(documentSnapshot.data()?.playersList)
+    })
+}
+
+export {
+  snapUpdateFriendStatus,
+  snapUpdateInviteStatus,
+  snapUpdateAcceptedStatus,
+}

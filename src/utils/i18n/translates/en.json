@@ -72,6 +72,11 @@
       "chance": "Chance",
       "finishGame": "Finish"
     },
+    "inviteModal": {
+      "invToPlay": "invites you to play",
+      "accept": "Accept",
+      "decline": "Decline"
+    },
     "teamGame": {
       "addPlayer": "Add player",
       "emptyPlayersList": "Players list is empty. \n Add players (at least 1)",

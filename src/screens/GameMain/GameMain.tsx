@@ -5,7 +5,7 @@ import { Navigate } from '@navigators'
 import { WDRContainer } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
 import { AppState, View } from 'react-native'
-import { dbUpdateStatus } from '@services'
+import { dbUpdateStatus, snapUpdateInviteStatus } from '@services'
 import CreateGameCard from '@components/CreateGameCard'
 import GameListBtn from '@components/GameListBtn'
 
@@ -15,9 +15,13 @@ import GameListBtn from '@components/GameListBtn'
  * @return {JSX}
  */
 const GameMainScreen = (props: IGameMainScreenTypesProps) => {
-  const { userId } = props
+  const { userId, incomingInvite } = props
   const styles = getStyle()
   const { t } = useTranslation()
+
+  const inviteToGame = (data) => {
+    data && incomingInvite?.(data.leadName, data.leadId, data.gameName)
+  }
 
   useEffect(() => {
     userId && dbUpdateStatus(userId, true)
@@ -33,8 +37,11 @@ const GameMainScreen = (props: IGameMainScreenTypesProps) => {
         }
       }
     })
+
+    const dbUser = snapUpdateInviteStatus(userId!, inviteToGame)
     return () => {
       subscription.remove()
+      dbUser?.()
     }
   }, [])
 

@@ -72,6 +72,11 @@
       "chance": "Šance",
       "finishGame": "Dokončit"
     },
+    "inviteModal": {
+      "invToPlay": "vás zve ke hře",
+      "accept": "Akceptovat",
+      "decline": "Pokles"
+    },
     "teamGame": {
       "addPlayer": "Přidat hráče",
       "emptyPlayersList": "Seznam hráčů je prázdný.\n Přidat hráče (alespoň 1)",

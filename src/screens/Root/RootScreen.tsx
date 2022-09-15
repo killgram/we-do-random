@@ -8,9 +8,10 @@ import Toast from 'react-native-toast-message'
 import SuccessCopyToast from '@components/SuccessCopyToast'
 import ErrorToast from '@components/ErrorToast'
 import SuccessToast from '@components/SuccessToast'
+import InviteModal from '@components/InviteModal'
 
 const RootScreen = (props: IRootScreenProps) => {
-  const { startup } = props
+  const { startup, invite, declineInvite } = props
 
   const styles = getStyle()
 
@@ -33,6 +34,10 @@ const RootScreen = (props: IRootScreenProps) => {
     successCustom: ({ text1 }: any) => <SuccessToast text={text1} />,
   }
 
+  const tt = (id) => {
+    console.log(id)
+  }
+
   return (
     <View style={styles.container}>
       <AppNavigator
@@ -43,6 +48,16 @@ const RootScreen = (props: IRootScreenProps) => {
         onReady={onReady}
       />
       <Toast config={toastConfig} />
+      {invite?.isVisible && (
+        <InviteModal
+          isVisible={invite.isVisible}
+          leaderName={invite.leaderName!}
+          leadId={invite.leadId!}
+          gameName={invite.gameName!}
+          onAccept={tt}
+          onDecline={declineInvite!}
+        />
+      )}
     </View>
   )
 }

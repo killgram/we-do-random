@@ -1,5 +1,5 @@
 import { game } from '@store/types'
-import { IUser } from '@store/types/game/Interfaces'
+import { IPlayers, IUser } from '@store/types/game/Interfaces'
 
 /**
  *
@@ -175,5 +175,32 @@ export function kickOffPlayerSuccess(
     type: game.ActionTypes.KICKOFF_PLAYER_SUCCESS,
     leadUserId,
     userId,
+  }
+}
+
+/**
+ * @param {string} userId
+ * @param {boolean} isAccepted
+ * @return {game.IAction}
+ */
+export function updateAcceptedStatus(
+  userId: string,
+  isAccepted: boolean,
+): game.IAction {
+  return {
+    type: game.ActionTypes.UPDATE_ACCEPTED_STATUS,
+    userId,
+    isAccepted,
+  }
+}
+
+/**
+ * @param {Array<IPlayers>} playersList
+ * @return {game.IAction}
+ */
+export function updateInviteStatus(playersList: Array<IPlayers>): game.IAction {
+  return {
+    type: game.ActionTypes.UPDATE_INVITE_STATUS,
+    playersList,
   }
 }

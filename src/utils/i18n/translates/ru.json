@@ -72,6 +72,11 @@
       "chance": "Шанс",
       "finishGame": "Закончить"
     },
+    "inviteModal": {
+      "invToPlay": "приглашает сыграть в",
+      "accept": "Принять",
+      "decline": "Отклонить"
+    },
     "teamGame": {
       "addPlayer": "Добавить игрока",
       "emptyPlayersList": "Список игроков пуст. \n Добавьте игроков (не меньше 1)",

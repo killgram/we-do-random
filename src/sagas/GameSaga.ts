@@ -3,6 +3,7 @@ import {
   IAddPlayer,
   ICreateGame,
   IKickOffPlayer,
+  IUpdateInviteStatus,
 } from '@store/types/game/Interfaces'
 import { errorToast, calcWinner, calcChance } from '@utils'
 import { gameAction } from '@store/actions'
@@ -106,11 +107,6 @@ export function* addPlayer(action: IAddPlayer): any {
         return
       }
 
-      if (!addUser.data()?.isOnline) {
-        yield call(errorToast, 'Player offline')
-        return
-      }
-
       yield call(
         dbUpdatePlayers,
         leadUserId!,
@@ -150,12 +146,47 @@ export function* kickOffPlayer(action: IKickOffPlayer): any {
   const { userId, leadUserId } = action
 
   try {
+    yield put(gameAction.kickOffPlayerSuccess(leadUserId!, userId!))
     const result = yield call(dbRemovePlayer, leadUserId!, userId!)
     if (result) {
-      yield put(gameAction.kickOffPlayerSuccess(leadUserId!, userId!))
       yield call(dbDeleteInvite, userId!)
     }
   } catch (e) {
     yield call(errorToast, "Can't delete player")
+  }
+}
+
+export function* updateInviteStatus(action: IUpdateInviteStatus): any {
+  const { playersList } = action
+  const state = yield select()
+  const reduxPlayerList = state?.game?.playersList
+
+  try {
+    if (reduxPlayerList.length > playersList!.length) {
+      const kickOffElement = reduxPlayerList.find((i, r) => {
+        return i.userId !== playersList?.[r]?.userId
+      })
+
+      yield put(
+        gameAction.kickOffPlayerSuccess(
+          state?.profile?.userId!,
+          kickOffElement.userId!,
+        ),
+      )
+      return
+    }
+    for (let i = 0; i < reduxPlayerList.length; i++) {
+      if (playersList![i].isAccepted !== reduxPlayerList[i].isAccepted) {
+        yield put(
+          gameAction.updateAcceptedStatus(
+            playersList![i].userId,
+            playersList![i].isAccepted,
+          ),
+        )
+      }
+    }
+  } catch (e) {
+    console.log(e)
+    yield call(errorToast, "Can't update invite list")
   }
 }

@@ -101,6 +101,21 @@ const gameReducer = (
       }
     }
 
+    // update accepted status
+    case game.ActionTypes.UPDATE_ACCEPTED_STATUS: {
+      const oldState = { ...state }
+      const oldPlayerList = [...(state?.playersList || [])]
+      oldPlayerList.forEach((item) => {
+        if (item.userId === action.userId) {
+          item.isAccepted = action.isAccepted
+        }
+      })
+      oldState.playersList = oldPlayerList
+      return {
+        ...oldState,
+      }
+    }
+
     default: {
       return state
     }

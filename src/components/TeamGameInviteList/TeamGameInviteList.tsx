@@ -56,7 +56,8 @@ const TeamGameInviteList = (props: ITeamGameInviteListProps) => {
       <WDRCombineItem
         bodyElement={renderBody()}
         rightElement={
-          isLead && (
+          isLead &&
+          !isLeaderId && (
             <TouchableOpacity activeOpacity={0.5} onPress={handleDeleteFriend}>
               <WDRIcon iconName="delete" />
             </TouchableOpacity>

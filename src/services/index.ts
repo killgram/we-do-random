@@ -7,7 +7,11 @@ import {
   dbRemoveFriend,
   dbRemoveFriendList,
 } from './FriendsServices'
-import { snapUpdateFriendStatus } from './SnapshotFirestore'
+import {
+  snapUpdateFriendStatus,
+  snapUpdateInviteStatus,
+  snapUpdateAcceptedStatus,
+} from './SnapshotFirestore'
 import {
   dbUpdatePlayStatus,
   dbUpdatePlayers,
@@ -35,4 +39,6 @@ export {
   dbRemovePlayer,
   dbDeleteInvite,
   dbSendInvite,
+  snapUpdateInviteStatus,
+  snapUpdateAcceptedStatus,
 }

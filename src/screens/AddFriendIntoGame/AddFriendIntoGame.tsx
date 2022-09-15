@@ -48,9 +48,7 @@ const AddFriendIntoGameScreen = (props: IAddFriendIntoGameTypesProps) => {
 
   const calcChosenAbility = (item) => {
     let coincidenceCount = 0
-    if (!item.isOnline) {
-      return false
-    }
+
     game?.playersList?.forEach((elem) => {
       if (elem.userId === item.userId) {
         coincidenceCount++

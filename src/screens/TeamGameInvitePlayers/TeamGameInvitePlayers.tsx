@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import getStyle from './TeamGameInvitePlayersStyles'
 import { WDRButton, WDRContainer, WDRList, WDRText } from '@ui-kit/components'
 import { ITeamGameInvitePlayersScreenProps } from './TeamGameInvitePlayersTypes'
@@ -6,8 +6,13 @@ import { useTranslation } from 'react-i18next'
 import { Navigate } from '@navigators'
 import { HeaderBackButton } from '@react-navigation/elements'
 import { getThemeColor } from '@utils'
-import { dbUpdatePlayStatus, dbCloseGame } from '@services'
+import {
+  dbUpdatePlayStatus,
+  dbCloseGame,
+  snapUpdateAcceptedStatus,
+} from '@services'
 import TeamGameInviteList from '@components/TeamGameInviteList'
+import { useIsFocused } from '@react-navigation/native'
 
 /**
  * @description TeamGameInvitePlayers
@@ -15,9 +20,18 @@ import TeamGameInviteList from '@components/TeamGameInviteList'
  * @return {JSX}
  */
 const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
-  const { navigation, cleanGame, userId, game, kickOffPlayer } = props
+  const {
+    navigation,
+    cleanGame,
+    userId,
+    game,
+    kickOffPlayer,
+    updateInviteStatus,
+  } = props
   const styles = getStyle()
   const { t } = useTranslation()
+  const isFocused = useIsFocused()
+  let updateDBPlayersList = useRef<any>([])
 
   const exitGame = () => {
     userId && dbUpdatePlayStatus(userId, false)
@@ -46,7 +60,23 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
         >{`${readyPlayers}/${totalPlayers}`}</WDRText>
       ),
     })
-  }, [game])
+  }, [game?.playersList])
+
+  const updateInviteStatusData = (data) => {
+    updateInviteStatus?.(Object.values(data))
+  }
+
+  useEffect(() => {
+    if (isFocused) {
+      updateDBPlayersList.current = snapUpdateAcceptedStatus(
+        userId!,
+        updateInviteStatusData,
+      )
+    }
+    return () => {
+      updateDBPlayersList.current?.()
+    }
+  }, [isFocused])
 
   const handleDeletePlayer = (id: string) => {
     kickOffPlayer?.(userId!, id)
@@ -67,7 +97,6 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
         title={t('teamGame.begin')}
         onPress={Navigate.toTeamGameBoard}
         style={styles.beginBtn}
-        // TODO check this
         isDisabled={!(totalPlayers === readyPlayers && totalPlayers! !== 1)}
       />
 
