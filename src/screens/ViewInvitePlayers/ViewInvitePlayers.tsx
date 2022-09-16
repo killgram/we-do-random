@@ -61,7 +61,14 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
     })
   }, [game?.playersList])
 
+  const checkKickOffMe = (data) => {
+    if (!data?.playersList?.[userId!]) {
+      exitGame()
+    }
+  }
+
   const updateInviteStatusData = (data) => {
+    checkKickOffMe(data)
     updateGameView?.(data)
   }
 

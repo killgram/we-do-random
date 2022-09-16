@@ -155,7 +155,7 @@ export function* kickOffPlayer(action: IKickOffPlayer): any {
       yield call(dbDeleteInvite, userId!)
     }
   } catch (e) {
-    yield call(errorToast, "Can't delete player")
+    yield call(errorToast, 'Game over. For you')
   }
 }
 
