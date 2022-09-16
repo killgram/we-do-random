@@ -10,7 +10,6 @@ import {
 import {
   snapUpdateFriendStatus,
   snapUpdateInviteStatus,
-  snapUpdateAcceptedStatus,
   snapUpdateViewGame,
 } from './SnapshotFirestore'
 import {
@@ -42,7 +41,6 @@ export {
   dbDeleteInvite,
   dbSendInvite,
   snapUpdateInviteStatus,
-  snapUpdateAcceptedStatus,
   dbAcceptInvite,
   snapUpdateViewGame,
   dbUpdateGameStatus,

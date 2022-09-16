@@ -9,8 +9,8 @@ import { getThemeColor } from '@utils'
 import {
   dbUpdatePlayStatus,
   dbCloseGame,
-  snapUpdateAcceptedStatus,
   dbUpdateGameStatus,
+  snapUpdateViewGame,
 } from '@services'
 import TeamGameInviteList from '@components/TeamGameInviteList'
 import { useIsFocused } from '@react-navigation/native'
@@ -27,8 +27,8 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
     userId,
     game,
     kickOffPlayer,
-    updateInviteStatus,
     updateGameStatus,
+    updateGameView,
   } = props
   const styles = getStyle()
   const { t } = useTranslation()
@@ -66,12 +66,12 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
   }, [game?.playersList])
 
   const updateInviteStatusData = (data) => {
-    updateInviteStatus?.(Object.values(data))
+    updateGameView?.(data)
   }
 
   useEffect(() => {
     if (isFocused) {
-      updateDBPlayersList.current = snapUpdateAcceptedStatus(
+      updateDBPlayersList.current = snapUpdateViewGame(
         userId!,
         updateInviteStatusData,
       )

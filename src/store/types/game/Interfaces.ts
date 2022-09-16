@@ -102,11 +102,6 @@ export interface IKickOffPlayerSuccess {
   userId?: string
 }
 
-export interface IUpdateInviteStatus {
-  type: ActionTypes.UPDATE_INVITE_STATUS
-  playersList?: Array<IPlayers>
-}
-
 export interface IUpdateAcceptedStatus {
   type: ActionTypes.UPDATE_ACCEPTED_STATUS
   userId?: string
@@ -141,7 +136,6 @@ export type IAction =
   | IKickOffPlayer
   | IKickOffPlayerSuccess
   | IUpdateAcceptedStatus
-  | IUpdateInviteStatus
   | IUpdateGameView
   | IUpdateGameViewSuccess
   | IUpdateGameStatus

@@ -1,5 +1,5 @@
 import { game } from '@store/types'
-import { IGameStatus, IPlayers, IUser } from '@store/types/game/Interfaces'
+import { IGameStatus, IUser } from '@store/types/game/Interfaces'
 
 /**
  *
@@ -191,17 +191,6 @@ export function updateAcceptedStatus(
     type: game.ActionTypes.UPDATE_ACCEPTED_STATUS,
     userId,
     isAccepted,
-  }
-}
-
-/**
- * @param {Array<IPlayers>} playersList
- * @return {game.IAction}
- */
-export function updateInviteStatus(playersList: Array<IPlayers>): game.IAction {
-  return {
-    type: game.ActionTypes.UPDATE_INVITE_STATUS,
-    playersList,
   }
 }
 

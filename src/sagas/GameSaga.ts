@@ -4,7 +4,6 @@ import {
   ICreateGame,
   IKickOffPlayer,
   IUpdateGameView,
-  IUpdateInviteStatus,
 } from '@store/types/game/Interfaces'
 import { errorToast, calcWinner, calcChance } from '@utils'
 import { gameAction } from '@store/actions'
@@ -157,40 +156,6 @@ export function* kickOffPlayer(action: IKickOffPlayer): any {
     }
   } catch (e) {
     yield call(errorToast, "Can't delete player")
-  }
-}
-
-export function* updateInviteStatus(action: IUpdateInviteStatus): any {
-  const { playersList } = action
-  const state = yield select()
-  const reduxPlayerList = state?.game?.playersList
-
-  try {
-    if (reduxPlayerList.length > playersList!.length) {
-      const kickOffElement = reduxPlayerList.find((i, r) => {
-        return i.userId !== playersList?.[r]?.userId
-      })
-
-      yield put(
-        gameAction.kickOffPlayerSuccess(
-          state?.profile?.userId!,
-          kickOffElement.userId!,
-        ),
-      )
-      return
-    }
-    for (let i = 0; i < reduxPlayerList.length; i++) {
-      if (playersList![i].isAccepted !== reduxPlayerList[i].isAccepted) {
-        yield put(
-          gameAction.updateAcceptedStatus(
-            playersList![i].userId,
-            playersList![i].isAccepted,
-          ),
-        )
-      }
-    }
-  } catch (e) {
-    yield call(errorToast, "Can't update invite list")
   }
 }
 

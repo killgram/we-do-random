@@ -32,13 +32,11 @@ export function* acceptInvite(action: IAcceptInvite): any {
   const userId = state?.profile?.userId
 
   try {
-    const res = yield call(dbAcceptInvite, leadId!, userId)
-    if (res) {
-      yield call(dbUpdatePlayStatus, userId, true)
-      yield call(dbDeleteInvite, userId)
-      yield put(inviteAction.cleanInvite())
-      yield call(Navigate.toViewInvitePlayers, leadId!)
-    }
+    yield call(dbAcceptInvite, leadId!, userId)
+    yield call(dbUpdatePlayStatus, userId, true)
+    yield call(dbDeleteInvite, userId)
+    yield put(inviteAction.cleanInvite())
+    yield call(Navigate.toViewInvitePlayers, leadId!)
   } catch (e) {
     yield call(errorToast, "Can't accept")
   }

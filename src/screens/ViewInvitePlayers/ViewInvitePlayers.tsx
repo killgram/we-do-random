@@ -78,7 +78,7 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
   }, [isFocused])
 
   useEffect(() => {
-    if (game?.gameStatus !== 'inviting') {
+    if (game?.playersList?.length && game?.gameStatus !== 'inviting') {
       Navigate.toTeamGameBoard()
     }
   }, [game?.gameStatus])

@@ -8,6 +8,7 @@ import {
 import { Dispatch } from 'redux'
 import { gameAction } from '@store/actions'
 import { IGameStatus, IPlayers } from '@store/types/game/Interfaces'
+import { game } from '@store/types'
 
 /**
  * @param {IState} state
@@ -28,10 +29,10 @@ const mapDispatchToProps = (
   cleanGame: () => dispatch(gameAction.cleanGame()),
   kickOffPlayer: (leadUserId: string, userId: string) =>
     dispatch(gameAction.kickOffPlayer(leadUserId, userId)),
-  updateInviteStatus: (playersList: Array<IPlayers>) =>
-    dispatch(gameAction.updateInviteStatus(playersList)),
   updateGameStatus: (gameStatus: IGameStatus) =>
     dispatch(gameAction.updateGameStatus(gameStatus)),
+  updateGameView: (data: game.IInitialState) =>
+    dispatch(gameAction.updateGameView(data)),
 })
 
 export default connect(

@@ -9,7 +9,6 @@ import {
   startFinishGame,
   addPlayer,
   kickOffPlayer,
-  updateInviteStatus,
   updateGameView,
 } from './GameSaga'
 import { declineInvite, acceptInvite } from './InviteSaga'
@@ -31,9 +30,6 @@ export default function* root(): any {
   yield all([takeLatest(game.ActionTypes.ADD_PLAYER, addPlayer)])
   yield all([takeLatest(game.ActionTypes.KICKOFF_PLAYER, kickOffPlayer)])
   yield all([takeLatest(invite.ActionTypes.DECLINE_INVITE, declineInvite)])
-  yield all([
-    takeLatest(game.ActionTypes.UPDATE_INVITE_STATUS, updateInviteStatus),
-  ])
   yield all([takeLatest(invite.ActionTypes.ACCEPT_INVITE, acceptInvite)])
   yield all([takeLatest(game.ActionTypes.UPDATE_GAME_VIEW, updateGameView)])
 }
