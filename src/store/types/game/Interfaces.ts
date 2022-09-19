@@ -4,6 +4,10 @@ export interface IPhrase {
   [key: string]: any
 }
 
+export interface IReady {
+  [key: string]: any
+}
+
 export interface IPlayers {
   [key: string]: any
 }
@@ -32,6 +36,7 @@ export interface IInitialState {
   isOnline?: boolean
   isAccepted?: boolean
   gameStatus?: IGameStatus
+  readyList?: Array<IReady>
 }
 
 export interface ICleanGame {

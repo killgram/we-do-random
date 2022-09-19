@@ -169,6 +169,35 @@ const dbAcceptInvite = async (leadUserId: string, userId: string) => {
   return true
 }
 
+/**
+ * @description update player ready status in Firestore
+ * @param {string} leadUserId
+ * @param {string} userId
+ * @param {boolean} status
+ */
+const dbUpdateReadyStatus = async (
+  leadUserId: string,
+  userId: string,
+  status: boolean,
+) => {
+  const oldData = await firestore()
+    .collection(Collections.GAMES)
+    .doc(leadUserId)
+    .get()
+
+  await firestore()
+    .collection(Collections.GAMES)
+    .doc(leadUserId)
+    .update({
+      readyList: {
+        ...oldData?.data()?.readyList,
+        [userId]: status,
+      },
+    })
+
+  return true
+}
+
 export {
   dbUpdatePlayStatus,
   dbCreateGame,
@@ -178,4 +207,5 @@ export {
   dbSendInvite,
   dbDeleteInvite,
   dbAcceptInvite,
+  dbUpdateReadyStatus,
 }

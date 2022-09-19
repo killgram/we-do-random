@@ -120,6 +120,13 @@ const gameReducer = (
     case game.ActionTypes.UPDATE_GAME_VIEW_SUCCESS: {
       const data = { ...action.data }
       data.playersList = Object.values(action.data?.playersList!)
+      if (action.data?.list) {
+        data.list = Object.values(action.data.list)
+      }
+      if (action.data?.readyList) {
+        data.readyList = Object.values(action.data.readyList)
+      }
+
       return {
         ...data,
       }

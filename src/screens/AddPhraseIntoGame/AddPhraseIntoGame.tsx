@@ -15,10 +15,12 @@ import {
   addPhrase,
   getPhraseData,
   getThemeColor,
+  keyGenerate,
 } from '@utils'
 import { Navigate } from '@navigators'
 import { ActivityIndicator, View } from 'react-native'
 import AddPhraseListItem from '@components/AddPhraseListItem'
+import { dbAddPhrase } from '@services'
 
 /**
  * @description AddPhraseIntoGameScreen
@@ -26,12 +28,14 @@ import AddPhraseListItem from '@components/AddPhraseListItem'
  * @return {JSX}
  */
 const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
-  const { navigation, addPhraseIntoGame, username, userId } = props
+  const { navigation, addPhraseIntoGame, username, userId, game } = props
   const styles = getStyle()
   const { t } = useTranslation()
   const [inputValue, setInputValue] = useState('')
   const [data, setData] = useState<Array<{ name: string; id: number }>>([])
   const [isScreenLoad, setIsScreenLoad] = useState(true)
+
+  const isTeamGame = game?.gameType === 'team'
 
   useLayoutEffect(() => {
     navigation?.setOptions({
@@ -47,7 +51,15 @@ const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
 
   const handleAddPhraseIntoGame = () => {
     addPhrase(inputValue).then((_) => {
-      addPhraseIntoGame?.(username!, userId!, inputValue)
+      !isTeamGame
+        ? addPhraseIntoGame?.(username!, userId!, inputValue)
+        : dbAddPhrase(
+            game?.gameLead?.userId!,
+            username!,
+            userId!,
+            inputValue,
+            keyGenerate() * 10 ** 10,
+          )
       Navigate.goBack()
     })
   }
@@ -63,8 +75,26 @@ const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
   }
 
   const choosePhraseInList = (name: string) => {
-    addPhraseIntoGame?.(username!, userId!, name)
+    !isTeamGame
+      ? addPhraseIntoGame?.(username!, userId!, name)
+      : dbAddPhrase(
+          game?.gameLead?.userId!,
+          username!,
+          userId!,
+          name,
+          keyGenerate() * 10 ** 10,
+        )
     Navigate.goBack()
+  }
+
+  const calcChosenAbility = (item) => {
+    let coincidenceCount = 0
+    game?.list?.forEach((elem) => {
+      if (elem.phrase === item.name) {
+        coincidenceCount++
+      }
+    })
+    return coincidenceCount === 0
   }
 
   return (
@@ -104,7 +134,11 @@ const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
           listStyles={styles.listStyle}
           titleEmptyComponent={t('phraseList.emptyList')}
           renderListItem={({ item }) => (
-            <AddPhraseListItem name={item.name} onPress={choosePhraseInList} />
+            <AddPhraseListItem
+              name={item.name}
+              onPress={choosePhraseInList}
+              canChoose={calcChosenAbility(item)}
+            />
           )}
         />
       )}

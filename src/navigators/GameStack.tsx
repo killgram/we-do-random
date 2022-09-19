@@ -31,6 +31,7 @@ const GameStack = () => {
         ...defaultHeaderStyle,
         headerShown: true,
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        gestureEnabled: false,
       }}
     >
       <Stack.Screen name="CreateGameScreen" component={CreateGameScreen} />

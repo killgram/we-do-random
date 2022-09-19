@@ -5,6 +5,7 @@ interface IStateToProps {
   navigation?: NavigationType
   username?: string
   userId?: string
+  game?: game.IInitialState
 }
 
 interface IDispatchToProps {
@@ -17,6 +18,7 @@ interface IDispatchToProps {
 
 export interface IState {
   profile?: profile.IInitialState
+  game?: game.IInitialState
 }
 
 export type IAddPhraseIntoGameScreenProps = IStateToProps & IDispatchToProps

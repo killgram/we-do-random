@@ -12,6 +12,7 @@ import { gameAction } from '@store/actions'
 const mapStateToProps = (state: IState): IAddPhraseIntoGameScreenProps => ({
   username: state?.profile?.username,
   userId: state?.profile?.userId,
+  game: state?.game,
 })
 
 /**

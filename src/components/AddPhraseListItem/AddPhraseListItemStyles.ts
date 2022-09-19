@@ -4,6 +4,7 @@ import { getThemeColor, height, radius, RNStyleType, width } from '@utils'
 interface IStyles {
   container: RNStyleType
   text: RNStyleType
+  canChoose: RNStyleType
 }
 
 /**
@@ -20,6 +21,9 @@ export default function getStyle(): IStyles {
     },
     text: {
       padding: height(8),
+    },
+    canChoose: {
+      opacity: 0.4,
     },
   })
 }

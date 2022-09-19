@@ -12,6 +12,7 @@ export function* startup(): any {
   const userId = state?.profile?.userId
   const isPlay = state?.game?.gameType
   const isFinishedGame = state?.game?.finish?.username
+  const gameStatus = state?.game?.gameStatus
 
   if (!lang) {
     yield put(settingsAction.setLanguage(Constants.APP_DEFAULT_LANG))
@@ -29,9 +30,17 @@ export function* startup(): any {
       } else {
         const gameLeadId = state?.game?.gameLead?.userId
         if (userId === gameLeadId) {
-          yield call(Navigate.toTeamGameInvitePlayers)
+          if (gameStatus === 'playing') {
+            yield call(Navigate.toTeamGameBoard)
+          } else {
+            yield call(Navigate.toTeamGameInvitePlayers)
+          }
         } else {
-          yield call(Navigate.toViewInvitePlayers, gameLeadId)
+          if (gameStatus === 'playing') {
+            yield call(Navigate.toTeamGameBoard)
+          } else {
+            yield call(Navigate.toViewInvitePlayers, gameLeadId)
+          }
         }
       }
     }

@@ -21,7 +21,9 @@ import {
   dbSendInvite,
   dbDeleteInvite,
   dbAcceptInvite,
+  dbUpdateReadyStatus,
 } from './GameService'
+import { dbAddPhrase, dbDeletePhrase } from './PhraseService'
 
 export {
   dbLogin,
@@ -44,4 +46,7 @@ export {
   dbAcceptInvite,
   snapUpdateViewGame,
   dbUpdateGameStatus,
+  dbAddPhrase,
+  dbDeletePhrase,
+  dbUpdateReadyStatus,
 }

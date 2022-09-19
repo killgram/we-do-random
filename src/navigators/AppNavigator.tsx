@@ -56,6 +56,7 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
         screenOptions={{
           headerShown: false,
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          gestureEnabled: false,
         }}
         initialRouteName="AwaitScreen"
       >
