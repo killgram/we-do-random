@@ -5,11 +5,15 @@ import { TouchableOpacity, View } from 'react-native'
 import { WDRCombineItem, WDRIcon, WDRText } from '@ui-kit/components'
 
 const GamePhraseItem = (props: IGamePhraseItemProps) => {
-  const { username, onDelete, phrase, phraseId } = props
+  const { username, onDelete, phrase, phraseId, isUser } = props
   const styles = getStyle()
 
   const handleDeletePhrase = () => {
     onDelete?.(phraseId)
+  }
+
+  const generateHideString = (phrase) => {
+    return '*'.repeat(phrase.length)
   }
 
   return (
@@ -20,7 +24,7 @@ const GamePhraseItem = (props: IGamePhraseItemProps) => {
             <>
               <WDRText style={styles.text}>{username}</WDRText>
               <WDRText style={styles.text} isTitle>
-                {phrase}
+                {isUser ? phrase : generateHideString(phrase)}
               </WDRText>
             </>
           ) : (
@@ -30,9 +34,11 @@ const GamePhraseItem = (props: IGamePhraseItemProps) => {
           )
         }
         rightElement={
-          <TouchableOpacity activeOpacity={0.5} onPress={handleDeletePhrase}>
-            <WDRIcon iconName="delete" />
-          </TouchableOpacity>
+          isUser && (
+            <TouchableOpacity activeOpacity={0.5} onPress={handleDeletePhrase}>
+              <WDRIcon iconName="delete" />
+            </TouchableOpacity>
+          )
         }
       />
     </View>

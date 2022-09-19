@@ -3,4 +3,5 @@ export interface IGamePhraseItemProps {
   phrase: string
   onDelete: (id: number) => void
   phraseId: number
+  isUser: boolean
 }

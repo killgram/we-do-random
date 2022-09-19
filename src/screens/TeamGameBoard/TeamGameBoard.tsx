@@ -235,6 +235,7 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
             phrase={item.phrase}
             phraseId={item.phraseId}
             onDelete={deletePhraseOutGame}
+            isUser={item.userId === userId}
           />
         )}
       />
