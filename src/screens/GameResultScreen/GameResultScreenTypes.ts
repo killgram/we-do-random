@@ -9,6 +9,7 @@ interface IStateToProps {
 
 interface IDispatchToProps {
   cleanGame?: () => game.IAction
+  kickOffPlayer?: (leadUserId: string, userId: string) => game.IAction
 }
 
 export interface IState {

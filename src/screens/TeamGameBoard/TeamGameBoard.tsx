@@ -17,6 +17,7 @@ import {
   dbDeletePhrase,
   dbUpdateReadyStatus,
   snapUpdateFriendStatus,
+  dbUpdateGameStatus,
 } from '@services'
 import { Navigate } from '@navigators'
 import { HeaderBackButton } from '@react-navigation/elements'
@@ -145,6 +146,23 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
     }
   }, [game?.list])
 
+  const handleFinishGame = () => {
+    updateGameStatus?.('finishing')
+    userId && dbUpdateGameStatus(userId, 'finishing')
+    startFinishGame?.()
+  }
+
+  useEffect(() => {
+    if (
+      !isLead &&
+      game?.playersList?.length &&
+      game?.gameStatus !== 'playing' &&
+      game?.finish?.username
+    ) {
+      Navigate.toGameResultScreen()
+    }
+  }, [game?.gameStatus, game?.finish])
+
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
       <WDRText isTitle style={styles.gameNameTitle}>
@@ -159,7 +177,7 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
               title={t('singleGame.play')}
               style={styles.playBtn}
               isDisabled={totalPlayers !== readyPlayers || gameLock || !isReady}
-              onPress={startFinishGame}
+              onPress={handleFinishGame}
               isLoading={isGameCalcWinner}
             />
           }

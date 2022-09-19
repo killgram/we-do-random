@@ -22,6 +22,7 @@ import {
   dbDeleteInvite,
   dbAcceptInvite,
   dbUpdateReadyStatus,
+  dbFinishGame,
 } from './GameService'
 import { dbAddPhrase, dbDeletePhrase } from './PhraseService'
 
@@ -49,4 +50,5 @@ export {
   dbAddPhrase,
   dbDeletePhrase,
   dbUpdateReadyStatus,
+  dbFinishGame,
 }

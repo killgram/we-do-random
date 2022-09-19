@@ -17,6 +17,7 @@ import {
   dbSendInvite,
   dbDeleteInvite,
   dbUpdateGameStatus,
+  dbFinishGame,
 } from '@services'
 
 export function* createGame(action: ICreateGame): any {
@@ -82,6 +83,16 @@ export function* startFinishGame(): any {
     yield put(
       gameAction.gameFinishSuccess(winner.username, winner.phrase, chance),
     )
+
+    if (game?.gameType === 'team') {
+      yield call(
+        dbFinishGame,
+        game?.gameLead?.userId,
+        chance,
+        winner.username,
+        winner.phrase,
+      )
+    }
     yield call(Navigate.toGameResultScreen)
   } catch (e) {
     yield call(errorToast, "Can't finish game")

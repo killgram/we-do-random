@@ -3,7 +3,7 @@ import { gameAction, settingsAction } from '@store/actions'
 import { setLocale } from '@utils'
 import { Constants } from '@configurations'
 import { Navigate } from '@navigators'
-import { dbUpdatePlayStatus } from '@services'
+import { dbUpdatePlayStatus, dbCloseGame } from '@services'
 
 export function* startup(): any {
   const state = yield select()
@@ -46,6 +46,7 @@ export function* startup(): any {
     }
     if (isFinishedGame) {
       yield call(dbUpdatePlayStatus, userId, false)
+      yield call(dbCloseGame, userId)
       yield put(gameAction.cleanGame())
     }
   } else {

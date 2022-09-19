@@ -5,7 +5,7 @@ import { IGameResultScreenScreenProps } from './GameResultScreenTypes'
 import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
 import { getThemeColor } from '@utils'
-import { dbUpdatePlayStatus } from '@services'
+import { dbCloseGame, dbUpdatePlayStatus } from '@services'
 import { Navigate } from '@navigators'
 
 /**
@@ -14,11 +14,13 @@ import { Navigate } from '@navigators'
  * @return {JSX}
  */
 const GameResultScreen = (props: IGameResultScreenScreenProps) => {
-  const { navigation, cleanGame, game, userId } = props
+  const { navigation, cleanGame, game, userId, kickOffPlayer } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
   const isSingle = game?.gameType
+
+  const isLead = game?.gameLead?.userId === userId
 
   useLayoutEffect(() => {
     navigation?.setOptions({
@@ -26,10 +28,22 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
     })
   }, [])
 
-  const exitGame = () => {
+  const exitGameLeader = () => {
     userId && dbUpdatePlayStatus(userId, false)
+    userId && dbCloseGame(userId)
     cleanGame?.()
     Navigate.toAppStack()
+  }
+
+  const exitGameUser = () => {
+    userId && dbUpdatePlayStatus(userId, false)
+    cleanGame?.()
+    userId && kickOffPlayer?.(game?.gameLead?.userId!, userId)
+    Navigate.toAppStack()
+  }
+
+  const exitGame = () => {
+    isLead ? exitGameLeader() : exitGameUser()
   }
 
   return (

@@ -22,6 +22,8 @@ const mapDispatchToProps = (
   dispatch: Dispatch,
 ): IGameResultScreenScreenProps => ({
   cleanGame: () => dispatch(gameAction.cleanGame()),
+  kickOffPlayer: (leadUserId: string, userId: string) =>
+    dispatch(gameAction.kickOffPlayer(leadUserId, userId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameResultScreen)

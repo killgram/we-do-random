@@ -198,6 +198,33 @@ const dbUpdateReadyStatus = async (
   return true
 }
 
+/**
+ * @description finish game in Firestore
+ * @param {string} leadUserId
+ * @param {string} chance
+ * @param {string} username
+ * @param {string} phrase
+ */
+const dbFinishGame = async (
+  leadUserId: string,
+  chance: string,
+  username: string,
+  phrase: string,
+) => {
+  await firestore()
+    .collection(Collections.GAMES)
+    .doc(leadUserId)
+    .update({
+      finish: {
+        chance: chance,
+        username: username,
+        phrase: phrase,
+      },
+    })
+
+  return true
+}
+
 export {
   dbUpdatePlayStatus,
   dbCreateGame,
@@ -208,4 +235,5 @@ export {
   dbDeleteInvite,
   dbAcceptInvite,
   dbUpdateReadyStatus,
+  dbFinishGame,
 }
