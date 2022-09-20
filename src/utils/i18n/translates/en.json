@@ -90,6 +90,10 @@
       "authorGit": "Author github",
       "version": "Version",
       "link": "Link"
+    },
+    "newVersion": {
+      "title": "A new version of the application has been released. Need to update.",
+      "button": "Ok"
     }
   }
 }

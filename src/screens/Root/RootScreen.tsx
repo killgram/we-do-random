@@ -9,9 +9,17 @@ import SuccessCopyToast from '@components/SuccessCopyToast'
 import ErrorToast from '@components/ErrorToast'
 import SuccessToast from '@components/SuccessToast'
 import InviteModal from '@components/InviteModal'
+import NewVersionModal from '@components/NewVersionModal'
 
 const RootScreen = (props: IRootScreenProps) => {
-  const { startup, invite, declineInvite, acceptInvite } = props
+  const {
+    startup,
+    invite,
+    declineInvite,
+    acceptInvite,
+    updateModal,
+    cleanNewAppVersion,
+  } = props
 
   const styles = getStyle()
 
@@ -52,6 +60,12 @@ const RootScreen = (props: IRootScreenProps) => {
           gameName={invite.gameName!}
           onAccept={acceptInvite!}
           onDecline={declineInvite!}
+        />
+      )}
+      {updateModal && (
+        <NewVersionModal
+          isVisible={updateModal}
+          closeModal={cleanNewAppVersion!}
         />
       )}
     </View>

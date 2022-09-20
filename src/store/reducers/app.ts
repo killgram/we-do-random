@@ -14,7 +14,10 @@ const appReducer = (
 ): app.IInitialState => {
   switch (action.type) {
     case app.ActionTypes.CLEAN_APP: {
-      return {}
+      const oldState = { ...state }
+      return {
+        version: oldState.version,
+      }
     }
     case app.ActionTypes.LOGIN: {
       return {
@@ -38,6 +41,28 @@ const appReducer = (
         error: action.error,
       }
     }
+    case app.ActionTypes.SET_APP_VERSION: {
+      return {
+        ...state,
+        version: action.version,
+      }
+    }
+
+    case app.ActionTypes.NEW_APP_VERSION: {
+      return {
+        ...state,
+        updateModal: true,
+      }
+    }
+
+    case app.ActionTypes.CLEAN_NEW_APP_VERSION: {
+      const oldState = { ...state }
+      delete oldState.updateModal
+      return {
+        ...oldState,
+      }
+    }
+
     default: {
       return state
     }

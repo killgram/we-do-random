@@ -1020,6 +1020,8 @@ PODS:
     - React-Core
   - RNCClipboard (1.11.0):
     - React-Core
+  - RNDeviceInfo (10.2.0):
+    - React-Core
   - RNFBApp (15.4.0):
     - Firebase/CoreOnly (= 9.5.0)
     - React-Core
@@ -1104,6 +1106,7 @@ DEPENDENCIES:
   - RealmJS (from `../node_modules/realm`)
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - "RNCClipboard (from `../node_modules/@react-native-clipboard/clipboard`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
   - "RNFBApp (from `../node_modules/@react-native-firebase/app`)"
   - "RNFBFirestore (from `../node_modules/@react-native-firebase/firestore`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
@@ -1208,6 +1211,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-async-storage/async-storage"
   RNCClipboard:
     :path: "../node_modules/@react-native-clipboard/clipboard"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
   RNFBApp:
     :path: "../node_modules/@react-native-firebase/app"
   RNFBFirestore:
@@ -1280,6 +1285,7 @@ SPEC CHECKSUMS:
   RealmJS: 52817fdeeab34c773b952e6e814eac939084f160
   RNCAsyncStorage: 0c357f3156fcb16c8589ede67cc036330b6698ca
   RNCClipboard: 4b8bec7c195e27bcec746f52dff7601161683249
+  RNDeviceInfo: 8b83e99e290deaf1bab71673cc636776ef647b6f
   RNFBApp: a6fca2cd8f392b5efc1f2ab7bd4b3b64a6039abf
   RNFBFirestore: 76db0e646dbbfb66938674bf5a1a433ebb2c2c92
   RNGestureHandler: 920eb17f5b1e15dae6e5ed1904045f8f90e0b11e

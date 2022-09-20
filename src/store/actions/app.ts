@@ -60,3 +60,32 @@ export function loginError(error: string): app.IAction {
     error,
   }
 }
+
+/**
+ * @param {string} version
+ * @return {app.IAction}
+ */
+export function setAppVersion(version: string): app.IAction {
+  return {
+    type: app.ActionTypes.SET_APP_VERSION,
+    version,
+  }
+}
+
+/**
+ * @return {app.IAction}
+ */
+export function newAppVersion(): app.IAction {
+  return {
+    type: app.ActionTypes.NEW_APP_VERSION,
+  }
+}
+
+/**
+ * @return {app.IAction}
+ */
+export function cleanNewAppVersion(): app.IAction {
+  return {
+    type: app.ActionTypes.CLEAN_NEW_APP_VERSION,
+  }
+}

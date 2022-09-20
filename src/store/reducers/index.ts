@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import { persistReducer } from 'redux-persist'
 
 import settingsReducer from './settings'
 import appReducer from './app'
@@ -7,9 +9,15 @@ import friendsReducer from './friends'
 import gameReducer from './game'
 import inviteReducer from './invite'
 
+const appPersistConfig = {
+  key: 'app',
+  storage: AsyncStorage,
+  blacklist: ['updateModal'],
+}
+
 const rootReducer = combineReducers({
   settings: settingsReducer,
-  app: appReducer,
+  app: persistReducer(appPersistConfig, appReducer),
   profile: profileReducer,
   friends: friendsReducer,
   game: gameReducer,

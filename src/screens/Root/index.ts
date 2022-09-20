@@ -10,6 +10,7 @@ import { appAction, inviteAction } from '@store/actions'
  */
 const mapStateToProps = (state: IState): IRootScreenProps => ({
   invite: state?.invite,
+  updateModal: state?.app?.updateModal,
 })
 
 /**
@@ -21,6 +22,7 @@ const mapDispatchToProps = (dispatch: Dispatch): IRootScreenProps => ({
   declineInvite: (leadId: string) =>
     dispatch(inviteAction.declineInvite(leadId)),
   acceptInvite: (leadId: string) => dispatch(inviteAction.acceptInvite(leadId)),
+  cleanNewAppVersion: () => dispatch(appAction.cleanNewAppVersion()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootScreen)

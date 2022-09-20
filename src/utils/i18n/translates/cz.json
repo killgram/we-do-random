@@ -90,6 +90,10 @@
       "authorGit": "Autor github",
       "version": "Verze",
       "link": "Odkaz"
+    },
+    "newVersion": {
+      "title": "Byla vydána nová verze aplikace. Je třeba aktualizovat.",
+      "button": "Dobrý"
     }
   }
 }

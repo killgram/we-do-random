@@ -5,6 +5,7 @@ import { IAboutAppScreenProps } from './AboutAppTypes'
 import { useTranslation } from 'react-i18next'
 import { ActivityIndicator, TouchableOpacity, View } from 'react-native'
 import { getThemeColor, openLink } from '@utils'
+import DeviceInfo from 'react-native-device-info'
 
 /**
  * @description AboutAppScreen
@@ -67,7 +68,9 @@ const AboutAppScreen = (props: IAboutAppScreenProps) => {
         <WDRText style={styles.versionTitle}>{`${t(
           'aboutApp.version',
         )}:`}</WDRText>
-        <WDRText style={styles.versionTitle}>{aboutApp?.appVersion}</WDRText>
+        <WDRText style={styles.versionTitle}>
+          {DeviceInfo?.getVersion()}
+        </WDRText>
       </View>
     </WDRContainer>
   )

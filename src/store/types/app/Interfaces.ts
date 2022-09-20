@@ -6,6 +6,8 @@ export interface IInitialState {
   error?: string
   username?: string
   userId?: string
+  version?: string
+  updateModal?: boolean
 }
 
 export interface IStartup {
@@ -36,6 +38,19 @@ export interface ILoginError {
   error: string
 }
 
+export interface ISetAppVersion {
+  type: ActionTypes.SET_APP_VERSION
+  version?: string
+}
+
+export interface INewAppVersion {
+  type: ActionTypes.NEW_APP_VERSION
+}
+
+export interface ICleanNewAppVersion {
+  type: ActionTypes.CLEAN_NEW_APP_VERSION
+}
+
 export type IAction =
   | IStartup
   | ILogout
@@ -43,3 +58,6 @@ export type IAction =
   | ILogin
   | ILoginSuccess
   | ILoginError
+  | ISetAppVersion
+  | INewAppVersion
+  | ICleanNewAppVersion

@@ -1,9 +1,10 @@
-import { call, put, select } from 'redux-saga/effects'
-import { gameAction, settingsAction } from '@store/actions'
+import { call, put, select, delay } from 'redux-saga/effects'
+import { appAction, gameAction, settingsAction } from '@store/actions'
 import { setLocale } from '@utils'
 import { Constants } from '@configurations'
 import { Navigate } from '@navigators'
-import { dbUpdatePlayStatus, dbCloseGame } from '@services'
+import { dbUpdatePlayStatus, dbCloseGame, dbGetAboutAppStatus } from '@services'
+import DeviceInfo from 'react-native-device-info'
 
 export function* startup(): any {
   const state = yield select()
@@ -13,12 +14,24 @@ export function* startup(): any {
   const isPlay = state?.game?.gameType
   const isFinishedGame = state?.game?.finish?.username
   const gameStatus = state?.game?.gameStatus
+  const version = state?.app?.version
+  const moduleVersion = DeviceInfo.getVersion()
 
   if (!lang) {
     yield put(settingsAction.setLanguage(Constants.APP_DEFAULT_LANG))
     yield call(setLocale, Constants.APP_DEFAULT_LANG)
   } else {
     yield call(setLocale, lang)
+  }
+
+  const appData = yield call(dbGetAboutAppStatus)
+  if (appData?.data()?.appVersion !== moduleVersion) {
+    if (!version) {
+      yield put(appAction.setAppVersion(moduleVersion))
+    } else {
+      yield delay(500)
+      yield put(appAction.newAppVersion())
+    }
   }
 
   if (isAuthorized) {
