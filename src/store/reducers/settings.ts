@@ -25,6 +25,27 @@ const settingsReducer = (
         language: action.language,
       }
     }
+    case settings.ActionTypes.GET_ABOUT_APP: {
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }
+    case settings.ActionTypes.GET_ABOUT_APP_SUCCESS: {
+      const oldState = { ...state }
+      delete oldState.isLoading
+
+      return {
+        ...oldState,
+        aboutApp: {
+          appGit: action.aboutApp?.appGit,
+          authorGit: action.aboutApp?.authorGit,
+          author: action.aboutApp?.author,
+          name: action.aboutApp?.name,
+          appVersion: action.aboutApp?.appVersion,
+        },
+      }
+    }
 
     default: {
       return state

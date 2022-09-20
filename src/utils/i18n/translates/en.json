@@ -83,6 +83,13 @@
       "begin": "Begin",
       "waitPlayers": "Waiting for the players",
       "gameHost": "Game host"
+    },
+    "aboutApp": {
+      "appGit": "App github",
+      "author": "Author",
+      "authorGit": "Author github",
+      "version": "Version",
+      "link": "Link"
     }
   }
 }

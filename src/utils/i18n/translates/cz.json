@@ -83,6 +83,13 @@
       "begin": "Začít",
       "waitPlayers": "Čekání na hráče",
       "gameHost": "Hostitel hry"
+    },
+    "aboutApp": {
+      "appGit": "Aplikace github",
+      "author": "Autor",
+      "authorGit": "Autor github",
+      "version": "Verze",
+      "link": "Odkaz"
     }
   }
 }

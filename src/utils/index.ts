@@ -24,6 +24,7 @@ import { onSuccessCopyToast, errorToast, successToast } from './Toast'
 import { copyToClipboard, getDataToBuffer } from './Clipboard'
 import { addPhrase, deletePhrase, clearPhrase, getPhraseData } from './Realm'
 import { calcWinner, calcChance } from './CalcWinner'
+import { openLink } from './OpenLink'
 
 export {
   width,
@@ -50,6 +51,7 @@ export {
   getPhraseData,
   calcWinner,
   calcChance,
+  openLink,
 }
 
 export type {

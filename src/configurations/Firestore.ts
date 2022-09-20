@@ -2,4 +2,7 @@ export enum Collections {
   USERS = 'USERS',
   FRIENDLIST = 'FRIENDLIST',
   GAMES = 'GAMES',
+  ABOUT_APP = 'ABOUT_APP',
+  ABOUT_APP_DOC = 'ABOUT_APP_DOC',
+  SUPPORT = 'SUPPORT',
 }

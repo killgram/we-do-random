@@ -83,6 +83,13 @@
       "begin": "Начать",
       "waitPlayers": "Ожидание игроков",
       "gameHost": "Ведущий игры"
+    },
+    "aboutApp": {
+      "appGit":  "Github приложения",
+      "author": "Автор",
+      "authorGit": "Github автора",
+      "version": "Версия",
+      "link": "Ссылка"
     }
   }
 }

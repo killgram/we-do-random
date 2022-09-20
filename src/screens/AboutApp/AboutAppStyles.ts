@@ -1,8 +1,14 @@
 import { StyleSheet } from 'react-native'
-import { RNStyleType } from '@utils'
+import { height, RNStyleType, sp, width } from '@utils'
+import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
-  container: RNStyleType
+  loadingBox: RNStyleType
+  name: RNStyleType
+  sectionTop: RNStyleType
+  sectionBottom: RNStyleType
+  versionTitle: RNStyleType
+  rowSection: RNStyleType
 }
 
 /**
@@ -10,6 +16,36 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {},
+    loadingBox: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+    },
+    name: {
+      textAlign: 'center',
+      fontSize: sp(40),
+      lineHeight: sp(40),
+      marginTop: height(16),
+    },
+    sectionTop: {
+      flex: 0.5,
+      marginTop: height(16),
+    },
+    sectionBottom: {
+      flex: 0.45,
+      justifyContent: 'center',
+      alignItems: 'flex-end',
+      flexDirection: 'row',
+    },
+    versionTitle: {
+      ...Fonts.number,
+      marginHorizontal: width(8),
+      fontSize: sp(20),
+    },
+    rowSection: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginBottom: height(24),
+    },
   })
 }

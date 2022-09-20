@@ -1,5 +1,5 @@
 import { takeLatest, all, takeEvery } from 'redux-saga/effects'
-import { app, friends, game, invite } from '@store/types'
+import { app, friends, game, invite, settings } from '@store/types'
 import { startup } from './StartupSaga'
 import { logout } from './LogoutSaga'
 import { login } from './LoginSaga'
@@ -12,6 +12,7 @@ import {
   updateGameView,
 } from './GameSaga'
 import { declineInvite, acceptInvite } from './InviteSaga'
+import { getAboutApp } from './AboutAppSaga'
 
 /**
  * @description initialize root saga
@@ -32,6 +33,7 @@ export default function* root(): any {
   yield all([takeLatest(invite.ActionTypes.DECLINE_INVITE, declineInvite)])
   yield all([takeLatest(invite.ActionTypes.ACCEPT_INVITE, acceptInvite)])
   yield all([takeLatest(game.ActionTypes.UPDATE_GAME_VIEW, updateGameView)])
+  yield all([takeLatest(settings.ActionTypes.GET_ABOUT_APP, getAboutApp)])
 }
 
 export type RootSaga = ReturnType<typeof root>
