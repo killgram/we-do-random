@@ -24,7 +24,7 @@ const AboutAppScreen = (props: IAboutAppScreenProps) => {
   }, [])
 
   useEffect(() => {
-    getAboutApp?.()
+    !aboutApp && getAboutApp?.()
   }, [])
 
   return isLoading ? (

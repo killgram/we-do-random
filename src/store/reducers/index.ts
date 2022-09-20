@@ -15,8 +15,14 @@ const appPersistConfig = {
   blacklist: ['updateModal'],
 }
 
+const settingsPersistConfig = {
+  key: 'settings',
+  storage: AsyncStorage,
+  blacklist: ['supportData'],
+}
+
 const rootReducer = combineReducers({
-  settings: settingsReducer,
+  settings: persistReducer(settingsPersistConfig, settingsReducer),
   app: persistReducer(appPersistConfig, appReducer),
   profile: profileReducer,
   friends: friendsReducer,

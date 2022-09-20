@@ -25,6 +25,7 @@ const settingsReducer = (
         language: action.language,
       }
     }
+    // about app
     case settings.ActionTypes.GET_ABOUT_APP: {
       return {
         ...state,
@@ -34,7 +35,6 @@ const settingsReducer = (
     case settings.ActionTypes.GET_ABOUT_APP_SUCCESS: {
       const oldState = { ...state }
       delete oldState.isLoading
-
       return {
         ...oldState,
         aboutApp: {
@@ -44,6 +44,22 @@ const settingsReducer = (
           name: action.aboutApp?.name,
           appVersion: action.aboutApp?.appVersion,
         },
+      }
+    }
+    // support
+    case settings.ActionTypes.GET_SUPPORT_DATA: {
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }
+    case settings.ActionTypes.GET_SUPPORT_DATA_SUCCESS: {
+      const oldState = { ...state }
+      delete oldState.isLoading
+
+      return {
+        ...oldState,
+        supportData: action.supportData,
       }
     }
 

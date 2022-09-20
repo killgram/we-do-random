@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { RNStyleType } from '@utils'
+import { height, RNStyleType } from '@utils'
 
 interface IStyles {
   container: RNStyleType
@@ -10,6 +10,8 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {},
+    container: {
+      marginBottom: height(12),
+    },
   })
 }

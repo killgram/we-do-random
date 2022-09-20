@@ -13,6 +13,7 @@ import {
 } from './GameSaga'
 import { declineInvite, acceptInvite } from './InviteSaga'
 import { getAboutApp } from './AboutAppSaga'
+import { getSupportData } from './SupportSaga'
 
 /**
  * @description initialize root saga
@@ -34,6 +35,7 @@ export default function* root(): any {
   yield all([takeLatest(invite.ActionTypes.ACCEPT_INVITE, acceptInvite)])
   yield all([takeLatest(game.ActionTypes.UPDATE_GAME_VIEW, updateGameView)])
   yield all([takeLatest(settings.ActionTypes.GET_ABOUT_APP, getAboutApp)])
+  yield all([takeLatest(settings.ActionTypes.GET_SUPPORT_DATA, getSupportData)])
 }
 
 export type RootSaga = ReturnType<typeof root>

@@ -9,8 +9,8 @@ import { RootSaga } from '@sagas'
 const persistConfig = {
   key: 'rootStore',
   storage: AsyncStorage,
-  whitelist: ['settings', 'profile', 'friends', 'game'],
-  blacklist: ['app'],
+  whitelist: ['profile', 'friends', 'game'],
+  blacklist: ['app', 'settings'],
 }
 
 export default (rootReducer: typeof RootState, rootSaga: RootSaga) => {

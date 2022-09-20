@@ -94,6 +94,11 @@
     "newVersion": {
       "title": "A new version of the application has been released. Need to update.",
       "button": "Ok"
+    },
+    "supportScreen": {
+      "writeMe": "If you find a bug or want to suggest an idea to improve the application, you can email me",
+      "distributionRules": "The application is distributed completely free of charge, no fees for use can be charged.",
+      "cryptoHelp": "Although the application is completely free, you can always support the author if you want."
     }
   }
 }

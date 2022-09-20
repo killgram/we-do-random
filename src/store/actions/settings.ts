@@ -1,5 +1,5 @@
 import { settings } from '@store/types'
-import { IAboutApp } from '@store/types/settings/Interfaces'
+import { IAboutApp, ISupportData } from '@store/types/settings/Interfaces'
 
 /**
  *
@@ -42,5 +42,29 @@ export function getAboutAppSuccess(aboutApp: IAboutApp): settings.IAction {
   return {
     type: settings.ActionTypes.GET_ABOUT_APP_SUCCESS,
     aboutApp,
+  }
+}
+
+/**
+ *
+ * @return {settings.IAction}
+ */
+export function getSupportData(): settings.IAction {
+  return {
+    type: settings.ActionTypes.GET_SUPPORT_DATA,
+  }
+}
+
+/**
+ *
+ * @param {ISupportData} supportData
+ * @return {settings.IAction}
+ */
+export function getSupportDataSuccess(
+  supportData: ISupportData,
+): settings.IAction {
+  return {
+    type: settings.ActionTypes.GET_SUPPORT_DATA_SUCCESS,
+    supportData,
   }
 }

@@ -1,8 +1,13 @@
 import { StyleSheet } from 'react-native'
-import { RNStyleType } from '@utils'
+import { height, RNStyleType, width } from '@utils'
 
 interface IStyles {
-  container: RNStyleType
+  loadingBox: RNStyleType
+  writeMeTitle: RNStyleType
+  email: RNStyleType
+  cryptoBox: RNStyleType
+  cryptoTitle: RNStyleType
+  distributionTitle: RNStyleType
 }
 
 /**
@@ -10,6 +15,29 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    container: {},
+    loadingBox: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      flex: 1,
+    },
+    writeMeTitle: {
+      marginTop: height(8),
+      textAlign: 'center',
+    },
+    email: {
+      marginTop: height(12),
+      marginBottom: height(22),
+    },
+    cryptoBox: {
+      marginVertical: height(16),
+    },
+    cryptoTitle: {
+      marginBottom: height(8),
+      textAlign: 'center',
+    },
+    distributionTitle: {
+      textAlign: 'center',
+      borderWidth: width(1),
+    },
   })
 }

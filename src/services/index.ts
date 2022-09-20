@@ -26,6 +26,7 @@ import {
 } from './GameService'
 import { dbAddPhrase, dbDeletePhrase } from './PhraseService'
 import { dbGetAboutAppStatus } from './AboutAppService'
+import { dbGetSupportData, dbSupportInfoData } from './SupportService'
 
 export {
   dbLogin,
@@ -53,4 +54,6 @@ export {
   dbUpdateReadyStatus,
   dbFinishGame,
   dbGetAboutAppStatus,
+  dbGetSupportData,
+  dbSupportInfoData,
 }

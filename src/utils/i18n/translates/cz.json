@@ -94,6 +94,11 @@
     "newVersion": {
       "title": "Byla vydána nová verze aplikace. Je třeba aktualizovat.",
       "button": "Dobrý"
+    },
+    "supportScreen": {
+      "writeMe": "Pokud najdete chybu nebo chcete navrhnout nápad na vylepšení aplikace, můžete mi poslat e-mail",
+      "distributionRules": "Aplikace je distribuována zcela zdarma, nelze účtovat žádné poplatky za používání.",
+      "cryptoHelp": "Přestože je aplikace zcela zdarma, můžete autora vždy podpořit, pokud chcete."
     }
   }
 }

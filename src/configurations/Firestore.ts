@@ -5,4 +5,5 @@ export enum Collections {
   ABOUT_APP = 'ABOUT_APP',
   ABOUT_APP_DOC = 'ABOUT_APP_DOC',
   SUPPORT = 'SUPPORT',
+  SUPPORT_DOC = 'SUPPORT_DOC',
 }

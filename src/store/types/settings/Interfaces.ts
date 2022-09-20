@@ -8,10 +8,15 @@ export interface IAboutApp {
   appVersion?: string
 }
 
+export interface ISupportData {
+  [key: string]: any
+}
+
 export interface IInitialState {
   language?: string
   aboutApp?: IAboutApp
   isLoading?: boolean
+  supportData?: ISupportData
 }
 
 export interface ISetLanguageAction {
@@ -32,8 +37,19 @@ export interface IGetAboutAppSuccess {
   aboutApp?: IAboutApp
 }
 
+export interface IGetSupportData {
+  type: ActionTypes.GET_SUPPORT_DATA
+}
+
+export interface IGetSupportDataSuccess {
+  type: ActionTypes.GET_SUPPORT_DATA_SUCCESS
+  supportData?: ISupportData
+}
+
 export type IAction =
   | ISetLanguageAction
   | ICleanSettings
   | IGetAboutApp
   | IGetAboutAppSuccess
+  | IGetSupportData
+  | IGetSupportDataSuccess
