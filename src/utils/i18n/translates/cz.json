@@ -98,7 +98,34 @@
     "supportScreen": {
       "writeMe": "Pokud najdete chybu nebo chcete navrhnout nápad na vylepšení aplikace, můžete mi poslat e-mail",
       "distributionRules": "Aplikace je distribuována zcela zdarma, nelze účtovat žádné poplatky za používání.",
-      "cryptoHelp": "Přestože je aplikace zcela zdarma, můžete autora vždy podpořit, pokud chcete."
+      "helpData": "Přestože je aplikace zcela zdarma, můžete autora vždy podpořit, pokud chcete."
+    },
+    "rulesScreen": {
+      "rules": "Pravidla",
+      "t1": {
+        "header": "O čem aplikace je:",
+        "desc": "WeDoRandom je aplikace, se kterou si můžete vybrat hodem mincí. Když hrajete hru pro jednoho hráče, můžete se rozhodnout, s jakou chutí si dnes vyberete kávu nebo vyrazíte ven, nebo ne. Společně s přáteli v týmové hře se můžete rozhodnout, který film si večer pustíte, nebo pizzu s jakou chutí si objednáte."
+      },
+      "t2": {
+        "header": "Vlastnosti aplikace:",
+        "desc": "WeDoRandom vám umožňuje přihlásit se pomocí vašeho jména s jedinečným 16znakovým klíčem. Tento klíč je dále vaším jedinečným identifikátorem: vaši přátelé si vás mohou přidat pomocí tohoto klíče ručně nebo pomocí QR kódu. Když aplikaci ukončíte nebo ji smažete z telefonu, váš účet bude trvale smazán. Seznam vašich přátel je uložen v databázi na serveru, ale často používané fráze nikoli, pouze konkrétně ve vašem telefonu. Aplikace je plně přeložena do 3 jazyků."
+      },
+      "t3": {
+        "header": "Hra pro jednoho hráče:",
+        "desc": "U hry pro jednoho hráče je potřeba zadat jméno – co přesně se nemůžete rozhodnout, jděte třeba večer na procházku. Dále je potřeba přidat do hracího pole seznam frází (alespoň 2). Až budete připraveni, klikněte na stav připravenosti a klikněte na „Přehrát“. Na poslední obrazovce uvidíte frázi, která vyhrála, a možnost, že vypadne."
+      },
+      "t4": {
+        "header": "Týmová hra:",
+        "desc": "Chcete-li zahájit týmovou hru, musíte také zadat název hry. Poté musíte pozvat přátele, aby si s vámi zahráli: můžete pozvat ze svého seznamu přátel nebo pomocí jedinečného klíče – přidat ručně nebo pomocí QR kódu. Upozorňujeme, že pozvánku lze odeslat pouze uživateli, který aktuálně nehraje žádný typ hry. Uživatel, kterému pošlete pozvánku, uvidí modální okno s pozvánkou do hry, jakmile vstoupí do aplikace. Když všichni pozvaní přijmou hru, můžete kliknout na tlačítko \"Start\". Na další obrazovce vy a další hráči přidáváte fráze do hry – každý má možnost vidět a mazat pouze své vlastní fráze. Chcete-li hrát, musíte přidat alespoň 2 fráze. Když je hráč připraven – stiskne tlačítko Připraveno a čeká na všechny ostatní – stav hry lze sledovat v pravém horním rohu. Když jsou všichni hráči připraveni - vedoucí hry může kliknout na tlačítko \"Hrát\" a všichni přejdete na poslední obrazovku - výsledky hry."
+      },
+      "t5": {
+        "header": "Seznam přátel:",
+        "desc": "Seznam přátel se používá jako seznam hráčů, se kterými hrajete častěji než obvykle. Můžete přidat pomocí jedinečného klíče nebo pomocí QR kódu: najdete je na stránce \"Profil\". Aplikace sleduje stav přítele v reálném čase – uvidíte, zda je přítel „online“. Vezměte prosím na vědomí - přítel je přidán pouze do vašeho seznamu přátel, takže se objevíte v jeho přátelích - musíte opakovat všechny akce v jeho aplikaci."
+      },
+      "t6": {
+        "header": "Seznam frází:",
+        "desc": "Seznam frází funguje výhradně na vašem zařízení – ukládání probíhá v databázi vašeho telefonu. Fráze pro hry můžete přidávat předem nebo během hry – každá fráze přidaná během jakékoli hry se automaticky přidá do vašeho seznamu frází."
+      }
     }
   }
 }

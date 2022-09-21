@@ -1,13 +1,15 @@
 import { StyleSheet } from 'react-native'
 import { height, RNStyleType, width } from '@utils'
+import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
   loadingBox: RNStyleType
   writeMeTitle: RNStyleType
   email: RNStyleType
-  cryptoBox: RNStyleType
-  cryptoTitle: RNStyleType
+  helpDataBox: RNStyleType
+  helpDataTitle: RNStyleType
   distributionTitle: RNStyleType
+  emailTitle: RNStyleType
 }
 
 /**
@@ -28,16 +30,19 @@ export default function getStyle(): IStyles {
       marginTop: height(12),
       marginBottom: height(22),
     },
-    cryptoBox: {
+    helpDataBox: {
       marginVertical: height(16),
     },
-    cryptoTitle: {
+    helpDataTitle: {
       marginBottom: height(8),
       textAlign: 'center',
     },
     distributionTitle: {
       textAlign: 'center',
       borderWidth: width(1),
+    },
+    emailTitle: {
+      ...Fonts.number,
     },
   })
 }

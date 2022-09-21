@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType, sp } from '@utils'
+import { height, RNStyleType } from '@utils'
 
 interface IStyles {
-  rulesTitle: RNStyleType
+  container: RNStyleType
+  header: RNStyleType
 }
 
 /**
@@ -10,11 +11,12 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    rulesTitle: {
-      fontSize: sp(40),
-      lineHeight: sp(40),
+    container: {
+      marginVertical: height(16),
+    },
+    header: {
       textAlign: 'center',
-      marginTop: height(16),
+      marginBottom: height(8),
     },
   })
 }

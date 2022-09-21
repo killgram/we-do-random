@@ -98,7 +98,34 @@
     "supportScreen": {
       "writeMe": "If you find a bug or want to suggest an idea to improve the application, you can email me",
       "distributionRules": "The application is distributed completely free of charge, no fees for use can be charged.",
-      "cryptoHelp": "Although the application is completely free, you can always support the author if you want."
+      "helpData": "Although the application is completely free, you can always support the author if you want."
+    },
+    "rulesScreen": {
+      "rules": "Rules",
+      "t1": {
+        "header": "What the app is about:",
+        "desc": "WeDoRandom is an application with which you can make a choice by flipping a coin. Playing a single player game, you can decide with what taste to choose a coffee or go out to hang out today or not. Together with friends in a team game, you can decide which movie to watch in the evening or pizza with what taste to order."
+      },
+      "t2": {
+        "header": "Application features:",
+        "desc": "WeDoRandom allows you to log in using your name with a unique 16-character key. This key is further your unique identifier: your friends can add you using this key manually or using a QR code. When you exit the application or delete it from your phone, your account is permanently deleted. The list of your friends is stored in a database on the server, but frequently used phrases are not, only specifically on your phone. The application is fully translated into 3 languages."
+      },
+      "t3": {
+        "header": "Single player game:",
+        "desc": "For a single player game, you need to enter a name - what exactly you can't decide, for example, go for a walk in the evening. Next, you need to add a list of phrases to the playing field (at least 2). When you're ready, click on the readiness status and click \"Play\". On the last screen, you will see the phrase that won and the chance of it falling out."
+      },
+      "t4": {
+        "header": "Team play:",
+        "desc": "To start a team game, you also need to enter the name of the game. Then you need to invite friends to play with you: you can invite from your friends list or by unique key - add manually or by QR code. Please note that an invitation can only be sent to a user who is not currently playing any type of game. The user to whom you send an invitation will see a modal window with an invite to the game as soon as they enter the application. When all invitees accept the game, you can click on the \"Start\" button. On the next screen, you and other players add phrases to the game - everyone has the opportunity to see and delete only their own phrases. To play you need to add at least 2 phrases. When a player is ready - he presses the ready button and waits for everyone else - the status of the game can be monitored in the upper right corner. When all players are ready - the game leader can click on the \"Play\" button and you will all go to the last screen - the results of the game."
+      },
+      "t5": {
+        "header": "Friend list:",
+        "desc": "The friends list is used as a list of players with whom you play more often than usual. You can add using a unique key or using a QR code: you can find them on the \"Profile\" page. The app tracks a friend's status in real time - you'll see if a friend is \"online\". Please note - a friend is added only to your friends list, so that you appear in his friends - you need to repeat all the actions in his application."
+      },
+      "t6": {
+        "header": "List of phrases:",
+        "desc": "The list of phrases works exclusively on your device - the storage takes place in the database of your phone. You can add phrases for games in advance, or, during the game - each phrase added during any game is automatically added to your list of phrases."
+      }
     }
   }
 }

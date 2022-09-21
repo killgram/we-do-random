@@ -35,7 +35,7 @@ const SupportScreen = (props: ISupportScreenProps) => {
   }, [])
 
   useEffect(() => {
-    !supportData && getSupportData?.()
+    getSupportData?.()
   }, [])
 
   const handleCopyBtn = (data: string) => {
@@ -43,21 +43,8 @@ const SupportScreen = (props: ISupportScreenProps) => {
     onSuccessCopyToast()
   }
 
-  const renderCryptoHelp = () => {
-    return supportData?.crypto?.map((item) => {
-      return (
-        <SupportHelpItem
-          key={keyGenerate()}
-          title={Object.keys(item)[0]}
-          extractor={String(Object.values(item)[0])}
-          onPress={() => handleCopyBtn(String(Object.values(item)[0]))}
-        />
-      )
-    })
-  }
-
-  const renderSubscribesHelp = () => {
-    return supportData?.subscribes?.map((item) => {
+  const renderHelpDataHelp = () => {
+    return supportData?.helpData?.map((item) => {
       return (
         <SupportHelpItem
           key={keyGenerate()}
@@ -80,7 +67,11 @@ const SupportScreen = (props: ISupportScreenProps) => {
       </WDRText>
 
       <WDRPressableCombineItem
-        bodyElement={<WDRText isTitle>{supportData?.email}</WDRText>}
+        bodyElement={
+          <WDRText style={styles.emailTitle} isTitle>
+            {supportData?.email}
+          </WDRText>
+        }
         rightElement={<WDRIcon iconName="copy" />}
         onPress={() => handleCopyBtn(supportData?.email)}
         noPadding
@@ -91,16 +82,14 @@ const SupportScreen = (props: ISupportScreenProps) => {
         {t('supportScreen.distributionRules')}
       </WDRText>
 
-      {supportData?.crypto && (
-        <View style={styles.cryptoBox}>
-          <WDRText style={styles.cryptoTitle}>
-            {t('supportScreen.cryptoHelp')}
+      {supportData?.helpData && (
+        <View style={styles.helpDataBox}>
+          <WDRText style={styles.helpDataTitle}>
+            {t('supportScreen.helpData')}
           </WDRText>
-          {renderCryptoHelp()}
+          {renderHelpDataHelp()}
         </View>
       )}
-
-      {supportData?.subscribes && <View>{renderSubscribesHelp()}</View>}
     </WDRContainer>
   )
 }
