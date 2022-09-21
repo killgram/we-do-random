@@ -67,11 +67,7 @@ const SupportScreen = (props: ISupportScreenProps) => {
       </WDRText>
 
       <WDRPressableCombineItem
-        bodyElement={
-          <WDRText style={styles.emailTitle} isTitle>
-            {supportData?.email}
-          </WDRText>
-        }
+        bodyElement={<WDRText isTitle>{supportData?.email}</WDRText>}
         rightElement={<WDRIcon iconName="copy" />}
         onPress={() => handleCopyBtn(supportData?.email)}
         noPadding

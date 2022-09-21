@@ -18,10 +18,9 @@ export default {
     },
   },
   APP_FONT_FAMILY: {
-    Raleway_Bold: 'Raleway-Bold',
-    Raleway_Medium: 'Raleway-Medium',
-    Raleway_Regular: 'Raleway-Regular',
-    Raleway_Light: 'Raleway-Light',
+    NotoSansJP_Bold: 'NotoSansJP-Bold',
+    NotoSansJP_Medium: 'NotoSansJP-Medium',
     NotoSansJP_Regular: 'NotoSansJP-Regular',
+    NotoSansJP_Light: 'NotoSansJP-Light',
   },
 }

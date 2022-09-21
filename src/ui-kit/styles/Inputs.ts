@@ -5,7 +5,8 @@ import { height, radius, sp } from '@utils'
 export default StyleSheet.create({
   input: {
     fontSize: sp(18),
-    padding: height(16),
+    lineHeight: sp(24),
+    padding: height(18),
   },
   inputContainer: {
     borderRadius: radius(8),

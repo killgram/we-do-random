@@ -8,18 +8,15 @@ export default StyleSheet.create({
     fontSize: sp(18),
   },
   regular: {
-    fontFamily: Constants.APP_FONT_FAMILY.Raleway_Regular,
+    fontFamily: Constants.APP_FONT_FAMILY.NotoSansJP_Regular,
   },
   bold: {
-    fontFamily: Constants.APP_FONT_FAMILY.Raleway_Bold,
+    fontFamily: Constants.APP_FONT_FAMILY.NotoSansJP_Bold,
   },
   light: {
-    fontFamily: Constants.APP_FONT_FAMILY.Raleway_Light,
+    fontFamily: Constants.APP_FONT_FAMILY.NotoSansJP_Light,
   },
   medium: {
-    fontFamily: Constants.APP_FONT_FAMILY.Raleway_Medium,
-  },
-  number: {
-    fontFamily: Constants.APP_FONT_FAMILY.NotoSansJP_Regular,
+    fontFamily: Constants.APP_FONT_FAMILY.NotoSansJP_Medium,
   },
 })

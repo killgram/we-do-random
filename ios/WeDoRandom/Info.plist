@@ -41,10 +41,9 @@
 	<string></string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Raleway-Bold.ttf</string>
-		<string>Raleway-Regular.ttf</string>
-		<string>Raleway-Light.ttf</string>
-		<string>Raleway-Medium.ttf</string>
+		<string>NotoSansJP-Bold.otf</string>
+		<string>NotoSansJP-Light.otf</string>
+		<string>NotoSansJP-Medium.otf</string>
 		<string>NotoSansJP-Regular.otf</string>
 		<string>wdr.ttf</string>
 	</array>

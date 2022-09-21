@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import { height, RNStyleType, sp, width } from '@utils'
-import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
   loadingBox: RNStyleType
@@ -38,7 +37,6 @@ export default function getStyle(): IStyles {
       flexDirection: 'row',
     },
     versionTitle: {
-      ...Fonts.number,
       marginHorizontal: width(8),
       fontSize: sp(20),
     },

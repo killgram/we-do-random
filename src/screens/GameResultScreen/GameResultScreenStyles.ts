@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import { getThemeColor, height, RNStyleType } from '@utils'
-import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
   winnerIcon: RNStyleType
@@ -34,7 +33,6 @@ export default function getStyle(): IStyles {
       padding: height(16),
       backgroundColor: getThemeColor('FRIEND_LIST_ITEM_BACKGROUND'),
       marginTop: height(8),
-      ...Fonts.number,
     },
     finishBtn: {
       marginTop: height(32),

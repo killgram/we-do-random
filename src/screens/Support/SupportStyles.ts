@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import { height, RNStyleType, width } from '@utils'
-import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
   loadingBox: RNStyleType
@@ -9,7 +8,6 @@ interface IStyles {
   helpDataBox: RNStyleType
   helpDataTitle: RNStyleType
   distributionTitle: RNStyleType
-  emailTitle: RNStyleType
 }
 
 /**
@@ -40,9 +38,6 @@ export default function getStyle(): IStyles {
     distributionTitle: {
       textAlign: 'center',
       borderWidth: width(1),
-    },
-    emailTitle: {
-      ...Fonts.number,
     },
   })
 }

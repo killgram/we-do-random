@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import { height, radius, RNStyleType, width } from '@utils'
-import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
   headerRight: RNStyleType
@@ -18,7 +17,6 @@ interface IStyles {
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     headerRight: {
-      ...Fonts.number,
       marginRight: width(8),
     },
     gameNameTitle: {

@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native'
 import { height, RNStyleType, sp } from '@utils'
-import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
   usernameText: RNStyleType
@@ -22,7 +21,6 @@ export default function getStyle(): IStyles {
       paddingVertical: height(20),
     },
     userIdNumbers: {
-      ...Fonts.number,
       textAlign: 'center',
       lineHeight: sp(30),
       fontSize: sp(24),

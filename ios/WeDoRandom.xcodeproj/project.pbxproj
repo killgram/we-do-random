@@ -12,13 +12,12 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		6A621B71FCD4F909A72DC6AB /* Pods_WeDoRandom_WeDoRandomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE49E673FC7E18ED230716AB /* Pods_WeDoRandom_WeDoRandomTests.framework */; };
-		80346C8728C22CCF00C93FB7 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80346C8328C22CCF00C93FB7 /* Raleway-Bold.ttf */; };
-		80346C8828C22CCF00C93FB7 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80346C8428C22CCF00C93FB7 /* Raleway-Medium.ttf */; };
-		80346C8928C22CCF00C93FB7 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80346C8528C22CCF00C93FB7 /* Raleway-Light.ttf */; };
-		80346C8A28C22CCF00C93FB7 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80346C8628C22CCF00C93FB7 /* Raleway-Regular.ttf */; };
 		8044711C28C65D5600FFA618 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8044711B28C65D5600FFA618 /* GoogleService-Info.plist */; };
 		8077062128C90473003A2417 /* NotoSansJP-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8077062028C90473003A2417 /* NotoSansJP-Regular.otf */; };
 		808B446828C2382800DB338F /* wdr.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 808B446728C2382800DB338F /* wdr.ttf */; };
+		809A49DB28DB1DD500A7285A /* NotoSansJP-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 809A49D828DB1DD500A7285A /* NotoSansJP-Light.otf */; };
+		809A49DC28DB1DD500A7285A /* NotoSansJP-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 809A49D928DB1DD500A7285A /* NotoSansJP-Medium.otf */; };
+		809A49DD28DB1DD500A7285A /* NotoSansJP-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 809A49DA28DB1DD500A7285A /* NotoSansJP-Bold.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A3D9AB7DD29BD24E8AA500A9 /* Pods_WeDoRandom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82821231303A4BF789681FAF /* Pods_WeDoRandom.framework */; };
 /* End PBXBuildFile section */
@@ -46,15 +45,14 @@
 		3B4392A12AC88292D35C810B /* Pods-WeDoRandom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDoRandom.debug.xcconfig"; path = "Target Support Files/Pods-WeDoRandom/Pods-WeDoRandom.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-WeDoRandom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDoRandom.release.xcconfig"; path = "Target Support Files/Pods-WeDoRandom/Pods-WeDoRandom.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-WeDoRandom-WeDoRandomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDoRandom-WeDoRandomTests.debug.xcconfig"; path = "Target Support Files/Pods-WeDoRandom-WeDoRandomTests/Pods-WeDoRandom-WeDoRandomTests.debug.xcconfig"; sourceTree = "<group>"; };
-		80346C8328C22CCF00C93FB7 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Bold.ttf"; path = "../../src/assets/fonts/Raleway-Bold.ttf"; sourceTree = "<group>"; };
-		80346C8428C22CCF00C93FB7 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Medium.ttf"; path = "../../src/assets/fonts/Raleway-Medium.ttf"; sourceTree = "<group>"; };
-		80346C8528C22CCF00C93FB7 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Light.ttf"; path = "../../src/assets/fonts/Raleway-Light.ttf"; sourceTree = "<group>"; };
-		80346C8628C22CCF00C93FB7 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Raleway-Regular.ttf"; path = "../../src/assets/fonts/Raleway-Regular.ttf"; sourceTree = "<group>"; };
 		8044711B28C65D5600FFA618 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8077061C28C9039E003A2417 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		8077061E28C9043C003A2417 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		8077062028C90473003A2417 /* NotoSansJP-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansJP-Regular.otf"; path = "../src/assets/fonts/NotoSansJP-Regular.otf"; sourceTree = "<group>"; };
 		808B446728C2382800DB338F /* wdr.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = wdr.ttf; path = ../../android/app/src/main/assets/fonts/wdr.ttf; sourceTree = "<group>"; };
+		809A49D828DB1DD500A7285A /* NotoSansJP-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansJP-Light.otf"; path = "../src/assets/fonts/NotoSansJP-Light.otf"; sourceTree = "<group>"; };
+		809A49D928DB1DD500A7285A /* NotoSansJP-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansJP-Medium.otf"; path = "../src/assets/fonts/NotoSansJP-Medium.otf"; sourceTree = "<group>"; };
+		809A49DA28DB1DD500A7285A /* NotoSansJP-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "NotoSansJP-Bold.otf"; path = "../src/assets/fonts/NotoSansJP-Bold.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = WeDoRandom/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82821231303A4BF789681FAF /* Pods_WeDoRandom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeDoRandom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-WeDoRandom-WeDoRandomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeDoRandom-WeDoRandomTests.release.xcconfig"; path = "Target Support Files/Pods-WeDoRandom-WeDoRandomTests/Pods-WeDoRandom-WeDoRandomTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +131,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				809A49DA28DB1DD500A7285A /* NotoSansJP-Bold.otf */,
+				809A49D828DB1DD500A7285A /* NotoSansJP-Light.otf */,
+				809A49D928DB1DD500A7285A /* NotoSansJP-Medium.otf */,
 				8077062028C90473003A2417 /* NotoSansJP-Regular.otf */,
 				8044711B28C65D5600FFA618 /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* WeDoRandom */,
@@ -161,10 +162,6 @@
 			children = (
 				8077061E28C9043C003A2417 /* NotoSansJP-Regular.otf */,
 				808B446728C2382800DB338F /* wdr.ttf */,
-				80346C8328C22CCF00C93FB7 /* Raleway-Bold.ttf */,
-				80346C8528C22CCF00C93FB7 /* Raleway-Light.ttf */,
-				80346C8428C22CCF00C93FB7 /* Raleway-Medium.ttf */,
-				80346C8628C22CCF00C93FB7 /* Raleway-Regular.ttf */,
 				3B4392A12AC88292D35C810B /* Pods-WeDoRandom.debug.xcconfig */,
 				5709B34CF0A7D63546082F79 /* Pods-WeDoRandom.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-WeDoRandom-WeDoRandomTests.debug.xcconfig */,
@@ -268,13 +265,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				8044711C28C65D5600FFA618 /* GoogleService-Info.plist in Resources */,
-				80346C8A28C22CCF00C93FB7 /* Raleway-Regular.ttf in Resources */,
-				80346C8928C22CCF00C93FB7 /* Raleway-Light.ttf in Resources */,
-				80346C8828C22CCF00C93FB7 /* Raleway-Medium.ttf in Resources */,
 				8077062128C90473003A2417 /* NotoSansJP-Regular.otf in Resources */,
-				80346C8728C22CCF00C93FB7 /* Raleway-Bold.ttf in Resources */,
+				809A49DB28DB1DD500A7285A /* NotoSansJP-Light.otf in Resources */,
 				808B446828C2382800DB338F /* wdr.ttf in Resources */,
+				809A49DC28DB1DD500A7285A /* NotoSansJP-Medium.otf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				809A49DD28DB1DD500A7285A /* NotoSansJP-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,10 +30,10 @@ export default function getStyle(): IStyles {
       borderColor: getThemeColor('ERROR_INPUT'),
     },
     textBold: {
-      ...Fonts.number,
+      ...Fonts.bold,
     },
     textRegular: {
-      ...Fonts.number,
+      ...Fonts.regular,
     },
     textError: {
       color: getThemeColor('ERROR_INPUT'),
