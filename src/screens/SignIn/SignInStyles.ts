@@ -38,6 +38,7 @@ export default function getStyle(): IStyles {
     enterBtn: {
       flex: 1,
       justifyContent: 'flex-end',
+      marginTop: height(24),
     },
   })
 }
