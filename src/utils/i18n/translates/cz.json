@@ -82,7 +82,8 @@
       "emptyPlayersList": "Seznam hráčů je prázdný.\n Přidat hráče (alespoň 1)",
       "begin": "Začít",
       "waitPlayers": "Čekání na hráče",
-      "gameHost": "Hostitel hry"
+      "gameHost": "Hostitel hry",
+      "viewPhraseList": "Zobrazit seznam frází"
     },
     "aboutApp": {
       "appGit": "Aplikace github",

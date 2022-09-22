@@ -15,6 +15,7 @@ import AwaitScreen from '@screens/Await'
 import QRCodeScanScreen from '@screens/QRCodeScan'
 import GameResultScreen from '@screens/GameResultScreen'
 import { defaultHeaderStyle } from '@ui-kit/styles'
+import ViewPhraseList from '@screens/ViewPhraseList'
 
 const Stack = createStackNavigator()
 
@@ -83,6 +84,14 @@ const AppNavigator = (props: AppNavigatorPropsTypes) => {
             ...defaultHeaderStyle,
             headerShown: true,
             cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+          }}
+        />
+        <Stack.Screen
+          name="ViewPhraseList"
+          component={ViewPhraseList}
+          options={{
+            headerShown: true,
+            ...defaultHeaderStyle,
           }}
         />
       </Stack.Navigator>

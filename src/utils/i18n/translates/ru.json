@@ -82,7 +82,8 @@
       "emptyPlayersList": "Список игроков пуст. \n Добавьте игроков (не меньше 1)",
       "begin": "Начать",
       "waitPlayers": "Ожидание игроков",
-      "gameHost": "Ведущий игры"
+      "gameHost": "Ведущий игры",
+      "viewPhraseList": "Посмотреть список фраз"
     },
     "aboutApp": {
       "appGit":  "Github приложения",

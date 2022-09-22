@@ -82,7 +82,8 @@
       "emptyPlayersList": "Players list is empty. \n Add players (at least 1)",
       "begin": "Begin",
       "waitPlayers": "Waiting for the players",
-      "gameHost": "Game host"
+      "gameHost": "Game host",
+      "viewPhraseList": "View list of phrases"
     },
     "aboutApp": {
       "appGit": "App github",

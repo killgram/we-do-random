@@ -7,6 +7,7 @@ import { View } from 'react-native'
 import { getThemeColor } from '@utils'
 import { dbCloseGame, dbUpdatePlayStatus } from '@services'
 import { Navigate } from '@navigators'
+import { toViewPhraseList } from '@navigators/Navigate'
 
 /**
  * @description GameResultScreen
@@ -80,6 +81,14 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
       <WDRText size={20} style={styles.winnerChance}>
         {`${Number(game?.finish?.chance)} %`}
       </WDRText>
+
+      {isSingle !== 'single' && (
+        <WDRButton
+          style={styles.finishBtn}
+          title={t('teamGame.viewPhraseList')}
+          onPress={Navigate.toViewPhraseList}
+        />
+      )}
 
       <WDRButton
         style={styles.finishBtn}

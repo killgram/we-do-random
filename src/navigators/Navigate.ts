@@ -209,3 +209,9 @@ export const toQRCodeScanScreen = (goBackScreen: (s: string) => void) => {
 export const toGameResultScreen = () => {
   NavigationService.navigate('GameResultScreen')
 }
+/**
+ * @description to ViewPhraseList
+ */
+export const toViewPhraseList = () => {
+  NavigationService.navigate('ViewPhraseList')
+}

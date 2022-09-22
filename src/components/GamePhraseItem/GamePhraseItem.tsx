@@ -5,7 +5,7 @@ import { TouchableOpacity, View } from 'react-native'
 import { WDRCombineItem, WDRIcon, WDRText } from '@ui-kit/components'
 
 const GamePhraseItem = (props: IGamePhraseItemProps) => {
-  const { username, onDelete, phrase, phraseId, isUser } = props
+  const { username, onDelete, phrase, phraseId, isUser, onlyView } = props
   const styles = getStyle()
 
   const handleDeletePhrase = () => {
@@ -34,7 +34,8 @@ const GamePhraseItem = (props: IGamePhraseItemProps) => {
           )
         }
         rightElement={
-          isUser && (
+          isUser &&
+          !onlyView && (
             <TouchableOpacity activeOpacity={0.5} onPress={handleDeletePhrase}>
               <WDRIcon iconName="delete" />
             </TouchableOpacity>
