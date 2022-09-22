@@ -111,6 +111,7 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
             phrase={item.phrase}
             phraseId={item.phraseId}
             onDelete={deletePhraseOutGame!}
+            isUser={true}
           />
         )}
       />
