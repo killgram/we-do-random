@@ -1,13 +1,12 @@
-import React, { useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect } from 'react'
 import getStyle from './GameResultScreenStyles'
 import { WDRButton, WDRContainer, WDRIcon, WDRText } from '@ui-kit/components'
 import { IGameResultScreenScreenProps } from './GameResultScreenTypes'
 import { useTranslation } from 'react-i18next'
 import { View } from 'react-native'
-import { getThemeColor } from '@utils'
+import { getThemeColor, playSound, SoundTypes } from '@utils'
 import { dbCloseGame, dbUpdatePlayStatus } from '@services'
 import { Navigate } from '@navigators'
-import { toViewPhraseList } from '@navigators/Navigate'
 
 /**
  * @description GameResultScreen
@@ -15,7 +14,7 @@ import { toViewPhraseList } from '@navigators/Navigate'
  * @return {JSX}
  */
 const GameResultScreen = (props: IGameResultScreenScreenProps) => {
-  const { navigation, cleanGame, game, userId, kickOffPlayer } = props
+  const { navigation, cleanGame, game, userId, kickOffPlayer, username } = props
   const styles = getStyle()
   const { t } = useTranslation()
 
@@ -46,6 +45,16 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
   const exitGame = () => {
     isLead ? exitGameLeader() : exitGameUser()
   }
+
+  useEffect(() => {
+    if (isSingle !== 'single') {
+      if (game?.finish?.username === username) {
+        playSound(SoundTypes.WIN_GAME)
+      } else {
+        playSound(SoundTypes.LOSE_GAME)
+      }
+    }
+  }, [])
 
   return (
     <WDRContainer isTransparentHeader>

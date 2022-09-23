@@ -5,6 +5,7 @@ interface IStateToProps {
   navigation?: NavigationType
   game?: game.IInitialState
   userId?: string
+  username?: string
 }
 
 interface IDispatchToProps {

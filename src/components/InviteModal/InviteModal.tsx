@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { IInviteModalProps } from './InviteModalTypes'
 import getStyle from './InviteModalStyles'
 import { TouchableOpacity, View } from 'react-native'
 import { WDRCenterModal, WDRIcon, WDRText } from '@ui-kit/components'
-import { getThemeColor } from '@utils'
+import { getThemeColor, playSound, SoundTypes } from '@utils'
 import { useTranslation } from 'react-i18next'
 
 const InviteModal = (props: IInviteModalProps) => {
@@ -25,6 +25,10 @@ const InviteModal = (props: IInviteModalProps) => {
   const handleDecline = () => {
     onDecline(leadId)
   }
+
+  useEffect(() => {
+    playSound(SoundTypes.INVITE_GAME)
+  }, [])
 
   return (
     <WDRCenterModal isVisible={isVisible}>

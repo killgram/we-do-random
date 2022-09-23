@@ -25,6 +25,7 @@ import { copyToClipboard, getDataToBuffer } from './Clipboard'
 import { addPhrase, deletePhrase, clearPhrase, getPhraseData } from './Realm'
 import { calcWinner, calcChance } from './CalcWinner'
 import { openLink } from './OpenLink'
+import { playSound, SoundTypes, SoundList } from './Sound'
 
 export {
   width,
@@ -52,6 +53,9 @@ export {
   calcWinner,
   calcChance,
   openLink,
+  playSound,
+  SoundTypes,
+  SoundList,
 }
 
 export type {
