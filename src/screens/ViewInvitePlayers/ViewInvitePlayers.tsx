@@ -100,7 +100,10 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
         <WDRText isTitle style={styles.waitText}>
           {t('teamGame.waitPlayers')}
         </WDRText>
-        <ActivityIndicator size="small" color={getThemeColor('MAIN_TEXT')} />
+        <ActivityIndicator
+          size="small"
+          color={getThemeColor('ACTIVITY_INDICATOR')}
+        />
       </View>
 
       <WDRList

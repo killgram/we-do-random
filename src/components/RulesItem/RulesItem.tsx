@@ -10,10 +10,12 @@ const RulesItem = (props: IRulesItemProps) => {
 
   return (
     <View style={styles.container}>
-      <WDRText isTitle style={styles.header}>
+      <WDRText isSecondary size={20} style={styles.header}>
         {header}
       </WDRText>
-      <WDRText>{desc}</WDRText>
+      <WDRText style={styles.desc} isSecondary>
+        {desc}
+      </WDRText>
     </View>
   )
 }

@@ -14,7 +14,11 @@ const SupportHelpItem = (props: ISupportHelpItemProps) => {
   return (
     <WDRPressableCombineItem
       onPress={handlePress}
-      bodyElement={<WDRText isTitle>{title}</WDRText>}
+      bodyElement={
+        <WDRText isSecondary isTitle>
+          {title}
+        </WDRText>
+      }
       noPadding
       rightElement={<WDRIcon iconName="copy" />}
       style={styles.container}

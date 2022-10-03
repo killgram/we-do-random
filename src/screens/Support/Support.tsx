@@ -16,6 +16,7 @@ import {
   onSuccessCopyToast,
 } from '@utils'
 import SupportHelpItem from '@components/SupportHelpItem'
+import { Constants } from '@configurations'
 
 /**
  * @description SupportScreen
@@ -56,34 +57,33 @@ const SupportScreen = (props: ISupportScreenProps) => {
     })
   }
 
-  return isLoading ? (
-    <View style={styles.loadingBox}>
-      <ActivityIndicator size="large" color={getThemeColor('MAIN_TEXT')} />
-    </View>
-  ) : (
+  return (
     <WDRContainer isTransparentHeader>
-      <WDRText style={styles.writeMeTitle}>
+      <WDRText isSecondary style={styles.writeMeTitle}>
         {t('supportScreen.writeMe')}
       </WDRText>
 
       <WDRPressableCombineItem
-        bodyElement={<WDRText isTitle>{supportData?.email}</WDRText>}
+        bodyElement={<WDRText isSecondary>{Constants.emailContact}</WDRText>}
         rightElement={<WDRIcon iconName="copy" />}
         onPress={() => handleCopyBtn(supportData?.email)}
         noPadding
         style={styles.email}
       />
 
-      <WDRText style={styles.distributionTitle}>
-        {t('supportScreen.distributionRules')}
-      </WDRText>
-
-      {supportData?.helpData && (
+      {supportData?.helpData ? (
         <View style={styles.helpDataBox}>
-          <WDRText style={styles.helpDataTitle}>
+          <WDRText isSecondary style={styles.helpDataTitle}>
             {t('supportScreen.helpData')}
           </WDRText>
           {renderHelpDataHelp()}
+        </View>
+      ) : (
+        <View style={styles.loadingBox}>
+          <ActivityIndicator
+            size="large"
+            color={getThemeColor('ACTIVITY_INDICATOR')}
+          />
         </View>
       )}
     </WDRContainer>

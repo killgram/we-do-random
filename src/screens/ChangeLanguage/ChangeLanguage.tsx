@@ -67,7 +67,7 @@ const ChangeLanguageScreen = (props: IChangeLanguageScreenTypesProps) => {
         <WDRPressableCombineItem
           key={item.langTag}
           leftElement={<Image source={item.img} style={styles.flagImage} />}
-          bodyElement={<WDRText isTitle>{item.name}</WDRText>}
+          bodyElement={<WDRText isSecondary>{item.name}</WDRText>}
           rightElement={
             language === item.langTag && (
               <WDRIcon

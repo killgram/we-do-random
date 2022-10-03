@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType, width } from '@utils'
+import { getThemeColor, height, radius, RNStyleType, width } from '@utils'
 
 interface IStyles {
   loadingBox: RNStyleType
@@ -7,7 +7,6 @@ interface IStyles {
   email: RNStyleType
   helpDataBox: RNStyleType
   helpDataTitle: RNStyleType
-  distributionTitle: RNStyleType
 }
 
 /**
@@ -18,7 +17,7 @@ export default function getStyle(): IStyles {
     loadingBox: {
       alignItems: 'center',
       justifyContent: 'center',
-      flex: 1,
+      marginVertical: height(24),
     },
     writeMeTitle: {
       marginTop: height(8),
@@ -27,17 +26,17 @@ export default function getStyle(): IStyles {
     email: {
       marginTop: height(12),
       marginBottom: height(22),
+      backgroundColor: getThemeColor('STATIC_BUTTONS'),
+      paddingVertical: height(12),
+      paddingHorizontal: width(10),
+      borderRadius: radius(10),
     },
     helpDataBox: {
       marginVertical: height(16),
     },
     helpDataTitle: {
-      marginBottom: height(8),
+      marginBottom: height(16),
       textAlign: 'center',
-    },
-    distributionTitle: {
-      textAlign: 'center',
-      borderWidth: width(1),
     },
   })
 }

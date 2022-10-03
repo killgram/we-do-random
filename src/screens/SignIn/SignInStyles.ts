@@ -1,5 +1,5 @@
 import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
-import { height, RNStyleType, sp } from '@utils'
+import { getThemeColor, height, RNStyleType, sp } from '@utils'
 
 interface IStyles {
   sectionTop: RNStyleType
@@ -7,6 +7,7 @@ interface IStyles {
   langListContainer: RNStyleType
   titleBottom: RNStyleType
   ruffleImg: StyleProp<ImageStyle>
+  container: RNStyleType
 }
 
 /**
@@ -38,6 +39,9 @@ export default function getStyle(): IStyles {
       height: height(160),
       alignSelf: 'center',
       marginTop: height(100),
+    },
+    container: {
+      backgroundColor: getThemeColor('BACKGROUND'),
     },
   })
 }

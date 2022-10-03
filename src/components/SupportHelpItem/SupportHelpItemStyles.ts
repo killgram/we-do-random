@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType } from '@utils'
+import { getThemeColor, height, radius, RNStyleType, width } from '@utils'
 
 interface IStyles {
   container: RNStyleType
@@ -12,6 +12,10 @@ export default function getStyle(): IStyles {
   return StyleSheet.create({
     container: {
       marginBottom: height(12),
+      backgroundColor: getThemeColor('STATIC_BUTTONS'),
+      paddingVertical: height(12),
+      paddingHorizontal: width(10),
+      borderRadius: radius(10),
     },
   })
 }

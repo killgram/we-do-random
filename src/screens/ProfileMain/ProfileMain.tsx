@@ -10,7 +10,12 @@ import {
   WDRText,
 } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
-import { chunkSubstr, copyToClipboard, onSuccessCopyToast } from '@utils'
+import {
+  chunkSubstr,
+  copyToClipboard,
+  getThemeColor,
+  onSuccessCopyToast,
+} from '@utils'
 import QRCodeView from '@components/QRCodeView'
 
 /**
@@ -37,15 +42,21 @@ const ProfileMainScreen = (props: IProfileMainScreenTypesProps) => {
 
   return (
     <WDRContainer>
-      <WDRText isTitle style={styles.usernameText}>
+      <WDRText isSecondary style={styles.usernameText}>
         {username}
       </WDRText>
-      <WDRText isTitle style={styles.userIdTitle} size={20}>
+
+      <WDRText isSecondary style={styles.userIdTitle} size={20}>
         {t('profile.yourKey')}
       </WDRText>
+
+      <QRCodeView value={userId} />
+
       <WDRCombineItem
         bodyElement={
-          <WDRText style={styles.userIdNumbers}>{renderUserId()}</WDRText>
+          <WDRText isSecondary style={styles.userIdNumbers}>
+            {renderUserId()}
+          </WDRText>
         }
         rightElement={
           <TouchableOpacity
@@ -53,13 +64,14 @@ const ProfileMainScreen = (props: IProfileMainScreenTypesProps) => {
             style={styles.copyBtn}
             onPress={handleCopyBtn}
           >
-            <WDRIcon iconName="copy" />
+            <WDRIcon
+              iconName="copy"
+              iconColor={getThemeColor('SECONDARY_TEXT')}
+            />
           </TouchableOpacity>
         }
         style={styles.copyBtnContainer}
       />
-
-      <QRCodeView value={userId} />
     </WDRContainer>
   )
 }

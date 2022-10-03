@@ -22,7 +22,9 @@ export default function getStyle(): IStyles {
       paddingVertical: height(6),
     },
     logoutBtn: {
-      marginTop: height(32),
+      marginBottom: height(32),
+      flex: 1,
+      justifyContent: 'flex-end',
     },
     modalText: {
       textAlign: 'center',

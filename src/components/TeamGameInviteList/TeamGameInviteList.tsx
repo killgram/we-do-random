@@ -42,7 +42,7 @@ const TeamGameInviteList = (props: ITeamGameInviteListProps) => {
           <ActivityIndicator
             size="small"
             style={styles.indicator}
-            color={getThemeColor('MAIN_TEXT')}
+            color={getThemeColor('ACTIVITY_INDICATOR')}
           />
         </View>
       )

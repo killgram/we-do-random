@@ -3,9 +3,10 @@ import getStyle from './AboutAppStyles'
 import { WDRContainer, WDRText } from '@ui-kit/components'
 import { IAboutAppScreenProps } from './AboutAppTypes'
 import { useTranslation } from 'react-i18next'
-import { ActivityIndicator, TouchableOpacity, View } from 'react-native'
+import { ActivityIndicator, Image, TouchableOpacity, View } from 'react-native'
 import { getThemeColor, openLink } from '@utils'
 import DeviceInfo from 'react-native-device-info'
+import ruffle from '@assets/img/raffle.png'
 
 /**
  * @description AboutAppScreen
@@ -29,22 +30,25 @@ const AboutAppScreen = (props: IAboutAppScreenProps) => {
 
   return isLoading ? (
     <View style={styles.loadingBox}>
-      <ActivityIndicator size="large" color={getThemeColor('MAIN_TEXT')} />
+      <ActivityIndicator
+        size="large"
+        color={getThemeColor('ACTIVITY_INDICATOR')}
+      />
     </View>
   ) : (
     <WDRContainer isTransparentHeader>
-      <WDRText isTitle style={styles.name}>
+      <WDRText isSecondary style={styles.name}>
         {aboutApp?.name}
       </WDRText>
 
       <View style={styles.sectionTop}>
         <View style={styles.rowSection}>
-          <WDRText isTitle>{t('aboutApp.author')}</WDRText>
-          <WDRText>{aboutApp?.author}</WDRText>
+          <WDRText isSecondary>{t('aboutApp.author')}</WDRText>
+          <WDRText isSecondary>{aboutApp?.author}</WDRText>
         </View>
 
         <View style={styles.rowSection}>
-          <WDRText isTitle>{t('aboutApp.appGit')}</WDRText>
+          <WDRText isSecondary>{t('aboutApp.appGit')}</WDRText>
           <TouchableOpacity
             activeOpacity={0.6}
             onPress={() => openLink(aboutApp?.appGit!)}
@@ -54,7 +58,7 @@ const AboutAppScreen = (props: IAboutAppScreenProps) => {
         </View>
 
         <View style={styles.rowSection}>
-          <WDRText isTitle>{t('aboutApp.authorGit')}</WDRText>
+          <WDRText isSecondary>{t('aboutApp.authorGit')}</WDRText>
           <TouchableOpacity
             activeOpacity={0.6}
             onPress={() => openLink(aboutApp?.authorGit!)}
@@ -65,12 +69,16 @@ const AboutAppScreen = (props: IAboutAppScreenProps) => {
       </View>
 
       <View style={styles.sectionBottom}>
-        <WDRText style={styles.versionTitle}>{`${t(
+        <WDRText isSecondary style={styles.versionTitle}>{`${t(
           'aboutApp.version',
         )}:`}</WDRText>
-        <WDRText style={styles.versionTitle}>
+        <WDRText isSecondary style={styles.versionTitle}>
           {DeviceInfo?.getVersion()}
         </WDRText>
+      </View>
+
+      <View style={styles.ruffleImgBox}>
+        <Image source={ruffle} resizeMode="contain" style={styles.ruffleImg} />
       </View>
     </WDRContainer>
   )

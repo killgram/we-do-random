@@ -4,6 +4,7 @@ import { height, RNStyleType } from '@utils'
 interface IStyles {
   container: RNStyleType
   header: RNStyleType
+  desc: RNStyleType
 }
 
 /**
@@ -17,6 +18,9 @@ export default function getStyle(): IStyles {
     header: {
       textAlign: 'center',
       marginBottom: height(8),
+    },
+    desc: {
+      fontWeight: 'normal',
     },
   })
 }

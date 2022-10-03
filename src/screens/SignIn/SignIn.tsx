@@ -71,7 +71,7 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
   }
 
   return (
-    <WDRContainer>
+    <WDRContainer style={styles.container}>
       <View style={styles.sectionTop}>
         <WDRText isTitle style={styles.titleTop}>
           {t('signIn.chooseLang')}
