@@ -59,6 +59,7 @@ const WDRButton = (props: IWDRButtonProps) => {
         isLink={isTransparent}
         style={StyleSheet.flatten([
           isSecondary && styles.textSecondary,
+          isTransparent && styles.textTransparent,
           titleStyle,
         ])}
       >

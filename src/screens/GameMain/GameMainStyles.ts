@@ -1,9 +1,12 @@
-import { StyleSheet } from 'react-native'
-import { height, RNStyleType } from '@utils'
+import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
+import { height, RNStyleType, width } from '@utils'
 
 interface IStyles {
   gameBox: RNStyleType
   listBtnBox: RNStyleType
+  link: RNStyleType
+  ruffleImg: StyleProp<ImageStyle>
+  ruffleImgBox: RNStyleType
 }
 
 /**
@@ -12,12 +15,22 @@ interface IStyles {
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     gameBox: {
-      marginBottom: height(16),
+      marginTop: height(20),
     },
     listBtnBox: {
-      marginTop: height(48),
-      flexDirection: 'row',
-      justifyContent: 'space-between',
+      marginTop: height(24),
+    },
+    link: {
+      textDecorationLine: 'underline',
+    },
+    ruffleImg: {
+      width: height(250),
+      height: height(250),
+    },
+    ruffleImgBox: {
+      position: 'absolute',
+      bottom: -height(20),
+      right: -width(32),
     },
   })
 }

@@ -13,6 +13,7 @@ interface IStyles {
   titleContainer: RNStyleType
   transparent: RNStyleType
   textSecondary: RNStyleType
+  textTransparent: RNStyleType
 }
 
 /**
@@ -49,7 +50,10 @@ export default function getStyle(): IStyles {
       backgroundColor: getThemeColor('TRANSPARENT_BUTTONS'),
     },
     textSecondary: {
-      color: getThemeColor('LIGHT_TEXT'),
+      color: getThemeColor('STATIC_BUTTONS'),
+    },
+    textTransparent: {
+      color: getThemeColor('STATIC_SECONDARY_BUTTONS'),
     },
   })
 }
