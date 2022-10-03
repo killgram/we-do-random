@@ -43,16 +43,9 @@ const FriendListScreen = (props: IFriendListTypesProps) => {
 
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
-      <WDRButton
-        title={t('friendList.addFriend')}
-        onPress={Navigate.toAddFriendScreen}
-        style={styles.addFriendBox}
-      />
-
       <WDRList
         isBounces
         listItems={friendsList}
-        listStyles={styles.listStyle}
         titleEmptyComponent={t('friendList.emptyList')}
         renderListItem={({ item }) => (
           <FriendListItem
@@ -62,6 +55,12 @@ const FriendListScreen = (props: IFriendListTypesProps) => {
             onPress={deleteFriend}
           />
         )}
+      />
+      <WDRButton
+        title={t('friendList.addFriend')}
+        onPress={Navigate.toAddFriendScreen}
+        style={styles.addFriendBox}
+        isSecondary
       />
     </WDRContainer>
   )

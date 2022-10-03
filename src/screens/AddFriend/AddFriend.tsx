@@ -11,6 +11,7 @@ import {
 import { useTranslation } from 'react-i18next'
 import { getDataToBuffer } from '@utils'
 import { Navigate } from '@navigators'
+import { View } from 'react-native'
 
 /**
  * @description AddFriend
@@ -46,7 +47,7 @@ const AddFriendScreen = (props: IAddFriendTypesProps) => {
   return (
     <WDRContainer isTransparentHeader>
       <WDRCombineItem
-        bodyElement={<WDRText isTitle>{t('friendList.enterKey')}</WDRText>}
+        bodyElement={<WDRText isSecondary>{t('friendList.enterKey')}</WDRText>}
         rightElement={
           <WDRButton
             title={t('friendList.insert').toLowerCase()}
@@ -66,20 +67,20 @@ const AddFriendScreen = (props: IAddFriendTypesProps) => {
       />
 
       <WDRButton
-        title={t('friendList.add')}
-        isDisabled={inputValue.length !== 16}
-        onPress={handleAddFriend}
-        isLoading={isUpdate}
-      />
-
-      <WDRText isTitle style={styles.or}>
-        {t('friendList.or')}
-      </WDRText>
-
-      <WDRButton
         title={t('friendList.qrAdd')}
         onPress={() => Navigate.toQRCodeScanScreen(handleInputChange)}
+        isSecondary
       />
+
+      <View style={styles.addBtnBox}>
+        <WDRButton
+          title={t('friendList.add')}
+          isDisabled={inputValue.length !== 16}
+          onPress={handleAddFriend}
+          isLoading={isUpdate}
+          isSecondary
+        />
+      </View>
     </WDRContainer>
   )
 }

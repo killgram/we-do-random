@@ -3,7 +3,8 @@ import { height, RNStyleType } from '@utils'
 
 interface IStyles {
   descTopContainer: RNStyleType
-  or: RNStyleType
+  link: RNStyleType
+  addBtnBox: RNStyleType
 }
 
 /**
@@ -14,9 +15,13 @@ export default function getStyle(): IStyles {
     descTopContainer: {
       marginTop: height(16),
     },
-    or: {
-      textAlign: 'center',
-      paddingVertical: height(16),
+    link: {
+      textDecorationLine: 'underline',
+    },
+    addBtnBox: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      marginBottom: height(30),
     },
   })
 }

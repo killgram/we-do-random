@@ -33,7 +33,10 @@ const FriendListItem = (props: IFriendListItemProps) => {
         }
         rightElement={
           <TouchableOpacity activeOpacity={0.5} onPress={handleDeleteFriend}>
-            <WDRIcon iconName="delete" />
+            <WDRIcon
+              iconName="delete"
+              iconColor={getThemeColor('CHOSEN_ICON')}
+            />
           </TouchableOpacity>
         }
       />
