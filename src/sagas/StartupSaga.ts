@@ -5,6 +5,7 @@ import { Constants } from '@configurations'
 import { Navigate } from '@navigators'
 import { dbUpdatePlayStatus, dbCloseGame, dbGetAboutAppStatus } from '@services'
 import DeviceInfo from 'react-native-device-info'
+import SplashScreen from 'react-native-splash-screen'
 
 export function* startup(): any {
   const state = yield select()
@@ -62,7 +63,9 @@ export function* startup(): any {
       yield call(dbCloseGame, userId)
       yield put(gameAction.cleanGame())
     }
+    yield call(SplashScreen.hide)
   } else {
     yield call(Navigate.toAuthStack)
+    yield call(SplashScreen.hide)
   }
 }
