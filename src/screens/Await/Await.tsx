@@ -2,6 +2,7 @@ import React from 'react'
 import getStyle from './AwaitStyles'
 import { WDRContainer } from '@ui-kit/components'
 import { ActivityIndicator } from 'react-native'
+import { getThemeColor } from '@utils'
 
 /**
  * @description AwaitScreen
@@ -12,7 +13,7 @@ const AwaitScreen = () => {
 
   return (
     <WDRContainer style={styles.container}>
-      <ActivityIndicator size="large" />
+      <ActivityIndicator size="large" color={getThemeColor('COUNTRY_BLUE')} />
     </WDRContainer>
   )
 }

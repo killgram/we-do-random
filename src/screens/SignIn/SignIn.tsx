@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View } from 'react-native'
+import { Image, View } from 'react-native'
 import { ISignInScreenTypesProps } from './SignInTypes'
 import getStyle from './SignInStyles'
 import { WDRButton, WDRContainer, WDRText, WDRInput } from '@ui-kit/components'
@@ -8,6 +8,7 @@ import { Constants } from '@configurations'
 import en from '@assets/img/en.png'
 import cz from '@assets/img/cz.png'
 import ru from '@assets/img/ru.png'
+import ruffle from '@assets/img/raffle.png'
 import SignInLangCard from '@components/SignInLangCard'
 import { setLocale } from '@utils'
 
@@ -72,32 +73,30 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
   return (
     <WDRContainer>
       <View style={styles.sectionTop}>
-        <WDRText isTitle size={24} style={styles.titleTop}>
+        <WDRText isTitle style={styles.titleTop}>
           {t('signIn.chooseLang')}
         </WDRText>
         <View style={styles.langListContainer}>{renderLangElements()}</View>
       </View>
 
-      <View style={styles.sectionBottom}>
-        <WDRText isTitle size={24} style={styles.titleBottom}>
-          {t('signIn.introduce')}
-        </WDRText>
+      <WDRText isTitle style={styles.titleBottom}>
+        {t('signIn.introduce')}
+      </WDRText>
 
-        <WDRInput
-          placeholder={t('signIn.namePlaceholder')}
-          value={username}
-          onChangeText={handleChangeUsername}
-        />
+      <WDRInput
+        placeholder={t('signIn.namePlaceholder')}
+        value={username}
+        onChangeText={handleChangeUsername}
+      />
 
-        <View style={styles.enterBtn}>
-          <WDRButton
-            title={t('signIn.enter')}
-            isDisabled={username.length === 0}
-            onPress={onLogin}
-            isLoading={isLoading}
-          />
-        </View>
-      </View>
+      <WDRButton
+        title={t('signIn.enter')}
+        isDisabled={username.length === 0}
+        onPress={onLogin}
+        isLoading={isLoading}
+      />
+
+      <Image source={ruffle} style={styles.ruffleImg} />
     </WDRContainer>
   )
 }

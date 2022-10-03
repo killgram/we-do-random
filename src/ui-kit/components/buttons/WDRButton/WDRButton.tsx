@@ -54,7 +54,7 @@ const WDRButton = (props: IWDRButtonProps) => {
       disabled={isDisabled}
       {...other}
     >
-      <WDRText isTitle isLink={isTransparent} style={titleStyle}>
+      <WDRText isSecondary isLink={isTransparent} style={titleStyle}>
         {title}
       </WDRText>
     </Pressable>

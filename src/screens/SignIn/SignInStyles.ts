@@ -1,13 +1,12 @@
-import { StyleSheet } from 'react-native'
-import { height, RNStyleType } from '@utils'
+import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
+import { height, RNStyleType, sp } from '@utils'
 
 interface IStyles {
   sectionTop: RNStyleType
-  sectionBottom: RNStyleType
   titleTop: RNStyleType
   langListContainer: RNStyleType
   titleBottom: RNStyleType
-  enterBtn: RNStyleType
+  ruffleImg: StyleProp<ImageStyle>
 }
 
 /**
@@ -16,29 +15,29 @@ interface IStyles {
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     sectionTop: {
-      marginVertical: height(90),
+      marginVertical: height(50),
       justifyContent: 'center',
     },
     titleTop: {
       alignSelf: 'center',
-      marginBottom: height(32),
+      marginBottom: height(48),
+      fontSize: sp(32),
+      lineHeight: sp(38),
     },
     langListContainer: {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-around',
     },
-    sectionBottom: {
-      flex: 0.9,
-    },
     titleBottom: {
-      alignSelf: 'center',
-      marginBottom: height(32),
+      marginBottom: height(12),
+      marginTop: height(32),
     },
-    enterBtn: {
-      flex: 1,
-      justifyContent: 'flex-end',
-      marginTop: height(24),
+    ruffleImg: {
+      width: height(160),
+      height: height(160),
+      alignSelf: 'center',
+      marginTop: height(100),
     },
   })
 }
