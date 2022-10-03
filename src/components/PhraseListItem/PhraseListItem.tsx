@@ -3,6 +3,7 @@ import { IPhraseListItemProps } from './PhraseListItemTypes'
 import getStyle from './PhraseListItemStyles'
 import { TouchableOpacity, View } from 'react-native'
 import { WDRCombineItem, WDRIcon, WDRText } from '@ui-kit/components'
+import { getThemeColor } from '@utils'
 
 const PhraseListItem = (props: IPhraseListItemProps) => {
   const { name, id, onDelete } = props
@@ -22,7 +23,7 @@ const PhraseListItem = (props: IPhraseListItemProps) => {
         }
         rightElement={
           <TouchableOpacity activeOpacity={0.5} onPress={handleDeletePhrase}>
-            <WDRIcon iconName="delete" />
+            <WDRIcon iconName="delete" iconColor={getThemeColor('MAIN_TEXT')} />
           </TouchableOpacity>
         }
       />

@@ -48,7 +48,9 @@ const AddPhraseScreen = (props: IAddPhraseScreenProps) => {
   return (
     <WDRContainer isTransparentHeader>
       <WDRCombineItem
-        bodyElement={<WDRText isTitle>{t('phraseList.enterPhrase')}</WDRText>}
+        bodyElement={
+          <WDRText isSecondary>{t('phraseList.enterPhrase')}</WDRText>
+        }
         rightElement={
           <WDRButton
             title={t('phraseList.insert').toLowerCase()}
@@ -60,12 +62,17 @@ const AddPhraseScreen = (props: IAddPhraseScreenProps) => {
         style={styles.descTopContainer}
       />
 
-      <WDRInput value={inputValue} onChangeText={handleInputChange} />
+      <WDRInput
+        value={inputValue}
+        onChangeText={handleInputChange}
+        inputContainerStyle={styles.inputBox}
+      />
 
       <WDRButton
         title={t('phraseList.add')}
         isDisabled={inputValue.length === 0}
         onPress={handleAddPhrase}
+        isSecondary
       />
     </WDRContainer>
   )
