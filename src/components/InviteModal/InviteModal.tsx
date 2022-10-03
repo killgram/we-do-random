@@ -35,11 +35,15 @@ const InviteModal = (props: IInviteModalProps) => {
       <WDRIcon
         iconName="game"
         iconSize={120}
-        iconColor={getThemeColor('CHOSEN_ICON')}
+        iconColor={getThemeColor('NEW_GAME_ICON')}
       />
-      <WDRText isTitle>{leaderName}</WDRText>
+      <WDRText color={getThemeColor('STATIC_BUTTONS')} isTitle>
+        {leaderName}
+      </WDRText>
       <WDRText style={styles.modalText}>{t('inviteModal.invToPlay')}</WDRText>
-      <WDRText isTitle>{gameName}</WDRText>
+      <WDRText color={getThemeColor('STATIC_BUTTONS')} isTitle>
+        {gameName}
+      </WDRText>
 
       <View style={styles.btnBox}>
         <TouchableOpacity
