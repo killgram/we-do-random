@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { getThemeColor, height, RNStyleType } from '@utils'
+import { getThemeColor, height, radius, RNStyleType, width } from '@utils'
 
 interface IStyles {
   winnerIcon: RNStyleType
@@ -7,6 +7,8 @@ interface IStyles {
   title: RNStyleType
   winnerChance: RNStyleType
   finishBtn: RNStyleType
+  winnerBox: RNStyleType
+  chanceBox: RNStyleType
 }
 
 /**
@@ -20,9 +22,7 @@ export default function getStyle(): IStyles {
     },
     winnerName: {
       textAlign: 'center',
-      padding: height(16),
-      backgroundColor: getThemeColor('FRIEND_LIST_ITEM_BACKGROUND'),
-      marginTop: height(8),
+      color: getThemeColor('STATIC_BUTTONS'),
     },
     title: {
       textAlign: 'center',
@@ -35,7 +35,21 @@ export default function getStyle(): IStyles {
       marginTop: height(8),
     },
     finishBtn: {
-      marginTop: height(32),
+      flex: 1,
+      justifyContent: 'flex-end',
+      marginBottom: height(30),
+    },
+    winnerBox: {
+      paddingHorizontal: width(16),
+      backgroundColor: getThemeColor('FRIEND_LIST_ITEM_BACKGROUND'),
+      marginTop: height(8),
+      borderRadius: radius(20),
+      paddingVertical: height(32),
+    },
+    chanceBox: {
+      flexDirection: 'row',
+      marginTop: height(16),
+      marginLeft: width(16),
     },
   })
 }

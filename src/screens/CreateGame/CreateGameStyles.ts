@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType } from '@utils'
+import { getThemeColor, height, RNStyleType } from '@utils'
 
 interface IStyles {
   enterNameTitle: RNStyleType
+  inputBox: RNStyleType
 }
 
 /**
@@ -11,8 +12,10 @@ interface IStyles {
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     enterNameTitle: {
-      textAlign: 'center',
-      marginBottom: height(8),
+      marginVertical: height(16),
+    },
+    inputBox: {
+      backgroundColor: getThemeColor('PLACEHOLDER_INPUT'),
     },
   })
 }

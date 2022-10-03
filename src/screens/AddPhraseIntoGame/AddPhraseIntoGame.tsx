@@ -100,7 +100,9 @@ const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
       <WDRCombineItem
-        bodyElement={<WDRText isTitle>{t('phraseList.enterPhrase')}</WDRText>}
+        bodyElement={
+          <WDRText isSecondary>{t('phraseList.enterPhrase')}</WDRText>
+        }
         rightElement={
           <WDRButton
             title={t('phraseList.insert').toLowerCase()}
@@ -112,12 +114,17 @@ const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
         style={styles.descTopContainer}
       />
 
-      <WDRInput value={inputValue} onChangeText={handleInputChange} />
+      <WDRInput
+        value={inputValue}
+        onChangeText={handleInputChange}
+        inputContainerStyle={styles.inputBox}
+      />
 
       <WDRButton
         title={t('phraseList.add')}
         isDisabled={inputValue.length === 0}
         onPress={handleAddPhraseIntoGame}
+        isSecondary
       />
 
       {isScreenLoad ? (

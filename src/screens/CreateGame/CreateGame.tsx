@@ -38,23 +38,29 @@ const CreateGameScreen = (props: ICreateGameTypesProps) => {
 
   return (
     <WDRContainer isTransparentHeader>
-      <WDRText isTitle style={styles.enterNameTitle}>
+      <WDRText isSecondary style={styles.enterNameTitle}>
         {t('createGame.enterGameName')}
       </WDRText>
 
-      <WDRInput value={gameName} onChangeText={handleChangeGameName} />
+      <WDRInput
+        value={gameName}
+        onChangeText={handleChangeGameName}
+        inputContainerStyle={styles.inputBox}
+      />
 
       {isSingle ? (
         <WDRButton
           isDisabled={gameName.length === 0}
           title={t('createGame.start')}
           onPress={goGame}
+          isSecondary
         />
       ) : (
         <WDRButton
           isDisabled={gameName.length === 0}
           title={t('createGame.invitePlayers')}
           onPress={goGame}
+          isSecondary
         />
       )}
     </WDRContainer>

@@ -66,12 +66,15 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
         />
       </View>
 
-      <WDRText size={20} isTitle style={styles.title}>
+      <WDRText size={20} isSecondary style={styles.title}>
         {game?.gameName}
       </WDRText>
-      <WDRText size={20} isTitle style={styles.winnerName}>
-        {game?.finish?.phrase}
-      </WDRText>
+
+      <View style={styles.winnerBox}>
+        <WDRText size={20} isTitle style={styles.winnerName}>
+          {game?.finish?.phrase}
+        </WDRText>
+      </View>
 
       {isSingle !== 'single' && (
         <>
@@ -84,12 +87,10 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
         </>
       )}
 
-      <WDRText size={20} isTitle style={styles.title}>
-        {t('finishGame.chance')}
-      </WDRText>
-      <WDRText size={20} style={styles.winnerChance}>
-        {`${Number(game?.finish?.chance)} %`}
-      </WDRText>
+      <View style={styles.chanceBox}>
+        <WDRText isSecondary>{t('finishGame.chance')}</WDRText>
+        <WDRText isSecondary>{`: ${Number(game?.finish?.chance)} %`}</WDRText>
+      </View>
 
       {isSingle !== 'single' && (
         <WDRButton
@@ -99,11 +100,13 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
         />
       )}
 
-      <WDRButton
-        style={styles.finishBtn}
-        title={t('finishGame.finishGame')}
-        onPress={exitGame}
-      />
+      <View style={styles.finishBtn}>
+        <WDRButton
+          isSecondary
+          title={t('finishGame.finishGame')}
+          onPress={exitGame}
+        />
+      </View>
     </WDRContainer>
   )
 }

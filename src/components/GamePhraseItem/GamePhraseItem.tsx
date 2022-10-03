@@ -3,6 +3,7 @@ import { IGamePhraseItemProps } from './GamePhraseItemTypes'
 import getStyle from './GamePhraseItemStyles'
 import { TouchableOpacity, View } from 'react-native'
 import { WDRCombineItem, WDRIcon, WDRText } from '@ui-kit/components'
+import { getThemeColor } from '@utils'
 
 const GamePhraseItem = (props: IGamePhraseItemProps) => {
   const { username, onDelete, phrase, phraseId, isUser, onlyView } = props
@@ -37,7 +38,10 @@ const GamePhraseItem = (props: IGamePhraseItemProps) => {
           isUser &&
           !onlyView && (
             <TouchableOpacity activeOpacity={0.5} onPress={handleDeletePhrase}>
-              <WDRIcon iconName="delete" />
+              <WDRIcon
+                iconName="delete"
+                iconColor={getThemeColor('MAIN_TEXT')}
+              />
             </TouchableOpacity>
           )
         }
