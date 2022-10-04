@@ -76,35 +76,16 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
       </WDRText>
 
       <WDRButton
-        title={t('singleGame.play')}
-        style={styles.playBtn}
-        isDisabled={gameLock || !isReady}
-        onPress={startFinishGame}
-        isLoading={isGameCalcWinner}
+        title={t('phraseList.addPhrase')}
+        onPress={Navigate.toAddPhraseIntoGameScreen}
+        style={styles.addPhraseBtn}
+        isDisabled={isGameCalcWinner}
+        isSecondary
       />
-
-      <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={handleReadyBtn}
-        disabled={gameLock || isGameCalcWinner}
-        style={StyleSheet.flatten([
-          isReady ? styles.isReady : styles.noReady,
-          (gameLock || isGameCalcWinner) && styles.readyDisabled,
-        ])}
-      >
-        <WDRText
-          style={StyleSheet.flatten([
-            isReady ? styles.isReadyTitle : styles.isNoReadyTitle,
-          ])}
-        >
-          {isReady ? t('singleGame.ready') : t('singleGame.noReady')}
-        </WDRText>
-      </TouchableOpacity>
 
       <WDRList
         isBounces
         listItems={phraseList}
-        listStyles={styles.listStyle}
         titleEmptyComponent={t('singleGame.emptyPhraseList')}
         renderListItem={({ item }) => (
           <GamePhraseItem
@@ -116,11 +97,24 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
         )}
       />
 
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={handleReadyBtn}
+        disabled={gameLock || isGameCalcWinner}
+        style={StyleSheet.flatten([
+          isReady ? styles.isReady : styles.noReady,
+          (gameLock || isGameCalcWinner) && styles.readyDisabled,
+        ])}
+      >
+        <WDRText style={styles.isReadyTitle}>{t('singleGame.ready')}</WDRText>
+      </TouchableOpacity>
+
       <WDRButton
-        title={t('phraseList.addPhrase')}
-        onPress={Navigate.toAddPhraseIntoGameScreen}
-        style={styles.addPhraseBtn}
-        isDisabled={isGameCalcWinner}
+        title={t('singleGame.play')}
+        style={styles.playBtn}
+        isDisabled={gameLock || !isReady}
+        onPress={startFinishGame}
+        isLoading={isGameCalcWinner}
         isSecondary
       />
     </WDRContainer>

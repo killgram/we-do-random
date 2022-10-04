@@ -1,12 +1,13 @@
 import React, { useEffect, useLayoutEffect } from 'react'
 import getStyle from './GameResultScreenStyles'
-import { WDRButton, WDRContainer, WDRIcon, WDRText } from '@ui-kit/components'
+import { WDRButton, WDRContainer, WDRText } from '@ui-kit/components'
 import { IGameResultScreenScreenProps } from './GameResultScreenTypes'
 import { useTranslation } from 'react-i18next'
-import { View } from 'react-native'
-import { getThemeColor, playSound, SoundTypes } from '@utils'
+import { Image, View } from 'react-native'
+import { playSound, SoundTypes } from '@utils'
 import { dbCloseGame, dbUpdatePlayStatus } from '@services'
 import { Navigate } from '@navigators'
+import winner from '@assets/img/winner.png'
 
 /**
  * @description GameResultScreen
@@ -68,11 +69,7 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
   return (
     <WDRContainer isTransparentHeader>
       <View style={styles.winnerIcon}>
-        <WDRIcon
-          iconName="winner"
-          iconSize={150}
-          iconColor={getThemeColor('WINNER_ICON')}
-        />
+        <Image source={winner} resizeMode="contain" style={styles.winnerImg} />
       </View>
 
       <WDRText size={20} isSecondary style={styles.title}>
@@ -86,16 +83,14 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
       </View>
 
       {isSingle !== 'single' && (
-        <>
-          <WDRText size={20} isSecondary style={styles.title}>
-            {t('finishGame.winner')}
+        <View style={styles.winnerNameContainer}>
+          <WDRText size={20} isSecondary style={styles.winnerTitle}>
+            {`${t('finishGame.winner')}: `}
           </WDRText>
-          <View style={styles.winnerBox}>
-            <WDRText size={20} isTitle style={styles.winnerName}>
-              {game?.finish?.username}
-            </WDRText>
-          </View>
-        </>
+          <WDRText size={20} isTitle style={styles.winnerNameC}>
+            {game?.finish?.username}
+          </WDRText>
+        </View>
       )}
 
       <View style={styles.chanceBox}>
@@ -114,7 +109,11 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
       )}
 
       <View style={styles.finishBtn}>
-        <WDRButton title={t('finishGame.finishGame')} onPress={exitGame} />
+        <WDRButton
+          isSecondary
+          title={t('finishGame.finishGame')}
+          onPress={exitGame}
+        />
       </View>
     </WDRContainer>
   )

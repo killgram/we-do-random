@@ -14,7 +14,6 @@ export enum Colors {
   ICY_BROOK = '#C1CBDB',
   CORAL_RED = '#FF4040',
   VERDANT_FIELDS = '#5FCF38',
-  RED_HOT_CHILI_PEPPER = '#de1629',
 }
 
 export enum LightColors {
@@ -63,5 +62,6 @@ export enum LightColors {
   USER_STATUS_OFFLINE = Colors.CORAL_RED,
   // game
   READY = Colors.PATCH_OF_LAND,
-  NOT_READY = Colors.RED_HOT_CHILI_PEPPER,
+  NOT_READY = Colors.COUNTRY_BLUE,
+  BORDER_COLOR = Colors.COARSE_WOOL,
 }
