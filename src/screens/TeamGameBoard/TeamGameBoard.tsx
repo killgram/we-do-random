@@ -196,29 +196,13 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
         {game?.gameName}
       </WDRText>
 
-      {isLead ? (
-        <WDRButton
-          title={t('singleGame.play')}
-          style={styles.playBtn}
-          isDisabled={totalPlayers !== readyPlayers || gameLock || !isReady}
-          onPress={handleFinishGame}
-          isLoading={isGameCalcWinner}
-        />
-      ) : (
-        <View style={styles.leadStatusBox}>
-          <WDRText style={styles.hostTitleStatus} isSecondary>
-            {t('teamGame.gameHost')}
-          </WDRText>
-          <WDRIcon
-            iconName="point"
-            iconColor={
-              isLeadOnline
-                ? getThemeColor('USER_STATUS_ONLINE')
-                : getThemeColor('USER_STATUS_OFFLINE')
-            }
-          />
-        </View>
-      )}
+      <WDRButton
+        title={t('phraseList.addPhrase')}
+        onPress={Navigate.toAddPhraseIntoGameScreen}
+        style={styles.addPhraseBtn}
+        isDisabled={isGameCalcWinner || isReady}
+        isSecondary
+      />
 
       <TouchableOpacity
         activeOpacity={0.7}
@@ -229,13 +213,7 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
           (gameLock || isGameCalcWinner) && styles.readyDisabled,
         ])}
       >
-        <WDRText
-          style={StyleSheet.flatten([
-            isReady ? styles.isReadyTitle : styles.isNoReadyTitle,
-          ])}
-        >
-          {isReady ? t('singleGame.ready') : t('singleGame.noReady')}
-        </WDRText>
+        <WDRText style={styles.isReadyTitle}>{t('singleGame.ready')}</WDRText>
       </TouchableOpacity>
 
       <WDRList
@@ -254,13 +232,30 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
         )}
       />
 
-      <WDRButton
-        title={t('phraseList.addPhrase')}
-        onPress={Navigate.toAddPhraseIntoGameScreen}
-        style={styles.addPhraseBtn}
-        isDisabled={isGameCalcWinner || isReady}
-        isSecondary
-      />
+      {isLead ? (
+        <WDRButton
+          title={t('singleGame.play')}
+          style={styles.playBtn}
+          isDisabled={totalPlayers !== readyPlayers || gameLock || !isReady}
+          onPress={handleFinishGame}
+          isLoading={isGameCalcWinner}
+          isSecondary
+        />
+      ) : (
+        <View style={styles.leadStatusBox}>
+          <WDRText style={styles.hostTitleStatus} isSecondary>
+            {t('teamGame.gameHost')}
+          </WDRText>
+          <WDRIcon
+            iconName="point"
+            iconColor={
+              isLeadOnline
+                ? getThemeColor('USER_STATUS_ONLINE')
+                : getThemeColor('USER_STATUS_OFFLINE')
+            }
+          />
+        </View>
+      )}
     </WDRContainer>
   )
 }

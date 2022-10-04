@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
 import { getThemeColor, height, radius, RNStyleType, width } from '@utils'
 
 interface IStyles {
@@ -11,6 +11,10 @@ interface IStyles {
   chanceBox: RNStyleType
   viewPhraseBtn: RNStyleType
   viewPhraseBtnTitle: RNStyleType
+  winnerImg: StyleProp<ImageStyle>
+  winnerNameContainer: RNStyleType
+  winnerTitle: RNStyleType
+  winnerNameC: RNStyleType
 }
 
 /**
@@ -20,7 +24,6 @@ export default function getStyle(): IStyles {
   return StyleSheet.create({
     winnerIcon: {
       alignItems: 'center',
-      marginTop: height(32),
     },
     winnerName: {
       textAlign: 'center',
@@ -58,6 +61,22 @@ export default function getStyle(): IStyles {
     },
     viewPhraseBtnTitle: {
       textDecorationLine: 'underline',
+    },
+    winnerImg: {
+      width: height(250),
+      height: height(250),
+    },
+    winnerNameContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    winnerTitle: {
+      marginTop: height(16),
+      marginLeft: width(16),
+    },
+    winnerNameC: {
+      color: getThemeColor('STATIC_BUTTONS'),
+      marginTop: height(16),
     },
   })
 }

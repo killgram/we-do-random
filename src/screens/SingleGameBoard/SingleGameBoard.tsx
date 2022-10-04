@@ -76,11 +76,11 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
       </WDRText>
 
       <WDRButton
-        title={t('singleGame.play')}
-        style={styles.playBtn}
-        isDisabled={gameLock || !isReady}
-        onPress={startFinishGame}
-        isLoading={isGameCalcWinner}
+        title={t('phraseList.addPhrase')}
+        onPress={Navigate.toAddPhraseIntoGameScreen}
+        style={styles.addPhraseBtn}
+        isDisabled={isGameCalcWinner}
+        isSecondary
       />
 
       <TouchableOpacity
@@ -92,13 +92,7 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
           (gameLock || isGameCalcWinner) && styles.readyDisabled,
         ])}
       >
-        <WDRText
-          style={StyleSheet.flatten([
-            isReady ? styles.isReadyTitle : styles.isNoReadyTitle,
-          ])}
-        >
-          {isReady ? t('singleGame.ready') : t('singleGame.noReady')}
-        </WDRText>
+        <WDRText style={styles.isReadyTitle}>{t('singleGame.ready')}</WDRText>
       </TouchableOpacity>
 
       <WDRList
@@ -117,10 +111,11 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
       />
 
       <WDRButton
-        title={t('phraseList.addPhrase')}
-        onPress={Navigate.toAddPhraseIntoGameScreen}
-        style={styles.addPhraseBtn}
-        isDisabled={isGameCalcWinner}
+        title={t('singleGame.play')}
+        style={styles.playBtn}
+        isDisabled={gameLock || !isReady}
+        onPress={startFinishGame}
+        isLoading={isGameCalcWinner}
         isSecondary
       />
     </WDRContainer>
