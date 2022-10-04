@@ -8,7 +8,7 @@ import { getThemeColor } from '@utils'
 import { Navigate } from '@navigators'
 import GamePhraseItem from '@components/GamePhraseItem'
 import { dbUpdatePlayStatus } from '@services'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 
 /**
  * @description SingleGameBoard
@@ -77,14 +77,23 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
         isLoading={isGameCalcWinner}
       />
 
-      <WDRButton
-        title={isReady ? t('singleGame.ready') : t('singleGame.noReady')}
+      <TouchableOpacity
+        activeOpacity={0.7}
         onPress={handleReadyBtn}
-        isDisabled={gameLock || isGameCalcWinner}
-        isSecondary
-        style={StyleSheet.flatten([isReady && styles.isReady])}
-        titleStyle={StyleSheet.flatten([isReady && styles.isReadyTitle])}
-      />
+        disabled={gameLock || isGameCalcWinner}
+        style={StyleSheet.flatten([
+          isReady ? styles.isReady : styles.noReady,
+          (gameLock || isGameCalcWinner) && styles.readyDisabled,
+        ])}
+      >
+        <WDRText
+          style={StyleSheet.flatten([
+            isReady ? styles.isReadyTitle : styles.isNoReadyTitle,
+          ])}
+        >
+          {isReady ? t('singleGame.ready') : t('singleGame.noReady')}
+        </WDRText>
+      </TouchableOpacity>
 
       <WDRList
         isBounces

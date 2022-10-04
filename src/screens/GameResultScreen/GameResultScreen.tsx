@@ -78,12 +78,14 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
 
       {isSingle !== 'single' && (
         <>
-          <WDRText size={20} isTitle style={styles.title}>
+          <WDRText size={20} isSecondary style={styles.title}>
             {t('finishGame.winner')}
           </WDRText>
-          <WDRText size={24} isTitle style={styles.winnerName}>
-            {game?.finish?.username}
-          </WDRText>
+          <View style={styles.winnerBox}>
+            <WDRText size={20} isTitle style={styles.winnerName}>
+              {game?.finish?.username}
+            </WDRText>
+          </View>
         </>
       )}
 
@@ -94,18 +96,16 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
 
       {isSingle !== 'single' && (
         <WDRButton
-          style={styles.finishBtn}
+          style={styles.viewPhraseBtn}
           title={t('teamGame.viewPhraseList')}
           onPress={Navigate.toViewPhraseList}
+          isTransparent
+          titleStyle={styles.viewPhraseBtnTitle}
         />
       )}
 
       <View style={styles.finishBtn}>
-        <WDRButton
-          isSecondary
-          title={t('finishGame.finishGame')}
-          onPress={exitGame}
-        />
+        <WDRButton title={t('finishGame.finishGame')} onPress={exitGame} />
       </View>
     </WDRContainer>
   )

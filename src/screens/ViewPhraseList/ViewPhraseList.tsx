@@ -3,7 +3,7 @@ import getStyle from './ViewPhraseListStyles'
 import { WDRContainer, WDRList } from '@ui-kit/components'
 import { IViewPhraseListScreenProps } from './ViewPhraseListTypes'
 import { useTranslation } from 'react-i18next'
-import GamePhraseItem from '@components/GamePhraseItem'
+import ViewPhraseListItem from '@components/ViewPhraseListItem'
 
 /**
  * @description ViewPhraseList
@@ -29,12 +29,11 @@ const ViewPhraseList = (props: IViewPhraseListScreenProps) => {
         listStyles={styles.listStyle}
         titleEmptyComponent={t('singleGame.emptyPhraseList')}
         renderListItem={({ item }) => (
-          <GamePhraseItem
+          <ViewPhraseListItem
             username={item.username}
             phrase={item.phrase}
-            phraseId={item.phraseId}
-            isUser={true}
-            onlyView={true}
+            winnerName={game?.finish?.username!}
+            winnerPhrase={game?.finish?.phrase!}
           />
         )}
       />

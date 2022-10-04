@@ -14,10 +14,11 @@ interface IStyles {
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     listStyle: {
-      marginBottom: height(30),
+      marginBottom: height(16),
     },
     beginBtn: {
-      marginVertical: height(12),
+      marginBottom: height(30),
+      marginTop: height(12),
     },
     headerRight: {
       marginRight: width(8),

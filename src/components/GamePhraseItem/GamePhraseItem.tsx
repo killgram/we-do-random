@@ -24,7 +24,11 @@ const GamePhraseItem = (props: IGamePhraseItemProps) => {
           username ? (
             <>
               <WDRText style={styles.text}>{username}</WDRText>
-              <WDRText style={styles.text} isTitle>
+              <WDRText
+                color={getThemeColor('CHOSEN_ICON')}
+                style={styles.text}
+                isTitle
+              >
                 {isUser ? phrase : generateHideString(phrase)}
               </WDRText>
             </>
@@ -40,7 +44,7 @@ const GamePhraseItem = (props: IGamePhraseItemProps) => {
             <TouchableOpacity activeOpacity={0.5} onPress={handleDeletePhrase}>
               <WDRIcon
                 iconName="delete"
-                iconColor={getThemeColor('MAIN_TEXT')}
+                iconColor={getThemeColor('CHOSEN_ICON')}
               />
             </TouchableOpacity>
           )

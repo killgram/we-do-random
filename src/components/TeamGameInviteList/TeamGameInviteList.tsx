@@ -36,14 +36,14 @@ const TeamGameInviteList = (props: ITeamGameInviteListProps) => {
     if (!isAccepted) {
       text = (
         <View style={styles.noAccepted}>
-          <WDRText size={20} style={styles.text} isTitle numberOfLines={1}>
-            {username}
-          </WDRText>
           <ActivityIndicator
             size="small"
             style={styles.indicator}
             color={getThemeColor('ACTIVITY_INDICATOR')}
           />
+          <WDRText size={20} style={styles.text} isTitle numberOfLines={1}>
+            {username}
+          </WDRText>
         </View>
       )
     }
@@ -59,7 +59,10 @@ const TeamGameInviteList = (props: ITeamGameInviteListProps) => {
           isLead &&
           !isLeaderId && (
             <TouchableOpacity activeOpacity={0.5} onPress={handleDeleteFriend}>
-              <WDRIcon iconName="delete" />
+              <WDRIcon
+                iconName="delete"
+                iconColor={getThemeColor('MAIN_TEXT')}
+              />
             </TouchableOpacity>
           )
         }

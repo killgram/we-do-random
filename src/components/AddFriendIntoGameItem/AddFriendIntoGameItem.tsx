@@ -30,7 +30,12 @@ const AddFriendIntoGameItem = (props: IAddFriendIntoGameItemProps) => {
           {username}
         </WDRText>
       }
-      rightElement={<WDRIcon iconName="check-mark" />}
+      rightElement={
+        <WDRIcon
+          iconName="check-mark"
+          iconColor={getThemeColor('CHOSEN_ICON')}
+        />
+      }
       onPress={handleChooseFriend}
       style={StyleSheet.flatten([
         styles.container,

@@ -49,12 +49,13 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
       headerLeft: () => (
         <HeaderBackButton
           onPress={exitGame}
-          tintColor={getThemeColor('MAIN_TEXT')}
+          tintColor={getThemeColor('SECONDARY_TEXT')}
         />
       ),
       headerTitle: t('createGame.invitePlayers'),
       headerRight: () => (
         <WDRText
+          isSecondary
           style={styles.headerRight}
         >{`${readyPlayers}/${totalPlayers}`}</WDRText>
       ),
@@ -92,12 +93,12 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
 
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
-      <WDRText isTitle style={styles.gameName}>
+      <WDRText isSecondary style={styles.gameName}>
         {game?.gameName}
       </WDRText>
 
       <View style={styles.waiting}>
-        <WDRText isTitle style={styles.waitText}>
+        <WDRText isSecondary style={styles.waitText}>
           {t('teamGame.waitPlayers')}
         </WDRText>
         <ActivityIndicator

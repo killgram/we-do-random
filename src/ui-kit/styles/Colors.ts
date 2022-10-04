@@ -2,11 +2,6 @@ export enum Colors {
   GABLE_GREEN = '#12232c',
   BLACK_SUEDE = '#434343',
   PATCH_OF_LAND = '#1f4f16',
-  BLUE_VELVET = '#0f6686',
-  MEATLOAF = '#633309',
-  CHOCOLATE_PANCAKES = '#884000',
-
-  // new
   TRANSPARENT = 'transparent',
   WHITE = '#ffffff',
   YANKEES_BLUE = '#1C2A40',
@@ -19,6 +14,7 @@ export enum Colors {
   ICY_BROOK = '#C1CBDB',
   CORAL_RED = '#FF4040',
   VERDANT_FIELDS = '#5FCF38',
+  RED_HOT_CHILI_PEPPER = '#de1629',
 }
 
 export enum LightColors {
@@ -62,14 +58,10 @@ export enum LightColors {
   // toasts
   SUCCESS_BACKGROUND_TOAST = Colors.PATCH_OF_LAND,
   ERROR_BACKGROUND_TOAST = Colors.CORAL_RED,
-  // cards
-  CREATE_GAME_CARD_BACKGROUND = Colors.CHOCOLATE_PANCAKES,
-  CREATE_GAME_CARD_BORDER = Colors.MEATLOAF,
   // indicators
   USER_STATUS_ONLINE = Colors.VERDANT_FIELDS,
   USER_STATUS_OFFLINE = Colors.CORAL_RED,
   // game
   READY = Colors.PATCH_OF_LAND,
-  NOT_READY = Colors.CORAL_RED,
-  BACKGROUND_READY_BTN = Colors.BLUE_VELVET,
+  NOT_READY = Colors.RED_HOT_CHILI_PEPPER,
 }

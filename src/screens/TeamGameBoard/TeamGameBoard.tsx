@@ -2,7 +2,6 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import getStyle from './TeamGameBoardStyles'
 import {
   WDRButton,
-  WDRCombineItem,
   WDRContainer,
   WDRIcon,
   WDRList,
@@ -23,9 +22,8 @@ import { Navigate } from '@navigators'
 import { HeaderBackButton } from '@react-navigation/elements'
 import { getThemeColor } from '@utils'
 import { useIsFocused } from '@react-navigation/native'
-import ReadyButton from '@components/ReadyButton'
 import GamePhraseItem from '@components/GamePhraseItem'
-import { View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 
 /**
  * @description TeamGameBoard
@@ -85,12 +83,13 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
       headerLeft: () => (
         <HeaderBackButton
           onPress={exitGame}
-          tintColor={getThemeColor('MAIN_TEXT')}
+          tintColor={getThemeColor('SECONDARY_TEXT')}
         />
       ),
       headerTitle: t('game.teamGame'),
       headerRight: () => (
         <WDRText
+          isSecondary
           style={styles.headerRight}
         >{`${readyPlayers}/${totalPlayers}`}</WDRText>
       ),
@@ -165,64 +164,51 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
 
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
-      <WDRText isTitle style={styles.gameNameTitle}>
+      <WDRText isSecondary style={styles.gameNameTitle}>
         {game?.gameName}
       </WDRText>
 
       {isLead ? (
-        <WDRCombineItem
-          noPadding
-          bodyElement={
-            <WDRButton
-              title={t('singleGame.play')}
-              style={styles.playBtn}
-              isDisabled={totalPlayers !== readyPlayers || gameLock || !isReady}
-              onPress={handleFinishGame}
-              isLoading={isGameCalcWinner}
-            />
-          }
-          rightElement={
-            <ReadyButton
-              onPress={handleReadyBtn}
-              isReady={isReady}
-              isDisabled={gameLock || isGameCalcWinner}
-            />
-          }
+        <WDRButton
+          title={t('singleGame.play')}
+          style={styles.playBtn}
+          isDisabled={totalPlayers !== readyPlayers || gameLock || !isReady}
+          onPress={handleFinishGame}
+          isLoading={isGameCalcWinner}
         />
       ) : (
-        <WDRCombineItem
-          noPadding
-          bodyElement={
-            <View style={styles.leadStatusBox}>
-              <WDRText style={styles.hostTitleStatus} isTitle>
-                {t('teamGame.gameHost')}
-              </WDRText>
-              <WDRIcon
-                iconName="point"
-                iconColor={
-                  isLeadOnline
-                    ? getThemeColor('USER_STATUS_ONLINE')
-                    : getThemeColor('USER_STATUS_OFFLINE')
-                }
-              />
-            </View>
-          }
-          rightElement={
-            <ReadyButton
-              onPress={handleReadyBtn}
-              isReady={isReady}
-              isDisabled={gameLock || isGameCalcWinner}
-            />
-          }
-        />
+        <View style={styles.leadStatusBox}>
+          <WDRText style={styles.hostTitleStatus} isSecondary>
+            {t('teamGame.gameHost')}
+          </WDRText>
+          <WDRIcon
+            iconName="point"
+            iconColor={
+              isLeadOnline
+                ? getThemeColor('USER_STATUS_ONLINE')
+                : getThemeColor('USER_STATUS_OFFLINE')
+            }
+          />
+        </View>
       )}
 
-      <WDRButton
-        title={t('phraseList.addPhrase')}
-        onPress={Navigate.toAddPhraseIntoGameScreen}
-        style={styles.addPhraseBtn}
-        isDisabled={isGameCalcWinner || isReady}
-      />
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={handleReadyBtn}
+        disabled={gameLock || isGameCalcWinner}
+        style={StyleSheet.flatten([
+          isReady ? styles.isReady : styles.noReady,
+          (gameLock || isGameCalcWinner) && styles.readyDisabled,
+        ])}
+      >
+        <WDRText
+          style={StyleSheet.flatten([
+            isReady ? styles.isReadyTitle : styles.isNoReadyTitle,
+          ])}
+        >
+          {isReady ? t('singleGame.ready') : t('singleGame.noReady')}
+        </WDRText>
+      </TouchableOpacity>
 
       <WDRList
         isBounces
@@ -238,6 +224,14 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
             isUser={item.userId === userId}
           />
         )}
+      />
+
+      <WDRButton
+        title={t('phraseList.addPhrase')}
+        onPress={Navigate.toAddPhraseIntoGameScreen}
+        style={styles.addPhraseBtn}
+        isDisabled={isGameCalcWinner || isReady}
+        isSecondary
       />
     </WDRContainer>
   )

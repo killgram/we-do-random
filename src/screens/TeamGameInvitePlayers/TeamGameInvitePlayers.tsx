@@ -52,13 +52,14 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
       headerLeft: () => (
         <HeaderBackButton
           onPress={exitGame}
-          tintColor={getThemeColor('MAIN_TEXT')}
+          tintColor={getThemeColor('SECONDARY_TEXT')}
         />
       ),
       headerTitle: t('createGame.invitePlayers'),
       headerRight: () =>
         totalPlayers !== 1 && (
           <WDRText
+            isSecondary
             style={styles.headerRight}
           >{`${readyPlayers}/${totalPlayers}`}</WDRText>
         ),
@@ -93,21 +94,9 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
 
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
-      <WDRText isTitle style={styles.gameName}>
+      <WDRText isSecondary style={styles.gameName}>
         {game?.gameName}
       </WDRText>
-
-      <WDRButton
-        title={t('teamGame.addPlayer')}
-        onPress={Navigate.toAddPlayersIntoGame}
-      />
-
-      <WDRButton
-        title={t('teamGame.begin')}
-        onPress={handleBegin}
-        style={styles.beginBtn}
-        isDisabled={!(totalPlayers === readyPlayers && totalPlayers! !== 1)}
-      />
 
       <WDRList
         isBounces
@@ -124,6 +113,20 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
             isAccepted={item.isAccepted}
           />
         )}
+      />
+
+      <WDRButton
+        title={t('teamGame.addPlayer')}
+        onPress={Navigate.toAddPlayersIntoGame}
+        isSecondary
+      />
+
+      <WDRButton
+        title={t('teamGame.begin')}
+        onPress={handleBegin}
+        style={styles.beginBtn}
+        isDisabled={!(totalPlayers === readyPlayers && totalPlayers! !== 1)}
+        isSecondary
       />
     </WDRContainer>
   )

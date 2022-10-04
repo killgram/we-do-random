@@ -9,6 +9,8 @@ interface IStyles {
   finishBtn: RNStyleType
   winnerBox: RNStyleType
   chanceBox: RNStyleType
+  viewPhraseBtn: RNStyleType
+  viewPhraseBtnTitle: RNStyleType
 }
 
 /**
@@ -50,6 +52,12 @@ export default function getStyle(): IStyles {
       flexDirection: 'row',
       marginTop: height(16),
       marginLeft: width(16),
+    },
+    viewPhraseBtn: {
+      marginTop: height(16),
+    },
+    viewPhraseBtnTitle: {
+      textDecorationLine: 'underline',
     },
   })
 }
