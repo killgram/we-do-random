@@ -6,7 +6,6 @@ interface IStyles {
   gameNameTitle: RNStyleType
   playBtn: RNStyleType
   addPhraseBtn: RNStyleType
-  listStyle: RNStyleType
   leadStatusBox: RNStyleType
   hostTitleStatus: RNStyleType
   isReady: RNStyleType
@@ -29,19 +28,17 @@ export default function getStyle(): IStyles {
     },
     playBtn: {
       marginBottom: height(30),
+      marginTop: height(12),
     },
     addPhraseBtn: {
       marginBottom: height(8),
-    },
-    listStyle: {
-      marginBottom: height(12),
-      marginTop: height(8),
     },
     leadStatusBox: {
       flexDirection: 'row',
       marginBottom: height(30),
       alignItems: 'center',
       justifyContent: 'center',
+      marginTop: height(8),
     },
     hostTitleStatus: {
       marginHorizontal: width(16),
@@ -51,6 +48,7 @@ export default function getStyle(): IStyles {
       borderRadius: radius(10),
       borderWidth: width(1),
       borderColor: getThemeColor('STATIC_BUTTONS'),
+      marginTop: height(12),
     },
     isReadyTitle: {
       color: getThemeColor('SECONDARY_TEXT'),
@@ -64,6 +62,7 @@ export default function getStyle(): IStyles {
       borderRadius: radius(10),
       borderWidth: width(1),
       borderColor: getThemeColor('BORDER_COLOR'),
+      marginTop: height(12),
     },
     readyDisabled: {
       opacity: 0.4,

@@ -204,22 +204,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
         isSecondary
       />
 
-      <TouchableOpacity
-        activeOpacity={0.7}
-        onPress={handleReadyBtn}
-        disabled={gameLock || isGameCalcWinner}
-        style={StyleSheet.flatten([
-          isReady ? styles.isReady : styles.noReady,
-          (gameLock || isGameCalcWinner) && styles.readyDisabled,
-        ])}
-      >
-        <WDRText style={styles.isReadyTitle}>{t('singleGame.ready')}</WDRText>
-      </TouchableOpacity>
-
       <WDRList
         isBounces
         listItems={game?.list}
-        listStyles={styles.listStyle}
         titleEmptyComponent={t('singleGame.emptyPhraseList')}
         renderListItem={({ item }) => (
           <GamePhraseItem
@@ -231,6 +218,18 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
           />
         )}
       />
+
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={handleReadyBtn}
+        disabled={gameLock || isGameCalcWinner}
+        style={StyleSheet.flatten([
+          isReady ? styles.isReady : styles.noReady,
+          (gameLock || isGameCalcWinner) && styles.readyDisabled,
+        ])}
+      >
+        <WDRText style={styles.isReadyTitle}>{t('singleGame.ready')}</WDRText>
+      </TouchableOpacity>
 
       {isLead ? (
         <WDRButton

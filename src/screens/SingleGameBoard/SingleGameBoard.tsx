@@ -83,6 +83,20 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
         isSecondary
       />
 
+      <WDRList
+        isBounces
+        listItems={phraseList}
+        titleEmptyComponent={t('singleGame.emptyPhraseList')}
+        renderListItem={({ item }) => (
+          <GamePhraseItem
+            phrase={item.phrase}
+            phraseId={item.phraseId}
+            onDelete={deletePhraseOutGame!}
+            isUser={true}
+          />
+        )}
+      />
+
       <TouchableOpacity
         activeOpacity={0.7}
         onPress={handleReadyBtn}
@@ -94,21 +108,6 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
       >
         <WDRText style={styles.isReadyTitle}>{t('singleGame.ready')}</WDRText>
       </TouchableOpacity>
-
-      <WDRList
-        isBounces
-        listItems={phraseList}
-        listStyles={styles.listStyle}
-        titleEmptyComponent={t('singleGame.emptyPhraseList')}
-        renderListItem={({ item }) => (
-          <GamePhraseItem
-            phrase={item.phrase}
-            phraseId={item.phraseId}
-            onDelete={deletePhraseOutGame!}
-            isUser={true}
-          />
-        )}
-      />
 
       <WDRButton
         title={t('singleGame.play')}

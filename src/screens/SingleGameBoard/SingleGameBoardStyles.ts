@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native'
 import { getThemeColor, height, radius, RNStyleType, sp, width } from '@utils'
 
 interface IStyles {
-  listStyle: RNStyleType
   gameNameTitle: RNStyleType
   playBtn: RNStyleType
   addPhraseBtn: RNStyleType
@@ -17,15 +16,13 @@ interface IStyles {
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
-    listStyle: {
-      marginTop: height(16),
-    },
     gameNameTitle: {
       textAlign: 'center',
       paddingBottom: height(8),
     },
     playBtn: {
       marginBottom: height(30),
+      marginTop: height(12),
     },
     addPhraseBtn: {
       marginBottom: height(16),
@@ -35,6 +32,7 @@ export default function getStyle(): IStyles {
       borderRadius: radius(10),
       borderWidth: width(1),
       borderColor: getThemeColor('STATIC_BUTTONS'),
+      marginTop: height(8),
     },
     isReadyTitle: {
       color: getThemeColor('SECONDARY_TEXT'),
@@ -48,6 +46,7 @@ export default function getStyle(): IStyles {
       borderRadius: radius(10),
       borderWidth: width(1),
       borderColor: getThemeColor('BORDER_COLOR'),
+      marginTop: height(8),
     },
     readyDisabled: {
       opacity: 0.4,
