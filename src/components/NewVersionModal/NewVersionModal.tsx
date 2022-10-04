@@ -5,6 +5,11 @@ import { WDRButton, WDRCenterModal, WDRIcon, WDRText } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
 import { getThemeColor } from '@utils'
 
+/**
+ * @description new version modal
+ * @param {INewVersionModalProps} props
+ * @constructor
+ */
 const NewVersionModal = (props: INewVersionModalProps) => {
   const { isVisible = false, closeModal } = props
   const styles = getStyle()

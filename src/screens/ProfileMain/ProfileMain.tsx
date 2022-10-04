@@ -35,6 +35,9 @@ const ProfileMainScreen = (props: IProfileMainScreenTypesProps) => {
     return userId && chunkSubstr(userId, 4).join(' : ')
   }
 
+  /**
+   * @description handle copy btn
+   */
   const handleCopyBtn = () => {
     userId && copyToClipboard(userId)
     onSuccessCopyToast()

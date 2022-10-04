@@ -6,6 +6,11 @@ import { WDRCenterModal, WDRIcon, WDRText } from '@ui-kit/components'
 import { getThemeColor, playSound, SoundTypes } from '@utils'
 import { useTranslation } from 'react-i18next'
 
+/**
+ * @description invite modal
+ * @param {IInviteModalProps} props
+ * @constructor
+ */
 const InviteModal = (props: IInviteModalProps) => {
   const {
     isVisible = false,
@@ -18,10 +23,16 @@ const InviteModal = (props: IInviteModalProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
 
+  /**
+   * @description handle accept
+   */
   const handleAccept = () => {
     onAccept(leadId)
   }
 
+  /**
+   * @description handle decline
+   */
   const handleDecline = () => {
     onDecline(leadId)
   }

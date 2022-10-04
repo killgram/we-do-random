@@ -40,10 +40,17 @@ const PhraseListScreen = (props: IPhraseListTypesProps) => {
     })
   }, [])
 
+  /**
+   * @description func for delete current phrase
+   * @param {number} id
+   */
   const handleDeletePhrase = async (id: number) => {
     await deletePhrase(id, data, setData)
   }
 
+  /**
+   * @description func for delete all phrases
+   */
   const handleDeleteAllPhrase = async () => {
     await clearPhrase(setData)
   }

@@ -45,7 +45,11 @@ const ChangeLanguageScreen = (props: IChangeLanguageScreenTypesProps) => {
     },
   ]
 
-  const handleChangeLang = (lang) => {
+  /**
+   * @description handle change lang func
+   * @param {string} lang
+   */
+  const handleChangeLang = (lang: string) => {
     if (language === lang) {
       Navigate.goBack()
     } else {
@@ -61,6 +65,9 @@ const ChangeLanguageScreen = (props: IChangeLanguageScreenTypesProps) => {
     })
   }, [])
 
+  /**
+   * @description render lang list
+   */
   const renderLanguageList = () => {
     return langData.map((item) => {
       return (

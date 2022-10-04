@@ -11,6 +11,10 @@ i18n.use(initReactI18next).init({
   },
 })
 
-export const setLocale = (language) => {
+/**
+ * @description set app locale
+ * @param {string} language
+ */
+export const setLocale = (language: string) => {
   i18n.changeLanguage(language)
 }

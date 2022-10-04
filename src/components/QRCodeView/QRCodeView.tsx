@@ -5,6 +5,11 @@ import getStyle from './QRCodeViewStyles'
 import { View } from 'react-native'
 import { height } from '@utils'
 
+/**
+ * @description qr code view
+ * @param {IQRCodeProps} props
+ * @constructor
+ */
 const QRCodeView = (props: IQRCodeProps) => {
   const { value = ' ', size = 300 } = props
   const styles = getStyle()

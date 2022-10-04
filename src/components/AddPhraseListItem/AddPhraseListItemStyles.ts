@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { getThemeColor, height, radius, RNStyleType, width } from '@utils'
+import { getThemeColor, height, radius, RNStyleType } from '@utils'
 
 interface IStyles {
   container: RNStyleType

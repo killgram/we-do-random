@@ -24,7 +24,7 @@ import { Constants } from '@configurations'
  * @return {JSX}
  */
 const SupportScreen = (props: ISupportScreenProps) => {
-  const { navigation, getSupportData, supportData, isLoading } = props
+  const { navigation, getSupportData, supportData } = props
 
   const styles = getStyle()
   const { t } = useTranslation()
@@ -39,11 +39,18 @@ const SupportScreen = (props: ISupportScreenProps) => {
     getSupportData?.()
   }, [])
 
+  /**
+   * @description handle copy btn
+   * @param {string} data
+   */
   const handleCopyBtn = (data: string) => {
     copyToClipboard(String(data))
     onSuccessCopyToast()
   }
 
+  /**
+   * @description render help data
+   */
   const renderHelpDataHelp = () => {
     return supportData?.helpData?.map((item) => {
       return (

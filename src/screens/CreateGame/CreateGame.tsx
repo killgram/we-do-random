@@ -24,10 +24,17 @@ const CreateGameScreen = (props: ICreateGameTypesProps) => {
     })
   }, [])
 
+  /**
+   * @description handle change game name func
+   * @param {string} e
+   */
   const handleChangeGameName = (e: string) => {
     setGameName(e)
   }
 
+  /**
+   * @description go game handler
+   */
   const goGame = () => {
     createGame?.(route?.params?.type!, gameName, {
       username: username!,

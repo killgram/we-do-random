@@ -10,6 +10,10 @@ import { errorToast } from '@utils'
 import { IAcceptInvite, IDeclineInvite } from '@store/types/invite/Interfaces'
 import { Navigate } from '@navigators'
 
+/**
+ * @description decline invite saga
+ * @param {IDeclineInvite} action
+ */
 export function* declineInvite(action: IDeclineInvite): any {
   const { leadId } = action
   const state = yield select()
@@ -26,6 +30,10 @@ export function* declineInvite(action: IDeclineInvite): any {
   }
 }
 
+/**
+ * @description accept invite saga
+ * @param {IAcceptInvite} action
+ */
 export function* acceptInvite(action: IAcceptInvite): any {
   const { leadId } = action
   const state = yield select()

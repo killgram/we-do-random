@@ -32,6 +32,9 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
   const [gameLock, setGameLock] = useState(true)
   const isGameCalcWinner = game?.finish?.isLoading
 
+  /**
+   * @description handle exit game
+   */
   const exitGame = () => {
     userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
@@ -50,6 +53,9 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
     })
   }, [])
 
+  /**
+   * @description handle ready status btn
+   */
   const handleReadyBtn = () => {
     setIsReady(!isReady)
   }

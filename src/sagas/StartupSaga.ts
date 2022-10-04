@@ -7,6 +7,9 @@ import { dbUpdatePlayStatus, dbCloseGame, dbGetAboutAppStatus } from '@services'
 import DeviceInfo from 'react-native-device-info'
 import SplashScreen from 'react-native-splash-screen'
 
+/**
+ * @description startup saga
+ */
 export function* startup(): any {
   const state = yield select()
   const isAuthorized = state?.app?.isAuthorized

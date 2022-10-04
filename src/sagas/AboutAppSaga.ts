@@ -3,6 +3,9 @@ import { settingsAction } from '@store/actions'
 import { dbGetAboutAppStatus } from '@services'
 import { errorToast } from '@utils'
 
+/**
+ * @description get about app saga
+ */
 export function* getAboutApp(): any {
   try {
     const data = yield call(dbGetAboutAppStatus)

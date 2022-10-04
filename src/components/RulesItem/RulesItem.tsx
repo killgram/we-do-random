@@ -4,6 +4,11 @@ import getStyle from './RulesItemStyles'
 import { WDRText } from '@ui-kit/components'
 import { View } from 'react-native'
 
+/**
+ * @description rules item
+ * @param {IRulesItemProps} props
+ * @constructor
+ */
 const RulesItem = (props: IRulesItemProps) => {
   const { header, desc } = props
   const styles = getStyle()

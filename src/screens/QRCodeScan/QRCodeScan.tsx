@@ -8,6 +8,11 @@ import BarcodeMask from 'react-native-barcode-mask'
 import { RNCamera } from 'react-native-camera'
 import { Navigate } from '@navigators'
 
+/**
+ * @description qr code scan screen
+ * @param {IQRCodeScanTypes} props
+ * @constructor
+ */
 const QRCodeScanScreen = (props: IQRCodeScanTypes) => {
   const { route } = props
   const styles = getStyle()
@@ -15,6 +20,10 @@ const QRCodeScanScreen = (props: IQRCodeScanTypes) => {
 
   const [isBarcodeRead, setIsBarcodeRead] = useState(false)
 
+  /**
+   * @description used when qr code read
+   * @param e
+   */
   const onBarCodeRead = (e) => {
     if (!isBarcodeRead) {
       setIsBarcodeRead(true)

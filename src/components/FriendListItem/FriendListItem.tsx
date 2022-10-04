@@ -5,10 +5,18 @@ import { TouchableOpacity, View } from 'react-native'
 import { WDRCombineItem, WDRIcon, WDRText } from '@ui-kit/components'
 import { getThemeColor } from '@utils'
 
+/**
+ * @description friend list item
+ * @param {IFriendListItemProps} props
+ * @constructor
+ */
 const FriendListItem = (props: IFriendListItemProps) => {
   const { username, onPress, userId, isOnline } = props
   const styles = getStyle()
 
+  /**
+   * @description handle delete friend
+   */
   const handleDeleteFriend = () => {
     onPress?.(userId)
   }

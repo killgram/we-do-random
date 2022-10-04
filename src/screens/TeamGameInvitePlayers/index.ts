@@ -7,7 +7,7 @@ import {
 } from './TeamGameInvitePlayersTypes'
 import { Dispatch } from 'redux'
 import { gameAction } from '@store/actions'
-import { IGameStatus, IPlayers } from '@store/types/game/Interfaces'
+import { IGameStatus } from '@store/types/game/Interfaces'
 import { game } from '@store/types'
 
 /**

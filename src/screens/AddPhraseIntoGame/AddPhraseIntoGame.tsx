@@ -49,6 +49,9 @@ const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
     })
   }, [])
 
+  /**
+   * @description handle add phrase into game func
+   */
   const handleAddPhraseIntoGame = () => {
     addPhrase(inputValue).then((_) => {
       !isTeamGame
@@ -64,16 +67,27 @@ const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
     })
   }
 
+  /**
+   * @description handle input change
+   * @param {string} e
+   */
   const handleInputChange = (e: string) => {
     setInputValue(e)
   }
 
+  /**
+   * @description insert buffer func
+   */
   const insertBuffer = () => {
     getDataToBuffer().then((r) => {
       setInputValue(r)
     })
   }
 
+  /**
+   * @description chose phrase in list func
+   * @param {string} name
+   */
   const choosePhraseInList = (name: string) => {
     !isTeamGame
       ? addPhraseIntoGame?.(username!, userId!, name)
@@ -87,6 +101,10 @@ const AddPhraseIntoGameScreen = (props: IAddPhraseIntoGameScreenProps) => {
     Navigate.goBack()
   }
 
+  /**
+   * @description calc chosen ability func
+   * @param item
+   */
   const calcChosenAbility = (item) => {
     let coincidenceCount = 0
     game?.list?.forEach((elem) => {

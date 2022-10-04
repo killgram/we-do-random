@@ -14,6 +14,9 @@ const SignInLangCard = (props: ISignInLangCardProps) => {
 
   const styles = getStyle()
 
+  /**
+   * @description handle change lang
+   */
   const handleChangeLang = () => {
     if (!isActive) {
       changeLang?.(langTag)

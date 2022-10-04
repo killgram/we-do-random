@@ -34,6 +34,9 @@ const WDRModal = (props: IWDRModalTypes) => {
   const fadeAnimation = useRef(new Animated.Value(0)).current
   const slideAnimation = useRef(new Animated.Value(500)).current
 
+  /**
+   * @description open animation func
+   */
   const openAnimation = (): void => {
     Animated.timing(fadeAnimation, {
       toValue: 0.25,
@@ -48,6 +51,9 @@ const WDRModal = (props: IWDRModalTypes) => {
     }).start()
   }
 
+  /**
+   * @description close animation func
+   */
   const closeAnimation = (): void => {
     Animated.timing(fadeAnimation, {
       toValue: 0,

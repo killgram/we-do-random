@@ -18,6 +18,10 @@ const GameMainScreen = (props: IGameMainScreenTypesProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
 
+  /**
+   * @description invite to game func
+   * @param data
+   */
   const inviteToGame = (data) => {
     data && incomingInvite?.(data.leadName, data.leadId, data.gameName)
   }

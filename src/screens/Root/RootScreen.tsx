@@ -11,6 +11,11 @@ import SuccessToast from '@components/SuccessToast'
 import InviteModal from '@components/InviteModal'
 import NewVersionModal from '@components/NewVersionModal'
 
+/**
+ * @description root component
+ * @param {IRootScreenProps} props
+ * @constructor
+ */
 const RootScreen = (props: IRootScreenProps) => {
   const {
     startup,

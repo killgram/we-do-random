@@ -33,8 +33,11 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
   const isFocused = useIsFocused()
-  let updateDBPlayersList = useRef<any>([])
+  const updateDBPlayersList = useRef<any>([])
 
+  /**
+   * @description exit game func
+   */
   const exitGame = () => {
     userId && dbUpdatePlayStatus(userId, false)
     userId && dbCloseGame(userId)
@@ -66,6 +69,10 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
     })
   }, [game?.playersList])
 
+  /**
+   * @description update status
+   * @param data
+   */
   const updateInviteStatusData = (data) => {
     updateGameView?.(data)
   }
@@ -82,10 +89,17 @@ const TeamGameInvitePlayers = (props: ITeamGameInvitePlayersScreenProps) => {
     }
   }, [isFocused])
 
+  /**
+   * @description handle delete player
+   * @param {string} id
+   */
   const handleDeletePlayer = (id: string) => {
     kickOffPlayer?.(userId!, id)
   }
 
+  /**
+   * @description handle begin btn
+   */
   const handleBegin = () => {
     Navigate.toTeamGameBoard()
     updateGameStatus?.('playing')

@@ -5,15 +5,27 @@ import { TouchableOpacity, View } from 'react-native'
 import { WDRCombineItem, WDRIcon, WDRText } from '@ui-kit/components'
 import { getThemeColor } from '@utils'
 
+/**
+ * @description game phrase item
+ * @param {IGamePhraseItemProps} props
+ * @constructor
+ */
 const GamePhraseItem = (props: IGamePhraseItemProps) => {
   const { username, onDelete, phrase, phraseId, isUser, onlyView } = props
   const styles = getStyle()
 
+  /**
+   * @description handle delete phrase func
+   */
   const handleDeletePhrase = () => {
     onDelete?.(phraseId)
   }
 
-  const generateHideString = (phrase) => {
+  /**
+   * @description generate hide string func
+   * @param {string} phrase
+   */
+  const generateHideString = (phrase: string) => {
     return '*'.repeat(phrase.length)
   }
 

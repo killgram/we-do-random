@@ -28,6 +28,9 @@ const SettingsMainScreen = (props: ISettingsMainScreenTypesProps) => {
   const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
 
+  /**
+   * @description lang adapter
+   */
   const calcImageSource = () => {
     switch (language) {
       case 'ru': {
@@ -42,10 +45,16 @@ const SettingsMainScreen = (props: ISettingsMainScreenTypesProps) => {
     }
   }
 
+  /**
+   * @description close modal handler
+   */
   const onCloseModal = () => {
     setIsVisible(!isVisible)
   }
 
+  /**
+   * @description exit func
+   */
   const onExit = () => {
     logout?.()
     onCloseModal()

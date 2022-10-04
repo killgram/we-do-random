@@ -18,7 +18,7 @@ const FriendListScreen = (props: IFriendListTypesProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
   const isFocused = useIsFocused()
-  let updateFriendsStatus = useRef<any>([])
+  const updateFriendsStatus = useRef<any>([])
 
   useLayoutEffect(() => {
     navigation?.setOptions({

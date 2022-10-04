@@ -10,6 +10,9 @@ import {
 import { Navigate } from '@navigators'
 import { dbLogout, dbRemoveFriendList } from '@services'
 
+/**
+ * @description logout saga
+ */
 export function* logout(): any {
   const state = yield select()
 

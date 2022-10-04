@@ -5,10 +5,18 @@ import { WDRIcon, WDRText, WDRPressableCombineItem } from '@ui-kit/components'
 import { getThemeColor } from '@utils'
 import { StyleSheet } from 'react-native'
 
+/**
+ * @description add friend into game item
+ * @param {IAddFriendIntoGameItemProps} props
+ * @constructor
+ */
 const AddFriendIntoGameItem = (props: IAddFriendIntoGameItemProps) => {
   const { username, onPress, userId, isOnline, canChoose } = props
   const styles = getStyle()
 
+  /**
+   * @description handle chose friend
+   */
   const handleChooseFriend = () => {
     onPress?.(userId)
   }

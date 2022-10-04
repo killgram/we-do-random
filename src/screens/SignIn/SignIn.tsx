@@ -42,11 +42,18 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
     },
   ]
 
-  const handleChangeLang = (lang) => {
+  /**
+   * @description handle change lang
+   * @param {string} lang
+   */
+  const handleChangeLang = (lang: string) => {
     setLanguage?.(lang)
     setLocale(lang)
   }
 
+  /**
+   * @description render lang elements
+   */
   const renderLangElements = () => {
     return langData.map((item) => {
       return (
@@ -62,10 +69,17 @@ const SignInScreen = (props: ISignInScreenTypesProps) => {
     })
   }
 
+  /**
+   * @description handle change username func
+   * @param {string} e
+   */
   const handleChangeUsername = (e: string) => {
     setUsername(e)
   }
 
+  /**
+   * @description login func
+   */
   const onLogin = () => {
     login?.(username)
   }

@@ -28,6 +28,9 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
     })
   }, [])
 
+  /**
+   * @description lead exit game func
+   */
   const exitGameLeader = () => {
     userId && dbUpdatePlayStatus(userId, false)
     userId && dbCloseGame(userId)
@@ -35,6 +38,9 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
     Navigate.toAppStack()
   }
 
+  /**
+   * @description user exit game func
+   */
   const exitGameUser = () => {
     userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
@@ -42,6 +48,9 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
     Navigate.toAppStack()
   }
 
+  /**
+   * @description exit game func
+   */
   const exitGame = () => {
     isLead ? exitGameLeader() : exitGameUser()
   }

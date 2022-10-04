@@ -30,8 +30,11 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
   const isFocused = useIsFocused()
-  let updateDBGame = useRef<any>([])
+  const updateDBGame = useRef<any>([])
 
+  /**
+   * @description exit game func
+   */
   const exitGame = () => {
     userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
@@ -62,12 +65,20 @@ const ViewInvitePlayers = (props: IViewInvitePlayersScreenProps) => {
     })
   }, [game?.playersList])
 
+  /**
+   * @description check kick of myself
+   * @param data
+   */
   const checkKickOffMe = (data) => {
     if (!data?.playersList?.[userId!]) {
       exitGame()
     }
   }
 
+  /**
+   * @description update data status
+   * @param data
+   */
   const updateInviteStatusData = (data) => {
     checkKickOffMe(data)
     updateGameView?.(data)

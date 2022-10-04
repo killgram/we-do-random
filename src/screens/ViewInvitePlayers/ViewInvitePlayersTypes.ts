@@ -1,6 +1,5 @@
 import { game, profile } from '@store/types'
 import { NavigationType } from '@navigators'
-import { IPlayers } from '@store/types/game/Interfaces'
 
 interface IStateToProps {
   navigation?: NavigationType

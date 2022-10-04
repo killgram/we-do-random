@@ -41,6 +41,9 @@ const RulesMainScreen = () => {
     },
   ]
 
+  /**
+   * @description render rules elements
+   */
   const renderRules = () => {
     return rulesData.map((item) => {
       return (

@@ -44,7 +44,7 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
   const isFocused = useIsFocused()
-  let updateDBPlayersList = useRef<any>([])
+  const updateDBPlayersList = useRef<any>([])
   let updateLead
 
   const isLead = game?.gameLead?.userId === userId
@@ -54,6 +54,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
   const [isLeadOnline, setIsLeadOnline] = useState(false)
   const isGameCalcWinner = game?.finish?.isLoading
 
+  /**
+   * @description exit game lead func
+   */
   const exitGameLeader = () => {
     userId && dbUpdatePlayStatus(userId, false)
     userId && dbCloseGame(userId)
@@ -61,6 +64,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
     Navigate.toAppStack()
   }
 
+  /**
+   * @description exit game user func
+   */
   const exitGameUser = () => {
     userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
@@ -74,6 +80,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
       return item
     }).length ?? 0
 
+  /**
+   * @description different exit game func
+   */
   const exitGame = () => {
     isLead ? exitGameLeader() : exitGameUser()
   }
@@ -96,10 +105,19 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
     })
   }, [game])
 
+  /**
+   * @description update invite status func
+   * @param data
+   */
   const updateInviteStatusData = (data) => {
     updateGameView?.(data)
   }
 
+  /**
+   * @description update lead status func
+   * @param {string} id
+   * @param {boolean} status
+   */
   const updateLeadStatus = (id: string, status: boolean) => {
     setIsLeadOnline(status)
   }
@@ -124,12 +142,19 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
     }
   }, [isFocused])
 
+  /**
+   * @description handle ready btn
+   */
   const handleReadyBtn = () => {
     game?.gameLead?.userId &&
       dbUpdateReadyStatus(game.gameLead.userId, userId!, !isReady)
     setIsReady(!isReady)
   }
 
+  /**
+   * @description delete phrase from game
+   * @param {number} phraseId
+   */
   const deletePhraseOutGame = (phraseId: number) => {
     game?.gameLead?.userId && dbDeletePhrase(game.gameLead.userId, phraseId)
   }
@@ -145,6 +170,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
     }
   }, [game?.list])
 
+  /**
+   * @description handle btn to finish game
+   */
   const handleFinishGame = () => {
     updateGameStatus?.('finishing')
     userId && dbUpdateGameStatus(userId, 'finishing')

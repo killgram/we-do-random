@@ -4,10 +4,18 @@ import getStyle from './AddPhraseListItemStyles'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { WDRText } from '@ui-kit/components'
 
+/**
+ * @description add phrase list item
+ * @param {IAddPhraseListItemProps} props
+ * @constructor
+ */
 const AddPhraseListItem = (props: IAddPhraseListItemProps) => {
   const { name, onPress, canChoose } = props
   const styles = getStyle()
 
+  /**
+   * @description handle add phrase
+   */
   const handleAddPhrase = () => {
     onPress?.(name)
   }

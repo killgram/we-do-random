@@ -29,16 +29,26 @@ const AddPhraseScreen = (props: IAddPhraseScreenProps) => {
     })
   }, [])
 
+  /**
+   * @description handle add phrase func
+   */
   const handleAddPhrase = () => {
     addPhrase(inputValue).then((_) => {
       Navigate.goBack()
     })
   }
 
+  /**
+   * @description handle input change
+   * @param {string} e
+   */
   const handleInputChange = (e: string) => {
     setInputValue(e)
   }
 
+  /**
+   * @description insert buffer func
+   */
   const insertBuffer = () => {
     getDataToBuffer().then((r) => {
       setInputValue(r)

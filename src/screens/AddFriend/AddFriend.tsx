@@ -30,14 +30,24 @@ const AddFriendScreen = (props: IAddFriendTypesProps) => {
     })
   }, [])
 
+  /**
+   * @description handle add friend func
+   */
   const handleAddFriend = () => {
     addFriend?.(inputValue)
   }
 
+  /**
+   * @description handle input change func
+   * @param {string} e
+   */
   const handleInputChange = (e: string) => {
     setInputValue(e.trim())
   }
 
+  /**
+   * @description insert buffer
+   */
   const insertBuffer = () => {
     getDataToBuffer().then((r) => {
       setInputValue(r)

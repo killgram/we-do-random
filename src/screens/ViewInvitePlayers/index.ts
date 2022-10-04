@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { IState, IViewInvitePlayersScreenProps } from './ViewInvitePlayersTypes'
 import { Dispatch } from 'redux'
 import { gameAction } from '@store/actions'
-import { IPlayers } from '@store/types/game/Interfaces'
 import { game } from '@store/types'
 
 /**

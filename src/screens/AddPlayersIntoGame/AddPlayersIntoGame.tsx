@@ -29,14 +29,24 @@ const AddPlayersIntoGame = (props: IAddPlayersIntoGameScreenProps) => {
     })
   }, [])
 
+  /**
+   * @description handle add player
+   */
   const handleAddPlayer = () => {
     addPlayer?.(userId!, inputValue)
   }
 
+  /**
+   * @description handle input change func
+   * @param {string} e
+   */
   const handleInputChange = (e: string) => {
     setInputValue(e.trim())
   }
 
+  /**
+   * @description insert into buffer copy data
+   */
   const insertBuffer = () => {
     getDataToBuffer().then((r) => {
       setInputValue(r)
