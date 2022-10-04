@@ -5,6 +5,11 @@ import getStyle from './ErrorToastStyles'
 import { WDRText } from '@ui-kit/components'
 import { IErrorToastProps } from './ErrorToastTypes'
 
+/**
+ * @description error toast
+ * @param {IErrorToastProps} props
+ * @constructor
+ */
 const ErrorToast = (props: IErrorToastProps) => {
   const { text } = props
   const styles = getStyle()

@@ -32,7 +32,7 @@ export default function getStyle(): IStyles {
     },
     secondary: {
       color: getThemeColor('SECONDARY_TEXT'),
-      fontSize: sp(14),
+      ...Fonts.bold,
     },
     link: {
       color: getThemeColor('LINK_TEXT'),

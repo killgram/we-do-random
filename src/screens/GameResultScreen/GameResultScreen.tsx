@@ -28,6 +28,9 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
     })
   }, [])
 
+  /**
+   * @description lead exit game func
+   */
   const exitGameLeader = () => {
     userId && dbUpdatePlayStatus(userId, false)
     userId && dbCloseGame(userId)
@@ -35,6 +38,9 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
     Navigate.toAppStack()
   }
 
+  /**
+   * @description user exit game func
+   */
   const exitGameUser = () => {
     userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
@@ -42,6 +48,9 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
     Navigate.toAppStack()
   }
 
+  /**
+   * @description exit game func
+   */
   const exitGame = () => {
     isLead ? exitGameLeader() : exitGameUser()
   }
@@ -66,44 +75,47 @@ const GameResultScreen = (props: IGameResultScreenScreenProps) => {
         />
       </View>
 
-      <WDRText size={20} isTitle style={styles.title}>
+      <WDRText size={20} isSecondary style={styles.title}>
         {game?.gameName}
       </WDRText>
-      <WDRText size={20} isTitle style={styles.winnerName}>
-        {game?.finish?.phrase}
-      </WDRText>
+
+      <View style={styles.winnerBox}>
+        <WDRText size={20} isTitle style={styles.winnerName}>
+          {game?.finish?.phrase}
+        </WDRText>
+      </View>
 
       {isSingle !== 'single' && (
         <>
-          <WDRText size={20} isTitle style={styles.title}>
+          <WDRText size={20} isSecondary style={styles.title}>
             {t('finishGame.winner')}
           </WDRText>
-          <WDRText size={24} isTitle style={styles.winnerName}>
-            {game?.finish?.username}
-          </WDRText>
+          <View style={styles.winnerBox}>
+            <WDRText size={20} isTitle style={styles.winnerName}>
+              {game?.finish?.username}
+            </WDRText>
+          </View>
         </>
       )}
 
-      <WDRText size={20} isTitle style={styles.title}>
-        {t('finishGame.chance')}
-      </WDRText>
-      <WDRText size={20} style={styles.winnerChance}>
-        {`${Number(game?.finish?.chance)} %`}
-      </WDRText>
+      <View style={styles.chanceBox}>
+        <WDRText isSecondary>{t('finishGame.chance')}</WDRText>
+        <WDRText isSecondary>{`: ${Number(game?.finish?.chance)} %`}</WDRText>
+      </View>
 
       {isSingle !== 'single' && (
         <WDRButton
-          style={styles.finishBtn}
+          style={styles.viewPhraseBtn}
           title={t('teamGame.viewPhraseList')}
           onPress={Navigate.toViewPhraseList}
+          isTransparent
+          titleStyle={styles.viewPhraseBtnTitle}
         />
       )}
 
-      <WDRButton
-        style={styles.finishBtn}
-        title={t('finishGame.finishGame')}
-        onPress={exitGame}
-      />
+      <View style={styles.finishBtn}>
+        <WDRButton title={t('finishGame.finishGame')} onPress={exitGame} />
+      </View>
     </WDRContainer>
   )
 }

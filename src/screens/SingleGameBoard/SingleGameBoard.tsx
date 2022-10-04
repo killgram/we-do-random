@@ -1,20 +1,14 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import getStyle from './SingleGameBoardStyles'
-import {
-  WDRButton,
-  WDRCombineItem,
-  WDRContainer,
-  WDRList,
-  WDRText,
-} from '@ui-kit/components'
+import { WDRButton, WDRContainer, WDRList, WDRText } from '@ui-kit/components'
 import { ISingleGameBoardScreenProps } from './SingleGameBoardTypes'
 import { useTranslation } from 'react-i18next'
 import { HeaderBackButton } from '@react-navigation/elements'
 import { getThemeColor } from '@utils'
 import { Navigate } from '@navigators'
-import ReadyButton from '@components/ReadyButton'
 import GamePhraseItem from '@components/GamePhraseItem'
 import { dbUpdatePlayStatus } from '@services'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 
 /**
  * @description SingleGameBoard
@@ -38,6 +32,9 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
   const [gameLock, setGameLock] = useState(true)
   const isGameCalcWinner = game?.finish?.isLoading
 
+  /**
+   * @description handle exit game
+   */
   const exitGame = () => {
     userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
@@ -49,13 +46,16 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
       headerLeft: () => (
         <HeaderBackButton
           onPress={exitGame}
-          tintColor={getThemeColor('MAIN_TEXT')}
+          tintColor={getThemeColor('SECONDARY_TEXT')}
         />
       ),
       headerTitle: t('game.singleGame'),
     })
   }, [])
 
+  /**
+   * @description handle ready status btn
+   */
   const handleReadyBtn = () => {
     setIsReady(!isReady)
   }
@@ -71,36 +71,36 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
 
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
-      <WDRText isTitle style={styles.gameNameTitle}>
+      <WDRText isSecondary style={styles.gameNameTitle}>
         {game?.gameName}
       </WDRText>
 
-      <WDRCombineItem
-        noPadding
-        bodyElement={
-          <WDRButton
-            title={t('singleGame.play')}
-            style={styles.playBtn}
-            isDisabled={gameLock || !isReady}
-            onPress={startFinishGame}
-            isLoading={isGameCalcWinner}
-          />
-        }
-        rightElement={
-          <ReadyButton
-            onPress={handleReadyBtn}
-            isReady={isReady}
-            isDisabled={gameLock || isGameCalcWinner}
-          />
-        }
+      <WDRButton
+        title={t('singleGame.play')}
+        style={styles.playBtn}
+        isDisabled={gameLock || !isReady}
+        onPress={startFinishGame}
+        isLoading={isGameCalcWinner}
       />
 
-      <WDRButton
-        title={t('phraseList.addPhrase')}
-        onPress={Navigate.toAddPhraseIntoGameScreen}
-        style={styles.addPhraseBtn}
-        isDisabled={isGameCalcWinner}
-      />
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={handleReadyBtn}
+        disabled={gameLock || isGameCalcWinner}
+        style={StyleSheet.flatten([
+          isReady ? styles.isReady : styles.noReady,
+          (gameLock || isGameCalcWinner) && styles.readyDisabled,
+        ])}
+      >
+        <WDRText
+          style={StyleSheet.flatten([
+            isReady ? styles.isReadyTitle : styles.isNoReadyTitle,
+          ])}
+        >
+          {isReady ? t('singleGame.ready') : t('singleGame.noReady')}
+        </WDRText>
+      </TouchableOpacity>
+
       <WDRList
         isBounces
         listItems={phraseList}
@@ -114,6 +114,14 @@ const SingleGameBoard = (props: ISingleGameBoardScreenProps) => {
             isUser={true}
           />
         )}
+      />
+
+      <WDRButton
+        title={t('phraseList.addPhrase')}
+        onPress={Navigate.toAddPhraseIntoGameScreen}
+        style={styles.addPhraseBtn}
+        isDisabled={isGameCalcWinner}
+        isSecondary
       />
     </WDRContainer>
   )

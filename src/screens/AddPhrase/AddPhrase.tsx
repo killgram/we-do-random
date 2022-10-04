@@ -29,16 +29,26 @@ const AddPhraseScreen = (props: IAddPhraseScreenProps) => {
     })
   }, [])
 
+  /**
+   * @description handle add phrase func
+   */
   const handleAddPhrase = () => {
     addPhrase(inputValue).then((_) => {
       Navigate.goBack()
     })
   }
 
+  /**
+   * @description handle input change
+   * @param {string} e
+   */
   const handleInputChange = (e: string) => {
     setInputValue(e)
   }
 
+  /**
+   * @description insert buffer func
+   */
   const insertBuffer = () => {
     getDataToBuffer().then((r) => {
       setInputValue(r)
@@ -48,7 +58,9 @@ const AddPhraseScreen = (props: IAddPhraseScreenProps) => {
   return (
     <WDRContainer isTransparentHeader>
       <WDRCombineItem
-        bodyElement={<WDRText isTitle>{t('phraseList.enterPhrase')}</WDRText>}
+        bodyElement={
+          <WDRText isSecondary>{t('phraseList.enterPhrase')}</WDRText>
+        }
         rightElement={
           <WDRButton
             title={t('phraseList.insert').toLowerCase()}
@@ -60,12 +72,17 @@ const AddPhraseScreen = (props: IAddPhraseScreenProps) => {
         style={styles.descTopContainer}
       />
 
-      <WDRInput value={inputValue} onChangeText={handleInputChange} />
+      <WDRInput
+        value={inputValue}
+        onChangeText={handleInputChange}
+        inputContainerStyle={styles.inputBox}
+      />
 
       <WDRButton
         title={t('phraseList.add')}
         isDisabled={inputValue.length === 0}
         onPress={handleAddPhrase}
+        isSecondary
       />
     </WDRContainer>
   )

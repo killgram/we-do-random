@@ -40,26 +40,29 @@ const PhraseListScreen = (props: IPhraseListTypesProps) => {
     })
   }, [])
 
+  /**
+   * @description func for delete current phrase
+   * @param {number} id
+   */
   const handleDeletePhrase = async (id: number) => {
     await deletePhrase(id, data, setData)
   }
 
+  /**
+   * @description func for delete all phrases
+   */
   const handleDeleteAllPhrase = async () => {
     await clearPhrase(setData)
   }
 
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
-      <WDRButton
-        title={t('phraseList.addPhrase')}
-        onPress={Navigate.toAddPhrase}
-      />
-
       {data.length !== 0 && (
         <WDRButton
           title={t('phraseList.clear')}
           onPress={handleDeleteAllPhrase}
-          style={styles.clearPhraseBox}
+          isTransparent
+          titleStyle={styles.clearAllBtnBox}
         />
       )}
 
@@ -74,7 +77,6 @@ const PhraseListScreen = (props: IPhraseListTypesProps) => {
         <WDRList
           isBounces
           listItems={data}
-          listStyles={styles.listStyle}
           titleEmptyComponent={t('phraseList.emptyList')}
           renderListItem={({ item }) => (
             <PhraseListItem
@@ -85,6 +87,13 @@ const PhraseListScreen = (props: IPhraseListTypesProps) => {
           )}
         />
       )}
+
+      <WDRButton
+        title={t('phraseList.addPhrase')}
+        onPress={Navigate.toAddPhrase}
+        isSecondary
+        style={styles.addBtn}
+      />
     </WDRContainer>
   )
 }

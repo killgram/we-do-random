@@ -16,8 +16,6 @@ export default function getStyle(): IStyles {
   return StyleSheet.create({
     container: {
       backgroundColor: getThemeColor('FRIEND_LIST_ITEM_BACKGROUND'),
-      borderWidth: width(1),
-      borderColor: getThemeColor('FRIEND_LIST_ITEM_BORDER'),
       borderRadius: radius(4),
       marginVertical: height(4),
     },
@@ -32,7 +30,7 @@ export default function getStyle(): IStyles {
       flexDirection: 'row',
     },
     indicator: {
-      paddingRight: width(8),
+      paddingHorizontal: width(8),
     },
   })
 }

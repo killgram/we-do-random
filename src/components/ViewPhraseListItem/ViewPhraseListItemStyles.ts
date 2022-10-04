@@ -1,20 +1,21 @@
 import { StyleSheet } from 'react-native'
-import { ApplicationStyles } from '@ui-kit/styles'
-import { getThemeColor, RNStyleType } from '@utils'
+import { getThemeColor, height, RNStyleType } from '@utils'
 
 interface IStyles {
   container: RNStyleType
+  winner: RNStyleType
 }
 
 /**
- *
  * @return {IStyles}
  */
 export default function getStyle(): IStyles {
   return StyleSheet.create({
     container: {
-      ...ApplicationStyles.container,
-      backgroundColor: getThemeColor('MAIN_CONTAINER_BACKGROUND'),
+      marginVertical: height(4),
+    },
+    winner: {
+      color: getThemeColor('CHOSEN_ICON'),
     },
   })
 }

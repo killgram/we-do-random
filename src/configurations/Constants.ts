@@ -23,4 +23,5 @@ export default {
     NotoSansJP_Regular: 'NotoSansJP-Regular',
     NotoSansJP_Light: 'NotoSansJP-Light',
   },
+  emailContact: 'killgram94@gmail.com',
 }

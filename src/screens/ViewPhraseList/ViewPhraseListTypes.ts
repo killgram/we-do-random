@@ -6,10 +6,8 @@ interface IStateToProps {
   game?: game.IInitialState
 }
 
-interface IDispatchToProps {}
-
 export interface IState {
   game?: game.IInitialState
 }
 
-export type IViewPhraseListScreenProps = IStateToProps & IDispatchToProps
+export type IViewPhraseListScreenProps = IStateToProps

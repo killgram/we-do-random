@@ -20,6 +20,10 @@ import {
   dbFinishGame,
 } from '@services'
 
+/**
+ * @description create game saga
+ * @param {ICreateGame} action
+ */
 export function* createGame(action: ICreateGame): any {
   const { gameName, gameType, gameLead } = action
   const state = yield select()
@@ -67,6 +71,9 @@ export function* createGame(action: ICreateGame): any {
   }
 }
 
+/**
+ * @description start finish game saga
+ */
 export function* startFinishGame(): any {
   const state = yield select()
   const game = state?.game
@@ -99,6 +106,10 @@ export function* startFinishGame(): any {
   }
 }
 
+/**
+ * @description add player saga
+ * @param {IAddPlayer} action
+ */
 export function* addPlayer(action: IAddPlayer): any {
   const { userId, leadUserId } = action
   const state = yield select()
@@ -156,6 +167,10 @@ export function* addPlayer(action: IAddPlayer): any {
   }
 }
 
+/**
+ * @description kick off player saga
+ * @param {IKickOffPlayer} action
+ */
 export function* kickOffPlayer(action: IKickOffPlayer): any {
   const { userId, leadUserId } = action
 
@@ -170,6 +185,10 @@ export function* kickOffPlayer(action: IKickOffPlayer): any {
   }
 }
 
+/**
+ * @description update game view saga
+ * @param {IUpdateGameView} action
+ */
 export function* updateGameView(action: IUpdateGameView): any {
   const { data } = action
   const state = yield select()

@@ -2,7 +2,6 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import getStyle from './TeamGameBoardStyles'
 import {
   WDRButton,
-  WDRCombineItem,
   WDRContainer,
   WDRIcon,
   WDRList,
@@ -23,9 +22,8 @@ import { Navigate } from '@navigators'
 import { HeaderBackButton } from '@react-navigation/elements'
 import { getThemeColor } from '@utils'
 import { useIsFocused } from '@react-navigation/native'
-import ReadyButton from '@components/ReadyButton'
 import GamePhraseItem from '@components/GamePhraseItem'
-import { View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 
 /**
  * @description TeamGameBoard
@@ -46,7 +44,7 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
   const isFocused = useIsFocused()
-  let updateDBPlayersList = useRef<any>([])
+  const updateDBPlayersList = useRef<any>([])
   let updateLead
 
   const isLead = game?.gameLead?.userId === userId
@@ -56,6 +54,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
   const [isLeadOnline, setIsLeadOnline] = useState(false)
   const isGameCalcWinner = game?.finish?.isLoading
 
+  /**
+   * @description exit game lead func
+   */
   const exitGameLeader = () => {
     userId && dbUpdatePlayStatus(userId, false)
     userId && dbCloseGame(userId)
@@ -63,6 +64,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
     Navigate.toAppStack()
   }
 
+  /**
+   * @description exit game user func
+   */
   const exitGameUser = () => {
     userId && dbUpdatePlayStatus(userId, false)
     cleanGame?.()
@@ -76,6 +80,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
       return item
     }).length ?? 0
 
+  /**
+   * @description different exit game func
+   */
   const exitGame = () => {
     isLead ? exitGameLeader() : exitGameUser()
   }
@@ -85,22 +92,32 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
       headerLeft: () => (
         <HeaderBackButton
           onPress={exitGame}
-          tintColor={getThemeColor('MAIN_TEXT')}
+          tintColor={getThemeColor('SECONDARY_TEXT')}
         />
       ),
       headerTitle: t('game.teamGame'),
       headerRight: () => (
         <WDRText
+          isSecondary
           style={styles.headerRight}
         >{`${readyPlayers}/${totalPlayers}`}</WDRText>
       ),
     })
   }, [game])
 
+  /**
+   * @description update invite status func
+   * @param data
+   */
   const updateInviteStatusData = (data) => {
     updateGameView?.(data)
   }
 
+  /**
+   * @description update lead status func
+   * @param {string} id
+   * @param {boolean} status
+   */
   const updateLeadStatus = (id: string, status: boolean) => {
     setIsLeadOnline(status)
   }
@@ -125,12 +142,19 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
     }
   }, [isFocused])
 
+  /**
+   * @description handle ready btn
+   */
   const handleReadyBtn = () => {
     game?.gameLead?.userId &&
       dbUpdateReadyStatus(game.gameLead.userId, userId!, !isReady)
     setIsReady(!isReady)
   }
 
+  /**
+   * @description delete phrase from game
+   * @param {number} phraseId
+   */
   const deletePhraseOutGame = (phraseId: number) => {
     game?.gameLead?.userId && dbDeletePhrase(game.gameLead.userId, phraseId)
   }
@@ -146,6 +170,9 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
     }
   }, [game?.list])
 
+  /**
+   * @description handle btn to finish game
+   */
   const handleFinishGame = () => {
     updateGameStatus?.('finishing')
     userId && dbUpdateGameStatus(userId, 'finishing')
@@ -165,64 +192,51 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
 
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
-      <WDRText isTitle style={styles.gameNameTitle}>
+      <WDRText isSecondary style={styles.gameNameTitle}>
         {game?.gameName}
       </WDRText>
 
       {isLead ? (
-        <WDRCombineItem
-          noPadding
-          bodyElement={
-            <WDRButton
-              title={t('singleGame.play')}
-              style={styles.playBtn}
-              isDisabled={totalPlayers !== readyPlayers || gameLock || !isReady}
-              onPress={handleFinishGame}
-              isLoading={isGameCalcWinner}
-            />
-          }
-          rightElement={
-            <ReadyButton
-              onPress={handleReadyBtn}
-              isReady={isReady}
-              isDisabled={gameLock || isGameCalcWinner}
-            />
-          }
+        <WDRButton
+          title={t('singleGame.play')}
+          style={styles.playBtn}
+          isDisabled={totalPlayers !== readyPlayers || gameLock || !isReady}
+          onPress={handleFinishGame}
+          isLoading={isGameCalcWinner}
         />
       ) : (
-        <WDRCombineItem
-          noPadding
-          bodyElement={
-            <View style={styles.leadStatusBox}>
-              <WDRText style={styles.hostTitleStatus} isTitle>
-                {t('teamGame.gameHost')}
-              </WDRText>
-              <WDRIcon
-                iconName="point"
-                iconColor={
-                  isLeadOnline
-                    ? getThemeColor('USER_STATUS_ONLINE')
-                    : getThemeColor('USER_STATUS_OFFLINE')
-                }
-              />
-            </View>
-          }
-          rightElement={
-            <ReadyButton
-              onPress={handleReadyBtn}
-              isReady={isReady}
-              isDisabled={gameLock || isGameCalcWinner}
-            />
-          }
-        />
+        <View style={styles.leadStatusBox}>
+          <WDRText style={styles.hostTitleStatus} isSecondary>
+            {t('teamGame.gameHost')}
+          </WDRText>
+          <WDRIcon
+            iconName="point"
+            iconColor={
+              isLeadOnline
+                ? getThemeColor('USER_STATUS_ONLINE')
+                : getThemeColor('USER_STATUS_OFFLINE')
+            }
+          />
+        </View>
       )}
 
-      <WDRButton
-        title={t('phraseList.addPhrase')}
-        onPress={Navigate.toAddPhraseIntoGameScreen}
-        style={styles.addPhraseBtn}
-        isDisabled={isGameCalcWinner || isReady}
-      />
+      <TouchableOpacity
+        activeOpacity={0.7}
+        onPress={handleReadyBtn}
+        disabled={gameLock || isGameCalcWinner}
+        style={StyleSheet.flatten([
+          isReady ? styles.isReady : styles.noReady,
+          (gameLock || isGameCalcWinner) && styles.readyDisabled,
+        ])}
+      >
+        <WDRText
+          style={StyleSheet.flatten([
+            isReady ? styles.isReadyTitle : styles.isNoReadyTitle,
+          ])}
+        >
+          {isReady ? t('singleGame.ready') : t('singleGame.noReady')}
+        </WDRText>
+      </TouchableOpacity>
 
       <WDRList
         isBounces
@@ -238,6 +252,14 @@ const TeamGameBoard = (props: ITeamGameBoardScreenProps) => {
             isUser={item.userId === userId}
           />
         )}
+      />
+
+      <WDRButton
+        title={t('phraseList.addPhrase')}
+        onPress={Navigate.toAddPhraseIntoGameScreen}
+        style={styles.addPhraseBtn}
+        isDisabled={isGameCalcWinner || isReady}
+        isSecondary
       />
     </WDRContainer>
   )

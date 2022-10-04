@@ -45,7 +45,11 @@ const ChangeLanguageScreen = (props: IChangeLanguageScreenTypesProps) => {
     },
   ]
 
-  const handleChangeLang = (lang) => {
+  /**
+   * @description handle change lang func
+   * @param {string} lang
+   */
+  const handleChangeLang = (lang: string) => {
     if (language === lang) {
       Navigate.goBack()
     } else {
@@ -61,13 +65,16 @@ const ChangeLanguageScreen = (props: IChangeLanguageScreenTypesProps) => {
     })
   }, [])
 
+  /**
+   * @description render lang list
+   */
   const renderLanguageList = () => {
     return langData.map((item) => {
       return (
         <WDRPressableCombineItem
           key={item.langTag}
           leftElement={<Image source={item.img} style={styles.flagImage} />}
-          bodyElement={<WDRText isTitle>{item.name}</WDRText>}
+          bodyElement={<WDRText isSecondary>{item.name}</WDRText>}
           rightElement={
             language === item.langTag && (
               <WDRIcon

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { getThemeColor, height, radius, RNStyleType, width } from '@utils'
+import { getThemeColor, height, radius, RNStyleType } from '@utils'
 
 interface IStyles {
   container: RNStyleType
@@ -14,8 +14,6 @@ export default function getStyle(): IStyles {
   return StyleSheet.create({
     container: {
       backgroundColor: getThemeColor('FRIEND_LIST_ITEM_BACKGROUND'),
-      borderWidth: width(1),
-      borderColor: getThemeColor('FRIEND_LIST_ITEM_BORDER'),
       borderRadius: radius(4),
       marginVertical: height(4),
     },

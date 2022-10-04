@@ -3,8 +3,8 @@ import { height, RNStyleType } from '@utils'
 
 interface IStyles {
   screenLoad: RNStyleType
-  clearPhraseBox: RNStyleType
-  listStyle: RNStyleType
+  addBtn: RNStyleType
+  clearAllBtnBox: RNStyleType
 }
 
 /**
@@ -15,12 +15,11 @@ export default function getStyle(): IStyles {
     screenLoad: {
       marginVertical: height(32),
     },
-    clearPhraseBox: {
-      marginTop: height(16),
-    },
-    listStyle: {
+    addBtn: {
       marginBottom: height(30),
-      marginTop: height(16),
+    },
+    clearAllBtnBox: {
+      textDecorationLine: 'underline',
     },
   })
 }

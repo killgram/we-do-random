@@ -5,6 +5,11 @@ import { WDRButton, WDRCenterModal, WDRIcon, WDRText } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
 import { getThemeColor } from '@utils'
 
+/**
+ * @description new version modal
+ * @param {INewVersionModalProps} props
+ * @constructor
+ */
 const NewVersionModal = (props: INewVersionModalProps) => {
   const { isVisible = false, closeModal } = props
   const styles = getStyle()
@@ -15,9 +20,9 @@ const NewVersionModal = (props: INewVersionModalProps) => {
       <WDRIcon
         iconName="load"
         iconSize={120}
-        iconColor={getThemeColor('CHOSEN_ICON')}
+        iconColor={getThemeColor('NEW_GAME_ICON')}
       />
-      <WDRText style={styles.title} isTitle size={20}>
+      <WDRText style={styles.title} isTitle>
         {t('newVersion.title')}
       </WDRText>
 

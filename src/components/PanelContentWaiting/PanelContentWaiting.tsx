@@ -14,7 +14,7 @@ const PanelContentWaiting = (props: IPanelContentWaitingTypes) => {
   return (
     <View style={styles.container}>
       {contentElement || (
-        <WDRText isTitle style={styles.textContent}>
+        <WDRText isSecondary style={styles.textContent}>
           {title || 'Empty'}
         </WDRText>
       )}

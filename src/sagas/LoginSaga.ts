@@ -7,6 +7,10 @@ import { ILogin } from '@store/types/app/Interfaces'
 import { dbLogin } from '@services'
 import { getUserId } from '@utils'
 
+/**
+ * @description login saga
+ * @param {ILogin} action
+ */
 export function* login(action: ILogin): any {
   const { username } = action
 

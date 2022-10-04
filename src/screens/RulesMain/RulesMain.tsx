@@ -41,6 +41,9 @@ const RulesMainScreen = () => {
     },
   ]
 
+  /**
+   * @description render rules elements
+   */
   const renderRules = () => {
     return rulesData.map((item) => {
       return (
@@ -51,7 +54,7 @@ const RulesMainScreen = () => {
 
   return (
     <WDRContainer isKeyBoardDismiss={false}>
-      <WDRText isTitle style={styles.rulesTitle}>
+      <WDRText isSecondary style={styles.rulesTitle}>
         {t('rulesScreen.rules')}
       </WDRText>
 

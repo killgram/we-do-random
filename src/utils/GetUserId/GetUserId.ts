@@ -6,8 +6,8 @@
 const getUserId = (username: string) => {
   const idValue = 16
   const genWord = `${username}${generateWord(idValue)}`
-  let genResult: Array<number> = []
-  let result: string = ''
+  const genResult: Array<number> = []
+  let result = ''
 
   for (let i = 0; i < genWord.length; i++) {
     let val = genWord[i].charCodeAt(0)
@@ -60,7 +60,7 @@ const generateWord = (idValue: number) => {
  */
 const shuffle = (array: Array<number>) => {
   for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1))
+    const j = Math.floor(Math.random() * (i + 1))
     ;[array[i], array[j]] = [array[j], array[i]]
   }
 

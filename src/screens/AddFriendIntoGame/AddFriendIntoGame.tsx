@@ -18,7 +18,7 @@ const AddFriendIntoGameScreen = (props: IAddFriendIntoGameTypesProps) => {
   const styles = getStyle()
   const { t } = useTranslation()
   const isFocused = useIsFocused()
-  let updateFriendsStatus = useRef<any>([])
+  const updateFriendsStatus = useRef<any>([])
 
   useLayoutEffect(() => {
     navigation?.setOptions({
@@ -41,11 +41,19 @@ const AddFriendIntoGameScreen = (props: IAddFriendIntoGameTypesProps) => {
     }
   }, [isFocused])
 
+  /**
+   * @description handle chose friend func
+   * @param {string} id
+   */
   const handleChooseFriend = (id: string) => {
     route?.params?.goBackScreen?.(id)
     Navigate.goBack()
   }
 
+  /**
+   * @description calc chosen ability func
+   * @param item
+   */
   const calcChosenAbility = (item) => {
     let coincidenceCount = 0
 

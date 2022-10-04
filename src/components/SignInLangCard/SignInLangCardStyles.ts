@@ -1,10 +1,12 @@
 import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
-import { getThemeColor, height, RNStyleType } from '@utils'
+import { height, RNStyleType, sp } from '@utils'
+import { Fonts } from '@ui-kit/styles'
 
 interface IStyles {
   container: RNStyleType
   flagImage: StyleProp<ImageStyle>
   activeContainer: RNStyleType
+  activeFlagImage: StyleProp<ImageStyle>
 }
 
 /**
@@ -22,9 +24,16 @@ export default function getStyle(): IStyles {
       width: height(32),
       height: height(24),
       marginBottom: height(8),
+      opacity: 0.4,
     },
     activeContainer: {
-      color: getThemeColor('CHOSEN_TEXT'),
+      ...Fonts.bold,
+      fontSize: sp(18),
+    },
+    activeFlagImage: {
+      width: height(38),
+      height: height(30),
+      opacity: 1,
     },
   })
 }

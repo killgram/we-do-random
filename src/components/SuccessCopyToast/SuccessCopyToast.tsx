@@ -5,6 +5,10 @@ import getStyle from './SuccessCopyToastStyles'
 import { WDRText } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
 
+/**
+ * @description success copy toast
+ * @constructor
+ */
 const SuccessCopyToast = () => {
   const styles = getStyle()
   const { t } = useTranslation()

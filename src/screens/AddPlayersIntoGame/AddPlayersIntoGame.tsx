@@ -11,6 +11,7 @@ import { IAddPlayersIntoGameScreenProps } from './AddPlayersIntoGameTypes'
 import { useTranslation } from 'react-i18next'
 import { Navigate } from '@navigators'
 import { getDataToBuffer } from '@utils'
+import { View } from 'react-native'
 
 /**
  * @description AddPlayersIntoGame
@@ -28,14 +29,24 @@ const AddPlayersIntoGame = (props: IAddPlayersIntoGameScreenProps) => {
     })
   }, [])
 
+  /**
+   * @description handle add player
+   */
   const handleAddPlayer = () => {
     addPlayer?.(userId!, inputValue)
   }
 
+  /**
+   * @description handle input change func
+   * @param {string} e
+   */
   const handleInputChange = (e: string) => {
     setInputValue(e.trim())
   }
 
+  /**
+   * @description insert into buffer copy data
+   */
   const insertBuffer = () => {
     getDataToBuffer().then((r) => {
       setInputValue(r)
@@ -45,7 +56,7 @@ const AddPlayersIntoGame = (props: IAddPlayersIntoGameScreenProps) => {
   return (
     <WDRContainer isTransparentHeader isKeyBoardDismiss={false}>
       <WDRCombineItem
-        bodyElement={<WDRText isTitle>{t('friendList.enterKey')}</WDRText>}
+        bodyElement={<WDRText isSecondary>{t('friendList.enterKey')}</WDRText>}
         rightElement={
           <WDRButton
             title={t('friendList.insert').toLowerCase()}
@@ -62,31 +73,31 @@ const AddPlayersIntoGame = (props: IAddPlayersIntoGameScreenProps) => {
         onChangeText={handleInputChange}
         keyboardType="numeric"
         maxLength={16}
+        inputContainerStyle={styles.inputBox}
       />
-
-      <WDRButton
-        title={t('friendList.add')}
-        isDisabled={inputValue.length !== 16}
-        onPress={handleAddPlayer}
-      />
-
-      <WDRText isTitle style={styles.or}>
-        {t('friendList.or')}
-      </WDRText>
 
       <WDRButton
         title={t('game.friendList')}
         onPress={() => Navigate.toAddFriendIntoGameScreen(handleInputChange)}
+        isTransparent
+        titleStyle={styles.friendListBtn}
       />
-
-      <WDRText isTitle style={styles.or}>
-        {t('friendList.or')}
-      </WDRText>
 
       <WDRButton
         title={t('friendList.qrAdd')}
         onPress={() => Navigate.toQRCodeScanScreen(handleInputChange)}
+        isSecondary
+        style={styles.qrAddBtn}
       />
+
+      <View style={styles.addBtnBox}>
+        <WDRButton
+          title={t('friendList.add')}
+          isDisabled={inputValue.length !== 16}
+          onPress={handleAddPlayer}
+          isSecondary
+        />
+      </View>
     </WDRContainer>
   )
 }

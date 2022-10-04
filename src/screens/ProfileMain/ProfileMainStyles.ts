@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType, sp } from '@utils'
+import { getThemeColor, height, radius, RNStyleType, sp } from '@utils'
 
 interface IStyles {
   usernameText: RNStyleType
@@ -33,7 +33,9 @@ export default function getStyle(): IStyles {
       padding: height(10),
     },
     copyBtnContainer: {
-      marginBottom: height(20),
+      marginTop: height(20),
+      backgroundColor: getThemeColor('STATIC_BUTTONS'),
+      borderRadius: radius(10),
     },
   })
 }

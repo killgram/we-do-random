@@ -8,11 +8,17 @@ module.exports = {
   plugins: ['@typescript-eslint', 'jest'],
   extends: [
     'eslint:recommended',
-    'google',
     'plugin:@typescript-eslint/recommended',
     'plugin:jest/recommended',
   ],
   rules: {
+    '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-explicit-any': ['off'],
+    '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+    '@typescript-eslint/no-extra-non-null-assertion': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'no-undef': 'off',
     semi: 'off',
     indent: 'off',
     'max-len': ['off', { ignoreTemplateLiterals: true, ignoreStrings: true }],

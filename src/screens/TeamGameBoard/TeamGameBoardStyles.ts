@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { height, radius, RNStyleType, width } from '@utils'
+import { getThemeColor, height, radius, RNStyleType, sp, width } from '@utils'
 
 interface IStyles {
   headerRight: RNStyleType
@@ -9,6 +9,11 @@ interface IStyles {
   listStyle: RNStyleType
   leadStatusBox: RNStyleType
   hostTitleStatus: RNStyleType
+  isReady: RNStyleType
+  isReadyTitle: RNStyleType
+  noReady: RNStyleType
+  isNoReadyTitle: RNStyleType
+  readyDisabled: RNStyleType
 }
 
 /**
@@ -24,15 +29,14 @@ export default function getStyle(): IStyles {
       paddingBottom: height(8),
     },
     playBtn: {
-      borderRadius: radius(4),
-      marginRight: width(16),
+      marginBottom: height(8),
     },
     addPhraseBtn: {
-      marginHorizontal: width(24),
-      marginVertical: height(16),
+      marginBottom: height(30),
     },
     listStyle: {
-      marginBottom: height(30),
+      marginBottom: height(12),
+      marginTop: height(8),
     },
     leadStatusBox: {
       flexDirection: 'row',
@@ -42,6 +46,31 @@ export default function getStyle(): IStyles {
     },
     hostTitleStatus: {
       marginHorizontal: width(16),
+    },
+    isReady: {
+      backgroundColor: getThemeColor('READY'),
+      borderRadius: radius(10),
+    },
+    isReadyTitle: {
+      color: getThemeColor('STATIC_BUTTONS'),
+      textAlign: 'center',
+      fontSize: sp(18),
+      paddingVertical: height(16),
+      fontWeight: 'bold',
+    },
+    noReady: {
+      backgroundColor: getThemeColor('NOT_READY'),
+      borderRadius: radius(10),
+    },
+    isNoReadyTitle: {
+      color: getThemeColor('SECONDARY_TEXT'),
+      textAlign: 'center',
+      fontSize: sp(18),
+      paddingVertical: height(16),
+      fontWeight: 'bold',
+    },
+    readyDisabled: {
+      opacity: 0.4,
     },
   })
 }

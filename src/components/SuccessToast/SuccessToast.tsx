@@ -5,6 +5,11 @@ import getStyle from './SuccessToastStyles'
 import { WDRText } from '@ui-kit/components'
 import { ISuccessToastProps } from './SuccessToastTypes'
 
+/**
+ * @description success toast
+ * @param {ISuccessToastProps} props
+ * @constructor
+ */
 const SuccessToast = (props: ISuccessToastProps) => {
   const { text } = props
   const styles = getStyle()

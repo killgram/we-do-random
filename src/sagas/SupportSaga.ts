@@ -3,6 +3,9 @@ import { settingsAction } from '@store/actions'
 import { dbGetSupportData, dbSupportInfoData } from '@services'
 import { errorToast } from '@utils'
 
+/**
+ * @description get support data saga
+ */
 export function* getSupportData(): any {
   try {
     let data = {}

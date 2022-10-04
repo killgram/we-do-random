@@ -14,7 +14,7 @@ export default function getStyle(): IStyles {
   return StyleSheet.create({
     input: {
       ...Inputs.input,
-      color: getThemeColor('MAIN_TEXT'),
+      color: getThemeColor('SECONDARY_TEXT'),
     },
   })
 }

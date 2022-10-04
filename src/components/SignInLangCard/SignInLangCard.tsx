@@ -14,6 +14,9 @@ const SignInLangCard = (props: ISignInLangCardProps) => {
 
   const styles = getStyle()
 
+  /**
+   * @description handle change lang
+   */
   const handleChangeLang = () => {
     if (!isActive) {
       changeLang?.(langTag)
@@ -26,9 +29,15 @@ const SignInLangCard = (props: ISignInLangCardProps) => {
       activeOpacity={0.8}
       onPress={handleChangeLang}
     >
-      <Image source={img} style={styles.flagImage} />
+      <Image
+        source={img}
+        style={StyleSheet.flatten([
+          styles.flagImage,
+          isActive && styles.activeFlagImage,
+        ])}
+      />
       <WDRText
-        isTitle
+        size={16}
         style={StyleSheet.flatten([isActive && styles.activeContainer])}
       >
         {name}

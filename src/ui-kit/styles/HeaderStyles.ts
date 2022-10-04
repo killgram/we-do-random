@@ -12,7 +12,7 @@ const defaultHeaderStyle: GeneralizedNavigationType = {
   headerTransparent: true,
   headerBackTitleVisible: false,
   headerTitleAllowFontScaling: true,
-  headerTintColor: getThemeColor('MAIN_TEXT'),
+  headerTintColor: getThemeColor('SECONDARY_TEXT'),
 }
 
 export { defaultHeaderStyle }

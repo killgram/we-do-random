@@ -15,6 +15,10 @@ import {
 import { errorToast, successToast } from '@utils'
 import { Navigate } from '@navigators'
 
+/**
+ * @description add friend saga
+ * @param {IAddFriend} action
+ */
 export function* addFriend(action: IAddFriend): any {
   const { userId } = action
   const state = yield select()
@@ -69,6 +73,10 @@ export function* addFriend(action: IAddFriend): any {
   }
 }
 
+/**
+ * @description delete friend saga
+ * @param {IDeleteFriend} action
+ */
 export function* deleteFriend(action: IDeleteFriend): any {
   const { userId } = action
   const state = yield select()
@@ -83,6 +91,10 @@ export function* deleteFriend(action: IDeleteFriend): any {
   }
 }
 
+/**
+ * @description update friend status saga
+ * @param {IUpdateFriendStatus} action
+ */
 export function* updateFriendStatus(action: IUpdateFriendStatus): any {
   const { userId, isOnline } = action
   const state = yield select()

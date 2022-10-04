@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native'
-import { height, RNStyleType } from '@utils'
+import { getThemeColor, height, RNStyleType } from '@utils'
 
 interface IStyles {
   descTopContainer: RNStyleType
   listStyle: RNStyleType
   screenLoad: RNStyleType
+  inputBox: RNStyleType
 }
 
 /**
@@ -21,6 +22,9 @@ export default function getStyle(): IStyles {
     },
     screenLoad: {
       marginVertical: height(32),
+    },
+    inputBox: {
+      backgroundColor: getThemeColor('PLACEHOLDER_INPUT'),
     },
   })
 }

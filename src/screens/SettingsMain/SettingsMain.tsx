@@ -10,7 +10,7 @@ import {
   WDRCenterModal,
 } from '@ui-kit/components'
 import { useTranslation } from 'react-i18next'
-import { Image } from 'react-native'
+import { Image, View } from 'react-native'
 import en from '@assets/img/en.png'
 import ru from '@assets/img/ru.png'
 import cz from '@assets/img/cz.png'
@@ -28,6 +28,9 @@ const SettingsMainScreen = (props: ISettingsMainScreenTypesProps) => {
   const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
 
+  /**
+   * @description lang adapter
+   */
   const calcImageSource = () => {
     switch (language) {
       case 'ru': {
@@ -42,10 +45,16 @@ const SettingsMainScreen = (props: ISettingsMainScreenTypesProps) => {
     }
   }
 
+  /**
+   * @description close modal handler
+   */
   const onCloseModal = () => {
     setIsVisible(!isVisible)
   }
 
+  /**
+   * @description exit func
+   */
   const onExit = () => {
     logout?.()
     onCloseModal()
@@ -54,7 +63,11 @@ const SettingsMainScreen = (props: ISettingsMainScreenTypesProps) => {
   return (
     <WDRContainer>
       <WDRPressableCombineItem
-        bodyElement={<WDRText isTitle>{t('settings.lang')}</WDRText>}
+        bodyElement={
+          <WDRText size={20} isSecondary>
+            {t('settings.lang')}
+          </WDRText>
+        }
         rightElement={
           <Image source={calcImageSource()} style={styles.flagImage} />
         }
@@ -62,22 +75,33 @@ const SettingsMainScreen = (props: ISettingsMainScreenTypesProps) => {
         styleContainer={styles.combineContainer}
       />
       <WDRPressableCombineItem
-        bodyElement={<WDRText isTitle>{t('settings.support')}</WDRText>}
+        bodyElement={
+          <WDRText size={20} isSecondary>
+            {t('settings.support')}
+          </WDRText>
+        }
         rightElement={<WDRIcon iconName="bracket-right" iconSize={16} />}
         onPress={Navigate.toSupportScreen}
         styleContainer={styles.combineContainer}
       />
       <WDRPressableCombineItem
-        bodyElement={<WDRText isTitle>{t('settings.aboutApp')}</WDRText>}
+        bodyElement={
+          <WDRText size={20} isSecondary>
+            {t('settings.aboutApp')}
+          </WDRText>
+        }
         rightElement={<WDRIcon iconName="bracket-right" iconSize={16} />}
         onPress={Navigate.toAboutAppScreen}
         styleContainer={styles.combineContainer}
       />
-      <WDRButton
-        title={t('settings.logout')}
-        style={styles.logoutBtn}
-        onPress={onCloseModal}
-      />
+
+      <View style={styles.logoutBtn}>
+        <WDRButton
+          title={t('settings.logout')}
+          onPress={onCloseModal}
+          isSecondary
+        />
+      </View>
 
       <WDRCenterModal isVisible={isVisible} closeHandler={onCloseModal}>
         <WDRIcon

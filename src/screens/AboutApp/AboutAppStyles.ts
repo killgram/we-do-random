@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native'
-import { height, RNStyleType, sp, width } from '@utils'
+import { ImageStyle, StyleProp, StyleSheet } from 'react-native'
+import { getThemeColor, height, RNStyleType, sp, width } from '@utils'
 
 interface IStyles {
   loadingBox: RNStyleType
@@ -8,6 +8,8 @@ interface IStyles {
   sectionBottom: RNStyleType
   versionTitle: RNStyleType
   rowSection: RNStyleType
+  ruffleImg: StyleProp<ImageStyle>
+  ruffleImgBox: RNStyleType
 }
 
 /**
@@ -19,6 +21,7 @@ export default function getStyle(): IStyles {
       alignItems: 'center',
       justifyContent: 'center',
       flex: 1,
+      backgroundColor: getThemeColor('MAIN_CONTAINER_BACKGROUND'),
     },
     name: {
       textAlign: 'center',
@@ -27,11 +30,9 @@ export default function getStyle(): IStyles {
       marginTop: height(16),
     },
     sectionTop: {
-      flex: 0.5,
-      marginTop: height(16),
+      marginVertical: height(16),
     },
     sectionBottom: {
-      flex: 0.45,
       justifyContent: 'center',
       alignItems: 'flex-end',
       flexDirection: 'row',
@@ -44,6 +45,15 @@ export default function getStyle(): IStyles {
       flexDirection: 'row',
       justifyContent: 'space-between',
       marginBottom: height(24),
+    },
+    ruffleImg: {
+      width: height(250),
+      height: height(250),
+    },
+    ruffleImgBox: {
+      position: 'absolute',
+      bottom: height(10),
+      right: -width(32),
     },
   })
 }
