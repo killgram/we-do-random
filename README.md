@@ -1,11 +1,8 @@
-# we-do-random
+# We Do Random
 
 # Few step to install:
 
-```sh
-npm i deprecated-react-native-prop-types
-```
-Then in `/node-modules folder/react-native-camera/RNCamera.js`:
+In `/node-modules folder/react-native-camera/RNCamera.js`:
 
 ```sh
 import {ViewPropTypes} from 'deprecated-react-native-prop-types';
