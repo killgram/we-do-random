@@ -1,2 +1,2 @@
-ENV=development
-R3D3INFODOMAIN=https:/$()/r3d3-info.onrender.com
+ENV=production
+R3D3INFODOMAIN=https:/$()/r3d3.onrender.com
