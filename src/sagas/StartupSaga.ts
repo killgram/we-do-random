@@ -29,7 +29,7 @@ export function* startup(): any {
   }
 
   const appData = yield call(dbGetAboutAppStatus)
-  if (appData?.data()?.appVersion !== moduleVersion) {
+  if (appData?.appVersion !== moduleVersion) {
     if (!version) {
       yield put(appAction.setAppVersion(moduleVersion))
     } else {
