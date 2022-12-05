@@ -12,7 +12,7 @@ export function* getSupportData(): any {
     const dbData = yield call(dbGetSupportData)
     const supportInfo = yield call(dbSupportInfoData)
     data = {
-      ...dbData?.data(),
+      ...dbData,
       ...supportInfo?.data?.data,
     }
     yield put(settingsAction.getSupportDataSuccess(data))

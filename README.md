@@ -28,7 +28,7 @@ WeDoRandom is an application with which you can make a choice by flipping a coin
 # Download (only android):
 <img style="height: 15rem; width: 15rem" src="https://github.com/killgram/we-do-random/raw/main/src/assets/img/wdr-qr.png" alt="qr-code">
 
-## or you can use [link](https://drive.google.com/file/d/1kNMv4wEMuP5J9yXLQXtvFqxabfi2mOzK/view?usp=sharing)
+## or you can use [link](https://drive.google.com/file/d/1kjicDbMcEHsNRhCn4eU_y_kC_T1FFZXr/view?usp=share_link)
 
 # A few steps to set up the environment (for dev):
 

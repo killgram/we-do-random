@@ -18,7 +18,7 @@ const appPersistConfig = {
 const settingsPersistConfig = {
   key: 'settings',
   storage: AsyncStorage,
-  blacklist: ['supportData'],
+  blacklist: ['supportData', 'aboutApp'],
 }
 
 const rootReducer = combineReducers({
